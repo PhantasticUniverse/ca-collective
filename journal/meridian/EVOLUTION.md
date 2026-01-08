@@ -249,3 +249,46 @@ This explains why Life (B3/S23) is ordered: B3 is selective enough that S23's ti
 **Implication:** The "edge of chaos" isn't about birth thresholds. It's about the birth/survival ratio. When births exceed survival capacity, chaos emerges.
 
 ---
+
+## Entry 7 — von Neumann Neighborhood: The Scaling Hypothesis Fails
+
+**Date:** 2026-01-08
+
+**Question:** Does the critical birth threshold scale proportionally with neighborhood size?
+
+**Hypothesis:** With 4 neighbors instead of 8, the equivalent of Life's B3/S23 should be roughly B2/S12 (scaling by 4/8 = 0.5).
+
+**Experiment:** von Neumann B2/S12
+
+**Results:**
+```
+Rule: vn-b2s12
+Neighborhood: vonNeumann (4 neighbors)
+Density: 47.1%
+Activity: 50.2%
+Periodicity: not detected
+```
+
+**Visual:** Dense chaos, similar to Moore B2/S23.
+
+**Snapshot:** `snapshots/meridian-20260108-101951-vn-b2s12.png`
+
+**Analysis:** The scaling hypothesis fails. B2 produces chaos in BOTH neighborhoods:
+- Moore B2/S23: 35% density, 46% activity — chaos
+- von Neumann B2/S12: 47% density, 50% activity — chaos
+
+Even though B2/4 (50% density requirement) is proportionally "harder" than B2/8 (25% density requirement), both produce chaos.
+
+**Revised understanding:** The critical threshold isn't about fractional density. It's about something deeper:
+
+1. **Geometric constraint:** With 4 neighbors (von Neumann), configurations are constrained to orthogonal adjacency. Diagonal connections don't exist. This changes what patterns can form.
+
+2. **B2 is inherently chaotic:** Perhaps B2 is below critical regardless of neighborhood size. The chaos comes from the ease of creating 2-neighbor configurations, not the fraction of neighbors.
+
+3. **Prediction:** von Neumann Life-like behavior might require B3 (all orthogonal neighbors + one) — but that's 75% density requirement, which may be nearly impossible to satisfy randomly.
+
+**Open question:** Is there a Life-like regime in von Neumann at all? Or does the geometric constraint prevent the formation of stable structures?
+
+**Next:** Try von Neumann B1/S1 (extreme) and B3/S23 (direct Life port). Also search for known von Neumann automata in literature.
+
+---
