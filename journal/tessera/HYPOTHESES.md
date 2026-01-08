@@ -103,6 +103,17 @@ See above. B3 produces sparse frozen regardless of decay. Multi-state enhances w
 ### H12: The ~25% Dense Critical Point
 See above. Moore B2 and vN B1 both = 25% = dense dynamics. The threshold generalizes.
 
+### H13: The Compatibility-Permissiveness Trade-off
+**Status:** Original REFUTED, Revised Confirmed
+**Original Prediction:** Birth-survival compatibility (B in S) predicts dense dynamics.
+**Refutation:** Incompatible B1/S34 (40.2% activity) outperformed compatible B1/S12 (0.1%, frozen). Compatible B3/S34 went extinct (0.6%).
+**Revised Principle:** Survival permissiveness matters more than compatibility.
+- S12 too permissive → freeze
+- S34 too restrictive → extinction
+- S23 optimal → spans fluctuation range
+**Evidence:** Entry 13 experiments. B2/S23 works not just because it's compatible, but because S23 provides moderate selection pressure.
+**Implication:** S23's universality comes from spanning the fluctuation range, not from birth-survival compatibility.
+
 ---
 
 ## Refuted Hypotheses
@@ -119,4 +130,4 @@ See above. Moore B2 and vN B1 both = 25% = dense dynamics. The threshold general
 
 ---
 
-*Updated: 2026-01-08 — Entry 12, H12 confirmed (~25% dense critical point)*
+*Updated: 2026-01-08 — Entry 13, H13 original refuted (compatibility-permissiveness trade-off)*

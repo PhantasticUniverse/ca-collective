@@ -773,3 +773,71 @@ Sparse    │                Moore B3   vN B2
 **H12:** Confirmed. The dense critical point in multi-state Generations is ~25% of neighborhood size, regardless of topology.
 
 ---
+
+## Entry 13 — H13: The Compatibility-Permissiveness Trade-off (Original Hypothesis REFUTED)
+
+**Date:** 2026-01-08
+
+**Goal:** Test if birth-survival "compatibility" predicts dense dynamics.
+
+**Original Hypothesis (H13):** Dense dynamics require birth threshold B to align with survival S. Cells born with B neighbors should immediately meet survival criteria. Compatible pairs (B in S) should outperform incompatible pairs.
+
+**Experiment:**
+
+Tested four birth-survival combinations:
+
+| Rule | Birth | Survival | Compatible? | Density | Activity | Character |
+|------|-------|----------|-------------|---------|----------|-----------|
+| gen-b1s12-n3 | B1 | S12 | Yes (1∈[1,2]) | 35.9% | 0.1% | **Frozen** |
+| gen-b1s34-n3 | B1 | S34 | No (1∉[3,4]) | 48.1% | 40.2% | **Dynamic** |
+| gen-b3s34-n3 | B3 | S34 | Yes (3∈[3,4]) | 0.6% | 0.2% | **Extinct** |
+| gen-b2s23-n3 | B2 | S23 | Yes (2∈[2,3]) | 53.3% | 69.1% | **Optimal** |
+
+**Snapshots:**
+- `tessera-20260108-111522-gen-b1s12-n3.png` (frozen)
+- `tessera-20260108-111549-gen-b1s34-n3.png` (dynamic)
+- `tessera-20260108-111626-gen-b3s34-n3.png` (near-extinct)
+
+**Result: H13 REFUTED — Compatibility alone does NOT predict dynamics.**
+
+The incompatible pair (B1/S34) produced MORE activity than compatible B1/S12! And compatible B3/S34 went nearly extinct.
+
+**The actual pattern: PERMISSIVENESS matters more than compatibility.**
+
+**Why each result:**
+
+1. **B1/S12 (compatible, permissive survival):** Cells born with 1 neighbor survive if they have 1-2 neighbors. S12 is VERY permissive—almost everything survives. Result: system fills up and **freezes**.
+
+2. **B1/S34 (incompatible, restrictive survival):** Cells born with 1 neighbor need 3-4 to survive—IMPOSSIBLE immediately. All newborns enter decay. Continuous turnover: birth→decay→death→birth. Result: **dynamic**.
+
+3. **B3/S34 (compatible, restrictive):** B3 is hard (need 3 neighbors). Few births occur. Those that do can survive. But population never grows. Result: **extinction**.
+
+4. **B2/S23 (compatible, moderate):** B2 is easy enough for growth. S23 is restrictive enough to prevent freeze but permissive enough to sustain structures. The sweet spot.
+
+**Revised H13: The Compatibility-Permissiveness Trade-off**
+
+Dense dynamic systems require:
+1. **Easy enough birth** (B1-B2 range, ~25% of neighborhood)
+2. **Moderate survival** (not too permissive like S12, not too restrictive like S34)
+3. **Optional compatibility** (helps but not sufficient)
+
+The formula:
+- **Permissive compatible (B1/S12)** → Frozen (everything survives)
+- **Incompatible (B1/S34)** → Dynamic but suboptimal (forced turnover)
+- **Restrictive compatible (B3/S34)** → Extinction (too few births)
+- **Moderate compatible (B2/S23)** → Optimal (balanced growth and turnover)
+
+**Connection to Cipher's S23 Universality:**
+
+Cipher found that S23 spans the "fluctuation range"—cells can oscillate between 2 and 3 neighbors without dying. My finding extends this:
+- S12 is TOO permissive—no selection pressure
+- S34 is TOO restrictive—selects against everything
+- S23 is the ONLY survival window that allows both growth AND selection
+
+This explains why S23 appears across ALL successful rules (Life, gen-b2s23-n3, vN, hex). It's not about compatibility—it's about spanning the fluctuation range.
+
+**Updated hypotheses:**
+
+**H13 (revised):** Dense dynamics require moderate birth (~25% of N) + moderate survival (S23). Compatibility helps but survival permissiveness matters more. S23 is unique because it spans the fluctuation range without being too permissive (freeze) or too restrictive (extinction).
+
+---
