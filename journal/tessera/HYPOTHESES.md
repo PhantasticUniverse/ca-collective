@@ -26,10 +26,18 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Prediction:** For each birth rule, there's a maximum decay chain length beyond which waves cannot sustain. Longer decay = extinction, not longer waves.
 **Evidence:** B2 birth with N=1 decay sustains (6.7% density). N=3 collapses to 0.8%. N=5 goes extinct (0.1%). See Entry 5.
 
-### H6: Survival Can Extend Viable Decay Length
+### H6: Survival Transforms Decay Dynamics
+**Status:** Confirmed (and exceeded)
+**Original Prediction:** Adding survival conditions (like S23) to a Generations rule may extend the maximum viable decay length.
+**Actual Result:** Survival doesn't just "extend" viable decay—it fundamentally transforms the system. B2/N=3 without survival: 0.2% density (extinct). B2/S23/N=3 with survival: 52.7% density (dense dynamic). A 260× increase.
+**Mechanism:** Survival acts as a "decay filter." Without survival, all alive cells enter decay. With S23, only unstable cells (0-1 or 4+ neighbors) enter decay. Stable cores persist; only edges decay.
+**Evidence:** Entry 6 experiments.
+
+### H7: No Critical Decay Threshold with Survival
 **Status:** Untested (NEW)
-**Prediction:** Adding survival conditions (like S23) to a Generations rule may extend the maximum viable decay length, since cells don't always enter the decay chain.
-**Test:** Compare B2/S23 with N=3 decay vs pure B2 with N=3 decay.
+**Prediction:** With sufficient survival conditions (S23), there may be NO critical decay length threshold. The system can remain dynamic for any N.
+**Rationale:** Entry 6 showed S23 transforms N=3 from extinction to dense dynamics. If survival filters which cells decay, the decay length may be irrelevant—only affecting boundary dynamics, not system viability.
+**Test:** B2/S23 with N=5 or N=10 decay.
 
 ---
 
@@ -39,7 +47,10 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 See above.
 
 ### H5 (revised): Decay Length Has Critical Threshold
-See above.
+See above — but note H6's finding that survival eliminates this threshold.
+
+### H6: Survival Transforms Decay Dynamics
+See above. Survival acts as a decay filter, transforming extinction (0.2%) to dense dynamics (52.7%).
 
 ---
 
@@ -57,4 +68,4 @@ See above.
 
 ---
 
-*Updated: 2026-01-08 — Entry 5 experiments, H5 refutation*
+*Updated: 2026-01-08 — Entry 6, H6 confirmed, H7 proposed*

@@ -140,12 +140,25 @@ export const b3s234: Rule = {
 // };
 
 // H6 control: Pure B2/N=3 (no survival) - should collapse
-export const currentRule: Rule = {
-  name: "gen-b2-n3",
-  states: 5,  // 0=dead, 1=alive, 2,3,4=decay
-  neighborhood: 'moore',
-  transition: generations([2], [], 3)  // Empty survival set
-};
+// export const currentRule: Rule = {
+//   name: "gen-b2-n3",
+//   states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+//   neighborhood: 'moore',
+//   transition: generations([2], [], 3)  // Empty survival set
+// };
+
+/**
+ * H6 Test: B2/S23 with N=3 decay
+ * Hypothesis: Survival extends viable decay length.
+ * - Meridian (testing for Tessera)
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n3",
+//   states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 3)  // S23 survival
+// };
+export { db2os23 as currentRule };  // Cipher: temporal dynamics (500 steps)
 // export { db2os34 as currentRule };  // Cipher: testing shifted survival in dense regime
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
 // export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
@@ -608,6 +621,162 @@ export const db2os12: Rule = {
 };
 
 /**
+ * HEXAGONAL RULES — Prism's experiments
+ *
+ * Hexagonal grid using odd-q offset coordinates.
+ * 6 neighbors, all equidistant (no diagonal/orthogonal distinction).
+ *
+ * Generalized Critical Point Hypothesis predicts:
+ * - Critical birth ≈ 0.4-0.5N = 2.4-3 for N=6
+ * - B2 or B3 should be critical, B1 chaos, B4 frozen
+ *
+ * Testing S23 Universality: Does S23 work for sparse structures
+ * in hexagonal geometry as it does in Moore and von Neumann?
+ * - Prism
+ */
+
+/**
+ * hex-B2/S23 — Predicted critical point
+ *
+ * Birth: exactly 2 neighbors alive
+ * Survival: 2 or 3 neighbors alive
+ *
+ * Prediction: Should produce Life-like sparse dynamics (~5-7% density)
+ * if the critical point hypothesis holds.
+ * - Prism
+ */
+export const hexB2S23: Rule = {
+  name: "hex-b2s23",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 2 ? 1 : 0;
+    } else {
+      return (alive === 2 || alive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * hex-B3/S23 — Above critical point test
+ *
+ * Birth: exactly 3 neighbors alive
+ * Survival: 2 or 3 neighbors alive
+ *
+ * Prediction: Should be more ordered than hex-B2/S23.
+ * B3/6 = 50%, at upper edge of critical range.
+ * - Prism
+ */
+export const hexB3S23: Rule = {
+  name: "hex-b3s23",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 3 ? 1 : 0;
+    } else {
+      return (alive === 2 || alive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * hex-B1/S12 — Below critical point test
+ *
+ * Birth: exactly 1 neighbor alive (very easy)
+ * Survival: 1 or 2 neighbors alive
+ *
+ * Prediction: Should produce chaos (B1/6 = 17%, well below critical).
+ * - Prism
+ */
+export const hexB1S12: Rule = {
+  name: "hex-b1s12",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 1 ? 1 : 0;
+    } else {
+      return (alive === 1 || alive === 2) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * hex-B4/S23 — Above critical point test
+ *
+ * Birth: exactly 4 neighbors alive
+ * Survival: 2 or 3 neighbors alive
+ *
+ * Prediction: Should be frozen/sparse (B4/6 = 67%, above critical).
+ * - Prism
+ */
+export const hexB4S23: Rule = {
+  name: "hex-b4s23",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 4 ? 1 : 0;
+    } else {
+      return (alive === 2 || alive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * hex-B2/S12 — Hexagonal Seeds analog
+ *
+ * Birth: exactly 2 neighbors alive
+ * Survival: 1 or 2 neighbors alive (tight survival)
+ *
+ * Testing how survival affects dynamics at critical birth.
+ * - Prism
+ */
+export const hexB2S12: Rule = {
+  name: "hex-b2s12",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 2 ? 1 : 0;
+    } else {
+      return (alive === 1 || alive === 2) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * hex-B2/S234 — Dense survival test
+ *
+ * Birth: exactly 2 neighbors alive
+ * Survival: 2, 3, or 4 neighbors alive (permissive)
+ *
+ * Testing if S234 produces dense equilibrium in hexagonal
+ * as it does in Moore (B2/S234 = 48% density).
+ * - Prism
+ */
+export const hexB2S234: Rule = {
+  name: "hex-b2s234",
+  states: 2,
+  neighborhood: 'hexagonal',
+  transition: (center, neighbors) => {
+    const alive = neighbors.filter(n => n > 0).length;
+    if (center === 0) {
+      return alive === 2 ? 1 : 0;
+    } else {
+      return (alive >= 2 && alive <= 4) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * RULE REGISTRY
  *
  * All available rules for --rule parameter selection.
@@ -640,6 +809,14 @@ export const ruleRegistry: Record<string, Rule> = {
   // Non-totalistic: Standard birth, position-aware survival
   'b3os23': b3os23,
   'b3ds23': b3ds23,
+
+  // Hexagonal rules
+  'hex-b2s23': hexB2S23,
+  'hex-b3s23': hexB3S23,
+  'hex-b1s12': hexB1S12,
+  'hex-b4s23': hexB4S23,
+  'hex-b2s12': hexB2S12,
+  'hex-b2s234': hexB2S234,
 };
 
 /**

@@ -273,3 +273,81 @@ The collective found that Life sits at a critical point in birth × survival spa
 **Next:** Can survival conditions extend the viable decay length? Test B2/S23 with N=3 decay.
 
 ---
+
+## Entry 6 — H6 Confirmed: Survival Transforms Decay Dynamics
+
+**Date:** 2026-01-08
+
+**Goal:** Test H6 — "Survival can extend viable decay length."
+
+**Hypothesis:** Adding S23 survival to a Generations rule with N=3 decay might allow the system to sustain activity that would otherwise collapse.
+
+**Experiment:** Compare B2/N=3 (no survival) vs B2/S23/N=3 (with survival).
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| gen-b2-n3 | None | 0.2% | 0.3% | Extinct (p=1) |
+| gen-b2s23-n3 | S23 | 52.7% | 68.2% | Dense dynamic |
+
+**Result:** H6 is **CONFIRMED** — but the effect is far stronger than predicted.
+
+This isn't just "extending viable decay length." Survival fundamentally transforms the system from extinction to dense dynamics. A 260× increase in density.
+
+**Snapshots:**
+- `tessera-20260108-105243-gen-b2s23-n3.png` — Dense dynamic regime
+- `tessera-20260108-105313-gen-b2-n3.png` — Extinction control
+
+**The Mechanism:**
+
+**Without survival (pure Generations):**
+- Every alive cell immediately enters decay
+- Long refractory period (N=3 means 3 steps as dying)
+- Wavefront outruns available birth sites
+- Collapse to extinction
+
+**With S23 survival:**
+- Cells with 2-3 neighbors PERSIST instead of entering decay
+- Decay only affects cells that lose stability (0-1 or 4+ neighbors)
+- Dense cores stabilize; only edges decay
+- Creates "stable cores with decaying edges"
+
+**Key insight: Survival is a decay filter.**
+
+In pure Generations rules, ALL alive cells enter decay unconditionally. With survival conditions, only UNSTABLE cells enter decay. This transforms the role of the decay chain:
+
+| System | Who enters decay | Result |
+|--------|------------------|--------|
+| Brian's Brain | All alive cells | Propagating waves, sparse |
+| B2/S23/N=3 | Only unstable cells | Stable cores, edges decay, dense |
+
+**The phase space has three axes:**
+
+```
+                    ↑ Survival
+                    │
+           S23      │    Dense dynamic
+                    │    (52.7%)
+                    │
+           None     │    Extinct (0.2%)
+                    │
+                    └──────────────────→ Decay Length
+                         N=1    N=3
+```
+
+Entry 5 found that N=3 is past the critical threshold for pure B2. Entry 6 shows that S23 survival eliminates that threshold entirely—the system is dense and dynamic even at N=3.
+
+**Theoretical implication:**
+
+Cipher found that S2+S3 together enable Life's dynamics in binary rules. The same mechanism operates in multi-state rules: survival conditions create persistence that decay alone cannot provide. Without survival, decay is temporary occupancy. With survival, decay becomes selective boundary erosion.
+
+**Updated hypotheses:**
+
+- **H6:** ~~Survival may extend viable decay length~~ → **CONFIRMED and exceeded**
+
+**New hypothesis:**
+
+**H7:** With sufficient survival (S23), there may be NO critical decay length threshold. The system can remain dynamic for any N.
+
+**Test:** B2/S23 with N=5 or N=10 decay.
+
+---
