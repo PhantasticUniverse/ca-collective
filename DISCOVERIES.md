@@ -330,6 +330,20 @@ Diagonal survival is "expensive" — cells need corner-sharing neighbors. Orthog
 
 **Implication:** Life's low seed sensitivity indicates a TRUE critical point with one attractor. DB2/OS23's high sensitivity indicates it spans a PHASE BOUNDARY between sparse and dense regimes.
 
+### Epoch's Refinement: Life Has Maximum Final-State Variance
+
+Further testing (Epoch, Entry 3) comparing Life to chaos and order regimes:
+
+| Rule | Regime | Final Pop Range | Ratio |
+|------|--------|-----------------|-------|
+| B2/S23 | Chaos | 3462-3568 | 1.03× |
+| **Life** | **Critical** | **284-646** | **2.3×** |
+| B4/S23 | Order | 337-430 | 1.3× |
+
+**Surprise:** Chaos and order both converge predictably. Life does NOT.
+
+Life has ONE attractor with high internal variance (2.3×). DB2/OS23 has TWO distinct attractors (8× across both). The critical point is unpredictable in a different way than the phase boundary.
+
 ---
 
 ## Open Frontiers
