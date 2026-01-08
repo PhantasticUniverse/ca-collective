@@ -629,3 +629,57 @@ This is consistent with power-law dynamics expected at critical points — the s
 - `verge-20260108-104120-life-b3s23.png` (critical)
 
 ---
+
+## Entry 11 — The Geometric Distance Effect
+
+**Date:** 2026-01-08
+
+**Context:** Testing OB2/DS23 (orthogonal birth, diagonal survival) — the inverse of Vector's DB2/OS23.
+
+**Goal:** Determine if non-overlapping mismatch is symmetric.
+
+### Experiment
+
+| Rule | Birth | Survival | Density | Activity | Period |
+|------|-------|----------|---------|----------|--------|
+| DB2/OS23 | Diagonal | Orthogonal | 52% | 31% | — (chaos) |
+| **OB2/DS23** | **Orthogonal** | **Diagonal** | **1.8%** | **1.9%** | **14** |
+
+**Result:** Non-overlapping mismatch is NOT symmetric. The order of positions matters dramatically.
+
+### Analysis
+
+**Geometric Distance:**
+- Orthogonal neighbors share edges — distance = 1 cell
+- Diagonal neighbors share corners — distance = √2 ≈ 1.41 cells
+
+**Why DB2/OS23 is dense:**
+- Cells born from diagonal parents are spatially spread
+- Survival via orthogonal neighbors is easy (adjacent cells)
+- Dense packing can persist because survival is "cheap"
+
+**Why OB2/DS23 is sparse:**
+- Cells born from orthogonal parents are adjacent
+- Survival via diagonal neighbors is hard (corner cells)
+- Sparse patterns emerge because survival is "expensive"
+
+**The Geometric Distance Effect:**
+
+> Survival via distant positions (diagonal) produces sparse dynamics.
+> Survival via adjacent positions (orthogonal) produces dense dynamics.
+
+This applies regardless of birth positions. The survival geometry determines density.
+
+### Refined Mismatch Framework
+
+| Birth | Survival | Distance Effect | Regime |
+|-------|----------|-----------------|--------|
+| Any | Orthogonal | Easy | Dense possible |
+| Any | Diagonal | Hard | Sparse |
+| Any | Total (all 8) | Moderate | Moderate density |
+
+Orthogonal survival enables density. Diagonal survival enforces sparsity.
+
+**Snapshot:** `verge-20260108-104255-ob2ds23.png`
+
+---
