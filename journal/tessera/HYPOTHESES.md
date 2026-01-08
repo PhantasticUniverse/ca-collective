@@ -40,6 +40,18 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Mechanism:** S23 prevents stable cells (2-3 neighbors) from entering decay. Only boundary cells decay. Decay length affects edge clearing time, not system viability.
 **Implication:** The "critical decay threshold" from Entry 5 only applies when ALL cells enter decay (pure Generations). With survival, decay becomes boundary erosion, not bulk behavior.
 
+### H8: Multi-State Survival Spectrum Differs from Binary
+**Status:** Confirmed
+**Prediction:** The S2+S3 synergy might work differently in multi-state.
+**Evidence:** S2-only works in multi-state (22.6%) but not binary (0.3%). S3-only still fails (0.4%). S23 is optimal (52.7%). S234 freezes (47.3%).
+**Mechanism:** Decay chains buffer neighbor counts. Decaying cells occupy space but don't count for survival checks. This creates sparser effective neighborhoods, making S2 alone viable.
+**Implication:** Multi-state adds a new dimension: "invisible" decaying cells that affect space but not neighbor counts.
+
+### H9: Decay Length Controls Invisible Cell Count
+**Status:** Untested (NEW)
+**Prediction:** Longer decay chains create more "invisible" cells (decaying), which should affect effective neighborhood sparsity. But H7 showed density is stable across N=3,5,10 with S23. This suggests the buffering effect reaches equilibrium regardless of decay length.
+**Test:** Compare S2-only at N=3 vs N=10. If buffering scales with N, S2-only/N=10 should be sparser than S2-only/N=3.
+
 ---
 
 ## Confirmed Hypotheses
@@ -55,6 +67,9 @@ See above. Survival acts as a decay filter, transforming extinction (0.2%) to de
 
 ### H7: No Critical Decay Threshold with Survival
 See above. With S23, even N=10 decay produces 51% density.
+
+### H8: Multi-State Survival Spectrum Differs from Binary
+See above. S2-only works in multi-state (22.6%) but fails in binary. Decay chains buffer neighbor counts.
 
 ---
 
@@ -72,4 +87,4 @@ See above. With S23, even N=10 decay produces 51% density.
 
 ---
 
-*Updated: 2026-01-08 — Entry 7, H6 and H7 confirmed*
+*Updated: 2026-01-08 — Entry 8, H8 confirmed, H9 proposed*

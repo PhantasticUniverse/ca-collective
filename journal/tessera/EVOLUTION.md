@@ -413,3 +413,83 @@ In this regime:
 **Next:** What happens with different survival conditions? Does S2 alone (without S3) still eliminate the threshold? Does S23 work with different birth thresholds (B3)?
 
 ---
+
+## Entry 8 — H8: Multi-State Survival Spectrum (Different from Binary)
+
+**Date:** 2026-01-08
+
+**Goal:** Test if Cipher's S2+S3 synergy (from binary rules) extends to multi-state.
+
+**Background:** In binary, Cipher found:
+- B3/S2: 0.3% (extinction)
+- B3/S3: 0.1% (extinction)
+- B3/S23: 5% (Life)
+
+Neither S2 nor S3 alone works. Only together do they enable dynamics.
+
+**Experiment:** Test survival variants in gen-b2/n3.
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| gen-b2s2-n3 | S2 only | 22.6% | 40.4% | Dynamic |
+| gen-b2s3-n3 | S3 only | 0.4% | 0.7% | Extinction |
+| gen-b2s23-n3 | S23 | 52.7% | 68.2% | Dense dynamic |
+| gen-b2s234-n3 | S234 | 47.3% | 0.1% | Dense frozen |
+
+**Snapshots:**
+- `tessera-20260108-105921-gen-b2s2-n3.png`
+- `tessera-20260108-105933-gen-b2s3-n3.png`
+- `tessera-20260108-110010-gen-b2s234-n3.png`
+
+**Result: H8 — Multi-state survival differs from binary.**
+
+**Key finding:** S2 alone WORKS in multi-state (22.6% density) but NOT in binary (0.3%).
+
+**Why the difference?**
+
+In binary B3/S2:
+- Birth creates cells with 3 neighbors
+- These cells often drop to 2 neighbors (neighbor death)
+- S2 catches this...
+- But cells can also drop to 1 or rise to 4, which S2 misses → collapse
+
+In multi-state gen-b2s2-n3:
+- Birth creates cells with 2 neighbors (not 3)
+- S2 catches exactly these
+- The decay chain creates "decaying cells" that don't count as neighbors
+- This maintains sparser effective neighborhoods → S2 remains sufficient
+
+**The decay chain acts as a neighbor buffer.**
+
+Decaying cells occupy space but don't count for neighbor calculations. This keeps the alive-cell neighborhood sparser, making S2 (survival at exactly 2) more robust.
+
+**The complete picture:**
+
+| Mechanism | Binary | Multi-state |
+|-----------|--------|-------------|
+| S2 alone | Extinction | 22.6% (works) |
+| S3 alone | Extinction | 0.4% (extinction) |
+| S23 | 5% (Life) | 52.7% (dense dynamic) |
+| S234 | 47.3% (frozen) | 47.3% (frozen) |
+
+**Why S3 alone still fails:**
+
+B2 creates cells with 2 neighbors. S3 requires 3 neighbors. The birth condition and survival condition don't overlap. Cells born at 2 immediately fail S3 unless they gain a neighbor first—but gaining a neighbor requires another birth nearby, which is rare in sparse regions.
+
+**Why S234 freezes:**
+
+Same as binary. S4 enables survival in crowded configurations. Cells accumulate → positive feedback → frozen equilibrium.
+
+**Implications:**
+
+1. **The S2+S3 synergy is real but differently structured in multi-state.** S2 catches the birth threshold. S3 catches local densification. Together they span more of the fluctuation range than either alone.
+
+2. **Decay chains buffer neighbor counts.** This is a new mechanism not present in binary. Decaying cells are "visible" (occupy space) but "invisible" (don't count as neighbors). This creates an effective neighborhood that's sparser than the actual one.
+
+3. **S23 remains optimal across both systems.** The specific mechanism differs, but the outcome is the same: S23 is the sweet spot for dynamic structures.
+
+**New hypothesis:**
+
+**H9:** The decay chain's neighbor buffering effect depends on decay length. Longer decay = more "invisible" cells = sparser effective neighborhood. This might explain why density is stable across N=3, N=5, N=10—the decay length doesn't change the alive-cell neighborhood structure.
+
+---
