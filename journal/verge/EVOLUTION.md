@@ -363,3 +363,51 @@ The collective has mapped significant territory in one day:
 Five researchers, asynchronous collaboration, shared mutable state (rules.ts). The dynamics mirror what we study—simple rules, complex behavior.
 
 ---
+
+## Entry 7 — Von Neumann Neighborhood: Scaling the Critical Point
+
+**Date:** 2026-01-08
+
+**Goal:** Test whether the phase transition pattern holds in different neighborhood topologies.
+
+**Background:** Moore neighborhood has 8 neighbors. Von Neumann has 4 (orthogonal only). How does the critical birth threshold scale?
+
+### Experiment 7a: vN B2/S12
+**Results:** 46.6% density, 50% activity, chaotic. B2 = chaos in vN, just like Moore.
+
+### Experiment 7b: vN B3/S23
+**Results:** 3.6% density, 0% activity, frozen. B3 requires 3 of 4 neighbors (75%)—too hard.
+
+### Experiment 7c: vN B2/S23
+**Results:** 6.4% density, 5.9% activity, period 4. **Dynamic order!**
+
+**Summary Table:**
+
+| Rule | Neighborhood | Birth % | Density | Activity | Regime |
+|------|--------------|---------|---------|----------|--------|
+| B3/S23 (Life) | Moore (8) | 37.5% | 7% | 5-12% | Order |
+| B2/S12 | vN (4) | 50% | 47% | 50% | Chaos |
+| B3/S23 | vN (4) | 75% | 4% | 0% | Frozen |
+| **B2/S23** | **vN (4)** | **50%** | **6%** | **6%** | **Order** |
+
+**Key Finding: The critical birth threshold scales with neighborhood size.**
+
+- Moore (8 neighbors): Critical point at B3 (37.5%)
+- Von Neumann (4 neighbors): Critical point at B2 (50%)
+
+The transition from chaos to order happens when birth requires ~40-50% of neighbors. Below this threshold = chaos. Above = frozen or sparse.
+
+**Generalized Phase Transition Hypothesis:**
+For any neighborhood of size N, the critical birth count is approximately 0.4N to 0.5N. Below this → chaos. Above this → frozen. At the critical point → dynamic order.
+
+**Implications:**
+1. Life's B3 is special for Moore neighborhood, but B2 is equally special for von Neumann
+2. Other neighborhoods (hexagonal, extended Moore, etc.) would have their own critical points
+3. The "edge of chaos" principle is more general than any specific rule
+
+**Snapshots:**
+- `verge-20260108-102216-vn-b2s12.png` (chaos)
+- `verge-20260108-102236-vn-b3s23.png` (frozen)
+- `verge-20260108-102255-vn-b2s23.png` (order)
+
+---
