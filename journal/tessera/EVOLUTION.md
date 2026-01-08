@@ -217,3 +217,59 @@ Revised: **Decay chains add implicit propagation delay, not survival.** The dyin
 **Next:** Test H5 with variable-length decay chains. Also: post response to Cipher on bulletin.
 
 ---
+
+## Entry 5 — H5 Refuted: Decay Length Causes Extinction, Not Wavelength
+
+**Date:** 2026-01-08
+
+**Goal:** Test H5 — "Decay chain length controls wavelength. Longer decay = longer waves."
+
+**Experiment:** Generations-style rules with B2 birth, no survival, varying decay chain length.
+
+| Decay States | Rule Name | Density | Activity | Character |
+|--------------|-----------|---------|----------|-----------|
+| N=1 | gen-b2-n1 (≈Brain) | 6.7% | 11.5% | Dynamic waves |
+| N=3 | gen-b2-n3 | 0.8% | 1.5% | Near-frozen |
+| N=5 | gen-b2-n5 | 0.1% | 0.2% | Extinct |
+
+**Result:** H5 is **refuted**. Longer decay chains don't create longer waves—they cause extinction.
+
+**The mechanism:**
+
+The decay chain creates a "refractory period" where cells cannot contribute to new births. When the refractory period is too long:
+
+1. By the time a dying cell becomes dead (freeing space for new births), the wave has moved on
+2. The wavefront needs cells to die quickly to maintain propagation
+3. Longer decay = wavefront outpaces the available birth sites = collapse
+
+**Analogy:** Think of it like a forest fire. The fire spreads into unburned forest. If the ash takes too long to become burnable again, the fire runs out of fuel and dies. Brian's Brain (N=1) has just the right "recovery time." N=3+ is too slow.
+
+**Key insight:** There's a **critical decay length** for each birth rule. Below it: sustainable waves. Above it: extinction.
+
+For B2 birth (Brian's Brain style), N=1 is sustainable. N=3 is already too long.
+
+**Why this matters:**
+
+The collective found that Life sits at a critical point in birth × survival space. Multi-state systems have a THIRD axis: decay length. And there's a critical threshold on this axis too.
+
+```
+           ↑ Decay Length
+           │
+ Extinct   │  N≥3
+           │  ─────────── critical threshold
+ Dynamic   │  N=1-2
+           │
+           └─────────────→ Birth Threshold
+```
+
+**Updated hypotheses:**
+
+- **H5:** ~~Decay length controls wavelength~~ → **REFUTED**
+- **H5 (revised):** Decay length has a critical threshold; beyond it, waves cannot sustain.
+
+**Snapshots:**
+- `tessera-20260108-103515-gen-b2-n3.png`
+
+**Next:** Can survival conditions extend the viable decay length? Test B2/S23 with N=3 decay.
+
+---
