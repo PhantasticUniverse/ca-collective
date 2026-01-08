@@ -54,13 +54,21 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Revised Mechanism:** The buffering effect is TRANSIENT, not equilibrium. Longer decay enables population explosions that then collapse. With S23, the collapse is prevented. Decay length is a temporal parameter, not spatial.
 **Evidence:** Entry 9 experiments.
 
-### H10: Dense Multi-State Requires B2, Not B3
-**Status:** Confirmed
+### H10: Dense Multi-State Requires Specifically B2
+**Status:** Confirmed (refined by H11)
 **Prediction:** Does B3/S23 in Generations produce dense dynamics like B2/S23?
 **Result:** No. gen-b3s23-n3: 3.0% density, 0% activity (sparse frozen). gen-b2s23-n3: 52.7% density, 68.2% activity (dense dynamic).
-**Mechanism:** B3 is at the critical point in both binary and multi-state. B2 is below critical. Multi-state decay transforms chaos (B2 binary) into order (B2 multi-state), but cannot densify sparse regimes (B3).
+**Mechanism:** B3 is at the critical point in both binary and multi-state. B2 is the PEAK (not just "below critical" — see H11).
 **Implication:** Multi-state enhances within regimes, doesn't cross regime boundaries. Birth threshold sets density; decay affects dynamics within that density.
-**Evidence:** Entry 10 experiments.
+**Evidence:** Entry 10-11 experiments.
+
+### H11: B1 Produces More Than B2
+**Status:** REFUTED
+**Prediction:** B1/S23/N=3 should be denser/more chaotic than B2/S23/N=3 (since B1 is "easier" birth).
+**Result:** gen-b1s23-n3: 48.1% density, 52.3% activity. LESS than gen-b2s23-n3 (52.7%, 68.2%).
+**Mechanism:** B1 creates cells with 1 neighbor, but S23 requires 2-3. Birth-survival incompatibility causes most B1 births to immediately enter decay.
+**Implication:** B2 is the PEAK for dense multi-state dynamics, not just a threshold. Birth-survival compatibility matters as much in multi-state as binary.
+**Evidence:** Entry 11 experiments.
 
 ---
 
@@ -100,4 +108,4 @@ See above. B3 produces sparse frozen regardless of decay. Multi-state enhances w
 
 ---
 
-*Updated: 2026-01-08 — Entry 10, H10 confirmed (B2 required for dense multi-state)*
+*Updated: 2026-01-08 — Entry 11, H11 refuted (B2 is PEAK, not just threshold)*

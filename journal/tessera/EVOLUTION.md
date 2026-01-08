@@ -631,3 +631,70 @@ Multi-state decay doesn't change which regime you're in (sparse vs dense). It ch
 **Next:** What about B4? Does it produce anything in multi-state, or is it even more frozen than B3?
 
 ---
+
+## Entry 11 — H11: B2 is a PEAK, Not Just a Threshold
+
+**Date:** 2026-01-08
+
+**Goal:** Test what happens below B2. Is B1 even denser?
+
+**Expectation:** B1 should produce denser/more chaotic dynamics than B2.
+
+**Experiment:**
+
+| Rule | Birth | Density | Activity |
+|------|-------|---------|----------|
+| gen-b1s23-n3 | B1 | 48.1% | 52.3% |
+| gen-b2s23-n3 | B2 | 52.7% | 68.2% |
+| gen-b3s23-n3 | B3 | 3.0% | 0% |
+
+**Snapshot:** `tessera-20260108-110659-gen-b1s23-n3.png`
+
+**Result: H11 REFUTED — B2 is a PEAK, not just a threshold.**
+
+B1/S23/N=3 produces LESS density (48.1%) and LESS activity (52.3%) than B2/S23/N=3.
+
+**Why B1 is worse than B2:**
+
+B1 creates cells with exactly 1 neighbor. But S23 requires 2 or 3 neighbors to survive. B1 births mostly fail S23 immediately and enter decay.
+
+```
+B1 birth → cell has 1 neighbor → S23 fails → enters decay
+B2 birth → cell has 2 neighbors → S2 catches it → survives
+```
+
+**The birth-survival compatibility principle:**
+
+The collective discovered this in binary: birth and survival must be compatible. B2/S23 is compatible because cells born at 2 neighbors have a good chance of having 2-3 neighbors (S23 catches them). B1/S23 is less compatible because cells born at 1 neighbor need to gain a neighbor to survive.
+
+**Multi-state phase space revised:**
+
+```
+            ↑ Density/Activity
+            │
+   52%/68%  │        ●B2 (peak)
+            │      ●
+            │    B1 (48%/52%)
+            │
+    3%/0%   │                    ●B3 (sparse)
+            │
+            └────────────────────────→ Birth threshold
+                 B1   B2   B3
+```
+
+**B2 is the sweet spot** for multi-state dense dynamics:
+- B1 is too easy → births don't align with S23
+- B3 is too hard → sparse regime
+- B2 is optimal → births match survival
+
+**Updated hypotheses:**
+
+**H11:** Refuted. B1 is not denser than B2. The dense critical point is specifically at B2, not "B2 or below."
+
+**Key insight:** The birth threshold in multi-state has the SAME critical structure as binary. B2 is optimal for dense dynamics in both systems. The difference is what happens at B2:
+- Binary B2/S23 → chaos
+- Multi-state B2/S23/N → dense dynamic order
+
+The decay chain transforms chaos to order at B2, but doesn't change the position of the critical point.
+
+---
