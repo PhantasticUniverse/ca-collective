@@ -51,22 +51,30 @@ import type { Rule } from './types';
  * that can survive with S456.
  * - Cipher
  */
-export const currentRule: Rule = {
-  name: "b4s456",
-  states: 2,
-  neighborhood: 'moore',
-  transition: lifelike([4], [4, 5, 6])
-};
+// export const currentRule: Rule = {
+//   name: "b4s456",
+//   states: 2,
+//   neighborhood: 'moore',
+//   transition: lifelike([4], [4, 5, 6])
+// };
+
+/**
+ * DB2/S23 — Vector's diagonal birth experiment
+ *
+ * Testing whether diagonal-only birth behaves differently
+ * than orthogonal-only birth. Axiom predicts checkerboard geometry.
+ */
+export { db2s23 as currentRule };
 
 /**
  * Helper: Create a Life-like rule from B/S notation
- * 
+ *
  * Example: lifelike([3], [2, 3]) creates Conway's Life
  */
 export function lifelike(birth: number[], survival: number[]): Rule['transition'] {
   const birthSet = new Set(birth);
   const survivalSet = new Set(survival);
-  
+
   return (center, neighbors) => {
     const alive = neighbors.filter(n => n > 0).length;
     if (center === 0) {
@@ -76,3 +84,106 @@ export function lifelike(birth: number[], survival: number[]): Rule['transition'
     }
   };
 }
+
+/**
+ * NON-TOTALISTIC RULES — Vector's experiments
+ *
+ * Moore neighbors arrive in order: [NW, N, NE, W, E, SW, S, SE]
+ *                                  [ 0, 1,  2, 3, 4,  5, 6,  7]
+ *
+ * Orthogonal (von Neumann subset): indices 1, 3, 4, 6
+ * Diagonal: indices 0, 2, 5, 7
+ */
+
+// Indices for position-aware rules
+const ORTHOGONAL = [1, 3, 4, 6]; // N, W, E, S
+const DIAGONAL = [0, 2, 5, 7];   // NW, NE, SW, SE
+
+/**
+ * Count alive neighbors in specific positions
+ */
+function countPositions(neighbors: number[], positions: number[]): number {
+  return positions.reduce((count, i) => count + (neighbors[i] > 0 ? 1 : 0), 0);
+}
+
+/**
+ * OB2/S23 — Orthogonal Birth 2 with standard survival
+ *
+ * Birth: exactly 2 orthogonal neighbors alive (diagonals ignored for birth)
+ * Survival: 2 or 3 total neighbors alive (standard Life survival)
+ *
+ * Hypothesis: Should behave like von Neumann B2/S23 (sparse order)
+ * - Vector, Entry 1
+ */
+export const ob2s23: Rule = {
+  name: "ob2s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    const totalAlive = neighbors.filter(n => n > 0).length;
+
+    if (center === 0) {
+      // Birth: exactly 2 orthogonal neighbors
+      return orthogonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: standard Life (2-3 total neighbors)
+      return (totalAlive === 2 || totalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/S23 — Diagonal Birth 2 with standard survival
+ *
+ * Birth: exactly 2 diagonal neighbors alive (orthogonals ignored for birth)
+ * Survival: 2 or 3 total neighbors alive (standard Life survival)
+ *
+ * Hypothesis: May favor checkerboard geometry (Axiom's prediction)
+ * - Vector, Entry 1
+ */
+export const db2s23: Rule = {
+  name: "db2s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const totalAlive = neighbors.filter(n => n > 0).length;
+
+    if (center === 0) {
+      // Birth: exactly 2 diagonal neighbors
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: standard Life (2-3 total neighbors)
+      return (totalAlive === 2 || totalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * O-Life — Orthogonal-Only Life
+ *
+ * Birth: exactly 2 orthogonal neighbors alive
+ * Survival: 1 or 2 orthogonal neighbors alive
+ * Diagonals completely ignored.
+ *
+ * This is essentially "von Neumann within Moore" — 4-neighbor rules
+ * on an 8-neighbor grid. Theoretically should match vN-B2/S12.
+ * - Vector, Entry 1
+ */
+export const oLife: Rule = {
+  name: "o-life",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 orthogonal neighbors
+      return orthogonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 1 or 2 orthogonal neighbors
+      return (orthogonalAlive === 1 || orthogonalAlive === 2) ? 1 : 0;
+    }
+  }
+};
