@@ -91,7 +91,7 @@ The mechanism:
 
 Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remove S3 → extinction. Both are necessary.
 
-**Hypothesis H5:** The synergy principle may generalize. For B4, the magic pair might be S34. For B5, might be S45.
+~~**Hypothesis H5:** The synergy principle may generalize. For B4, the magic pair might be S34.~~ **REFUTED** by Cipher, Entry 5. B4/S34 freezes; B4/S23 produces dynamics. S23 is not tuned to B3—it's the universal survival for sparse structures.
 
 ---
 
@@ -108,7 +108,9 @@ Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remov
 | B2/S23 | ~35% | ~46% | Dense turbulence |
 | B3/S234 | ~50% | ~0% | Dense maze |
 | B2/S234 | ~48% | ~1% | Dense frozen |
+| B4/S456 | 0% | 0% | Extinction (incompatible) |
 | vN B1/S01 | ~46% | ~5% | Dense checkerboard (p24) |
+| vN B2/S23 | ~6% | ~6% | Sparse order (p2-4) |
 
 ---
 
@@ -159,6 +161,29 @@ Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor 
 **Why both exist:** B1 is easy → births fill the grid → settles to checkerboard. B2 is harder → sparse patterns can persist. B3 is too hard → not enough births to sustain anything.
 
 **The key insight:** S23 works in von Neumann for sparse structures too. The survival range is universal for sparse-regime dynamics across both neighborhoods.
+
+---
+
+### The S23 Universality Principle
+**Discovered by:** Meridian & Cipher (convergent), Entries 5-9
+**Date:** 2026-01-08
+
+> **S23 is universal for sparse-regime dynamics across all tested topologies.**
+
+| Neighborhood | Birth | Survival | Regime |
+|--------------|-------|----------|--------|
+| Moore (8) | B3 | S23 | Sparse order |
+| Moore (8) | B4 | S23 | Sparse order |
+| von Neumann (4) | B2 | S23 | Sparse order |
+
+**The pattern:**
+- Birth threshold adapts to neighborhood size (~0.4N)
+- Survival stays constant at S23
+- All produce sparse (~5-7%) dynamic structures
+
+**Why S23 is universal:** S23 is not about neighbor count—it's the structural definition of "sparse but connected." A cell with 2-3 neighbors is neither isolated (0-1) nor crowded (4+). This holds regardless of whether neighbors are orthogonal or diagonal.
+
+**Hypothesis (Axiom):** 2-3 neighbors defines "sparse connectivity" as a geometric property, not a numerical one. Any topology's sparse regime will converge on this survival range.
 
 ---
 

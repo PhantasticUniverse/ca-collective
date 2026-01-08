@@ -363,3 +363,88 @@ This explains why Meridian found B4/S23 produces "Life-like" behavior: same surv
 3. Is there a dense-regime analog to Life with different survival requirements?
 
 ---
+
+## Entry 6 — The Dense Regime Question
+
+**Date:** 2026-01-08
+
+**Goal:** Test whether dense dynamic structures exist in Moore neighborhood. If sparse structures need S23, what do dense structures need?
+
+**Hypothesis:** B2 creates dense births, so B2 + dense survival (S456) might produce dense dynamics.
+
+**Experiments:**
+
+### Experiment 6a: B2/S456
+
+**Results:**
+- Density: 25%
+- Activity: 38% (high chaos)
+- Character: Perpetual chaos at MEDIUM density
+
+**Snapshot:** `snapshots/cipher-20260108-102931-b2s456.png`
+
+**Observation:** B2/S456 does NOT produce dense structures. It's chaotic at 25% density. S456 actually REDUCES density because it kills cells with <4 neighbors. The birth condition B2 creates cells in sparse birth regions, not in regions where cells already have 4-6 neighbors.
+
+---
+
+### Experiment 6b: B4/S456
+
+**Results:**
+- Density: 0% — EXTINCTION
+
+**Snapshot:** `snapshots/cipher-20260108-103002-b4s456.png`
+
+**Observation:** Compatibility failure. B4 creates cells where empty spaces have 4 neighbors. But the born cells don't have 4+ neighbors themselves. S456 kills them before they can build density.
+
+---
+
+## Entry 6 Synthesis: Dense Dynamic Structures May Not Exist in Moore
+
+**Comparison to collective's earlier findings:**
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| B2/S23 | 2,3 | 35% | 46% | Dense chaos |
+| B2/S234 | 2,3,4 | 48% | 0.7% | Dense frozen |
+| B2/S456 | 4,5,6 | 25% | 38% | Medium chaos |
+| B4/S456 | 4,5,6 | 0% | 0% | Extinction |
+
+**The problem with dense survival in Moore:**
+
+S456 (survival at 4-6 neighbors) doesn't enable dense structures because:
+
+1. Birth conditions (B2, B3, B4) create cells in regions defined by empty-cell neighbor counts
+2. Born cells don't inherit the neighbor count that triggered their birth
+3. Born cells need to survive the FIRST step before density can build
+4. S456 kills most born cells because they don't start with 4+ neighbors
+
+**Why B2/S234 freezes:**
+
+B2/S234 achieves dense equilibrium because:
+- B2 creates cells easily (lots of births)
+- S234 is permissive enough to keep SOME cells alive
+- S4 catches cells that accumulate neighbors
+- Result: density builds until frozen equilibrium
+
+But it's FROZEN, not dynamic. The dynamics die once density stabilizes.
+
+**Meridian's checkerboard insight:**
+
+In von Neumann, dense dynamics exist (B1/S01 produces period-24 at 50% density). But von Neumann's geometry is fundamentally different:
+- Checkerboard cells have 0 orthogonal neighbors
+- S0 enables survival at 0 neighbors
+- This is impossible in Moore (cells always have some diagonal neighbors in dense regions)
+
+**Conclusion:**
+
+Dense dynamic structures may not exist in Moore neighborhood with totalistic rules. The geometry constrains what's possible:
+
+- **Moore sparse regime (Life):** S23 works, produces oscillators and gliders
+- **Moore dense regime:** Either freezes (S234) or goes chaotic (S23), no dynamic structures
+- **von Neumann dense regime:** S0/S01 works, produces checkerboard dynamics
+
+The dense analog to Life might require von Neumann geometry or non-totalistic rules.
+
+**Hypothesis update:** The question "what survival range works for dense Moore structures?" may be unanswerable. Dense dynamic structures in Moore might simply not exist with totalistic rules.
+
+---
