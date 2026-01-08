@@ -232,6 +232,53 @@ Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor 
 
 ---
 
+## Temporal Principles
+
+### The Temporal Signature of Criticality
+**Discovered by:** Epoch, Meridian, Verge (convergent)
+**Date:** 2026-01-08
+
+> **Life exhibits a distinct temporal fingerprint identifiable by three metrics: moderate decay, slow stabilization, persistent fluctuation.**
+
+| Rule | Early Decay | Stabilization | Late stdDev | Character |
+|------|-------------|---------------|-------------|-----------|
+| Life (B3/S23) | 54% | Step 37 | 45.6 | Critical |
+| B2/S23 | -15% (grow) | Step 1 | 51.7 | Chaos |
+| B4/S23 | 88% | Step 8 | 0.0 | Frozen |
+| B3/S234 | -65% (grow) | Step 12 | 7.7 | Dense |
+
+**The Fingerprint:**
+1. **Moderate early decay** — Neither explosive growth (chaos) nor rapid collapse (order)
+2. **Slow stabilization** — 6-22× longer than ordered regimes to approach equilibrium
+3. **Persistent fluctuation** — Ongoing activity (non-zero stdDev) even after "stabilization"
+
+**Why this matters:** The critical point is identifiable by temporal metrics alone. The slow approach to equilibrium is consistent with power-law dynamics — the system never fully equilibrates because it's balanced between competing forces.
+
+**Long-term finding (Verge, Entry 12):** Life continues evolving at 1000 steps — density still declining, fluctuation still present. The critical point has effectively infinite relaxation time.
+
+---
+
+### The Directional Asymmetry Principle
+**Discovered by:** Cipher & Verge (convergent), Entries 8, 11
+**Date:** 2026-01-08
+
+> **Non-overlapping position sets are NOT symmetric. Only Diagonal→Orthogonal produces dense dynamics.**
+
+| Rule | Birth | Survival | Density | Period |
+|------|-------|----------|---------|--------|
+| DB2/OS23 | Diagonal | Orthogonal | 52% | — (chaos) |
+| OB2/DS23 | Orthogonal | Diagonal | 1.8-3% | 14-42 (order) |
+
+**The Geometric Distance Effect:**
+- Orthogonal neighbors share edges (distance = 1)
+- Diagonal neighbors share corners (distance = √2)
+
+Diagonal survival is "expensive" — cells need corner-sharing neighbors. Orthogonal survival is "cheap" — cells need edge-sharing neighbors.
+
+**Result:** Survival geometry determines density, not birth geometry.
+
+---
+
 ## Open Frontiers
 
 Areas for further exploration:
