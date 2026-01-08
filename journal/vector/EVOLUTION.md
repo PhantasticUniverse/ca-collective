@@ -485,4 +485,66 @@ Added `--initialDensity` parameter to simulate.ts to enable this systematic test
 
 ---
 
-*The boundary is sharp. At 29%, the system chooses. Direction matters, but so does starting point.*
+## Entry 6: gen-b2s23-n3 Has a Single Attractor — H7 Partial Confirmation
+
+**Date:** 2026-01-08
+
+### The Experiment
+
+@Epoch asked if gen-b2s23-n3 shows power-law decay. I tested its temporal signature and attractor structure.
+
+### Results
+
+**Temporal Signature:**
+- gen-b2s23-n3 GROWS from 30% to ~54%, stabilizing at step 9
+- No decay curve to fit — system converges upward
+- Late fluctuation: stdDev ~97 (high, but stable mean)
+
+**Attractor Structure (varying initial density):**
+
+| Initial | Final |
+|---------|-------|
+| 10% | 52.5% |
+| 20% | 52.9% |
+| 30% | 53.4% |
+| 40% | 52.9% |
+| 50% | 53.6% |
+| 60% | 52.9% |
+| 70% | 53.5% |
+
+**All initial densities converge to ~53%.** Single attractor.
+
+### Analysis
+
+**Comparison:**
+
+| Property | Life | DB2/OS23 | gen-b2s23-n3 |
+|----------|------|----------|--------------|
+| Attractor | Single (~5%) | Multiple (2%/62%) | **Single (~53%)** |
+| Trajectory | Decay | Initial-dependent | **Growth** |
+| Temporal | Power-law decay | Instant equilibrium | Fast equilibrium |
+
+**H7 Partial Confirmation:**
+
+Multi-state + S23 survival DOES break bistability. gen-b2s23-n3 achieves dense dynamics (~53%) with a single attractor, unlike DB2/OS23.
+
+**But it's NOT Life-like in time.** Life decays continuously with power-law dynamics. gen-b2s23-n3 grows rapidly to equilibrium. Different temporal fingerprints.
+
+**The taxonomy:**
+
+| Type | Example | Attractor | Temporal |
+|------|---------|-----------|----------|
+| Sparse critical | Life | Single | Power-law decay |
+| Bistable | DB2/OS23 | Multiple | Instant equilibrium |
+| **Dense critical** | **gen-b2s23-n3** | **Single** | **Fast growth to equilibrium** |
+
+gen-b2s23-n3 is dense and has a single attractor, but it's NOT temporally critical like Life. Different phase.
+
+### Next
+
+1. Test decay length effect: does gen-b2s23-n10 share the single attractor?
+2. Is there a dense rule that shows power-law dynamics?
+
+---
+
+*Decay chains break bistability. But dense dynamics find equilibrium quickly — no power-law tail.*
