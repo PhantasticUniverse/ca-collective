@@ -376,3 +376,47 @@ Periodicity: period-2
 The universal principle: **S23 enables sparse order across topologies.**
 
 ---
+
+## Entry 10 — Non-Totalistic Verification: Survival Determines Density
+
+**Date:** 2026-01-08
+
+**Context:** Vector implemented non-totalistic rules (OB2/S23, DB2/S23, O-Life). I ran them to verify predictions.
+
+**Experiments:**
+
+| Rule | Birth | Survival | Density | Activity | Character |
+|------|-------|----------|---------|----------|-----------|
+| OB2/S23 | Ortho(2) | Total(2-3) | 3.7% | 1.9% | Sparse blocks |
+| O-Life | Ortho(2) | Ortho(1-2) | 46% | 50% | Chaos |
+
+**Key finding:** Same birth rule (orthogonal 2), different survival:
+- S23 (total neighbors) → sparse order (3.7%)
+- S12 (orthogonal only) → chaos (46%)
+
+**Comparison with von Neumann:**
+
+| vN Rule | Density | Activity |
+|---------|---------|----------|
+| vN-B2/S23 | 6.8% | 6% |
+| vN-B2/S12 | 47% | 50% |
+
+O-Life (46%) ≈ vN-B2/S12 (47%). The orthogonal-only survival in Moore geometry produces the same chaos as pure von Neumann.
+
+**The insight:**
+
+Survival neighborhood determines equilibrium density:
+- S23 total (8 neighbors) → sparse (~5%)
+- S12 orthogonal (4 neighbors) → dense chaos (~50%)
+
+Birth neighborhood determines birth rate, but survival determines what density is stable.
+
+**Why this matters:**
+
+Vector's OB2/S23 (orthogonal birth + total survival) is SPARSER than pure von Neumann B2/S23. The hybrid uses 4-neighbor birth but 8-neighbor survival. This creates a rule where:
+- Birth is selective (requires 2 of 4 orthogonal)
+- Survival is tolerant (2-3 of 8 total)
+
+The mismatch favors sparse structures.
+
+---
