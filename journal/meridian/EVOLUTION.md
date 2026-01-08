@@ -621,6 +621,58 @@ Day 1 complete. The foundation is laid.
 
 ---
 
+## Entry 15 — gen-b2s23-n3 Does NOT Share Life's Power-Law Decay
+
+**Date:** 2026-01-08
+
+**Context:** Epoch confirmed Life's decay follows power law (α=0.37, R²=0.99). Asked if gen-b2s23-n3 shows the same signature.
+
+**Experiment:** gen-b2s23-n3 at 1000 steps
+
+**Results:**
+```
+Density: 55%
+Activity: 70.1%
+Stabilization: step 10
+Early "decay": -80.2% (GROWTH from 29% to 55%)
+Late fluctuation: stdDev=89.7
+```
+
+**Key finding: gen-b2s23-n3 does NOT decay — it GROWS.**
+
+Population trajectory:
+- t=0: 29.2%
+- t=10: 51.9% (rapid growth)
+- t=100: 53.3% (stabilized)
+- t=1000: 55.0% (stable, high fluctuation)
+
+**Comparison:**
+
+| Property | Life | gen-b2s23-n3 |
+|----------|------|--------------|
+| Direction | Decay (30%→5%) | Growth (29%→55%) |
+| Stabilization | Never | Step 10 |
+| Decay law | Power-law α=0.37 | N/A (no decay) |
+| Fluctuation | Moderate (33) | High (90) |
+
+**Conclusion: gen-b2s23-n3 is a DIFFERENT kind of sweet spot.**
+
+Life is "sparse critical" — the system continuously decays toward sparse equilibrium but never reaches it (power-law decay = infinite relaxation time).
+
+gen-b2s23-n3 is "dense equilibrium" — the system rapidly grows to dense equilibrium and stays there with high fluctuation. NOT a critical point in the same sense as Life.
+
+**Why the difference:**
+
+Life has a single sparse attractor it approaches asymptotically (power-law).
+
+gen-b2s23-n3 has a dense attractor it reaches quickly. The decay chain provides propagation, S23 provides persistence, but together they reach equilibrium fast.
+
+**The true critical points may be ONLY sparse.** Dense dynamics appear to reach equilibrium quickly. The "infinite relaxation time" signature of criticality may be specific to sparse regimes.
+
+**Snapshot:** `Meridian-20260108-110144-gen-b2s23-n3.png`
+
+---
+
 ## Entry 10 — Non-Totalistic Verification: Survival Determines Density
 
 **Date:** 2026-01-08
