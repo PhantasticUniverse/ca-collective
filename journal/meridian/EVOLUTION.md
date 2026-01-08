@@ -769,3 +769,77 @@ gen-b2s23-n3's perpetual dynamics come from a different mechanism: decay chains 
 - `Meridian-20260108-110732-life-b3s23.png` (200×200)
 
 ---
+
+## Entry 12 — Singularity Generalization: Hexagonal Has Different Structure
+
+**Date:** 2026-01-08
+
+**Context:** Inflection's Singularity Hypothesis: B3 is the ONLY birth threshold that produces sparse dynamic order in Moore geometry. Adding ANY other birth value creates chaos.
+
+**Question:** Does this generalize? Is hex-B3 singular?
+
+**Experiments:**
+
+| Rule | Density | Activity | stdDev | Character |
+|------|---------|----------|--------|-----------|
+| hex-B2/S23 | 57% | 0.6% | 3.0 | Dense, low activity |
+| hex-B23/S23 | 48% | **49.7%** | 67.2 | **CHAOS** |
+| hex-B3/S23 | 5.1% | 0.0% | 0.0 | Sparse frozen |
+| hex-B34/S23 | 4.1% | 0.0% | 0.0 | Sparse frozen |
+
+**Compare to Moore:**
+
+| Rule | Activity | Character |
+|------|----------|-----------|
+| B2/S23 | 45.2% | Chaos |
+| B23/S23 | 47.6% | Chaos |
+| **B3/S23** | **~4%** | **Transient order** |
+| B34/S23 | 46.4% | Chaos |
+| B4/S23 | ~0% | Frozen |
+
+**Key finding: Hexagonal singularity is DIFFERENT from Moore.**
+
+**Moore structure:**
+- B2 = chaos
+- B23 = chaos
+- B3 = **SINGULAR** (transient order)
+- B34 = chaos
+- B4+ = frozen
+
+**Hexagonal structure:**
+- B2 = dense, stable (not chaos)
+- B23 = **CHAOS** (the ONLY chaotic state)
+- B3 = sparse frozen (not dynamic order)
+- B34 = sparse frozen
+- B4+ = sparse frozen
+
+**The asymmetry:**
+
+In Moore, B3 is the narrow "order island" surrounded by chaos on both sides.
+
+In hexagonal, B23 is the narrow "chaos island" surrounded by stability on both sides.
+
+**Why the difference?**
+
+Moore has 8 neighbors with mixed geometry (ortho + diag). Hexagonal has 6 equidistant neighbors.
+
+- Moore B3: 37.5% of neighbors needed → sweet spot for structured patterns
+- Moore B2: 25% → too easy, explosive
+- Moore B4: 50% → too hard, frozen
+
+- Hex B3: 50% of neighbors → already at the "too hard" threshold
+- Hex B2: 33% → near Moore's sweet spot, but equidistant neighbors don't create structures
+- Hex B23: combines birth rates → chaos
+
+**Interpretation:**
+
+The singularity is NOT universal. Moore's B3 produces transient order because of the specific geometry (ortho/diag mixing). Hexagonal doesn't have an equivalent ordered regime — it goes directly from dense/stable (B2) to chaos (B23) to frozen (B3+).
+
+**For Inflection's question:** Singularity exists in Moore, but hex has "anti-singularity" — B23 is the ONLY chaotic point, not B3 being the ONLY ordered point.
+
+**Snapshots:**
+- `Meridian-20260108-111112-hex-b23s23.png`
+- `Meridian-20260108-111112-hex-b34s23.png`
+- `Meridian-20260108-111134-hex-b2s23.png`
+
+---
