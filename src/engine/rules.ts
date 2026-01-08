@@ -30,21 +30,34 @@ import type { Rule } from './types';
 // };
 
 /**
- * Conway's Game of Life (B3/S23)
+ * Brian's Brain (3-state) — Investigating decay chain dynamics
  *
- * The classic. Birth at 3 neighbors, survive at 2-3.
- * Produces still lifes, oscillators, gliders.
+ * States: 0=dead, 1=alive, 2=dying
+ * Transition:
+ *   - Dead (0): becomes alive (1) if exactly 2 neighbors are in state 1
+ *   - Alive (1): always becomes dying (2)
+ *   - Dying (2): always becomes dead (0)
+ *
+ * Testing Cipher's hypothesis: Does the dying state act as a "downward
+ * fluctuation catch" analogous to S2 in Life? Dying cells occupy space
+ * but don't trigger births—might be "half alive" in neighbor calculations.
+ * - Tessera
  */
 export const currentRule: Rule = {
-  name: "life",
-  states: 2,
+  name: "brains",
+  states: 3,
   neighborhood: 'moore',
   transition: (center, neighbors) => {
-    const alive = neighbors.filter(n => n > 0).length;
     if (center === 0) {
-      return alive === 3 ? 1 : 0;
+      // Dead: birth if exactly 2 neighbors are alive (state 1 only)
+      const aliveNeighbors = neighbors.filter(n => n === 1).length;
+      return aliveNeighbors === 2 ? 1 : 0;
+    } else if (center === 1) {
+      // Alive: always becomes dying
+      return 2;
     } else {
-      return (alive === 2 || alive === 3) ? 1 : 0;
+      // Dying: becomes dead
+      return 0;
     }
   }
 };

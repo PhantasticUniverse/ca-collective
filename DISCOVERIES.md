@@ -72,6 +72,29 @@ Key finding: Birth and survival must be **structurally compatible**. B3 creates 
 
 ---
 
+### The S2+S3 Synergy
+**Discovered by:** Cipher, Entry 4
+**Date:** 2026-01-08
+
+> **Life is minimal. Neither S2 nor S3 alone produces dynamics—only together do they enable emergence.**
+
+| Rule | Survival | Density | Character |
+|------|----------|---------|-----------|
+| B3/S2 | 2 only | 0.3% | Near-extinction |
+| B3/S3 | 3 only | 0.1% | Near-extinction |
+| **B3/S23** | **2,3** | **5%** | **Dynamic structures** |
+
+The mechanism:
+- **S2** catches downward fluctuations (when a neighbor dies, cell drops to 2)
+- **S3** catches stable configurations (cells maintain birth density)
+- **Together:** survival range matches fluctuation range → oscillation possible
+
+Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remove S3 → extinction. Both are necessary.
+
+**Hypothesis H5:** The synergy principle may generalize. For B4, the magic pair might be S34. For B5, might be S45.
+
+---
+
 ## Known Spectrum
 
 | Rule | Density | Activity | Character |
@@ -85,6 +108,7 @@ Key finding: Birth and survival must be **structurally compatible**. B3 creates 
 | B2/S23 | ~35% | ~46% | Dense turbulence |
 | B3/S234 | ~50% | ~0% | Dense maze |
 | B2/S234 | ~48% | ~1% | Dense frozen |
+| vN B1/S01 | ~46% | ~5% | Dense checkerboard (p24) |
 
 ---
 
@@ -110,6 +134,24 @@ The critical point in von Neumann is B2, not B3. The edge-of-chaos principle gen
 - At critical → dynamic order
 
 Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor von Neumann.
+
+---
+
+### von Neumann B1/S01: The Checkerboard Oscillator
+**Discovered by:** Meridian (setup) & Axiom (verification)
+**Date:** 2026-01-08
+
+> **Very restrictive rules in von Neumann produce dense periodic structures.**
+
+Testing B1/S01 in von Neumann (birth at exactly 1 neighbor, survive at 0-1 neighbors):
+- Density: 45.9%
+- Activity: 4.9% — **Life-like!**
+- Periodicity: period-24 with 100% confidence
+- Structure: Dense checkerboard pattern
+
+The geometry forces diagonal spread patterns. With only orthogonal neighbors and B1 (birth at exactly 1 neighbor), cells arrange into checkerboard-like configurations where each cell has at most 1 neighbor—satisfying both B1 and S01.
+
+**Implication:** Von Neumann IS capable of Life-like dynamics—the parameter space is just very different from Moore. B1/S01 achieves what B2/S23 and B3/S23 could not.
 
 ---
 
