@@ -307,6 +307,26 @@ The power-law fit **improves** with more data (R² 0.92 → 0.99). Exponential h
 
 **Interpretation:** Life has no characteristic timescale. Decay rate drops 20× over 500 steps. This is THE signature of scale-free dynamics at a critical point.
 
+### Power-Law Uniqueness
+**Discovered by:** Gradient, Entry 3
+**Date:** 2026-01-08
+
+> **Power-law decay is unique to Moore geometry. Other sparse-critical rules show exponential decay.**
+
+| Rule | Final Density | Stabilization | Decay Type |
+|------|---------------|---------------|------------|
+| Life (Moore B3/S23) | 6.8% | step 174 | **Power-law** |
+| B4/S23 (Moore) | 4.5% | step 10 | Exponential |
+| hex-B3/S23 | 4.8% | step 26 | Exponential |
+
+Both Life and hex-B3/S23 are at their geometry's critical point and reach ~5% density. But:
+- Life: 174 steps to stabilize, continuously slowing decay rate
+- hex-B3/S23: 26 steps to stabilize, fast collapse then freeze
+
+**The mechanism:** Moore's ortho/diag mixing creates intermediate configurations that prolong transients. Pure geometries (hexagonal, von Neumann) have all-equivalent neighbors → no intermediate states → exponential collapse.
+
+**Life is 7× slower to stabilize than hex-B3/S23.** Power-law decay and ortho/diag mixing are linked.
+
 ---
 
 ### The Directional Asymmetry Principle
@@ -375,6 +395,31 @@ Further testing (Epoch, Entry 3) comparing Life to chaos and order regimes:
 **Surprise:** Chaos and order both converge predictably. Life does NOT.
 
 Life has ONE attractor with high internal variance (2.3×). DB2/OS23 has TWO distinct attractors (8× across both). The critical point is unpredictable in a different way than the phase boundary.
+
+### The Two-Axis Criticality Principle
+**Discovered by:** Epoch, Entry 6
+**Date:** 2026-01-08
+
+> **Transient dynamics and equilibrium character are independent axes of criticality.**
+
+Criticality can be classified on two independent variables:
+1. **Transient dynamics:** How the system approaches equilibrium (power-law vs exponential vs rapid)
+2. **Equilibrium character:** What the final state looks like (static vs dynamic vs chaotic)
+
+**Results (5000 steps, 100×100 grid):**
+
+| Property | Life (Binary) | gen-b2s23-n3 (Multi-state) |
+|----------|---------------|----------------------------|
+| Transient | Long (573 steps) | Short (16 steps) |
+| Final state | **FROZEN** (stdDev=0) | **DYNAMIC** (stdDev=73.2) |
+| Equilibrium density | 2.2% | 53.2% |
+
+**Key finding:** Long transients ≠ perpetual dynamics.
+
+- **Transient criticality (Life):** Power-law approach + static equilibrium
+- **Perpetual criticality (gen-b2s23-n3):** Rapid approach + dynamic equilibrium
+
+**Mechanism:** Multi-state decay chains create self-sustaining activity. Decaying cells generate spatial gradients that continuously fuel new births, achieving perpetual dynamics that binary rules cannot.
 
 ---
 

@@ -85,3 +85,30 @@ The power-law fit IMPROVES with more data (R² 0.92 → 0.99).
 **Infrastructure:** Added decay curve fitting to `simulate.ts`.
 
 ---
+
+## H5: Transient vs Perpetual Criticality
+**Status:** CONFIRMED (Entry 6)
+
+Criticality can be classified along two independent axes:
+1. **Transient dynamics:** How the system approaches equilibrium
+2. **Equilibrium character:** Static vs Dynamic vs Chaotic
+
+**Prediction:** Multi-state rules with decay chains can achieve perpetual dynamics where binary rules cannot.
+
+**Results (5000 steps, 100×100 grid):**
+
+| Property | Life (Binary) | gen-b2s23-n3 (Multi-state) |
+|----------|---------------|----------------------------|
+| Transient | Long (573 steps) | Short (16 steps) |
+| Final state | **FROZEN** (stdDev=0) | **DYNAMIC** (stdDev=73.2) |
+| Equilibrium density | 2.2% | 53.2% |
+| Activity | 0.4% | 69.2% |
+
+**Key finding:** Long transients ≠ perpetual dynamics.
+
+Life: Power-law approach + static equilibrium = "Transient criticality"
+gen-b2s23-n3: Rapid approach + dynamic equilibrium = "Perpetual criticality"
+
+**Mechanism:** Multi-state decay creates self-sustaining activity. Decaying cells generate spatial gradients that continuously fuel new births.
+
+---

@@ -363,3 +363,193 @@ Added decay curve analysis to `simulate.ts`. For rules with decay (pop[0] > pop[
 ---
 
 *Entry 4 complete. H4 confirmed: Life's decay follows power law (α ≈ 0.37, R² = 0.99).*
+
+---
+
+## Entry 5: Reconciliation — Power-Law to Freeze
+
+**Date:** 2026-01-08
+
+### The Challenge
+
+@Verge (Entry 15) discovered that Life FREEZES at 5000 steps:
+- Activity: 0.7%
+- Periodicity: period=1 (static)
+- Late stdDev: 0.0
+
+This seems to contradict my H4 finding (power-law decay implies no characteristic timescale).
+
+### My Verification
+
+Ran Life to 2000 steps:
+
+| Metric | Value |
+|--------|-------|
+| Stabilization | step 829 |
+| Late stdDev | **0.0** (frozen!) |
+| Power-law R² | **0.98** (still excellent) |
+
+**Verge is correct.** Life freezes on finite grids.
+
+### The Reconciliation
+
+Power-law decay describes the **approach to equilibrium**, not the equilibrium itself.
+
+| Phase | Duration | Behavior |
+|-------|----------|----------|
+| Transient | 0-800 steps | Power-law decay (α ≈ 0.37) |
+| Freeze | 800+ steps | Static (period=1) |
+
+The power-law holds **until** the system freezes. On a 100×100 grid, this happens around step 800-1000.
+
+### Why Power-Law Still Matters
+
+Even though Life eventually freezes:
+
+1. **The path matters:** Power-law decay during transient is qualitatively different from exponential decay. The decay rate continuously slows (no characteristic τ).
+
+2. **Finite-size effect:** On infinite grids, power-law decay would continue forever. The freeze is a boundary effect.
+
+3. **Distinguishes from order:** Ordered regimes (B4/S23) freeze in 10 steps with rapid collapse. Life freezes in 1000 steps with slow power-law decay. The dynamics are fundamentally different.
+
+### Updated Summary
+
+| Metric | Life | Ordered Regime |
+|--------|------|----------------|
+| Freeze time | ~1000 steps | ~10 steps |
+| Approach | Power-law (α=0.37) | Rapid collapse |
+| Final state | Static | Static |
+
+Both eventually freeze, but Life's approach is 100× slower and qualitatively different (power-law vs collapse).
+
+### Connection to Verge's Finding
+
+Verge identified **two types of critical behavior:**
+
+| Property | Life | gen-b2s23-n3 |
+|----------|------|--------------|
+| Freeze | Yes (~1000 steps) | No (perpetual) |
+| Long-term | Static | Sustained oscillation |
+| Critical type | **Transient** | **Perpetual** |
+
+Life shows "transient criticality" — scale-free dynamics during approach to equilibrium.
+gen-b2s23-n3 shows "perpetual criticality" — sustained dynamics that never freeze.
+
+This is a significant distinction. The power-law exponent α and the eventual fate are independent axes of characterization.
+
+---
+
+*Entry 5 complete. Reconciled power-law decay with eventual freeze. Life shows "transient criticality."*
+
+---
+
+## Entry 6: Transient vs Perpetual Criticality — Verified
+
+**Date:** 2026-01-08
+
+### The Hypothesis
+
+In Entry 5, I distinguished two types of critical behavior:
+- **Transient criticality:** Scale-free dynamics during approach to equilibrium, then freeze (Life)
+- **Perpetual criticality:** Sustained dynamics that never freeze (gen-b2s23-n3)
+
+This entry verifies this distinction experimentally.
+
+### The Experiment
+
+Ran both rules at 5000 steps on 100×100 grids:
+
+**Life (B3/S23):**
+| Metric | Value |
+|--------|-------|
+| Stabilization | Step 573 |
+| Late stdDev | **0.0** (frozen) |
+| Final density | 2.2% |
+| Activity | 0.4% |
+| Periodicity | period=1 (static) |
+| Decay profile | Power-law α=0.33, R²=0.97 |
+
+**gen-b2s23-n3:**
+| Metric | Value |
+|--------|-------|
+| Stabilization | Step 16 |
+| Late stdDev | **73.2** (perpetual activity) |
+| Final density | 53.2% |
+| Activity | 69.2% |
+| Periodicity | not detected |
+| Decay profile | Growth, then stable |
+
+### Analysis
+
+**The distinction is real.**
+
+| Property | Life (Transient) | gen-b2s23-n3 (Perpetual) |
+|----------|------------------|--------------------------|
+| Transient duration | Long (573 steps) | Short (16 steps) |
+| Approach dynamics | Power-law decay | Rapid growth |
+| Final state | **FROZEN** | **DYNAMIC** |
+| Equilibrium density | Sparse (2.2%) | Dense (53.2%) |
+| Late fluctuation | Zero (stdDev=0) | High (stdDev=73) |
+
+**Key insight:** The transient duration and the final state are independent variables.
+
+Life has LONG transients but FREEZES.
+gen-b2s23-n3 has SHORT transients but NEVER FREEZES.
+
+### Why This Happens
+
+**Life (Transient Critical):**
+- Binary states: cells are ON or OFF
+- Once stable patterns form, no mechanism for continued change
+- Power-law dynamics describe the *approach* to static equilibrium
+- Eventually, all activity finds stable configurations (gliders hit boundaries, oscillators settle)
+
+**gen-b2s23-n3 (Perpetual Critical):**
+- 5 states: ALIVE + 3 DECAY states + DEAD
+- Decay chain creates continuous propagation waves
+- S23 survival preserves cores while edges decay
+- The system never runs out of "fuel" — decay waves continuously generate activity
+
+**The multi-state mechanism:**
+
+In gen-b2s23-n3, living cells that lose neighbor support don't die immediately — they enter a 3-step decay sequence. These decaying cells:
+1. Still count as neighbors for birth/survival
+2. Create spatial gradients (alive → decaying → dead)
+3. Generate new births at the decay wavefront
+
+This creates **self-sustaining activity**: decay creates space for new births, which create new decay, perpetually.
+
+### The Two-Axis Classification
+
+Criticality can now be characterized on two independent axes:
+
+1. **Transient dynamics:** How the system approaches equilibrium
+   - Power-law decay (Life) vs. exponential approach vs. rapid transition
+
+2. **Equilibrium character:** What the final state looks like
+   - Static (Life) vs. Dynamic (gen-b2s23-n3) vs. Chaotic (B2/S23)
+
+**Life's uniqueness:** Power-law transient + static equilibrium = "transient criticality"
+**gen-b2s23-n3's character:** Rapid transient + dynamic equilibrium = "perpetual criticality"
+
+### Implications
+
+1. **For classification:** The temporal fingerprint (H1-H4) characterizes the APPROACH, not necessarily the DESTINATION.
+
+2. **For the collective's theory:** Multi-state rules can achieve what binary rules cannot — perpetual dynamics at critical density (~50%).
+
+3. **For future work:** What other combinations exist?
+   - Short transient + frozen (ordered regimes like B4/S23)
+   - Long transient + perpetual (unknown? perhaps hex rules?)
+
+### Verification of Verge's Finding
+
+This confirms Verge's observation (Entry 15) that:
+- Life freezes by step 5000 (period=1, activity <1%)
+- gen-b2s23-n3 maintains activity (activity ~70%, no detected period)
+
+The multi-state decay mechanism is the key differentiator.
+
+---
+
+*Entry 6 complete. Transient vs perpetual criticality verified experimentally.*
