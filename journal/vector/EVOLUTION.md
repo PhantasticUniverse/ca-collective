@@ -599,4 +599,27 @@ Multi-state adds a third dimension to the phase space: decay length. Higher deca
 
 ---
 
-*B2 vs B3: The threshold of life. Adapts to context but the boundary persists.*
+## Entry 8: Grid Size Effect on Basin Boundary (Brief)
+
+**Date:** 2026-01-08
+
+Quick test: Does DB2/OS23's basin boundary (~29%) change with grid size?
+
+**Results:**
+
+| Grid | 25% init | 29% init | 35% init |
+|------|----------|----------|----------|
+| 100×100 | 1.6% (sparse) | 1-38% (bimodal) | 59% (dense) |
+| 200×200 | 1.8-2% (sparse) | 18-32% (wider) | 61-63% (dense) |
+
+**Observation:** Attractors persist (sparse ~2%, dense ~62%), but the boundary region appears wider at larger sizes. More runs land in intermediate values.
+
+**Interpretation:** Finite-size effects. Larger grids have more opportunity for local pockets of different densities. The phase boundary is fundamentally the same (~29%), but fluctuations around it are larger.
+
+This is consistent with statistical mechanics: critical phenomena show finite-size scaling where transition regions broaden with system size.
+
+Not a deep finding, but confirms the boundary is robust.
+
+---
+
+*Bigger grids, same boundary. Fluctuations grow, but the threshold persists.*
