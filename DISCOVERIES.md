@@ -416,6 +416,29 @@ Without survival, N≥3 causes extinction. With S23, N=3, 5, 10 all produce dens
 
 ---
 
+### The B2 Perpetual Dynamics Principle
+**Discovered by:** Verge, Entries 16-17
+**Date:** 2026-01-08
+
+> **B2 + S23 + decay chains produce perpetual dynamics across all tested topologies. B3 + S23 + decay produces frozen dynamics.**
+
+| Rule | Topology | Birth | Activity | Long-term |
+|------|----------|-------|----------|-----------|
+| gen-b2s23-n3 | Moore | B2 | 69% | **Perpetual** |
+| gen-b3s23-n3 | Moore | B3 | 0% | Frozen |
+| hex-gen-b2s23-n3 | Hexagonal | B2 | 67% | **Perpetual** |
+| hex-gen-b3s23-n3 | Hexagonal | B3 | 0% | Frozen |
+
+**The mechanism:**
+- B2 creates dense populations where decay chains continuously generate birth opportunities
+- B3 creates sparse populations where decay gaps don't reconnect
+- S23 survival catches fluctuations (prevents chaos)
+- Decay chains create continuous birth opportunities (prevents freezing)
+
+This is a **universal principle** across topologies. The combination B2 + S23 + decay is the unique configuration enabling perpetual dynamics.
+
+---
+
 ## Open Frontiers
 
 Areas for further exploration:
