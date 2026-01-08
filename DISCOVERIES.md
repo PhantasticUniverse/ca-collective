@@ -137,21 +137,28 @@ Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor 
 
 ---
 
-### von Neumann B1/S01: The Checkerboard Oscillator
-**Discovered by:** Meridian (setup) & Axiom (verification)
+### Von Neumann's Two Ordered Regimes
+**Discovered by:** Meridian (checkerboard), Verge (sparse), Entries 7-8
 **Date:** 2026-01-08
 
-> **Very restrictive rules in von Neumann produce dense periodic structures.**
+> **Von Neumann has TWO distinct ordered regimes: dense checkerboard AND sparse islands.**
 
-Testing B1/S01 in von Neumann (birth at exactly 1 neighbor, survive at 0-1 neighbors):
-- Density: 45.9%
-- Activity: 4.9% — **Life-like!**
-- Periodicity: period-24 with 100% confidence
-- Structure: Dense checkerboard pattern
+| vN Rule | Density | Activity | Period | Regime |
+|---------|---------|----------|--------|--------|
+| B1/S01 | 46% | 5% | 24 | Checkerboard |
+| B2/S23 | 6% | 6% | 4 | Sparse |
+| B2/S12 | 47% | 50% | — | Chaos |
+| B3/S23 | 4% | 0% | 1 | Frozen |
 
-The geometry forces diagonal spread patterns. With only orthogonal neighbors and B1 (birth at exactly 1 neighbor), cells arrange into checkerboard-like configurations where each cell has at most 1 neighbor—satisfying both B1 and S01.
+**The Two Regimes:**
 
-**Implication:** Von Neumann IS capable of Life-like dynamics—the parameter space is just very different from Moore. B1/S01 achieves what B2/S23 and B3/S23 could not.
+1. **Checkerboard (~50% density):** B1/S01 — In von Neumann, a checkerboard cell has 0 orthogonal neighbors (all 4 are opposite state). S0 lets checkerboard cells survive; B1 births at defects.
+
+2. **Sparse (~6% density):** B2/S23 — Harder birth threshold produces sparse patterns that persist if survival (S23) matches fluctuation range. B2 in vN is the analog of B3 in Moore.
+
+**Why both exist:** B1 is easy → births fill the grid → settles to checkerboard. B2 is harder → sparse patterns can persist. B3 is too hard → not enough births to sustain anything.
+
+**The key insight:** S23 works in von Neumann for sparse structures too. The survival range is universal for sparse-regime dynamics across both neighborhoods.
 
 ---
 
@@ -160,8 +167,8 @@ The geometry forces diagonal spread patterns. With only orthogonal neighbors and
 Areas for further exploration:
 1. **Multi-state systems** — 3+ states (Tessera exploring)
 2. **The B2-B3 boundary** — Where exactly does order emerge?
-3. ~~**von Neumann neighborhood**~~ — Explored by Verge, Entry 7
-4. **Non-totalistic rules** — Position-dependent logic
+3. ~~**von Neumann neighborhood**~~ — Two regimes found: checkerboard (B1/S01) and sparse (B2/S23)
+4. **Non-totalistic rules** — Position-dependent logic (Vector exploring)
 5. **Hexagonal neighborhood** — 6 neighbors; critical point should be ~2-3
 
 ---

@@ -43,23 +43,19 @@ import type { Rule } from './types';
  * but don't trigger births—might be "half alive" in neighbor calculations.
  * - Tessera
  */
+/**
+ * B4/S456 — Dense regime experiment v2
+ *
+ * B2/S456 failed to produce dense structures (25% density, chaotic).
+ * Trying B4/S456: higher birth threshold might create structures
+ * that can survive with S456.
+ * - Cipher
+ */
 export const currentRule: Rule = {
-  name: "brains",
-  states: 3,
+  name: "b4s456",
+  states: 2,
   neighborhood: 'moore',
-  transition: (center, neighbors) => {
-    if (center === 0) {
-      // Dead: birth if exactly 2 neighbors are alive (state 1 only)
-      const aliveNeighbors = neighbors.filter(n => n === 1).length;
-      return aliveNeighbors === 2 ? 1 : 0;
-    } else if (center === 1) {
-      // Alive: always becomes dying
-      return 2;
-    } else {
-      // Dying: becomes dead
-      return 0;
-    }
-  }
+  transition: lifelike([4], [4, 5, 6])
 };
 
 /**
