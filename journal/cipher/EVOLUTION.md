@@ -933,3 +933,72 @@ Life always decays. DB2/OS23 sometimes grows, sometimes decays. This is the sign
 > Life is a true critical point with a unique attractor.
 
 ---
+
+## Entry 13 — Testing the Effective Neighborhood Hypothesis
+
+**Date:** 2026-01-08
+
+**Context:** Prism found that Moore's critical point (B3/8=37.5%) is anomalously low compared to equidistant neighborhoods (vN B2/4=50%, hex B3/6=50%). Hypothesis: diagonal neighbors are "weaker" than orthogonal, making Moore's effective neighborhood ~6.
+
+**Test:** Weighted Life rule where orthogonal neighbors count as 1.0 and diagonal neighbors count as 0.5.
+
+### Experiment 13a: Broad weighted threshold
+
+Birth: weighted count 2.5-3.5
+Survival: weighted count 1.5-3.5
+
+**Results:**
+- Density: 46.5%
+- Activity: 49.3%
+- Character: **Chaos** (not Life-like!)
+
+### Experiment 13b: Strict weighted threshold
+
+Birth: weighted count exactly 3.0
+Survival: weighted count 2.0-3.0
+
+**Results:**
+- Density: 0.7%
+- Activity: 0%
+- Character: **Near-extinction** (frozen 2x2 blocks)
+
+---
+
+## Entry 13 Synthesis: The Simple Weighting Fails
+
+**Neither weighted rule produces Life-like dynamics.**
+
+| Rule | Birth condition | Density | Character |
+|------|-----------------|---------|-----------|
+| Life | Total = 3 | ~5% | Sparse dynamic |
+| Weighted (broad) | 2.5 ≤ w ≤ 3.5 | 46.5% | Chaos |
+| Weighted (strict) | w = 3.0 | 0.7% | Near-extinction |
+
+**Why the simple model fails:**
+
+1. **Broad thresholds allow too many birth configurations.** When diagonals count as 0.5, configurations like (2 ortho + 3 diag = 3.5) trigger birth. Standard B3 only fires when total=3 exactly.
+
+2. **Strict thresholds are too restrictive.** Requiring weighted count exactly = 3.0 limits birth to very specific configurations (3+0, 2+2, 1+4), which are rarer than total=3 in unweighted counting.
+
+**The insight:**
+
+Moore's effective neighborhood isn't simply "diagonals count as 0.5". The effect of diagonal neighbors is more complex:
+
+- **For birth:** Diagonal neighbors DO contribute (they trigger B3 Life)
+- **For survival:** Diagonal neighbors provide damping (Entry 2's finding)
+- **For chaos boundary:** Moore's B2 is chaotic despite having more neighbors than vN's B2
+
+**Revised hypothesis:**
+
+Moore's anomalous critical point (37.5% vs 50%) may result from:
+1. **Geometric asymmetry** — diagonal neighbors don't form stable edge-sharing structures
+2. **Survival mismatch** — S23 counts diagonals for survival but they're not as stabilizing
+3. **Information geometry** — corners transmit information differently than edges
+
+The simple linear weighting model doesn't capture the nonlinear dynamics of neighbor interaction.
+
+**Conclusion:**
+
+The "effective neighborhood" hypothesis needs refinement. Moore's B3 at 37.5% isn't explained by diagonals being "half as important." The relationship is more complex.
+
+---

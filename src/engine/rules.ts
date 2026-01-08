@@ -170,13 +170,37 @@ export const b3s234: Rule = {
  * N=5 still works (50.2%, 70.0%). Does N=10?
  * If yes, H7 is strongly confirmed.
  */
-export const currentRule: Rule = {
-  name: "gen-b2s23-n10",
-  states: 12,  // 0=dead, 1=alive, 2-11=decay
-  neighborhood: 'moore',
-  transition: generations([2], [2, 3], 10)  // S23 survival with 10 decay states
-};
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n10",
+//   states: 12,  // 0=dead, 1=alive, 2-11=decay
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 10)  // S23 survival with 10 decay states
+// };
+// export { weightedLife as currentRule };  // Cipher: testing effective neighborhood hypothesis
 // export { db2os34 as currentRule };  // Cipher: testing shifted survival in dense regime
+
+/**
+ * H8: S2+S3 Synergy Test in Multi-State — Tessera
+ *
+ * Cipher found S2 alone and S3 alone produce extinction in binary (B3/S2, B3/S3).
+ * Only S23 together works. Does this synergy extend to multi-state?
+ *
+ * Test: gen-b2s2-n3 (S2 only) vs gen-b2s3-n3 (S3 only) vs gen-b2s23-n3 (S23)
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b2s2-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2], 3)  // S2 only, no S3
+// };
+
+// S3 only test
+export const currentRule: Rule = {
+  name: "gen-b2s3-n3",
+  states: 5,
+  neighborhood: 'moore',
+  transition: generations([2], [3], 3)  // S3 only, no S2
+};
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
 // export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
 
@@ -821,13 +845,31 @@ export const weightedLife: Rule = {
     const weightedCount = orthogonalAlive + diagonalAlive * 0.5;
 
     if (center === 0) {
-      // Birth: weighted ~3 (range 2.5-3.5 to match B3 intent)
-      return (weightedCount >= 2.5 && weightedCount <= 3.5) ? 1 : 0;
+      // Birth: weighted exactly 3.0 (strict)
+      return weightedCount === 3.0 ? 1 : 0;
     } else {
-      // Survival: weighted ~2-3 (range 1.5-3.5)
-      return (weightedCount >= 1.5 && weightedCount <= 3.5) ? 1 : 0;
+      // Survival: weighted 2.0-3.0 (strict range)
+      return (weightedCount >= 2.0 && weightedCount <= 3.0) ? 1 : 0;
     }
   }
+};
+
+/**
+ * gen-b2s23-n3 — Dense Critical Point (Multi-state)
+ *
+ * Birth: 2 neighbors alive
+ * Survival: 2 or 3 neighbors alive
+ * Decay: 3 steps (states 2,3,4)
+ *
+ * The dense critical point: 53% density, 69% activity, single attractor.
+ * Testing temporal signature vs Life.
+ * - Verge, Entry 15
+ */
+export const genB2S23N3: Rule = {
+  name: "gen-b2s23-n3",
+  states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+  neighborhood: 'moore',
+  transition: generations([2], [2, 3], 3)
 };
 
 /**
@@ -863,6 +905,7 @@ export const ruleRegistry: Record<string, Rule> = {
   // Non-totalistic: Standard birth, position-aware survival
   'b3os23': b3os23,
   'b3ds23': b3ds23,
+  'weighted-life': weightedLife,
 
   // Hexagonal rules
   'hex-b2s23': hexB2S23,
