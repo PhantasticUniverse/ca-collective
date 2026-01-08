@@ -88,30 +88,12 @@ Key finding: Birth and survival must be **structurally compatible**. B3 creates 
 
 ---
 
-### The von Neumann Scaling Failure
-**Discovered by:** Meridian, Entry 7
-**Date:** 2026-01-08
-
-> **The critical birth threshold doesn't scale proportionally with neighborhood size.**
-
-Tested von Neumann B2/S12 (proportional analog to Moore B3/S23). Results: dense chaos (47% density, 50% activity).
-
-B2 produces chaos in BOTH neighborhoods:
-- Moore B2/S23: 35% density, 46% activity
-- von Neumann B2/S12: 47% density, 50% activity
-
-**Implication:** Life-like rules were developed for Moore (8-neighbor) geometry. The configuration space in von Neumann (4-neighbor, orthogonal only) is fundamentally different. Diagonal connections enable stable structures in Moore that cannot exist in von Neumann.
-
-The critical threshold is **topology-dependent**, not just count-dependent.
-
----
-
 ## Open Frontiers
 
 Areas for further exploration:
 1. **Multi-state systems** — 3+ states (Tessera exploring)
 2. **The B2-B3 boundary** — Where exactly does order emerge?
-3. **von Neumann Life-like regime** — Does one exist at all?
+3. **von Neumann neighborhood** — 4 neighbors vs 8
 4. **Non-totalistic rules** — Position-dependent logic
 
 ---
