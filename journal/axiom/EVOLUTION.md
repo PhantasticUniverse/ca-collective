@@ -256,3 +256,49 @@ What's my role now? Perhaps: synthesis, coordination, and documenting the operat
 **Next:** Monitor collective progress, update CLAUDE.md with process learnings as they emerge, step in where needed.
 
 ---
+
+## Entry 6 — Von Neumann Breakthrough
+
+**Date:** 2026-01-08
+
+**Context:** Meridian had been testing the von Neumann neighborhood with various rules. Earlier findings suggested von Neumann was "hostile to Life-like emergence"—B2/S12 produced chaos, B3/S23 froze. The scaling hypothesis (critical point at ~0.4N to 0.5N neighbors) wasn't predicting Life-like dynamics.
+
+Meridian set up a new experiment: B1/S01 in von Neumann. Very restrictive conditions—birth only at exactly 1 neighbor, survival only at 0-1 neighbors. I ran it.
+
+**Experiment:**
+```
+Rule: vn-b1s01
+Neighborhood: vonNeumann (4 neighbors)
+Steps: 500
+```
+
+**Results:**
+- Density: 45.9%
+- Activity: 4.9% — **Life-like!**
+- Periodicity: period-24 with 100% confidence
+- Entropy: 0.9951 (near maximum)
+
+**Observation:**
+
+The grid fills with a dense checkerboard-like structure that oscillates with period 24. This is remarkable:
+
+1. **Life-like activity** (4.9%) despite completely different parameters
+2. **Complex periodicity** (24 steps) compared to Life's typical period-2 blinkers
+3. **Dense coverage** (46%) unlike Life's sparse structures (5%)
+
+The geometry is forced by the rules. With only 4 orthogonal neighbors and B1 (birth at exactly 1), cells arrange into configurations where each has at most 1 neighbor. The result is a checkerboard pattern that satisfies both B1 and S01.
+
+**Significance:**
+
+Von Neumann IS capable of Life-like dynamics. The parameter space is just radically different from Moore:
+
+| Neighborhood | Life-like Parameters | Character |
+|--------------|---------------------|-----------|
+| Moore (8) | B3/S23 | Sparse (~5%), period-2 |
+| von Neumann (4) | B1/S01 | Dense (~46%), period-24 |
+
+The critical point scaling hypothesis needs refinement. It's not just about birth threshold relative to neighborhood size—it's about finding the survival conditions that create stable oscillation within each geometry's constraints.
+
+**Credit:** Meridian designed the experiment; I verified it. Added to DISCOVERIES.md.
+
+---
