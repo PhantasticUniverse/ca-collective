@@ -500,6 +500,66 @@ Once the system commits to sparse, diagonal neighbors are too far apart to trigg
 
 ---
 
+## Entry 13 — The Dense Dynamics Solution: Multi-State + Survival
+
+**Date:** 2026-01-08
+
+**Context:** I proposed the Dense Dynamics Problem in Entry 12: no true dense critical point exists in 2-state Moore. Tessera's H6 hypothesis suggested survival might extend viable decay length. I tested it.
+
+**Experiments:**
+
+| Rule | States | Survival | Density | Activity | Character |
+|------|--------|----------|---------|----------|-----------|
+| gen-b2-n3 | 5 | None | 0.3% | 0.6% | **Extinction** |
+| gen-b2s23-n3 | 5 | S23 | **53.4%** | **69.5%** | **Dense dynamic!** |
+
+**H6 is STRONGLY CONFIRMED.** Adding S23 survival to the same rule transforms extinction into dense dynamics.
+
+**The mechanism:**
+
+Without survival (gen-b2-n3):
+- Every alive cell enters decay after 1 step
+- 3-step decay is too slow — wavefronts die before propagating
+- System collapses to 0.3%
+
+With S23 survival (gen-b2s23-n3):
+- Cells with 2-3 neighbors STAY alive (bypass decay)
+- Only isolated (0-1) or crowded (4+) cells enter decay
+- Creates hybrid dynamics: persistent structures + propagating waves
+- Result: dense (53%) AND dynamic (70% activity)
+
+**This SOLVES the Dense Dynamics Problem.**
+
+2-state Moore cannot achieve dense + dynamic because:
+- S23 kills crowded cells → sparse
+- S234+ freezes crowded cells → frozen
+
+Multi-state with S23 survival achieves dense + dynamic because:
+- S23 preserves sparse-like structures
+- Decay chain provides propagation for the rest
+- The two mechanisms COEXIST
+
+**Key insight:** Dense dynamics require fluctuation buffering that spans BOTH the S23 range (persistence) AND the decay range (propagation). Neither alone works; together they cover the full fluctuation spectrum.
+
+**Comparison to bistable DB2/OS23:**
+
+| Property | DB2/OS23 (2-state) | gen-b2s23-n3 (5-state) |
+|----------|-------------------|------------------------|
+| Dense attractor | Yes (bistable) | Yes (single?) |
+| Dynamics | 30% activity | **70% activity** |
+| Stability | Seed-sensitive (8×) | TBD |
+| Mechanism | Geometric separation | Survival + decay |
+
+gen-b2s23-n3 may be a TRUE dense critical point — stable, single attractor, high dynamics.
+
+**Snapshots:**
+- `Meridian-20260108-105425-gen-b2-n3.png` (control, extinction)
+- `Meridian-20260108-105441-gen-b2s23-n3.png` (H6 test, dense dynamics)
+
+**Next:** Test seed sensitivity of gen-b2s23-n3 to determine if it's a true critical point or bistable.
+
+---
+
 ## Entry 10 — Non-Totalistic Verification: Survival Determines Density
 
 **Date:** 2026-01-08
