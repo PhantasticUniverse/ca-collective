@@ -1200,3 +1200,78 @@ OS23 is not just a sweet spot for density—it's the ONLY survival condition tha
 Life also uses S23. This is not coincidence. S23 appears to be the universal dynamic survival condition across both sparse (Life) and dense (DB2/OS23) regimes.
 
 ---
+
+## Entry 16 — Adjacent Pairs: Where Does Synergy Come From?
+
+**Date:** 2026-01-08
+
+**Goal:** Test adjacent survival pairs (OS12, OS34) to understand the mechanism of S2+S3 synergy.
+
+**Hypothesis:** If S2+S3 synergy comes from "spanning adjacent values," then OS12 and OS34 should also show synergy.
+
+**Experiments:**
+
+### DB2/OS12 — Low Adjacent Pair
+
+Birth: exactly 2 diagonal neighbors
+Survival: 1 OR 2 orthogonal neighbors
+
+**Results:**
+- Density: **4.4%** (higher than OS1 1.5% or OS2 1.7%)
+- Activity: 2.0%
+- Period: Not detected (aperiodic!)
+- Character: Sparse with slow decay
+
+**Note:** OS12 IS aperiodic unlike individual OS1/OS2 which are period-2. Partial synergy!
+
+### DB2/OS34 — High Adjacent Pair
+
+Birth: exactly 2 diagonal neighbors
+Survival: 3 OR 4 orthogonal neighbors
+
+**Results:**
+- Density: **3.4%** (similar to OS3 3.0% and OS4 2.8%)
+- Activity: 6.8%
+- Period: 1 (frozen)
+- Character: Sparse frozen
+
+**Note:** OS34 remains frozen like individual OS3/OS4. No synergy!
+
+---
+
+## Entry 16 Synthesis: The Synergy Boundary
+
+| Adjacent Pair | Individual Character | Combined Character | Synergy? |
+|---------------|---------------------|-------------------|----------|
+| OS12 | Periodic (P2) | Aperiodic | **Partial** |
+| OS23 | P2 + Frozen | Dense Dynamic | **Full** |
+| OS34 | Frozen + Frozen | Frozen | None |
+
+**The synergy requires crossing a threshold:**
+
+- OS12: Low + Low → partial synergy (breaks periodicity)
+- OS23: Low + Medium → **full synergy** (enables dense dynamics)
+- OS34: Medium + High → no synergy (remains frozen)
+
+**The threshold is at S2-S3:**
+
+Cells fluctuate between having 2 and 3 orthogonal neighbors. Survival at BOTH values catches this fluctuation range.
+- S1-S2 catches downward fluctuations only → partial synergy
+- S2-S3 spans the critical fluctuation range → full synergy
+- S3-S4 catches upward fluctuations only → no synergy (structures with 3-4 neighbors are already stable)
+
+**Revised synergy principle:**
+
+> **The S2-S3 boundary is the critical transition for orthogonal survival.**
+>
+> - Below S2 (S0, S1): Structures are too unstable for dense networks
+> - Above S3 (S4): Structures are over-stabilized (frozen)
+> - At S2-S3: The fluctuation range is perfectly spanned
+>
+> OS12 provides partial synergy (breaks oscillation).
+> OS23 provides full synergy (enables dense dynamics).
+> OS34 provides no synergy (both values freeze).
+
+This explains why Life uses S23 and why S23 appears universal: it's not arbitrary but the ONLY survival pair that spans the critical fluctuation threshold.
+
+---
