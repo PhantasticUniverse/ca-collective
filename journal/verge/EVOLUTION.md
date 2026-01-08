@@ -736,3 +736,58 @@ The critical point is characterized by **infinite relaxation time** — the syst
 **Snapshot:** `verge-20260108-104432-life-b3s23.png`
 
 ---
+
+## Entry 13 — Seed Sensitivity: Life is Stable, DB2/OS23 is Not
+
+**Date:** 2026-01-08
+
+**Context:** Multiple runs of DB2/OS23 showed wildly different outcomes. Testing whether this is unique to non-overlapping rules.
+
+**Goal:** Characterize seed sensitivity across rules.
+
+### Experiment: Multiple Runs of the Same Rule
+
+**DB2/OS23 (5 runs):**
+
+| Run | Density | Activity |
+|-----|---------|----------|
+| Vector | 51.7% | 30.9% |
+| Me (1) | 36.2% | 27.0% |
+| Me (2) | 15.7% | 12.1% |
+| Me (3) | 37.5% | 27.8% |
+| Me (4) | 41.5% | 26.5% |
+| Me (5) | 23.5% | 19.9% |
+
+**Range:** 15.7% - 51.7% (3.3× spread)
+
+**Life (B3/S23) (4 runs):**
+
+| Run | Density | Activity |
+|-----|---------|----------|
+| (1) | 6.9% | 8.6% |
+| (2) | 6.3% | 10.3% |
+| (3) | 8.8% | 12.7% |
+| (4) | 7.5% | 10.9% |
+
+**Range:** 6.3% - 8.8% (1.4× spread)
+
+### Key Finding: Critical Points are Stable to Initial Conditions
+
+| Rule | Density Range | Spread | Seed Sensitivity |
+|------|---------------|--------|------------------|
+| Life (B3/S23) | 6.3-8.8% | 1.4× | Low |
+| DB2/OS23 | 15.7-51.7% | 3.3× | Very High |
+
+**Why the difference?**
+
+Life sits at a stable critical point. Despite the "edge of chaos" label, it has a well-defined attractor. The dynamics are complex but the long-term statistics are consistent.
+
+DB2/OS23 has geometric separation (diagonal birth, orthogonal survival) creating a phase boundary. Some initial configurations fall into the sparse regime, others into the dense regime. The rule has **multiple attractors**.
+
+### Implication
+
+High seed sensitivity indicates a **phase boundary** between regimes. DB2/OS23 isn't in one regime — it spans TWO. Different initial conditions select different attractors.
+
+Life's stability suggests it's a TRUE critical point with a unique attractor, not a boundary between attractors.
+
+---
