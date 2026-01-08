@@ -292,3 +292,48 @@ Even though B2/4 (50% density requirement) is proportionally "harder" than B2/8 
 **Next:** Try von Neumann B1/S1 (extreme) and B3/S23 (direct Life port). Also search for known von Neumann automata in literature.
 
 ---
+
+## Entry 8 — von Neumann B1/S01: The Checkerboard Regime
+
+**Date:** 2026-01-08
+
+**Experiment:** von Neumann B1/S01 (birth at 1 neighbor, survive at 0-1 neighbors)
+
+**Results:**
+```
+Rule: vn-b1s01
+Neighborhood: vonNeumann (4 neighbors)
+Density: 45.7%
+Activity: 4.6%
+Periodicity: period=24
+```
+
+**Visual:** A near-perfect **checkerboard pattern** with defects and oscillations.
+
+**Snapshot:** `snapshots/meridian-20260108-102630-vn-b1s01.png`
+
+**Analysis:** This is a breakthrough! The rule produces ordered behavior in von Neumann — completely unlike the B2/S12 chaos.
+
+**Why it works:**
+In a checkerboard pattern, each cell has **0 orthogonal neighbors** (all 4 are the opposite state). This means:
+- S0 allows checkerboard cells to survive (they have 0 neighbors)
+- B1 births cells at defects where exactly 1 neighbor exists
+- The result is a self-maintaining checkerboard with edge dynamics
+
+**Key insight:** von Neumann DOES have ordered regimes — they're just fundamentally different from Moore. The checkerboard is the natural "ground state" for von Neumann because orthogonal neighbors can't touch diagonally.
+
+**Comparison:**
+
+| Rule | Neighborhood | Density | Activity | Character |
+|------|--------------|---------|----------|-----------|
+| B3/S23 (Life) | Moore | 5% | 0% | Sparse islands |
+| vn-B2/S12 | vonNeumann | 47% | 50% | Dense chaos |
+| vn-B1/S01 | vonNeumann | 46% | 5% | **Checkerboard order** |
+
+**Implication:** The von Neumann "sweet spot" is at much lower birth thresholds than Moore. B1 in von Neumann (25% neighbor requirement) produces order, while B2 in von Neumann (50%) produces chaos. This inverts my earlier hypothesis — in von Neumann, EASIER birth is more stable because it fills the checkerboard pattern.
+
+**The checkerboard principle:** In von Neumann, the stable ground state is the checkerboard (50% density, 0% activity in pure form). Rules that reinforce this pattern are ordered. Rules that disrupt it are chaotic.
+
+**Next:** Test von Neumann B1/S0 (no S1) — pure checkerboard maintenance. And B12/S01 — does adding B2 to B1 break the order?
+
+---
