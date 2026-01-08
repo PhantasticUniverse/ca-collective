@@ -1582,6 +1582,15 @@ export const ruleRegistry: Record<string, Rule> = {
     transition: generations([1], [2, 3], 3)  // B1 (17%) - testing if below optimal for hex
   } as Rule,
 
+  // H10 Test: Long transient + perpetual? (Quanta Entry 10)
+  // Testing if B3 + long decay can produce both long transients AND perpetual dynamics
+  'gen-b3s23-n10': {
+    name: "gen-b3s23-n10",
+    states: 12,  // 0=dead, 1=alive, 2-11=decay (10 decay states)
+    neighborhood: 'moore',
+    transition: generations([3], [2, 3], 10)  // Life-like birth, very long decay
+  } as Rule,
+
   // von Neumann 2-state singularity tests (Quanta Entry 9)
   // vN has 4 neighbors. B2 = 50% (critical). Testing if B2 is singular like B3 in Moore.
   'vn-b1s12': {

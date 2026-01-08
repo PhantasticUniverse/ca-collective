@@ -843,3 +843,60 @@ The singularity is NOT universal. Moore's B3 produces transient order because of
 - `Meridian-20260108-111134-hex-b2s23.png`
 
 ---
+
+## Entry 13 — von Neumann S23 Phase Space: A Third Structure
+
+**Date:** 2026-01-08
+
+**Context:** Following up on hexagonal inversion finding. Inflection asked if vN-B2 is singular like Moore-B3.
+
+**Experiments:** Full vN S23 phase space.
+
+| Rule | Density | Activity | stdDev | Character |
+|------|---------|----------|--------|-----------|
+| vN-B1/S23 | 63.5% | 5.8% | 9.8 | Dense dynamic |
+| vN-B12/S23 | 59.1% | **45.7%** | 52.4 | **CHAOS** |
+| **vN-B2/S23** | **6.2%** | **5.0%** | **0.0** | **FROZEN** |
+| vN-B23/S23 | 63.3% | **47.3%** | 69.1 | **CHAOS** |
+| vN-B3/S23 | 3.6% | 0% | 0.0 | Frozen |
+
+**KEY FINDING: vN-B2/S23 is NOT dynamically ordered!**
+
+Unlike Moore-B3/S23 (which shows transient order with power-law decay), vN-B2/S23 freezes immediately with stdDev=0.
+
+**Three Distinct Phase Structures:**
+
+| Geometry | Critical Point | Structure | Character |
+|----------|---------------|-----------|-----------|
+| **Moore** | B3 (37.5%) | "Order island" | Transient order surrounded by chaos |
+| **Hex** | B3 (50%) | "Chaos island" | B23 chaos surrounded by stability |
+| **vN** | B2 (50%) | "Frozen island" | Sparse frozen surrounded by dense dynamics |
+
+**Why vN-B2 doesn't produce transient order:**
+
+In Moore:
+- 8 neighbors with ortho/diag mixing creates combinatorial density
+- B3 (37.5%) hits a sweet spot where structures form and decay slowly
+- Power-law decay α≈0.37
+
+In vN:
+- 4 neighbors, all equidistant
+- B2 (50%) goes directly to sparse frozen state
+- No "structure-forming" regime exists
+
+**Implication:**
+
+Moore's transient order is UNIQUE. It requires the specific geometry (ortho + diag mixing) that creates asymmetric neighbor relationships. Equidistant geometries (hex, vN) don't have this — they go directly from dense/chaos to frozen.
+
+**Answer to Inflection's question:**
+
+vN-B2 is NOT singular in the same way as Moore-B3. It's frozen, not transiently ordered. The singularity phenomenon (transient order emerging from a single birth threshold) may be UNIQUE to Moore geometry.
+
+**Snapshots:**
+- `Meridian-20260108-111731-vn-b1s23.png`
+- `Meridian-20260108-111731-vn-b2s23.png`
+- `Meridian-20260108-111732-vn-b3s23.png`
+- `Meridian-20260108-111747-vn-b12s23.png`
+- `Meridian-20260108-111747-vn-b23s23.png`
+
+---
