@@ -122,6 +122,25 @@ export const b3s234: Rule = {
   transition: lifelike([3], [2, 3, 4])
 };
 
+/**
+ * B23/S23 — Birth at 2 OR 3 neighbors — Boundary Experiment
+ *
+ * Birth: 2 OR 3 neighbors (easier than B3-only, harder than B2-only)
+ * Survival: 2 or 3 neighbors (standard Life survival)
+ *
+ * This is "B2.5" in spirit — testing the boundary between chaos (B2) and order (B3).
+ * H1 predicts this will be chaotic (any B2 births create positive feedback).
+ * H2 predicts intermediate behavior (some B3 structure with B2 growth).
+ *
+ * - Inflection, Entry 1
+ */
+export const b23s23: Rule = {
+  name: "b23s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([2, 3], [2, 3])
+};
+
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
 // export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
@@ -232,11 +251,35 @@ export const b3s234: Rule = {
  * gen-b3s23-n3 = ???
  * - Tessera
  */
+// export const currentRule: Rule = {
+//   name: "gen-b3s23-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([3], [2, 3], 3)
+// };
+
+// Epoch Entry 6: Testing perpetual criticality hypothesis
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 3)
+// };
+
+// Epoch Entry 6: Life comparison run
+// export { life as currentRule };
+
+/**
+ * H11: What happens below B2? Testing B1/S23 in Generations
+ * B2 is the "dense critical point" in multi-state
+ * B1 should be even denser/more chaotic?
+ * - Tessera
+ */
 export const currentRule: Rule = {
-  name: "gen-b3s23-n3",
+  name: "gen-b1s23-n3",
   states: 5,
   neighborhood: 'moore',
-  transition: generations([3], [2, 3], 3)
+  transition: generations([1], [2, 3], 3)
 };
 
 /**
@@ -516,6 +559,54 @@ export const db2os3: Rule = {
       return diagonalAlive === 2 ? 1 : 0;
     } else {
       return orthogonalAlive === 3 ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS1 — Extreme low survival
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: exactly 1 orthogonal neighbor
+ *
+ * - Cipher, Entry 15
+ */
+export const db2os1: Rule = {
+  name: "db2os1",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive === 1 ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS4 — Extreme high survival
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: exactly 4 orthogonal neighbors (maximum)
+ *
+ * - Cipher, Entry 15
+ */
+export const db2os4: Rule = {
+  name: "db2os4",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive === 4 ? 1 : 0;
     }
   }
 };
@@ -1057,6 +1148,7 @@ export const ruleRegistry: Record<string, Rule> = {
   // Totalistic rules
   'life': life,
   'b2s23': b2s23,
+  'b23s23': b23s23,  // Inflection: boundary experiment
   'b4s23': b4s23,
   'b3s234': b3s234,
 
@@ -1074,6 +1166,8 @@ export const ruleRegistry: Record<string, Rule> = {
   'db2os12': db2os12,
   'db2os2': db2os2,
   'db2os3': db2os3,
+  'db2os1': db2os1,
+  'db2os4': db2os4,
   'db2ds23': db2ds23,
   'db3os23': db3os23,
 
@@ -1103,6 +1197,20 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 5,  // 0=dead, 1=alive, 2,3,4=decay
     neighborhood: 'moore',
     transition: generations([3], [2, 3], 3)  // B3 birth, S23 survival, N=3 decay
+  } as Rule,
+
+  // Hexagonal + Multi-state (Verge Entry 17)
+  'hex-gen-b2s23-n3': {
+    name: "hex-gen-b2s23-n3",
+    states: 5,
+    neighborhood: 'hexagonal',
+    transition: generations([2], [2, 3], 3)  // B2 birth, S23 survival, N=3 decay
+  } as Rule,
+  'hex-gen-b3s23-n3': {
+    name: "hex-gen-b3s23-n3",
+    states: 5,
+    neighborhood: 'hexagonal',
+    transition: generations([3], [2, 3], 3)  // B3 birth (critical), S23 survival, N=3 decay
   } as Rule,
 };
 

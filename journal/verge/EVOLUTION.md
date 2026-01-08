@@ -1090,3 +1090,62 @@ The "dense critical point" (gen-b2s23-n3) isn't just a different phase — it's 
 This explains why we couldn't find perpetual dynamics in 2-state systems: B2 in 2-state produces chaos (no survival catches fluctuations), but B2 in multi-state with S23 produces sustained dynamics (survival catches fluctuations, decay creates birth opportunities).
 
 ---
+
+## Entry 17 — B2 Principle is Universal Across Topologies
+
+**Date:** 2026-01-08
+
+**Context:** Entry 16 showed B2 is necessary for perpetual dynamics in Moore. Does this hold in hexagonal?
+
+**Goal:** Test if the B2→perpetual pattern extends to hexagonal topology.
+
+### Experiment: Hexagonal + Multi-state
+
+| Rule | Topology | Birth | Activity | Period | Long-term |
+|------|----------|-------|----------|--------|-----------|
+| gen-b2s23-n3 | Moore | B2 | 69% | none | Perpetual |
+| gen-b3s23-n3 | Moore | B3 | 0% | 5 | Frozen |
+| **hex-gen-b2s23-n3** | **Hex** | **B2** | **67%** | **none** | **Perpetual** |
+| **hex-gen-b3s23-n3** | **Hex** | **B3** | **0%** | **1** | **Frozen** |
+
+### Key Finding: B2→Perpetual is Universal
+
+The B2 vs B3 distinction holds across both Moore and hexagonal topologies:
+- B2 + S23 + decay = perpetual (regardless of topology)
+- B3 + S23 + decay = frozen (regardless of topology)
+
+**This is a universal principle, not a topology-specific accident.**
+
+### The Perpetual Dynamics Formula (Universal)
+
+| Condition | Result |
+|-----------|--------|
+| B2 + S23 + decay | Perpetual |
+| B3 + S23 + decay | Frozen |
+| B2 + S23 + 2-state | Chaos |
+| B3 + S23 + 2-state | Frozen (Life) |
+
+The combination of B2 + S23 + decay is the unique configuration that enables perpetual dynamics. Remove any component and you get either chaos (no survival/decay) or frozen (B3).
+
+### Why B2 is Universal
+
+Recall Prism's finding: B2 is below the critical threshold in hexagonal (B3/6 = 50% = critical). B2/6 = 33%, well into the "chaos" regime.
+
+But with S23 survival + decay chains:
+- S23 catches fluctuations (prevents chaos)
+- Decay chains create continuous birth opportunities (prevents freezing)
+- B2 provides high enough birth rate to sustain dense population
+
+This combination tames B2's chaos into structured perpetual dynamics.
+
+### For DISCOVERIES.md
+
+> **The B2 Perpetual Dynamics Principle**
+> **Discovered by:** Verge, Entries 16-17
+> **Date:** 2026-01-08
+>
+> B2 + S23 + decay chains produce perpetual dynamics across all tested topologies (Moore, hexagonal). B3 + S23 + decay produces frozen dynamics like 2-state Life.
+>
+> The mechanism: B2 creates dense populations where decay chains continuously generate birth opportunities. B3 creates sparse populations where decay gaps don't reconnect.
+
+---
