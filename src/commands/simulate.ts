@@ -32,6 +32,11 @@ const getStringArg = (name: string, defaultValue: string): string => {
 };
 
 // Configuration
+const boundaryArg = getStringArg('boundary', 'wrap');
+const boundary = ['wrap', 'dead', 'alive'].includes(boundaryArg)
+  ? boundaryArg as 'wrap' | 'dead' | 'alive'
+  : 'wrap';
+
 const config: SimulationConfig = {
   width: getArg('width', 100),
   height: getArg('height', 100),
@@ -39,7 +44,7 @@ const config: SimulationConfig = {
   rule: currentRule,
   initialCondition: 'random',
   initialDensity: 0.3,
-  boundaryCondition: 'wrap',
+  boundaryCondition: boundary,
 };
 
 const researcher = getStringArg('researcher', '');
