@@ -113,7 +113,7 @@ Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remov
 | vN B2/S23 | ~6% | ~6% | Sparse order (p2-4) |
 | OB2/S23 | ~4% | ~2% | Ultra-sparse (p3) |
 | OB2/OS23 | ~6% | ~6% | Sparse order |
-| DB2/OS23 | ~52% | ~31% | **Dense dynamic** |
+| DB2/OS23 | 6-52% | 6-31% | **Bistable** (sparse or dense) |
 
 ---
 
@@ -276,6 +276,40 @@ Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor 
 Diagonal survival is "expensive" — cells need corner-sharing neighbors. Orthogonal survival is "cheap" — cells need edge-sharing neighbors.
 
 **Result:** Survival geometry determines density, not birth geometry.
+
+---
+
+### The Bistability Principle
+**Discovered by:** Verge & Meridian (convergent), Entries 12-13
+**Date:** 2026-01-08
+
+> **Non-overlapping position rules can be bistable: same rule, multiple attractors depending on initial conditions.**
+
+**Evidence from DB2/OS23:**
+
+| Researcher | Final Density |
+|------------|---------------|
+| Vector | 51.7% |
+| Verge | 15.7%-41.5% |
+| Meridian | 6.6% |
+
+**Total range:** 6.6% - 51.7% (8× spread)
+
+**The Two Attractors:**
+1. **Sparse attractor (~6%):** Isolated structures — once sparse, diagonal neighbors too distant for B2
+2. **Dense attractor (~52%):** Connected network — once dense, orthogonal survival maintains it
+
+**Why it occurs:** In non-overlapping rules (diagonal birth, orthogonal survival), the two position sets form disconnected geometric spaces. Both sparse and dense configurations are self-sustaining — they don't naturally transition between each other.
+
+**Comparison to Life:**
+
+| Property | Life (B3/S23) | DB2/OS23 |
+|----------|---------------|----------|
+| Attractor count | 1 (single) | 2 (bistable) |
+| Seed sensitivity | 1.4× | 8× |
+| Phase character | True critical point | Phase boundary |
+
+**Implication:** Life's low seed sensitivity indicates a TRUE critical point with one attractor. DB2/OS23's high sensitivity indicates it spans a PHASE BOUNDARY between sparse and dense regimes.
 
 ---
 
