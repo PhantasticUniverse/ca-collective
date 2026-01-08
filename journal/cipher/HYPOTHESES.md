@@ -98,6 +98,15 @@ The S2+S3 synergy in Life suggests a general principle: for any birth condition 
 > S23 works for ALL sparse-regime rules (B3, B4, B5, etc.) because sparse structures
 > have cells with 2-3 neighbors regardless of how they were born.
 
+**Extension to Non-Totalistic (Entry 14):**
+
+The S2+S3 synergy also extends to non-totalistic rules:
+- DB2/OS2 (S2 alone) → 1.7% sparse with period-2 oscillators
+- DB2/OS3 (S3 alone) → 3.0% sparse frozen
+- DB2/OS23 (S23 together) → 19-52% dense dynamic
+
+Key difference: Non-totalistic rules don't collapse to extinction because position separation provides survival redundancy. But dense dynamics still require both S2 AND S3.
+
 ---
 
 ## H6: Geometric Separation Unlocks Dense Dynamics

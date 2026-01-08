@@ -1002,3 +1002,93 @@ The simple linear weighting model doesn't capture the nonlinear dynamics of neig
 The "effective neighborhood" hypothesis needs refinement. Moore's B3 at 37.5% isn't explained by diagonals being "half as important." The relationship is more complex.
 
 ---
+
+## Entry 14 — S2+S3 Synergy in Non-Totalistic Rules
+
+**Date:** 2026-01-08
+
+**Goal:** Test if the S2+S3 synergy (Entry 5 in HYPOTHESES.md) extends to non-totalistic rules.
+
+**Context:** In totalistic rules:
+- B3/S2 alone → near-extinction (0.3%)
+- B3/S3 alone → near-extinction (0.1%)
+- B3/S23 together → dynamic structures (5%)
+
+Does this synergy hold in the non-totalistic dense regime?
+
+**Experiments:**
+
+### DB2/OS2 — S2 Alone (Orthogonal)
+
+Birth: exactly 2 diagonal neighbors
+Survival: exactly 2 orthogonal neighbors (S2 only)
+
+**Results:**
+- Density: **1.7%** (sparse)
+- Activity: 4.1%
+- Period: 2 (oscillators)
+- Character: Sparse with period-2 oscillations
+
+**Note:** NOT extinction like totalistic B3/S2! The position separation allows survival even without S3.
+
+### DB2/OS3 — S3 Alone (Orthogonal)
+
+Birth: exactly 2 diagonal neighbors
+Survival: exactly 3 orthogonal neighbors (S3 only)
+
+**Results:**
+- Density: **3.0%** (sparse)
+- Activity: 6.1%
+- Period: 1 (frozen)
+- Character: Sparse frozen structures
+
+### DB2/OS23 — S23 Together (control)
+
+**Results (this run):**
+- Density: **19.0%** (sparse trajectory of bistable system)
+- Activity: 14.9%
+- Character: Dynamic, slow decay
+
+---
+
+## Entry 14 Synthesis: Synergy Extends, but Weaker
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| DB2/OS2 | S2 only | 1.7% | 4.1% | Sparse, period-2 |
+| DB2/OS3 | S3 only | 3.0% | 6.1% | Sparse, frozen |
+| DB2/OS23 | S23 | 19-52% | 15-31% | **Dense dynamic (bistable)** |
+
+**The synergy DOES extend to non-totalistic rules, but with key differences:**
+
+1. **Neither S2 nor S3 alone produces dense dynamics** — The core synergy holds.
+
+2. **Non-totalistic rules don't collapse to extinction** — Unlike totalistic B3/S2 (0.3%) and B3/S3 (0.1%), DB2/OS2 (1.7%) and DB2/OS3 (3.0%) maintain sparse but surviving populations. The position separation provides a "safety net."
+
+3. **S2 enables oscillators; S3 enables static structures** — This is consistent with totalistic findings. S2 catches downward fluctuations (cells losing a neighbor), creating oscillatory dynamics. S3 catches stable configurations.
+
+**Why non-totalistic rules don't collapse:**
+
+In totalistic rules, a cell born at B3 typically has 3 neighbors. To survive at S2, it must lose a neighbor. To survive at S3, it must keep exactly 3. Both are rare and often incompatible with the birth positions.
+
+In DB2/OS23, birth position (diagonal) is DECOUPLED from survival position (orthogonal). A cell can be born via diagonal neighbors while maintaining orthogonal neighbors independently. The survival check doesn't compete with the birth condition.
+
+**Revised synergy principle:**
+
+> **In ANY rule system, S2+S3 together span the necessary fluctuation range for dynamic structures.**
+>
+> - S2 catches downward fluctuations (neighbor loss)
+> - S3 catches stable configurations (neighbor maintenance)
+> - Together: dynamic equilibrium with oscillators and persistent structures
+>
+> In non-totalistic rules, position separation provides survival redundancy that prevents total collapse, but dense dynamics still require the full S23 range.
+
+**Connection to H6 (Geometric Separation):**
+
+The S2+S3 synergy combines with geometric separation to produce dense dynamics:
+- Geometric separation (Entry 7): Enables dense structures via forced adaptation
+- S23 synergy (this entry): Enables dynamics via fluctuation spanning
+
+Both are necessary for DB2/OS23's unique behavior.
+
+---
