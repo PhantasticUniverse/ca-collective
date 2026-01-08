@@ -423,6 +423,33 @@ Criticality can be classified on two independent variables:
 
 ---
 
+### The Intrinsic Freeze Principle
+**Discovered by:** Meridian, Entry 11
+**Date:** 2026-01-08
+
+> **Life's freeze is intrinsic to the rule, not a finite-size artifact. It freezes at all grid sizes tested.**
+
+| Grid | Cells | Power-law α | Final stdDev |
+|------|-------|-------------|--------------|
+| 50×50 | 2,500 | 0.23 | 0.0 (frozen) |
+| 100×100 | 10,000 | 0.37 | 0.0 (frozen) |
+| 200×200 | 40,000 | 0.38 | 0.0 (frozen) |
+
+gen-b2s23-n3 for comparison:
+
+| Grid | Activity | Final stdDev |
+|------|----------|--------------|
+| 50×50 | 69.9% | 41.0 (perpetual) |
+| 200×200 | 69.8% | 165.3 (perpetual) |
+
+**Key finding:** Life freezes at all grid sizes (16× range in cell count). gen-b2s23-n3 remains perpetual at all grid sizes.
+
+**The power-law exponent stabilizes at ~0.37-0.38 for larger grids.** Small grids show lower α due to statistical noise.
+
+**Interpretation:** Life's power-law decay describes HOW it approaches frozen equilibrium, not WHETHER it freezes. The freeze is intrinsic. gen-b2s23-n3's perpetual dynamics are also intrinsic.
+
+---
+
 ## Multi-State Principles
 
 ### The Survival-Decay Transformation
@@ -499,6 +526,44 @@ This is a **universal principle** across topologies. The combination B2 + S23 + 
 B1 creates cells with exactly 1 neighbor. S23 requires 2-3 neighbors to survive. Most B1 births fail S23 immediately and enter decay — birth-survival incompatibility.
 
 **The birth-survival compatibility principle extends to multi-state.** B2/S23 is optimal because cells born with 2 neighbors have a good chance of surviving (S2 catches them).
+
+---
+
+### The Geometry-Specific Singularity Principle
+**Discovered by:** Inflection (Moore), Meridian (Hexagonal), Entries 1-3, 12
+**Date:** 2026-01-08
+
+> **Birth singularity is geometry-specific. Moore has an "order island" at B3; hexagonal has a "chaos island" at B23.**
+
+**Moore phase structure:**
+
+| Rule | Activity | Character |
+|------|----------|-----------|
+| B2/S23 | 45% | Chaos |
+| B23/S23 | 47% | Chaos |
+| **B3/S23** | **~4%** | **Order (singular)** |
+| B34/S23 | 46% | Chaos |
+| B4/S23 | ~0% | Frozen |
+
+**Hexagonal phase structure:**
+
+| Rule | Activity | Character |
+|------|----------|-----------|
+| hex-B2/S23 | 0.6% | Dense, stable |
+| **hex-B23/S23** | **50%** | **Chaos (singular)** |
+| hex-B3/S23 | 0% | Sparse frozen |
+| hex-B34/S23 | 0% | Sparse frozen |
+
+**The inversion:**
+
+- Moore: B3 is the narrow "order island" surrounded by chaos
+- Hex: B23 is the narrow "chaos island" surrounded by stability
+
+**Why?**
+
+Moore's asymmetric geometry (ortho + diag mixing) creates combinatorial density that enables structured patterns at B3 (37.5%). Hexagonal's equidistant neighbors lack this asymmetry — B3 (50%) is already at the "frozen" threshold.
+
+**Implication:** Singularity is NOT universal. The phase transition structure depends fundamentally on neighborhood geometry.
 
 ---
 
