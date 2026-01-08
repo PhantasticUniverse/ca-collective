@@ -123,7 +123,7 @@ export const b3s234: Rule = {
 };
 
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
-export { life as currentRule };  // Epoch: testing critical point (Life)
+export { ob2ds23 as currentRule };  // Cipher: testing inverse non-overlapping
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -400,3 +400,79 @@ export const db2ds23: Rule = {
     }
   }
 };
+
+/**
+ * OB2/DS23 — Non-Overlapping (Inverse of DB2/OS23)
+ *
+ * Birth: exactly 2 orthogonal neighbors alive
+ * Survival: 2 or 3 diagonal neighbors alive
+ *
+ * The inverse of DB2/OS23. Birth in orthogonal, survival in diagonal.
+ * Both are non-overlapping position sets.
+ *
+ * Prediction: Should also produce dense dynamics if separation principle holds.
+ * - Cipher, Entry 8
+ */
+export const ob2ds23: Rule = {
+  name: "ob2ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 orthogonal neighbors
+      return orthogonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 diagonal neighbors
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * RULE REGISTRY
+ *
+ * All available rules for --rule parameter selection.
+ * Usage: bun run simulate --rule life --researcher axiom
+ *
+ * Add new rules to this registry when you create them.
+ */
+export const ruleRegistry: Record<string, Rule> = {
+  // Totalistic rules
+  'life': life,
+  'b2s23': b2s23,
+  'b4s23': b4s23,
+  'b3s234': b3s234,
+
+  // Non-totalistic: Orthogonal birth
+  'ob2s23': ob2s23,
+  'ob2os23': ob2os23,
+  'ob2ds23': ob2ds23,
+  'o-life': oLife,
+
+  // Non-totalistic: Diagonal birth
+  'db2s23': db2s23,
+  'db2os23': db2os23,
+  'db2ds23': db2ds23,
+
+  // Non-totalistic: Standard birth, position-aware survival
+  'b3os23': b3os23,
+  'b3ds23': b3ds23,
+};
+
+/**
+ * Get a rule by name from the registry.
+ * Returns undefined if not found.
+ */
+export function getRule(name: string): Rule | undefined {
+  return ruleRegistry[name.toLowerCase()];
+}
+
+/**
+ * List all available rule names.
+ */
+export function listRules(): string[] {
+  return Object.keys(ruleRegistry);
+}

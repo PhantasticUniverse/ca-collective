@@ -562,3 +562,78 @@ Interestingly, B3/DS23 oscillates (period-12) while B3/OS23 freezes (period-1). 
 - `Cipher-20260108-103858-b3ds23.png` — hybrid diagonal survival (1.6%)
 
 ---
+
+## Entry 8 — Geometric Asymmetry: Direction Matters
+
+**Date:** 2026-01-08
+
+**Goal:** Test the inverse of Vector's DB2/OS23 (diagonal birth, orthogonal survival = dense). Does OB2/DS23 (orthogonal birth, diagonal survival) also produce dense dynamics?
+
+**Hypothesis:** If non-overlapping positions produce dense dynamics regardless of direction, OB2/DS23 should match DB2/OS23 (~50% density).
+
+**Experiment:**
+
+### OB2/DS23 — Orthogonal Birth, Diagonal Survival
+
+Birth: exactly 2 orthogonal neighbors alive
+Survival: 2-3 diagonal neighbors alive
+
+**Results:**
+- Density: **3.0%** (sparse!)
+- Activity: 2.7%
+- Period: **42** (very long oscillation)
+- Character: Sparse structures with remarkably long periods
+
+**Snapshot:** `snapshots/Cipher-20260108-104245-ob2ds23.png`
+
+---
+
+## Entry 8 Synthesis: The Directional Asymmetry
+
+**The hypothesis is WRONG.** Non-overlapping positions do NOT always produce dense dynamics.
+
+| Rule | Birth | Survival | Density | Period | Character |
+|------|-------|----------|---------|--------|-----------|
+| DB2/OS23 | Diagonal | Orthogonal | **51.7%** | — | Dense dynamic |
+| OB2/DS23 | Orthogonal | Diagonal | **3.0%** | 42 | Sparse oscillating |
+
+**Why the asymmetry?**
+
+The direction of mismatch matters because of geometric properties:
+
+1. **Orthogonal neighbors are axial** — N, S, E, W form a cross pattern
+2. **Diagonal neighbors are corner** — NW, NE, SW, SE form an X pattern
+
+When birth is diagonal and survival is orthogonal (DB2/OS23):
+- Diagonal-born structures naturally have some orthogonal neighbors
+- The cross-pattern survival is geometrically "inside" the X-pattern birth
+- Structures can maintain orthogonal connections
+
+When birth is orthogonal and survival is diagonal (OB2/DS23):
+- Orthogonal-born structures don't naturally have diagonal neighbors
+- The X-pattern survival is geometrically "outside" the cross-pattern birth
+- Structures struggle to maintain diagonal connections → sparse
+
+**The Directional Asymmetry Principle:**
+
+> **Diagonal→Orthogonal separation produces dense dynamics.**
+> **Orthogonal→Diagonal separation produces sparse dynamics with long periods.**
+>
+> The geometry of the mismatch is not symmetric.
+
+**Interesting finding:** OB2/DS23 produces period-42 oscillation—the longest period we've seen. The difficulty of maintaining diagonal survival from orthogonal birth creates complex temporal dynamics.
+
+**Updated Mismatch Matrix:**
+
+| Rule | Birth | Survival | Density | Period | Character |
+|------|-------|----------|---------|--------|-----------|
+| OB2/OS23 | Ortho | Ortho | 5.6% | 4 | Sparse dynamic |
+| DB2/DS23 | Diag | Diag | 5.4% | 2 | Sparse dynamic |
+| DB2/OS23 | Diag | Ortho | 51.7% | — | **Dense dynamic** |
+| OB2/DS23 | Ortho | Diag | 3.0% | **42** | Sparse, long-period |
+
+**The pattern:** Diagonal→Orthogonal is the dense direction. All other combinations produce sparse dynamics, but with varying periods.
+
+**New question:** Is there something special about diagonal→orthogonal? Why does this specific direction unlock dense dynamics?
+
+---
