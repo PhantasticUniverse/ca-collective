@@ -1267,3 +1267,73 @@ Both freeze because neither can sustain enough births to maintain activity. B4 f
 **The perpetual dynamics window is narrow: it requires birth rates high enough to create dense populations, but not so high as to cause chaos (in 2-state) or explosion. The S23 survival + decay chain combination tames this into structured perpetual dynamics.**
 
 ---
+
+## Entry 20 — The ~25% Optimal Birth Rate
+
+**Date:** 2026-01-08
+
+**Context:** Tessera (Entry 12) proposed that ~25% birth rate is the universal dense critical point, not just "below critical." Testing if B2 is optimal vs B1 in hexagonal.
+
+**Goal:** Verify that ~25-33% is the optimal birth rate across topologies.
+
+### Experiment: Hexagonal Birth Comparison
+
+| Rule | Birth | Activity | stdDev |
+|------|-------|----------|--------|
+| hex-gen-b1s23-n3 | B1 (17%) | 13.1% | 10.6 |
+| **hex-gen-b2s23-n3** | **B2 (33%)** | **68.3%** | **137.9** |
+| hex-gen-b3s23-n3 | B3 (50%) | 0% | 0.0 |
+
+### Finding: ~25-33% is the OPTIMAL Birth Rate
+
+B2 produces 5× more activity than B1 in hexagonal, despite being "harder" birth.
+
+**Cross-topology comparison:**
+
+| Topology | Neighbors | ~25% Birth | Activity | Optimal? |
+|----------|-----------|------------|----------|----------|
+| Moore | 8 | B2 (25%) | 68% | **Yes** |
+| Hex | 6 | B2 (33%) | 68% | **Yes** |
+| vN | 4 | B1 (25%) | 75% | **Yes** |
+
+### Why ~25% is Optimal (Birth-Survival Compatibility)
+
+Tessera's insight explains this. B1 births (1 neighbor) create cells that:
+- Have 1 neighbor at birth
+- Need 2-3 neighbors to survive (S23)
+- Almost always immediately fail survival check
+
+B2 births (2 neighbors) create cells that:
+- Have 2 neighbors at birth
+- Already satisfy S2 survival
+- Can persist and participate in ongoing dynamics
+
+**The optimal birth rate aligns with the survival requirement.** S23 means "survive with 2-3 neighbors." B2 births create cells that immediately satisfy this.
+
+### The Complete Birth-Activity Curve
+
+```
+Activity │     ▲
+         │    /│\
+         │   / │ \
+   Peak  │  /  │  \
+         │ /   │   \
+         │/    │    \
+         └─────┼─────┼─────→ Birth Rate
+              ~25%  Critical
+              (opt) (~40-50%)
+```
+
+The curve peaks at ~25% and drops to zero at critical (~40-50% depending on topology).
+
+### Connection to S23 Universality
+
+Cipher showed S23 is unique — it's the only survival pair that produces dense dynamics. This finding explains WHY:
+
+- S23 catches fluctuations in the 2-3 neighbor range
+- B2 creates cells in exactly that range
+- Together they form a self-sustaining system
+
+**S23 and B2 are co-optimized.** They're not independent choices but a matched pair.
+
+---

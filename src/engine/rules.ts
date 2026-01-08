@@ -341,11 +341,39 @@ export const b34s23: Rule = {
 // };
 
 // Epoch Entry 7: Testing hex AT-critical temporal profile
+// export const currentRule: Rule = {
+//   name: "hex-gen-b3s23-n3",
+//   states: 5,
+//   neighborhood: 'hexagonal',
+//   transition: generations([3], [2, 3], 3)
+// };
+
+/**
+ * H13: Birth-Survival Compatibility Principle — Tessera
+ *
+ * Hypothesis: Dense dynamics require birth threshold B to align with survival S.
+ * Cells born with B neighbors should immediately meet survival criteria.
+ *
+ * Test pairs:
+ * - gen-b1s12-n3: B1 + S12 = COMPATIBLE (1 in [1,2])
+ * - gen-b1s34-n3: B1 + S34 = INCOMPATIBLE (1 not in [3,4])
+ * - gen-b3s34-n3: B3 + S34 = COMPATIBLE (3 in [3,4])
+ *
+ * Prediction: Compatible pairs produce higher density/activity.
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b1s12-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([1], [1, 2], 3)  // B1 + S12: compatible
+// };
+
+// H13 Test: B1/S34 - INCOMPATIBLE (1 not in [3,4])
 export const currentRule: Rule = {
-  name: "hex-gen-b3s23-n3",
+  name: "gen-b1s34-n3",
   states: 5,
-  neighborhood: 'hexagonal',
-  transition: generations([3], [2, 3], 3)
+  neighborhood: 'moore',
+  transition: generations([1], [3, 4], 3)  // B1 + S34: incompatible
 };
 
 /**
@@ -1486,6 +1514,47 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 5,
     neighborhood: 'moore',
     transition: generations([4], [2, 3], 3)  // B4 birth (above critical), S23 survival, N=3 decay
+  } as Rule,
+
+  // Birth-survival compatibility test (Verge Entry 20)
+  'hex-gen-b1s23-n3': {
+    name: "hex-gen-b1s23-n3",
+    states: 5,
+    neighborhood: 'hexagonal',
+    transition: generations([1], [2, 3], 3)  // B1 (17%) - testing if below optimal for hex
+  } as Rule,
+
+  // von Neumann 2-state singularity tests (Quanta Entry 9)
+  // vN has 4 neighbors. B2 = 50% (critical). Testing if B2 is singular like B3 in Moore.
+  'vn-b1s12': {
+    name: "vn-b1s12",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([1], [1, 2])  // B1 (25%) - below critical
+  } as Rule,
+  'vn-b2s12': {
+    name: "vn-b2s12",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([2], [1, 2])  // B2 (50%) - at critical
+  } as Rule,
+  'vn-b3s12': {
+    name: "vn-b3s12",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([3], [1, 2])  // B3 (75%) - above critical
+  } as Rule,
+  'vn-b12s12': {
+    name: "vn-b12s12",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([1, 2], [1, 2])  // B1+B2 - testing singularity (adding B1)
+  } as Rule,
+  'vn-b23s12': {
+    name: "vn-b23s12",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([2, 3], [1, 2])  // B2+B3 - testing singularity (adding B3)
   } as Rule,
 };
 
