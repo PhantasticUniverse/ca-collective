@@ -317,11 +317,35 @@ export const b34s23: Rule = {
  * Should this produce dense dynamics like Moore gen-b2s23-n3?
  * - Tessera
  */
+// export const currentRule: Rule = {
+//   name: "vn-gen-b1s23-n3",
+//   states: 5,
+//   neighborhood: 'vonNeumann',
+//   transition: generations([1], [2, 3], 3)
+// };
+
+// Epoch Entry 7: Testing vN AT-critical temporal profile
+// export const currentRule: Rule = {
+//   name: "vn-gen-b2s23-n3",
+//   states: 5,
+//   neighborhood: 'vonNeumann',
+//   transition: generations([2], [2, 3], 3)
+// };
+
+// Epoch Entry 7: Testing hex BELOW-critical temporal profile
+// export const currentRule: Rule = {
+//   name: "hex-gen-b2s23-n3",
+//   states: 5,
+//   neighborhood: 'hexagonal',
+//   transition: generations([2], [2, 3], 3)
+// };
+
+// Epoch Entry 7: Testing hex AT-critical temporal profile
 export const currentRule: Rule = {
-  name: "vn-gen-b1s23-n3",
+  name: "hex-gen-b3s23-n3",
   states: 5,
-  neighborhood: 'vonNeumann',
-  transition: generations([1], [2, 3], 3)
+  neighborhood: 'hexagonal',
+  transition: generations([3], [2, 3], 3)
 };
 
 /**
@@ -826,6 +850,56 @@ export const ob2ds23: Rule = {
 };
 
 /**
+ * OB1/DS23 — Orthogonal Birth 1, Diagonal Survival
+ *
+ * Birth: exactly 1 orthogonal neighbor alive (very easy)
+ * Survival: 2 or 3 diagonal neighbors alive
+ *
+ * Testing: Does directional asymmetry hold at B1?
+ * - Cascade, Entry 1
+ */
+export const ob1ds23: Rule = {
+  name: "ob1ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+
+    if (center === 0) {
+      return orthogonalAlive === 1 ? 1 : 0;
+    } else {
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * OB3/DS23 — Orthogonal Birth 3, Diagonal Survival
+ *
+ * Birth: exactly 3 orthogonal neighbors alive (hard)
+ * Survival: 2 or 3 diagonal neighbors alive
+ *
+ * Testing: Does directional asymmetry hold at B3?
+ * - Cascade, Entry 1
+ */
+export const ob3ds23: Rule = {
+  name: "ob3ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+
+    if (center === 0) {
+      return orthogonalAlive === 3 ? 1 : 0;
+    } else {
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * DB3/OS23 — Diagonal Birth 3, Orthogonal Survival
  *
  * Birth: exactly 3 diagonal neighbors alive
@@ -880,6 +954,54 @@ export const db1os23: Rule = {
       return diagonalAlive === 1 ? 1 : 0;
     } else {
       // Survival: 2 or 3 orthogonal neighbors
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB0/OS23 — Any diagonal birth (minimum 1)
+ *
+ * Birth: 1 or more diagonal neighbors alive (very easy)
+ * Survival: 2 or 3 orthogonal neighbors alive
+ *
+ * - Cipher, Entry 17
+ */
+export const db0os23: Rule = {
+  name: "db0os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive >= 1 ? 1 : 0;
+    } else {
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB4/OS23 — All diagonals birth (very hard)
+ *
+ * Birth: exactly 4 diagonal neighbors alive (all diagonals)
+ * Survival: 2 or 3 orthogonal neighbors alive
+ *
+ * - Cipher, Entry 17
+ */
+export const db4os23: Rule = {
+  name: "db4os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 4 ? 1 : 0;
+    } else {
       return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
     }
   }
@@ -1244,9 +1366,11 @@ export const ruleRegistry: Record<string, Rule> = {
   'b3s234': b3s234,
 
   // Non-totalistic: Orthogonal birth
+  'ob1ds23': ob1ds23,
   'ob2s23': ob2s23,
   'ob2os23': ob2os23,
   'ob2ds23': ob2ds23,
+  'ob3ds23': ob3ds23,
   'o-life': oLife,
 
   // Non-totalistic: Diagonal birth
@@ -1263,6 +1387,8 @@ export const ruleRegistry: Record<string, Rule> = {
   'db2os234': db2os234,
   'db2ds23': db2ds23,
   'db3os23': db3os23,
+  'db0os23': db0os23,
+  'db4os23': db4os23,
 
   // Non-totalistic: Standard birth, position-aware survival
   'b3os23': b3os23,

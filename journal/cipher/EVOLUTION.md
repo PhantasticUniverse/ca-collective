@@ -1275,3 +1275,82 @@ Cells fluctuate between having 2 and 3 orthogonal neighbors. Survival at BOTH va
 This explains why Life uses S23 and why S23 appears universal: it's not arbitrary but the ONLY survival pair that spans the critical fluctuation threshold.
 
 ---
+
+## Entry 17 — The Birth Spectrum (DB0-DB4 with OS23)
+
+**Date:** 2026-01-08
+
+**Goal:** Complete the parameter space mapping by testing the birth spectrum while holding survival constant at OS23.
+
+**Context:** Entries 14-16 mapped the survival spectrum. Now testing birth conditions.
+
+**Experiments:**
+
+### DB0/OS23 — Any Diagonal Birth
+
+Birth: 1 or more diagonal neighbors (very easy)
+Survival: 2 or 3 orthogonal neighbors
+
+**Results:**
+- Density: **73.0%** (very dense, GROWING)
+- Activity: **53.3%** (high!)
+- Character: Dense chaotic (like dense chaos)
+
+### DB4/OS23 — All Diagonals Birth
+
+Birth: exactly 4 diagonal neighbors (all diagonals, very hard)
+Survival: 2 or 3 orthogonal neighbors
+
+**Results:**
+- Density: **2.2%** (sparse)
+- Activity: **0%** (frozen)
+- Period: 1 (frozen)
+- Character: Sparse 2x2 blocks
+
+---
+
+## Entry 17 Synthesis: The Complete Birth Spectrum
+
+| Birth | Density | Activity | Character |
+|-------|---------|----------|-----------|
+| DB0 (≥1) | 73.0% | 53.3% | Dense chaotic |
+| DB1 (=1) | 52.9% | 11.3% | Dense, less structured |
+| **DB2 (=2)** | **19-52%** | **15-31%** | **Dense dynamic (bistable)** |
+| DB3 (=3) | 3.0% | 0% | Sparse frozen |
+| DB4 (=4) | 2.2% | 0% | Sparse frozen |
+
+**The birth gradient:**
+
+- **Very easy (DB0-1):** High density, high activity, chaotic growth
+- **Moderate (DB2):** Bistable, dynamic equilibrium
+- **Hard (DB3-4):** Sparse, frozen structures
+
+**Symmetry with survival spectrum:**
+
+| Parameter | Too Easy | Sweet Spot | Too Hard |
+|-----------|----------|------------|----------|
+| Survival | OS0-1 (oscillatory) | **OS23 (dynamic)** | OS3-4 (frozen) |
+| Birth | DB0-1 (chaotic) | **DB2 (dynamic)** | DB3-4 (frozen) |
+
+**The pattern:**
+
+Both birth and survival have a "sweet spot" for dynamics:
+- **OS23** spans the survival fluctuation range
+- **DB2** spans the birth fluctuation range
+
+Too easy → chaos/growth. Too hard → freeze/collapse. The sweet spot enables perpetual adaptation.
+
+**Why DB2 is special:**
+
+With 4 diagonal positions, DB2 = 50% birth probability threshold. This matches the critical point analysis from Prism and Verge: critical birth occurs at ~half the neighborhood size.
+
+- Moore totalistic: B3/8 = 37.5% (anomalously low)
+- Hex: B3/6 = 50%
+- vN: B2/4 = 50%
+- **Diagonal Moore: DB2/4 = 50%** ← matches hex/vN!
+
+**Key insight:**
+
+In non-totalistic diagonal birth, the critical point aligns with the other 50% systems. This suggests Moore's anomalous 37.5% critical point is a consequence of totalistic counting mixing orthogonal and diagonal positions, not an intrinsic property of 8-neighbor geometry.
+
+---
