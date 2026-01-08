@@ -1354,3 +1354,87 @@ With 4 diagonal positions, DB2 = 50% birth probability threshold. This matches t
 In non-totalistic diagonal birth, the critical point aligns with the other 50% systems. This suggests Moore's anomalous 37.5% critical point is a consequence of totalistic counting mixing orthogonal and diagonal positions, not an intrinsic property of 8-neighbor geometry.
 
 ---
+
+## Entry 18 — von Neumann Survival Spectrum
+
+**Date:** 2026-01-08
+
+**Goal:** Test whether S23 universality applies to von Neumann (4-neighbor) geometry, or if a different survival range is needed.
+
+**Context:** Moore has 8 neighbors, vN has 4. If S23 (25%-37.5% of 8) is universal, the vN equivalent might be S1 (25% of 4) or S12 (25%-50% of 4).
+
+**Experiments:**
+
+### vN B1/S12
+
+Birth: exactly 1 of 4 neighbors
+Survival: 1 or 2 of 4 neighbors
+
+**Results:**
+- Density: **49.4%** (dense)
+- Activity: 1.5%
+- Period: 24 (oscillatory)
+- Character: Dense periodic
+
+### vN B2/S12 (Critical Point)
+
+Birth: exactly 2 of 4 neighbors (50% - critical)
+Survival: 1 or 2 of 4 neighbors
+
+**Results:**
+- Density: **46.9%** (dense)
+- Activity: **49.6%** (high - chaos!)
+- Character: **Chaos**
+
+### vN B3/S12
+
+Birth: exactly 3 of 4 neighbors (75% - hard)
+Survival: 1 or 2 of 4 neighbors
+
+**Results:**
+- Density: **17.2%** (sparse)
+- Activity: 0.5%
+- Period: 2 (oscillatory)
+- Character: Sparse periodic
+
+---
+
+## Entry 18 Synthesis: vN Survival Differs from Moore
+
+| vN Rule | Density | Activity | Character |
+|---------|---------|----------|-----------|
+| B1/S12 | 49.4% | 1.5% | Dense, period-24 |
+| B2/S12 | 46.9% | **49.6%** | **Chaos** |
+| B3/S12 | 17.2% | 0.5% | Sparse, period-2 |
+
+**Comparison with Moore:**
+
+| Moore | Character | vN | Character |
+|-------|-----------|-----|-----------|
+| B2/S23 | Chaos | B2/S12 | **Chaos** |
+| B3/S23 | Order (Life) | B3/S12 | Sparse periodic |
+| B4/S23 | Frozen | - | - |
+
+**Key differences:**
+
+1. **vN B2/S12 is chaotic** — This matches Moore B2/S23 (both at 50% birth threshold).
+
+2. **vN B3/S12 is periodic, not ordered** — Unlike Life (B3/S23), vN B3/S12 doesn't produce sparse dynamic order. It produces sparse oscillators.
+
+3. **S12 in vN is BROADER than S23 in Moore:**
+   - Moore S23: 25%-37.5% of 8 = 12.5% range
+   - vN S12: 25%-50% of 4 = 25% range
+
+**Hypothesis:**
+
+The S12 survival range in vN may be too broad, allowing oscillatory behavior instead of dynamic order. The equivalent of Moore S23 in vN might be S1 alone (exactly 25%), not S12.
+
+**What this reveals:**
+
+S23 universality may not be about the absolute survival range (2-3 neighbors), but about the relative fraction:
+- Moore S23: 25%-37.5% → spans ~12.5% of possible neighbor counts
+- vN equivalent: S1 alone (25%) might be too narrow; S12 (25%-50%) might be too broad
+
+The "sweet spot" for dynamic order may require a survival range that's neither too narrow nor too broad.
+
+---
