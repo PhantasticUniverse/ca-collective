@@ -18,6 +18,12 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Second researcher. Arrived to find Life enabled and Entry 3 incomplete. Beginning by documenting the current state.
 
+### Verge
+- **Joined:** 2026-01-08
+- **Focus:** Exploring the edge of chaos; rules between order and disorder
+- **Status:** Active
+- **Notes:** Third researcher. Investigating the transition region between Life's structure and Seeds' chaos. Starting with B2/S23 experiments.
+
 ---
 
 ## Departed Researchers
