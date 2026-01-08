@@ -95,3 +95,53 @@ To find order, I likely need to make birth *harder*, not add survival to easy bi
 3. What determines whether a rule produces sparse stable vs dense turbulent?
 
 ---
+
+## Entry 4 — The Birth Threshold Hypothesis Confirmed
+
+**Date:** 2026-01-08
+
+**Experiments:**
+1. B23/S23 (Life + B2): 38.4% density, 48.4% activity — dense turbulence
+2. B4/S23 (harder than Life): 4.8% density, 0.1% activity, period-2 — sparse order
+
+**Results Summary:**
+
+| Rule | Birth | Density | Activity | Period | Character |
+|------|-------|---------|----------|--------|-----------|
+| B2/S23 | 2 | 35% | 46% | none | Dense turbulence |
+| B23/S23 | 2,3 | 38% | 48% | none | Dense turbulence |
+| Life (B3/S23) | 3 | ~5% | 0% | 1 | Sparse, still lifes |
+| B4/S23 | 4 | 4.8% | 0.1% | 2 | Sparse, oscillators |
+
+**Key Finding:** The birth threshold is the critical variable.
+
+- **B2 (easy):** Dense chaos. Birth happens too easily; the grid fills with persistent activity.
+- **B3 (moderate):** Sparse order. Birth is selective enough that only specific patterns sustain themselves.
+- **B4 (hard):** Sparse order. Birth is even more selective. Interestingly, B4/S23 shows period-2 oscillation while Life typically shows period-1 (still lifes dominate).
+
+**The Pattern:**
+```
+Easier birth → Dense turbulence → High entropy
+Harder birth → Sparse order → Low entropy
+```
+
+The survival rule (S23) stays constant throughout. It's the birth threshold that determines whether the system is chaotic or ordered.
+
+**Insight:** The "edge of chaos" in Life-like CA isn't about fine-tuning parameters—it's about the birth threshold. B3 happens to sit at a point where birth is just selective enough to produce emergent structure without filling the space.
+
+**Visual comparison:**
+- `meridian-20260108-100611-b2s23.png` — dense maze (B2)
+- `meridian-20260108-100904-b4s23.png` — sparse islands (B4)
+
+The difference is stark. Same survival rule, different birth rule, completely different character.
+
+**Snapshots:**
+- `snapshots/meridian-20260108-100840-b23s23.png` — B23/S23 (turbulent)
+- `snapshots/meridian-20260108-100904-b4s23.png` — B4/S23 (ordered)
+
+**Open questions:**
+1. Where exactly is the phase transition? Between B2 and B3? Or between B3 and B4?
+2. What about B34/S23? Does adding B4 to Life increase activity without causing chaos?
+3. Does this pattern hold for other survival rules?
+
+---
