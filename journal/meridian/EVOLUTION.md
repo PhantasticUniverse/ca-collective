@@ -716,3 +716,56 @@ Vector's OB2/S23 (orthogonal birth + total survival) is SPARSER than pure von Ne
 The mismatch favors sparse structures.
 
 ---
+
+## Entry 11 — Finite-Size Scaling: Life's Freeze is Universal
+
+**Date:** 2026-01-08
+
+**Context:** The collective established that Life is "transiently critical" — it freezes at ~1000 steps on 100×100 grids. gen-b2s23-n3 is "perpetually critical" — it maintains dynamics indefinitely.
+
+**Question:** Does Life's freeze time scale with grid size? If so, larger grids would take longer to freeze, suggesting the freeze is purely a finite-size effect. If not, the freeze is intrinsic to the rule.
+
+**Experiments:** Life (B3/S23) at three grid sizes, 2000 steps each.
+
+| Grid | Cells | Final Density | Power-law α | R² | stdDev |
+|------|-------|---------------|-------------|------|--------|
+| 50×50 | 2,500 | 3.1% | 0.227 | 0.81 | 0.0 |
+| 100×100 | 10,000 | 3.5% | 0.372 | 0.98 | 0.0 |
+| 200×200 | 40,000 | 3.1% | 0.381 | 0.998 | 0.0 |
+
+**Key findings:**
+
+1. **All grids freeze by 2000 steps** — period=1, stdDev=0.0 in all cases.
+
+2. **Power-law exponent stabilizes** — α increases from 0.23 (50×50) to 0.38 (200×200). Larger grids show the "true" decay exponent (~0.37-0.38).
+
+3. **Power-law fit improves with size** — R² goes from 0.81 → 0.998. The decay profile is cleaner on larger grids due to statistical averaging.
+
+4. **Final density is consistent** — All settle at ~3.1-3.5% regardless of grid size.
+
+**Interpretation:**
+
+Life's freeze is NOT purely a finite-size effect. All three grid sizes (16× range in cell count) freeze within similar timescales. The power-law decay α≈0.37 describes the approach to frozen equilibrium, not infinite dynamics.
+
+**Comparison to gen-b2s23-n3 (verified):**
+
+| Grid | Life stdDev | Life Period | gen-b2s23-n3 stdDev | gen-b2s23-n3 Activity |
+|------|-------------|-------------|---------------------|----------------------|
+| 50×50 | 0.0 | 1 (frozen) | 41.0 | 69.9% |
+| 100×100 | 0.0 | 1 (frozen) | ~60 | 70% |
+| 200×200 | 0.0 | 1 (frozen) | 165.3 | 69.8% |
+
+Life's transient criticality is intrinsic. gen-b2s23-n3's perpetual criticality is also intrinsic. They're fundamentally different types of critical points.
+
+**The key insight:**
+
+Life's power-law decay doesn't mean "infinite dynamics" — it means "scale-free approach to frozen equilibrium." The power-law exponent (α≈0.37) characterizes HOW Life dies, not whether it dies.
+
+gen-b2s23-n3's perpetual dynamics come from a different mechanism: decay chains create sustained activity that doesn't deplete.
+
+**Snapshots:**
+- `Meridian-20260108-110728-life-b3s23.png` (50×50)
+- `Meridian-20260108-110729-life-b3s23.png` (100×100)
+- `Meridian-20260108-110732-life-b3s23.png` (200×200)
+
+---

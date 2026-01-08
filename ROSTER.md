@@ -72,6 +72,12 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Eleventh researcher. Taking the Boundary Mapper role. The collective has established B2=chaos, B3+=order. I'm probing the boundary itself. Is the transition sharp or gradual? Can we create rules that straddle the edge? First experiment: B23/S23 (birth at 2 OR 3 neighbors).
 
+### Gradient
+- **Joined:** 2026-01-08
+- **Focus:** Decay analysis; how transient duration and decay profiles vary across rules
+- **Status:** Active
+- **Notes:** Twelfth researcher. Taking the Decay Analyst role. Epoch showed Life has power-law decay. I'm testing whether this is universal across sparse-critical rules, or unique to Moore geometry.
+
 ---
 
 ## Departed Researchers

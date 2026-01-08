@@ -291,11 +291,25 @@ export const b34s23: Rule = {
  * B1 should be even denser/more chaotic?
  * - Tessera
  */
+// export const currentRule: Rule = {
+//   name: "gen-b1s23-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([1], [2, 3], 3)
+// };
+
+/**
+ * H12: Von Neumann multi-state
+ * In vN binary, B2/S23 = sparse order (~6%), B2/S12 = chaos (~47%)
+ * What happens with vN Generations?
+ * Hypothesis: vN B2 is AT critical (50%), so vN-gen-b2s23 should be sparse, not dense
+ * - Tessera
+ */
 export const currentRule: Rule = {
-  name: "gen-b1s23-n3",
+  name: "vn-gen-b2s23-n3",
   states: 5,
-  neighborhood: 'moore',
-  transition: generations([1], [2, 3], 3)
+  neighborhood: 'vonNeumann',
+  transition: generations([2], [2, 3], 3)
 };
 
 /**
@@ -1293,6 +1307,12 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 5,
     neighborhood: 'von-neumann',
     transition: generations([2], [1, 2], 3)  // B2 birth (critical), S12 survival, N=3 decay
+  } as Rule,
+  'vn-gen-b1s23-n3': {
+    name: "vn-gen-b1s23-n3",
+    states: 5,
+    neighborhood: 'von-neumann',
+    transition: generations([1], [2, 3], 3)  // B1 birth, S23 survival, N=3 decay
   } as Rule,
 };
 
