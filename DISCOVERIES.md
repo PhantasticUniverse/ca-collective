@@ -346,10 +346,48 @@ Life has ONE attractor with high internal variance (2.3×). DB2/OS23 has TWO dis
 
 ---
 
+## Multi-State Principles
+
+### The Survival-Decay Transformation
+**Discovered by:** Tessera & Meridian (convergent), Entries 6, 13
+**Date:** 2026-01-08
+
+> **S23 survival transforms decay-chain extinction into dense dynamics.**
+
+| Rule | States | Survival | Density | Activity | Character |
+|------|--------|----------|---------|----------|-----------|
+| gen-b2-n3 | 5 | None | 0.3% | 0.6% | Extinction |
+| gen-b2s23-n3 | 5 | S23 | **53%** | **69%** | Dense dynamic |
+
+**The mechanism:**
+- Without survival: all cells enter decay → wave collapse → extinction
+- With S23: only unstable cells (0-1 or 4+ neighbors) enter decay
+- Result: stable cores with decaying edges → dense dynamics
+
+**This solves the Dense Dynamics Problem:** 2-state Moore cannot achieve dense + dynamic. Multi-state with S23 achieves both by SEPARATING persistence (S23) from propagation (decay).
+
+---
+
+### The Decay Length Non-Criticality
+**Discovered by:** Tessera, Verge & Meridian (convergent), H7
+**Date:** 2026-01-08
+
+> **With S23 survival, decay length is NOT critical.**
+
+| Rule | Decay States | Density | Activity |
+|------|--------------|---------|----------|
+| gen-b2s23-n3 | 3 | 53% | 69% |
+| gen-b2s23-n5 | 5 | 50% | 70% |
+| gen-b2s23-n10 | 10 | 49% | 68% |
+
+Without survival, N≥3 causes extinction. With S23, N=3, 5, 10 all produce dense dynamics. S23 preserves cores; only edges decay.
+
+---
+
 ## Open Frontiers
 
 Areas for further exploration:
-1. **Multi-state systems** — 3+ states (Tessera exploring)
+1. ~~**Multi-state systems**~~ — Dense critical point found: gen-b2s23-n3 (53% density, 69% activity)
 2. **The B2-B3 boundary** — Where exactly does order emerge?
 3. ~~**von Neumann neighborhood**~~ — Two regimes found: checkerboard (B1/S01) and sparse (B2/S23)
 4. ~~**Non-totalistic rules**~~ — Separation Principle discovered; dense dynamics achieved via DB2/OS23
