@@ -1214,3 +1214,56 @@ To achieve perpetual dynamics, you need:
 Life can never be perpetual in 2-state form. The critical threshold that makes it interesting also limits its long-term dynamics.
 
 ---
+
+## Entry 19 — The Complete Birth Spectrum in Multi-state
+
+**Date:** 2026-01-08
+
+**Context:** Entry 18 showed that below-critical birth produces perpetual dynamics while at-critical produces frozen. What about ABOVE-critical?
+
+**Goal:** Complete the birth spectrum in multi-state systems.
+
+### Experiment: gen-b4s23-n3 (Above Critical)
+
+| Birth | Relative to Critical | Density | Activity | Long-term |
+|-------|---------------------|---------|----------|-----------|
+| B2 | Below (25%) | 53% | 69% | **Perpetual** |
+| B3 | At (37.5%) | 3% | 0% | Frozen |
+| **B4** | **Above (50%)** | **4%** | **0%** | **Frozen** |
+
+### Finding: ONLY Below-Critical Produces Perpetual Dynamics
+
+Both at-critical and above-critical produce frozen dynamics. The perpetual regime exists exclusively below the critical threshold.
+
+### The Complete Multi-state Phase Diagram
+
+```
+                    PERPETUAL          FROZEN
+                       │                  │
+Birth threshold:  ─────┼──────────────────┼─────
+                       │                  │
+                    B2 │  B3 (critical)   │ B4+
+                  (25%) │    (37.5%)      │(50%+)
+```
+
+**The asymmetry:** The perpetual regime is BELOW critical, not centered on it. This makes sense: perpetual dynamics require high birth rates to sustain activity. At or above critical, birth is too difficult to maintain the dense populations needed for continuous edge generation.
+
+### Why Above-Critical Freezes Like At-Critical
+
+At B3 (critical): Birth rate is exactly balanced with death rate for sparse structures. Structures are self-limiting.
+
+At B4 (above critical): Birth rate is LOWER than critical. Even fewer births → even sparser structures → faster freeze.
+
+Both freeze because neither can sustain enough births to maintain activity. B4 freezes faster than B3.
+
+### The Final Universal Picture
+
+| Regime | Birth Rate | Equilibrium | Mechanism |
+|--------|------------|-------------|-----------|
+| Below critical | High | **Perpetual** | Dense population sustains continuous activity |
+| At critical | Balanced | Frozen | Sparse structures exhaust themselves |
+| Above critical | Low | Frozen | Very sparse, rapid exhaustion |
+
+**The perpetual dynamics window is narrow: it requires birth rates high enough to create dense populations, but not so high as to cause chaos (in 2-state) or explosion. The S23 survival + decay chain combination tames this into structured perpetual dynamics.**
+
+---

@@ -1282,6 +1282,33 @@ export const ruleRegistry: Record<string, Rule> = {
   'hex-b4s23': hexB4S23,
   'hex-b2s12': hexB2S12,
   'hex-b2s234': hexB2S234,
+  // Hexagonal singularity tests (Quanta)
+  'hex-b23s23': {
+    name: "hex-b23s23",
+    states: 2,
+    neighborhood: 'hexagonal',
+    transition: (center: number, neighbors: number[]) => {
+      const alive = neighbors.filter(n => n > 0).length;
+      if (center === 0) {
+        return (alive === 2 || alive === 3) ? 1 : 0;  // B23
+      } else {
+        return (alive === 2 || alive === 3) ? 1 : 0;  // S23
+      }
+    }
+  } as Rule,
+  'hex-b34s23': {
+    name: "hex-b34s23",
+    states: 2,
+    neighborhood: 'hexagonal',
+    transition: (center: number, neighbors: number[]) => {
+      const alive = neighbors.filter(n => n > 0).length;
+      if (center === 0) {
+        return (alive === 3 || alive === 4) ? 1 : 0;  // B34
+      } else {
+        return (alive === 2 || alive === 3) ? 1 : 0;  // S23
+      }
+    }
+  } as Rule,
 
   // Multi-state (Generations) rules
   'gen-b2s23-n3': genB2S23N3,
@@ -1325,6 +1352,14 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 5,
     neighborhood: 'von-neumann',
     transition: generations([1], [2, 3], 3)  // B1 birth, S23 survival, N=3 decay
+  } as Rule,
+
+  // Above-critical birth test (Verge Entry 19)
+  'gen-b4s23-n3': {
+    name: "gen-b4s23-n3",
+    states: 5,
+    neighborhood: 'moore',
+    transition: generations([4], [2, 3], 3)  // B4 birth (above critical), S23 survival, N=3 decay
   } as Rule,
 };
 
