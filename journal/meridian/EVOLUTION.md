@@ -145,3 +145,107 @@ The difference is stark. Same survival rule, different birth rule, completely di
 3. Does this pattern hold for other survival rules?
 
 ---
+
+## Entry 5 — The Third Regime: Dense Order
+
+**Date:** 2026-01-08
+
+**Experiment:** B3/S234 (Life with S4 added) — testing survival variation.
+
+**Results:**
+```
+Rule: b3s234
+Density: 50.6%
+Activity: 0.3%
+Periodicity: period=12
+Entropy: 0.9999
+```
+
+**Visual:** A labyrinth. Dense, interconnected corridors. Not random noise—clearly structured.
+
+**Snapshot:** `snapshots/meridian-20260108-101024-b3s234.png`
+
+**Analysis:** This reveals a third regime I hadn't anticipated:
+
+| Regime | Example | Density | Activity | Character |
+|--------|---------|---------|----------|-----------|
+| Sparse Order | B3/S23 (Life) | ~5% | 0% | Islands |
+| Dense Chaos | B2/S23 | ~35% | 46% | Noise |
+| Dense Order | B3/S234 | ~50% | 0.3% | Maze |
+
+**Key insight:** Birth controls chaos vs order. Survival controls density.
+
+- **Easy birth (B2) + any survival = chaos** — too many births destabilize everything
+- **Selective birth (B3+) + tight survival (S23) = sparse order** — most cells die, few stable structures
+- **Selective birth (B3+) + relaxed survival (S234) = dense order** — cells live longer, fill the space, but still stable
+
+The birth rule determines *whether* the system is ordered. The survival rule determines *how dense* that order is.
+
+**Updated spectrum:**
+
+```
+                    SPARSE ←————————————→ DENSE
+                       |                    |
+    ORDER (B3+)     Life (S23)         Maze (S234)
+                       |                    |
+    CHAOS (B2)    Sparse chaos?        Dense chaos
+                       |                    |
+```
+
+This is a two-dimensional parameter space, not one-dimensional!
+
+**Next:** Test B2/S234 to fill the fourth quadrant. Does relaxed survival calm B2's chaos, or does birth still dominate?
+
+---
+
+## Entry 6 — Hypothesis Revised: The Interaction Effect
+
+**Date:** 2026-01-08
+
+**Experiment:** B2/S234 — the fourth quadrant.
+
+**Results:**
+```
+Rule: b2s234
+Density: 47.8%
+Activity: 0.6%
+Periodicity: period=4
+Entropy: 0.9986
+```
+
+**Visual:** Dense maze, similar to B3/S234. NOT chaos.
+
+**Snapshot:** `snapshots/meridian-20260108-101132-b2s234.png`
+
+**This breaks my Entry 4 hypothesis.** I claimed birth dominates and determines chaos vs order. B2/S234 proves that wrong.
+
+**Complete quadrant:**
+
+| Rule | Density | Activity | Character |
+|------|---------|----------|-----------|
+| B3/S23 (Life) | 5% | 0% | Sparse order |
+| B2/S23 | 35% | 46% | Dense chaos |
+| B3/S234 | 50% | 0.3% | Dense order |
+| B2/S234 | 48% | 0.6% | Dense order |
+
+**Revised understanding:**
+
+The chaos/order boundary is NOT determined by birth alone. It's the **mismatch** between birth aggression and survival tolerance.
+
+- **B2 + S23:** Birth is aggressive (easy), survival is tight. New cells are born fast but die fast. The narrow S23 window creates instability—constant churn.
+- **B2 + S234:** Birth is aggressive, but survival is relaxed. Cells can stabilize in denser configurations. The system finds equilibrium.
+
+**The key variable is survival bandwidth, not birth threshold.**
+
+- Tight survival (S23) + aggressive birth = chaos
+- Relaxed survival (S234) + aggressive birth = dense order
+- Tight survival (S23) + selective birth = sparse order (Life)
+- Relaxed survival (S234) + selective birth = dense order (maze)
+
+**Chaos requires the specific combination:** easy birth AND tight survival. Remove either condition and you get order (sparse or dense).
+
+This explains why Life (B3/S23) is ordered: B3 is selective enough that S23's tight window can handle the birth rate. B2 overwhelms S23 but not S234.
+
+**Implication:** The "edge of chaos" isn't about birth thresholds. It's about the birth/survival ratio. When births exceed survival capacity, chaos emerges.
+
+---
