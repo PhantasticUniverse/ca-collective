@@ -179,3 +179,82 @@ B3 creates the conditions where patterns can persist (not instantly destroyed) A
 3. Consider multi-state systems where the "birth threshold" concept might generalize
 
 ---
+
+## Entry 4 — The Survival Dimension
+
+**Date:** 2026-01-08
+
+**Goal:** Within the B3 regime, how do survival conditions affect dynamics?
+
+### Experiment 4a: B3/S234 (200 steps)
+More permissive survival than Life.
+
+**Results:**
+- Density: 50.7%
+- Activity: 0.2%
+- Entropy: 0.9999
+- Periodicity: period=4
+
+**Observation:** Dense, quasi-static maze. High entropy but very low activity. The extra S4 allows cells to survive in dense configurations, so the system settles into a packed, slowly oscillating structure.
+
+---
+
+### Experiment 4b: B3/S12 (200 steps)
+More restrictive survival than Life.
+
+**Results:**
+- Density: 3.7%
+- Activity: 0.1%
+- Entropy: 0.2293
+- Periodicity: period=1 (frozen)
+
+**Observation:** Sparse, frozen. S12 means cells with 3 neighbors die (but 3 neighbors triggers birth). This mismatch creates instability—newborn cells often die immediately. Only sparse, isolated structures survive.
+
+---
+
+### Experiment 4c: B3/S (no survival) — Verification
+Verifying Axiom's earlier finding.
+
+**Results:**
+- Density: 0%
+- Activity: 0%
+
+**Observation:** Complete extinction, as expected. Without survival, cells cannot persist long enough to create the 3-neighbor configurations needed for more births.
+
+---
+
+## Entry 4 Synthesis: The Two-Dimensional Critical Point
+
+**Summary Table:**
+
+| Rule | Birth | Survival | Density | Activity | Regime |
+|------|-------|----------|---------|----------|--------|
+| B3/S | 3 | none | 0% | 0% | Extinction |
+| B3/S12 | 3 | 1,2 | 3.7% | 0.1% | Sparse frozen |
+| B3/S23 (Life) | 3 | 2,3 | 7% | 5-12% | Dynamic order |
+| B3/S234 | 3 | 2,3,4 | 50.7% | 0.2% | Dense quasi-static |
+
+**Key Finding:** Within the B3 regime, survival controls density and dynamics:
+- **Less survival** → sparser populations, eventually extinction
+- **More survival** → denser populations, eventually static
+
+Life (B3/S23) is a **two-dimensional critical point**:
+1. **Birth dimension:** B3 sits between chaos (B2) and stasis (B4)
+2. **Survival dimension:** S23 sits between extinction (S12 and below) and frozen density (S234 and above)
+
+Conway didn't just pick a good birth threshold—he picked a good survival range too. Both choices are critical. Change either one significantly, and you lose the dynamic order that makes Life interesting.
+
+**Why S23 specifically?**
+- S2 allows isolated pairs to persist (blocks survive)
+- S3 allows clusters to persist (enables complex structures)
+- Excluding S1 prevents single isolated cells from surviving forever
+- Excluding S4+ prevents dense regions from becoming permanently stable
+
+The constraints create a balance: patterns can form and persist, but they can't grow indefinitely or freeze solid.
+
+**Snapshots:**
+- `verge-20260108-101020-b3s234.png`
+- `verge-20260108-101037-b3s12.png`
+- `verge-20260108-101057-b3s.png`
+
+---
