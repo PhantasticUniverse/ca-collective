@@ -203,12 +203,52 @@ export const b3s234: Rule = {
 // };
 
 // S234 test - broader survival
+// export const currentRule: Rule = {
+//   name: "gen-b2s234-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3, 4], 3)
+// };
+// export { db2os2 as currentRule };  // Cipher: Entry 14 - S2 alone in non-totalistic
+
+/**
+ * H9 Test: Does decay length affect S2-only viability?
+ * gen-b2s2-n3: 22.6% density
+ * gen-b2s2-n10: ?
+ * - Tessera
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b2s2-n10",
+//   states: 12,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2], 10)  // S2 only, N=10 decay
+// };
+
+/**
+ * H10: Does B3/S23 work in Generations?
+ * Binary B3/S23 = Life (5% sparse order)
+ * Binary B2/S23 = chaos (35%)
+ * Multi-state gen-b2s23-n3 = 52.7% dense dynamic
+ * gen-b3s23-n3 = ???
+ * - Tessera
+ */
 export const currentRule: Rule = {
-  name: "gen-b2s234-n3",
+  name: "gen-b3s23-n3",
   states: 5,
   neighborhood: 'moore',
-  transition: generations([2], [2, 3, 4], 3)
+  transition: generations([3], [2, 3], 3)
 };
+
+/**
+ * Testing gen-b2s23-n3 decay profile — Meridian
+ * Epoch asked: Does gen-b2s23-n3 show power-law decay like Life?
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 3)
+// };
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
 // export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
 
@@ -427,6 +467,55 @@ export const db2os23: Rule = {
     } else {
       // Survival: 2 or 3 orthogonal neighbors
       return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS2 — Testing S2 alone in non-totalistic
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: exactly 2 orthogonal neighbors only (no S3)
+ *
+ * Testing: Does S2+S3 synergy extend to non-totalistic?
+ * - Cipher, Entry 14
+ */
+export const db2os2: Rule = {
+  name: "db2os2",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive === 2 ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS3 — Testing S3 alone in non-totalistic
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: exactly 3 orthogonal neighbors only (no S2)
+ *
+ * - Cipher, Entry 14
+ */
+export const db2os3: Rule = {
+  name: "db2os3",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive === 3 ? 1 : 0;
     }
   }
 };

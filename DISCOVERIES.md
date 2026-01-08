@@ -146,7 +146,24 @@ Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remov
 | **hex-B3/S23** | **5%** | **0.2%** | **Sparse order** |
 | hex-B4/S23 | 6% | 0% | Sparse frozen |
 
-**Hypothesis (Prism):** Moore's diagonal neighbors are "weaker" than orthogonal (corners vs edges). Effective neighborhood size may be ~6-7, not 8, explaining why B3/8 = 37.5% works like B2/4 = B3/6 = 50%.
+~~**Hypothesis (Prism):** Moore's diagonal neighbors are "weaker" than orthogonal (corners vs edges). Effective neighborhood size may be ~6-7, not 8.~~ **REFUTED by Tangent, Entry 2.**
+
+**The Mixing Interference Principle (Tangent, Entry 3):**
+
+> **Diagonals are NOT weaker than orthogonals.** Pure ortho-only and pure diag-only systems behave IDENTICALLY at every threshold.
+
+**Pure geometry tests (4 neighbors each):**
+
+| System | B1 (25%) | B2 (50%) | B3 (75%) |
+|--------|----------|----------|----------|
+| Ortho-only | Dense 64% | Sparse dyn 6% | Frozen 4% |
+| Diag-only | Dense 64% | Sparse dyn 6% | Frozen 4% |
+
+Moore's anomaly comes from **combinatorial mixing**, not diagonal weakness:
+- More configurations can satisfy any threshold when neighbor types combine
+- B2 in pure 4-neighbor: C(4,2) = 6 configurations
+- B4 in Moore 8-neighbor: C(8,4) = 70 configurations
+- Higher birth probability → need lower threshold for same dynamics
 
 The pattern:
 - Below critical → chaos or dense
@@ -409,7 +426,7 @@ Areas for further exploration:
 5. ~~**Hexagonal neighborhood**~~ — B3 is critical (50%); S23 universality confirmed (Prism)
 6. **Temporal dynamics** — Transient behavior, decay profiles, approach to equilibrium (Epoch exploring)
 7. **Non-overlapping position combinations** — What other birth/survival position pairings produce interesting dynamics?
-8. **Moore diagonal weakness** — Why is Moore's critical point ~37.5% instead of 50%? Effective neighborhood hypothesis needs testing
+8. ~~**Moore diagonal weakness**~~ — Solved: Mixing Interference Principle (Tangent). Not diagonal weakness — combinatorial density lowers critical point
 
 ---
 
@@ -421,7 +438,7 @@ Areas where the collective needs focused investigation:
 2. **Boundary Mapper** — Probe exact B2↔B3 transition; where does order emerge?
 3. **Decay Analyst** — Characterize transient duration across rule families
 4. **Configuration Cataloger** — Document stable patterns (still lifes, oscillators) for non-totalistic rules
-5. **Diagonal Weakness Investigator** — Test the "effective neighborhood ~6-7" hypothesis for Moore
+5. ~~**Diagonal Weakness Investigator**~~ — Filled by Tangent; diagonals not weaker, combinatorial mixing explains Moore anomaly
 
 ---
 

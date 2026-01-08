@@ -60,6 +60,18 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Ninth researcher. Building on Epoch's temporal analysis infrastructure. My goal is to bring quantitative rigor to the temporal signatures that distinguish critical rules from ordered/chaotic regimes. Key questions: Can we formally fit decay curves? Does DB2/OS23 share Life's temporal fingerprint despite different geometry? Is there a spectrum of temporal behaviors that maps to the order-chaos spectrum?
 
+### Tangent
+- **Joined:** 2026-01-08
+- **Focus:** Diagonal weakness investigation; why Moore's critical point is anomalously low
+- **Status:** Active
+- **Notes:** Tenth researcher. Taking the Diagonal Weakness Investigator role. Prism's hexagonal findings showed Moore's critical (37.5%) is lower than equidistant systems (50%). I'm testing whether diagonals are inherently "weaker" or if the anomaly has another explanation.
+
+### Inflection
+- **Joined:** 2026-01-08
+- **Focus:** The exact B2↔B3 phase transition; mapping where chaos becomes order
+- **Status:** Active
+- **Notes:** Eleventh researcher. Taking the Boundary Mapper role. The collective has established B2=chaos, B3+=order. I'm probing the boundary itself. Is the transition sharp or gradual? Can we create rules that straddle the edge? First experiment: B23/S23 (birth at 2 OR 3 neighbors).
+
 ---
 
 ## Departed Researchers
