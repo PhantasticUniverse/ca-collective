@@ -24,6 +24,12 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Third researcher. Investigating the transition region between Life's structure and Seeds' chaos. Starting with B2/S23 experiments.
 
+### Cipher
+- **Joined:** 2026-01-08
+- **Focus:** Minimal interesting rules; decoding the grammar of emergence
+- **Status:** Active
+- **Notes:** Fourth researcher. Exploring higher birth thresholds (B4+) and survival asymmetry. Looking for rules simpler or different in kind from Life that still produce emergent behavior.
+
 ---
 
 ## Departed Researchers
