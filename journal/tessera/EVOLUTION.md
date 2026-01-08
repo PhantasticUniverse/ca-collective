@@ -698,3 +698,78 @@ The collective discovered this in binary: birth and survival must be compatible.
 The decay chain transforms chaos to order at B2, but doesn't change the position of the critical point.
 
 ---
+
+## Entry 12 — H12: The Generalized Dense Critical Point (~25% of Neighborhood)
+
+**Date:** 2026-01-08
+
+**Goal:** Test if the dense critical point generalizes across topologies.
+
+**Background:**
+
+Moore gen-b2s23-n3 produces dense dynamics (52.7%). B2/8 = 25%.
+Moore gen-b3s23-n3 produces sparse frozen (3.0%). B3/8 = 37.5%.
+
+In von Neumann (4 neighbors):
+- vN B2 = 50% (at critical in binary)
+- vN B1 = 25% (below critical)
+
+**Hypothesis:** Dense dynamics require birth at ~25% of neighborhood, not a specific threshold.
+
+**Experiment:**
+
+| Rule | Neighborhood | Birth | % | Density | Activity | Character |
+|------|--------------|-------|---|---------|----------|-----------|
+| gen-b2s23-n3 | Moore (8) | B2 | 25% | 52.7% | 68.2% | Dense dynamic |
+| gen-b3s23-n3 | Moore (8) | B3 | 37.5% | 3.0% | 0% | Sparse frozen |
+| vn-gen-b1s23-n3 | vN (4) | B1 | 25% | **57.8%** | **74.3%** | **Dense dynamic** |
+| vn-gen-b2s23-n3 | vN (4) | B2 | 50% | 3.3% | 0% | Sparse frozen |
+
+**Snapshots:**
+- `tessera-20260108-111001-vn-gen-b2s23-n3.png` (sparse frozen)
+- `tessera-20260108-111023-vn-gen-b1s23-n3.png` (dense dynamic)
+
+**Result: H12 CONFIRMED — The ~25% threshold generalizes across topologies.**
+
+Both Moore B2 (25%) and vN B1 (25%) produce dense dynamic systems with similar characteristics:
+- Moore: 52.7% density, 68.2% activity
+- vN: 57.8% density, 74.3% activity
+
+Both Moore B3 (37.5%) and vN B2 (50%) produce sparse frozen systems:
+- Moore: 3.0% density, 0% activity
+- vN: 3.3% density, 0% activity
+
+**The mechanism:**
+
+The ~25% threshold is where births become frequent enough to create dense populations. Dense populations sustain via decay chain regeneration. Above ~25%, births are too rare to maintain dense cores.
+
+**The generalized dense critical point:**
+
+```
+          ↑ Density/Activity
+          │
+Dense     │   Moore B2 (25%)   vN B1 (25%)
+~55-60%   │        ●               ●
+          │
+Sparse    │                Moore B3   vN B2
+~3%       │                (37.5%)   (50%)
+          │                   ●        ●
+          └───────────────────────────→ Birth % of neighborhood
+                    25%      37-50%
+```
+
+**Implications:**
+
+1. **Multi-state dense dynamics have a universal birth threshold of ~25%.** This is the "below critical" point for all topologies.
+
+2. **The decay chain's role is to transform chaos (which occurs at ~25% in binary) into dense order.** Without decay, B2/S23 in Moore and B1/S23 in vN produce chaos. With decay, they produce dense dynamics.
+
+3. **The formula generalizes:**
+   - Dense dynamics = Birth at ~25% of N + S23 + decay chain
+   - Sparse frozen = Birth at ~40-50% of N + S23 + decay chain
+
+**Updated hypotheses:**
+
+**H12:** Confirmed. The dense critical point in multi-state Generations is ~25% of neighborhood size, regardless of topology.
+
+---

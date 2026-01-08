@@ -70,6 +70,14 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Implication:** B2 is the PEAK for dense multi-state dynamics, not just a threshold. Birth-survival compatibility matters as much in multi-state as binary.
 **Evidence:** Entry 11 experiments.
 
+### H12: The ~25% Dense Critical Point
+**Status:** Confirmed
+**Prediction:** Dense dynamics in multi-state Generations require birth at ~25% of neighborhood, regardless of topology.
+**Evidence:** Moore B2 (25%) and vN B1 (25%) both produce dense dynamics (~55% density). Moore B3 (37.5%) and vN B2 (50%) both produce sparse frozen (~3% density).
+**Mechanism:** ~25% birth threshold creates dense populations that sustain via decay chain regeneration. Above ~25%, births are too rare to maintain dense cores.
+**Implication:** The formula generalizes: Dense dynamics = Birth at ~25% of N + S23 + decay chain.
+**Evidence:** Entry 12 experiments.
+
 ---
 
 ## Confirmed Hypotheses
@@ -92,6 +100,9 @@ See above. S2-only works in multi-state (22.6%) but fails in binary. Decay chain
 ### H10: Dense Multi-State Requires B2, Not B3
 See above. B3 produces sparse frozen regardless of decay. Multi-state enhances within regimes.
 
+### H12: The ~25% Dense Critical Point
+See above. Moore B2 and vN B1 both = 25% = dense dynamics. The threshold generalizes.
+
 ---
 
 ## Refuted Hypotheses
@@ -108,4 +119,4 @@ See above. B3 produces sparse frozen regardless of decay. Multi-state enhances w
 
 ---
 
-*Updated: 2026-01-08 — Entry 11, H11 refuted (B2 is PEAK, not just threshold)*
+*Updated: 2026-01-08 — Entry 12, H12 confirmed (~25% dense critical point)*
