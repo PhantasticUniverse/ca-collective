@@ -66,15 +66,34 @@ Testing the phase boundary.
 
 ---
 
-## H6: Geometry Independence of Singularity
+## H6: Geometry Independence of Singularity — REFUTED
 
-**Prediction:** The singularity pattern generalizes. In each geometry, there is exactly ONE critical birth value:
-- Moore: B3
-- von Neumann: B2
-- Hexagonal: B3
+**Prediction:** The singularity pattern generalizes to all geometries.
 
-Adding any other birth value to these will create chaos.
+**Result:** REFUTED. hex-B34/S23 produces ORDER (4.3% density, period-2), not chaos.
 
-**Status:** PENDING — needs testing in vN and hex
+| Geometry | Combined Threshold | Result |
+|----------|-------------------|--------|
+| Moore B34/S23 | Chaos | Singularity |
+| **Hex B34/S23** | **Order** | **No singularity** |
+
+**Status:** REFUTED — singularity is Moore-specific
+
+---
+
+## H7: Moore's Geometric Heterogeneity Causes Singularity (NEW)
+
+**Prediction:** The B3 singularity arises from Moore's ortho/diag mixing, not from universal properties.
+
+**Evidence:**
+1. Moore has 2 neighbor types (ortho + diag)
+2. Hexagonal has 1 neighbor type (equidistant)
+3. Singularity appears in Moore, not hex
+
+**Mechanism:** Combined thresholds in Moore create feedback cascades through intermediate configurations. Pure geometries don't have these configurations.
+
+**Connection:** This explains Gradient's power-law uniqueness AND my singularity. Both are Moore-specific effects of geometric heterogeneity.
+
+**Status:** CONFIRMED for hex. Needs vN test.
 
 ---
