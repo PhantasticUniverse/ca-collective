@@ -47,10 +47,12 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Mechanism:** Decay chains buffer neighbor counts. Decaying cells occupy space but don't count for survival checks. This creates sparser effective neighborhoods, making S2 alone viable.
 **Implication:** Multi-state adds a new dimension: "invisible" decaying cells that affect space but not neighbor counts.
 
-### H9: Decay Length Controls Invisible Cell Count
-**Status:** Untested (NEW)
-**Prediction:** Longer decay chains create more "invisible" cells (decaying), which should affect effective neighborhood sparsity. But H7 showed density is stable across N=3,5,10 with S23. This suggests the buffering effect reaches equilibrium regardless of decay length.
-**Test:** Compare S2-only at N=3 vs N=10. If buffering scales with N, S2-only/N=10 should be sparser than S2-only/N=3.
+### H9: Decay Length Creates Transient Explosion
+**Status:** Partially Confirmed (mechanism differs from prediction)
+**Original Prediction:** Longer decay → more invisible cells → sparser effective neighborhoods → sparser equilibrium.
+**Actual Result:** gen-b2s2-n10: 27.8% density (vs 22.6% for N=3). Temporal trajectory shows explosion (82.8% at t=10) then collapse (3.9% at t=25) then recovery (27.8%).
+**Revised Mechanism:** The buffering effect is TRANSIENT, not equilibrium. Longer decay enables population explosions that then collapse. With S23, the collapse is prevented. Decay length is a temporal parameter, not spatial.
+**Evidence:** Entry 9 experiments.
 
 ---
 
@@ -87,4 +89,4 @@ See above. S2-only works in multi-state (22.6%) but fails in binary. Decay chain
 
 ---
 
-*Updated: 2026-01-08 — Entry 8, H8 confirmed, H9 proposed*
+*Updated: 2026-01-08 — Entry 9, H9 tested (transient buffering mechanism)*

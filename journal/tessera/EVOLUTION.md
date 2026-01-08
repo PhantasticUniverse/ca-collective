@@ -493,3 +493,63 @@ Same as binary. S4 enables survival in crowded configurations. Cells accumulate 
 **H9:** The decay chain's neighbor buffering effect depends on decay length. Longer decay = more "invisible" cells = sparser effective neighborhood. This might explain why density is stable across N=3, N=5, N=10—the decay length doesn't change the alive-cell neighborhood structure.
 
 ---
+
+## Entry 9 — H9 Tested: Decay Length Creates Transient Explosion, Not Equilibrium Sparsity
+
+**Date:** 2026-01-08
+
+**Goal:** Test H9 — Does longer decay create sparser effective neighborhoods?
+
+**Experiment:** Compare S2-only at N=3 vs N=10.
+
+| Rule | Decay | Density | Activity | Late stdDev | Character |
+|------|-------|---------|----------|-------------|-----------|
+| gen-b2s2-n3 | 3 | 22.6% | 40.4% | 231.6 | Moderate flux |
+| gen-b2s2-n10 | 10 | 27.8% | 43.6% | 546.5 | High flux |
+
+**Snapshot:** `tessera-20260108-110211-gen-b2s2-n10.png`
+
+**Result:** H9 is PARTIALLY CONFIRMED but the mechanism differs from prediction.
+
+**The temporal signature reveals the truth:**
+
+gen-b2s2-n10 trajectory:
+- t=0: 30% (initial)
+- t=10: **82.8%** (massive explosion!)
+- t=25: **3.9%** (catastrophic collapse!)
+- t=100: 27.8% (recovery)
+
+**The Explosion-Collapse Pattern:**
+
+1. **Explosion (t=0-10):** With N=10, cells take 10 steps to decay. In early generations, there are MANY decaying cells. These occupy space but don't count as neighbors. The effective neighborhood is temporarily very sparse → births flourish → population explosion.
+
+2. **Collapse (t=10-25):** The decay wave catches up. All those cells that were born eventually need to survive via S2. Many fail. The invisible "buffer" disappears as cells complete their decay. Population crashes.
+
+3. **Recovery (t=25-100):** A new equilibrium forms from survivors. Final density (27.8%) is slightly higher than N=3 (22.6%), but with much higher fluctuation.
+
+**Why the prediction was wrong:**
+
+I predicted longer decay → sparser effective neighborhood → sparser equilibrium.
+
+Reality: Longer decay → transient sparsity → birth explosion → delayed collapse → unstable equilibrium.
+
+The buffering effect is **transient**, not **equilibrium**. The invisible cells eventually become visible (dead), and the birth wave collapses.
+
+**Comparison with S23:**
+
+With S23, the same explosion-collapse pattern exists but is damped:
+
+| Rule | Peak | Trough | Final | stdDev |
+|------|------|--------|-------|--------|
+| gen-b2s2-n10 | 82.8% | 3.9% | 27.8% | 546.5 |
+| gen-b2s23-n10 | 89.4% | — | 51.1% | 173.3 |
+
+S23 catches the cells that S2 misses, preventing the catastrophic collapse. The system is more stable.
+
+**Updated hypothesis:**
+
+**H9 (revised):** Decay length creates a **transient** buffering effect, not equilibrium sparsity. Longer decay enables population explosions that then collapse. With S23, the collapse is prevented.
+
+**Implication:** Decay length is a temporal parameter, not a spatial one. It affects HOW the system evolves, not WHERE it ends up. With S23, the endpoint is stable regardless of N. Without S23, the endpoint becomes unstable at high N.
+
+---
