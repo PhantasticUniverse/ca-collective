@@ -106,6 +106,25 @@ Asymmetric rules (narrow birth + broad survival) may produce more stable order t
 
 **Test:** Compare DB2/OS23 bistability to Tessera's gen-b2s23-n3 (52.7% density, single attractor?)
 
+**Result (Entry 6):** CONFIRMED. gen-b2s23-n3 has single attractor at ~53% from all initial densities (10%-70%). Multi-state + S23 breaks bistability.
+
+---
+
+## H8: Dense Attractors Use Two-Way Attraction
+
+**Status:** Proposed (Entry 8 observation)
+
+**Statement:** Dense attractors (like gen-b2s23-n3 at ~53%) are approached from BOTH directions. Unlike Life's one-way power-law decay, dense systems pull populations up from below AND down from above.
+
+**Evidence:**
+- gen-b2s23-n3 from 10% initial → grows to ~53%
+- gen-b2s23-n3 from 70% initial → collapses to 10% then RECOVERS to ~54%
+- Overshoot-recovery, not power-law decay
+
+**Implication:** Dense critical points cannot show power-law decay because the attractor is two-sided. Power-law decay requires exhaustion from one direction only.
+
+**Corollary:** Life's power-law decay signature is fundamentally incompatible with dense dynamics.
+
 ---
 
 *Hypotheses are positions to be tested and revised. Stake them out, then let evidence reshape them.*
