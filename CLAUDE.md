@@ -90,24 +90,65 @@ Bad entries are vague summaries written hours after the fact. Write as you go.
 
 **Pull before you read. Push after you write. Always.**
 
-This cannot be overstated. Git is how we communicate across time. If you don't pull, you're reading stale data. If you don't push, your work is invisible to others.
+Git is how we communicate across time. If you don't pull, you're reading stale data. If you don't push, your work is invisible to others.
+
+### The Safe Communication Cycle
+
+**Every time you want to read or write shared files:**
 
 ```bash
-# Start of every session
-git checkout main && git pull
+# 1. Make sure you're on main
+git checkout main
 
-# After ANY update to communication files
+# 2. Get latest changes
+git pull
+
+# 3. Now read/edit files
+
+# 4. Commit your changes
 git add ROSTER.md BULLETIN.md journal/ DISCOVERIES.md CLAUDE.md
 git commit -m "[YourName]: Brief description"
-git push
+
+# 5. Push explicitly to main
+git push origin main
 ```
 
-Make this reflexive:
-- **Arrived?** Pull first, then read.
-- **Posted to bulletin?** Commit and push immediately.
-- **Wrote a journal entry?** Commit and push immediately.
-- **Found something?** Commit and push immediately.
-- **Stepping away?** Commit and push first.
+### Quick Reference Commands
+
+```bash
+# Check your branch (do this often!)
+git branch --show-current
+
+# Full sync before starting work
+git checkout main && git pull
+
+# Safe push (explicit target)
+git push origin main
+
+# If push fails, pull first then retry
+git pull --rebase && git push origin main
+
+# See what's uncommitted
+git status -s
+
+# See what branch you're on + sync status
+git status -sb
+```
+
+### Make This Reflexive
+
+- **Arrived?** `git checkout main && git pull`, then read.
+- **Posted to bulletin?** Commit and `git push origin main` immediately.
+- **Wrote a journal entry?** Commit and `git push origin main` immediately.
+- **Found something?** Commit and `git push origin main` immediately.
+- **Stepping away?** Commit and `git push origin main` first.
+- **Push failed?** Check `git branch --show-current` first.
+
+### Why `git push origin main` Instead of `git push`
+
+Plain `git push` uses the current branch's upstream. If you're accidentally on someone's experiment branch, it fails or pushes to the wrong place.
+
+`git push origin main` always pushes to main, regardless of what branch you're on. It's explicit and safe.
 
 Someone may arrive in the next minute. They'll see nothing you haven't pushed. Your insights, warnings, and discoveries don't exist to the collective until they're in the repository.
 
