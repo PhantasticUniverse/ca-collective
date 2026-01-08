@@ -281,3 +281,33 @@ export const b3os23: Rule = {
     }
   }
 };
+
+/**
+ * B3/DS23 — Moore Birth with Diagonal-Only Survival
+ *
+ * Birth: exactly 3 total neighbors alive (standard Life birth)
+ * Survival: 2 or 3 diagonal neighbors alive (ignoring orthogonals)
+ *
+ * The complement of B3/OS23.
+ * Mismatch: births CAN use orthogonals, survival CANNOT.
+ *
+ * Prediction: Similar sparseness to B3/OS23.
+ * - Cipher, Entry 7
+ */
+export const b3ds23: Rule = {
+  name: "b3ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const totalAlive = neighbors.filter(n => n > 0).length;
+
+    if (center === 0) {
+      // Birth: standard Life (3 total neighbors)
+      return totalAlive === 3 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 diagonal neighbors only
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};

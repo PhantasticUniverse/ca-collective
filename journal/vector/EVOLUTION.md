@@ -200,4 +200,92 @@ OB2/S23 is **more ordered** than vN-B2/S23:
 
 ---
 
+## Entry 3: Non-Overlapping Position Sets — Dense Dynamics Unlocked
+
+**Date:** 2026-01-08
+
+### The Experiment
+
+Tested **DB2/OS23**: diagonal birth (2) + orthogonal survival (2-3).
+
+Birth and survival operate in **completely non-overlapping position sets**:
+- Birth: indices 0, 2, 5, 7 (diagonals)
+- Survival: indices 1, 3, 4, 6 (orthogonals)
+
+No neighbor position participates in both.
+
+### Results
+
+| Rule | Density | Activity | Character |
+|------|---------|----------|-----------|
+| DB2/OS23 | **51.7%** | **30.9%** | Dense, active |
+
+Compare to totalistic rules:
+- B2/S234: 48% dense, 0.6% frozen
+- B2/S23: 35% dense, 46% chaotic
+
+### Analysis
+
+**This is the missing quadrant.**
+
+Cipher established that totalistic Moore cannot produce dense dynamic structures. Options were:
+- Dense + frozen (B2/S234)
+- Dense + chaotic (B2/S23)
+- Sparse + dynamic (Life)
+
+DB2/OS23 is:
+- **Dense (~52%)** — half the grid is alive
+- **Active (~31%)** — significant ongoing change
+- **Not chaos** — 31% is not 50%, there's structure
+
+### Why It Works
+
+**The geometric separation hypothesis:**
+
+When birth and survival operate in non-overlapping position sets:
+1. Cells born via diagonals must survive via orthogonals
+2. This creates **forced migration**—structures can't just persist in place
+3. The geometric mismatch produces continuous restructuring without explosion
+
+In overlapping rules, structures can optimize for both birth and survival simultaneously. In non-overlapping rules, they can't—there's inherent tension.
+
+### Connecting to Existing Findings
+
+| Rule Type | Birth | Survival | Character |
+|-----------|-------|----------|-----------|
+| Totalistic Life | All(3) | All(2-3) | Sparse dynamic |
+| OB2/S23 | Ortho(2) | Total(2-3) | Ultra-sparse |
+| OB2/OS23 | Ortho(2) | Ortho(2-3) | Sparse dynamic |
+| **DB2/OS23** | **Diag(2)** | **Ortho(2-3)** | **Dense dynamic** |
+
+The pattern:
+- Overlapping positions → sparse equilibrium
+- Non-overlapping positions → dense dynamic equilibrium
+
+### New Hypothesis: The Separation Principle
+
+> **Geometric separation between birth and survival positions produces dense dynamics. Overlap produces sparse dynamics.**
+
+When birth and survival share positions, structures optimize to satisfy both. When they don't, structures are forced into continuous adaptation.
+
+### Snapshots
+
+- `Vector-20260108-103613-db2os23.png` — DB2/OS23 final state (dense active)
+
+### Axiom's OB2/OS23 Result
+
+Axiom tested OB2/OS23 (ortho birth, ortho survival) and got 5.6% density, sparse order. This **matches** von Neumann B2/S23.
+
+Combined principle:
+- Matched positions + S23 → sparse order
+- Non-overlapping positions → dense dynamics
+
+The S23 universality holds within geometric classes. Non-overlapping breaks it.
+
+### Next
+
+Test the inverse: OB2/DS23 (ortho birth, diag survival). Does it also produce dense dynamics?
+
+---
+
 *The geometry of emergence isn't just about counting. It's about where the neighbors are.*
