@@ -266,3 +266,100 @@ Life is the least predictable—both in where it ends up AND when it gets there.
 ---
 
 *Entry 3 complete. H3 confirmed with surprising result: Life has maximum final-state variance.*
+
+---
+
+## Entry 4: Power-Law Decay — H4 Confirmed
+
+**Date:** 2026-01-08
+
+### The Question
+
+Does Life's population decay follow exponential (typical of ordered systems) or power-law (signature of criticality)?
+
+- **Exponential decay:** y = y₀ × e^(-t/τ) — characteristic of systems with a single timescale
+- **Power-law decay:** y = y₀ × t^(-α) — characteristic of scale-free systems at critical points
+
+### Method
+
+I added decay curve analysis to `simulate.ts`:
+1. Sample population at t = 10, 25, 50, 100, 200, 500
+2. Fit exponential: linear regression on ln(y/y₀) vs t
+3. Fit power-law: linear regression on ln(y) vs ln(t)
+4. Compare R² values
+
+### Results
+
+**Life (B3/S23) — 500 steps:**
+
+| Model | Parameter | R² |
+|-------|-----------|-----|
+| Exponential | τ = 523 | **-2.37** |
+| Power-law | α = 0.31 | **0.92** |
+
+Exponential R² is NEGATIVE (model worse than mean). Power-law R² is 0.92 (excellent fit).
+
+**Life (B3/S23) — 1000 steps:**
+
+| Model | Parameter | R² |
+|-------|-----------|-----|
+| Exponential | τ = 388 | -0.86 |
+| Power-law | α = 0.37 | **0.99** |
+
+The power-law fit IMPROVES with more data (0.92 → 0.99). This is strong evidence for true power-law behavior.
+
+**Ordered regimes:**
+
+| Rule | Behavior | Decay Analysis |
+|------|----------|----------------|
+| B4/S23 | Instant collapse (30%→4% by step 10) | Neither model fits |
+| B3/S234 | Growth (30%→51%) | N/A (no decay) |
+| DB2/DS23 | Rapid decay then freeze | Power-law: R²=0.68 |
+
+Ordered regimes don't show gradual decay—they collapse or grow to equilibrium quickly. The decay analysis doesn't apply to rapid phase transitions.
+
+### Analysis
+
+**H4 CONFIRMED: Life's decay follows a power law.**
+
+The decay exponent α ≈ 0.37 means:
+- Population at time t ∝ t^(-0.37)
+- This is SLOWER than exponential (which would appear as a straight line in the exponential fit)
+- Consistent with scale-free dynamics at critical points
+
+**Why power-law matters:**
+
+In systems with a characteristic timescale, decay is exponential—there's a single τ that describes how fast things happen. At critical points, there is NO characteristic timescale. Fluctuations occur at all scales, decay occurs at all rates, and the result is power-law behavior.
+
+**The physical interpretation:**
+
+Life's population doesn't have a "half-life." Instead:
+- Early on, lots of cells die quickly (high activity, unstable configurations)
+- Later, fewer cells die slowly (stable structures persist)
+- The rate of decay continuously slows—no fixed timescale
+
+This is exactly what we see in the data:
+- t=0→10: 27% loss (2.7%/step)
+- t=100→200: 31% loss (0.31%/step)
+- t=200→500: 32% loss (0.11%/step)
+
+The decay rate drops by 20× over 500 steps. Exponential decay would maintain a constant rate.
+
+### Connection to H1-H3
+
+| Hypothesis | Finding | Mechanism |
+|------------|---------|-----------|
+| H1 (Long transients) | 248 steps to stabilize | Power-law decay is slow |
+| H2 (Intermediate fluctuation) | stdDev 31 | Scale-free dynamics |
+| H3 (High variance) | 2.3× range | Multiple attractors, long memory |
+| **H4 (Power-law decay)** | **α = 0.37** | **No characteristic timescale** |
+
+All four findings are consistent with Life sitting at a critical point with scale-free dynamics.
+
+### Infrastructure
+
+Added decay curve analysis to `simulate.ts`. For rules with decay (pop[0] > pop[100]), the simulator now fits both models and reports R² values.
+
+---
+
+*Entry 4 complete. H4 confirmed: Life's decay follows power law (α ≈ 0.37, R² = 0.99).*

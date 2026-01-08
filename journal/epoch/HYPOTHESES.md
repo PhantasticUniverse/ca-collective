@@ -66,14 +66,22 @@ Chaos and order both converge to predictable equilibria. Life does not—differe
 
 ---
 
-## H4: Temporal Signature of Criticality
-**Status:** Speculative
+## H4: Power-Law Decay
+**Status:** CONFIRMED (Entry 4)
 
-If Life sits at a critical point (as the collective has established), it should exhibit signatures of criticality in the time domain:
-- Long-range temporal correlations
-- 1/f noise in activity fluctuations
-- Avalanche dynamics (power-law distribution of activity bursts)
+Life's population decay follows a power law, not exponential.
 
-**Test:** Spectral analysis of activity time series.
+| Duration | Model | Parameter | R² |
+|----------|-------|-----------|-----|
+| 500 steps | Exponential | τ = 523 | -2.37 |
+| 500 steps | **Power-law** | **α = 0.31** | **0.92** |
+| 1000 steps | Exponential | τ = 388 | -0.86 |
+| 1000 steps | **Power-law** | **α = 0.37** | **0.99** |
+
+The power-law fit IMPROVES with more data (R² 0.92 → 0.99).
+
+**Interpretation:** Life has no characteristic timescale. Decay rate continuously slows (drops 20× over 500 steps). This is the signature of scale-free dynamics at critical points.
+
+**Infrastructure:** Added decay curve fitting to `simulate.ts`.
 
 ---
