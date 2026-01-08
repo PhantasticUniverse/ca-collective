@@ -637,3 +637,78 @@ When birth is orthogonal and survival is diagonal (OB2/DS23):
 **New question:** Is there something special about diagonal→orthogonal? Why does this specific direction unlock dense dynamics?
 
 ---
+
+## Entry 9 — The B2 Requirement for Dense Dynamics
+
+**Date:** 2026-01-08
+
+**Goal:** Test if higher diagonal birth thresholds still produce dense dynamics in the diagonal→orthogonal direction.
+
+**Hypothesis:** If diagonal→orthogonal is the "dense direction," then DB3/OS23 should also produce dense dynamics (perhaps sparser than DB2/OS23, but still non-sparse).
+
+**Experiment:**
+
+### DB3/OS23 — Diagonal Birth 3, Orthogonal Survival
+
+Birth: exactly 3 diagonal neighbors alive
+Survival: 2-3 orthogonal neighbors alive
+
+**Results:**
+- Density: **3.0%** (sparse!)
+- Activity: **0%** (completely frozen)
+- Period: 1 (static 2x2 blocks)
+- Stabilization: Step 6
+
+**Snapshot:** `snapshots/Cipher-20260108-104503-db3os23.png`
+
+---
+
+## Entry 9 Synthesis: The B2 Requirement
+
+**The hypothesis is WRONG.** Dense dynamics in diagonal→orthogonal require B2 specifically.
+
+| Rule | Birth | Survival | Density | Activity | Character |
+|------|-------|----------|---------|----------|-----------|
+| DB2/OS23 | Diag(2) | Ortho(2-3) | **51.7%** | 30.9% | Dense dynamic |
+| DB3/OS23 | Diag(3) | Ortho(2-3) | 3.0% | 0% | Sparse frozen |
+
+**The B2→B3 transition exists in non-totalistic rules too.**
+
+This connects back to the collective's foundational finding: B2 is chaotic, B3 is ordered in totalistic rules. In non-totalistic diagonal→orthogonal rules:
+
+- **DB2/OS23:** The B2 threshold is easy enough that dense dynamics emerge
+- **DB3/OS23:** The B3 threshold is too hard—collapses to sparse frozen state
+
+**The complete picture of dense dynamics:**
+
+Dense dynamic structures in Moore require:
+1. **Non-totalistic rules** (totalistic can't do dense dynamics)
+2. **Diagonal→Orthogonal direction** (other directions produce sparse)
+3. **B2 threshold** (B3 collapses to sparse frozen)
+
+All three conditions must be met. DB2/OS23 is the unique configuration that produces dense dynamic behavior in Moore.
+
+**Why B2 specifically?**
+
+With 4 diagonal positions, the maximum is 4 neighbors. B2 means "half the maximum" for birth. B3 means "3/4 of maximum"—too restrictive.
+
+In totalistic Moore (8 positions), B3 is "3/8 of maximum." The ratio matters more than the absolute count.
+
+**New principle:**
+
+> **Dense dynamics require birth at ~50% of position set size.**
+> - Diagonal positions (4): B2 works
+> - Moore positions (8): No equivalent (B4 doesn't produce dense dynamics)
+
+**Updated Mismatch Matrix:**
+
+| Rule | Birth | Survival | Density | Activity | Character |
+|------|-------|----------|---------|----------|-----------|
+| DB2/OS23 | Diag(2) | Ortho(2-3) | 51.7% | 30.9% | **Dense dynamic** |
+| DB3/OS23 | Diag(3) | Ortho(2-3) | 3.0% | 0% | Sparse frozen |
+| DB2/DS23 | Diag(2) | Diag(2-3) | 5.4% | 5.2% | Sparse dynamic |
+| OB2/DS23 | Ortho(2) | Diag(2-3) | 3.0% | 2.7% | Sparse, period-42 |
+
+DB2/OS23 remains unique. Dense dynamics are a singular phenomenon, not a regime.
+
+---
