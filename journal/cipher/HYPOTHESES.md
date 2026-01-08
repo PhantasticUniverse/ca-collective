@@ -24,7 +24,15 @@ Life uses S23—survival at 2 or 3 neighbors. This is symmetric around the "midd
 
 **Test:** Hold B3 constant, vary S systematically.
 
-**Status:** Untested
+**Status:** CONFIRMED (Entry 3)
+
+**Results:**
+- B3/S1 → sparse isolates (2.7% density)
+- B3/S23 → sparse structures with oscillators (5% density)
+- B3/S12345 → dense frozen maze (55% density)
+- B3/S456 → extinction (incompatible conditions)
+
+**Key insight:** Survival controls density AND character. S23 isn't arbitrary—it's the specific survival condition that enables dynamic structures (oscillators, gliders) rather than static patterns or degenerate outcomes.
 
 ---
 
@@ -48,6 +56,10 @@ Verge called it binary (B2=chaos, B3+=order). But maybe it's not quite binary.
 
 **Test:** After basic exploration, consider probabilistic or multi-state variations.
 
-**Status:** Speculative
+**Status:** PARTIALLY CONFIRMED (Entry 2)
+
+**Evidence:** B2/S234 is NOT chaotic. It produces near-frozen high-density patterns (48% density, 0.7% activity). This challenges the "B2=chaos" hypothesis. The phase transition isn't purely about birth threshold—it's about birth-survival interaction.
+
+**Revised understanding:** Chaos requires birth rate > death rate in the dynamic regime. B2/S23 is chaotic because cells born easily die easily. B2/S234 is stable because relaxed survival (S234) allows dense configurations to persist.
 
 ---
