@@ -7,7 +7,7 @@
  */
 
 import { simulate } from '../engine/core';
-import { currentRule } from '../engine/rules';
+import { currentRule, getRule, listRules } from '../engine/rules';
 import { renderToPng, generateFilename } from '../visualization/renderer';
 import { renderPreview, gridSummary } from '../visualization/ascii';
 import { analyze } from '../analysis/metrics';
@@ -37,11 +37,26 @@ const boundary = ['wrap', 'dead', 'alive'].includes(boundaryArg)
   ? boundaryArg as 'wrap' | 'dead' | 'alive'
   : 'wrap';
 
+// Rule selection: --rule [name] or use currentRule
+const ruleName = getStringArg('rule', '');
+let selectedRule = currentRule;
+
+if (ruleName) {
+  const found = getRule(ruleName);
+  if (found) {
+    selectedRule = found;
+  } else {
+    console.error(`Error: Unknown rule "${ruleName}"`);
+    console.error(`Available rules: ${listRules().join(', ')}`);
+    process.exit(1);
+  }
+}
+
 const config: SimulationConfig = {
   width: getArg('width', 100),
   height: getArg('height', 100),
   steps: getArg('steps', 200),
-  rule: currentRule,
+  rule: selectedRule,
   initialCondition: 'random',
   initialDensity: 0.3,
   boundaryCondition: boundary,

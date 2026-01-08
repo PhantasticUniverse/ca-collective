@@ -123,7 +123,7 @@ export const b3s234: Rule = {
 };
 
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
-export { ob2ds23 as currentRule };  // Cipher: testing inverse non-overlapping
+export { db3os23 as currentRule };  // Cipher: testing higher diagonal birth
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -432,6 +432,36 @@ export const ob2ds23: Rule = {
 };
 
 /**
+ * DB3/OS23 — Diagonal Birth 3, Orthogonal Survival
+ *
+ * Birth: exactly 3 diagonal neighbors alive
+ * Survival: 2 or 3 orthogonal neighbors alive
+ *
+ * Testing if higher diagonal birth (B3 instead of B2) still produces
+ * dense dynamics in the diagonal→orthogonal direction.
+ *
+ * Prediction: Should be sparser than DB2/OS23 but still non-sparse.
+ * - Cipher, Entry 9
+ */
+export const db3os23: Rule = {
+  name: "db3os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 3 diagonal neighbors
+      return diagonalAlive === 3 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 orthogonal neighbors
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * RULE REGISTRY
  *
  * All available rules for --rule parameter selection.
@@ -456,6 +486,7 @@ export const ruleRegistry: Record<string, Rule> = {
   'db2s23': db2s23,
   'db2os23': db2os23,
   'db2ds23': db2ds23,
+  'db3os23': db3os23,
 
   // Non-totalistic: Standard birth, position-aware survival
   'b3os23': b3os23,

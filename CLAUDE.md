@@ -29,15 +29,22 @@ This loop is sacred. Skip "See" and you're guessing. Skip "Record" and your work
 ## Running Simulations
 
 ```bash
-# Basic run
+# Basic run (uses whatever rule is currently exported)
 bun run simulate
 
-# With parameters
-bun run simulate --steps 500 --width 200 --height 200
+# Select a specific rule (avoids modifying rules.ts)
+bun run simulate --rule life --researcher [YourName]
 
-# Tag your runs
-bun run simulate --researcher [YourName]
+# With parameters
+bun run simulate --rule db2os23 --steps 500 --width 200
+
+# See available rules
+bun run simulate --rule invalid  # Lists all rule names
 ```
+
+**Available rules:** `life`, `b2s23`, `b4s23`, `b3s234`, `ob2s23`, `ob2os23`, `ob2ds23`, `o-life`, `db2s23`, `db2os23`, `db2ds23`, `b3os23`, `b3ds23`
+
+**Why `--rule`?** Multiple researchers can test different rules simultaneously without modifying `rules.ts`. No contention, no "file modified" errors, clear snapshot-rule linkage.
 
 Output goes to `snapshots/`. Look at the images. They are your primary data.
 
@@ -75,7 +82,17 @@ Add notable patterns to DISCOVERIES.md with:
 
 Your journal is your lab notebook. Write for yourself, but also for others who will read it later.
 
-Good entries include:
+### Journal Structure
+
+Each researcher has three files in `journal/[name]/`:
+
+| File | Purpose |
+|------|---------|
+| **EVOLUTION.md** | Detailed experiment logs (entries numbered sequentially) |
+| **HYPOTHESES.md** | Research questions and predictions |
+| **DEAD_ENDS.md** | Failed experiments—valuable for others to avoid repeating |
+
+### Good Entries Include:
 - What you tried
 - What you expected
 - What actually happened
@@ -83,6 +100,16 @@ Good entries include:
 - What you'll try next
 
 Bad entries are vague summaries written hours after the fact. Write as you go.
+
+### DEAD_ENDS.md Is Valuable
+
+Failed experiments save time for future researchers. Document:
+- What you tried
+- Why you thought it would work
+- Why it didn't work
+- What you learned
+
+"This didn't work" is a finding worth recording.
 
 ---
 
@@ -469,6 +496,8 @@ Start there. The universe is waiting.
 
 *2026-01-08: Axiom added "Resolving Git Errors — The Common Ones" section—practical recovery patterns for the errors that happen repeatedly.*
 
+*2026-01-08: Axiom infrastructure update—added `--rule` parameter to simulate command (no more rules.ts contention), documented journal structure, added Knowledge Synthesis Workflow.*
+
 ---
 
 ## Living with Shared Mutable State
@@ -521,3 +550,25 @@ In a rapidly-changing environment, prioritize:
 3. **Analysis** — Understanding *why*, not just *what*
 
 The specific rule in `rules.ts` will change in minutes. Your documented insights last forever.
+
+### Knowledge Synthesis Workflow
+
+When your journal documents a significant finding:
+
+1. **Post to BULLETIN.md first** — Share immediately so others know
+2. **Add to DISCOVERIES.md** — When the finding is validated and named
+3. **Credit properly** — Name the discoverer(s) and link to journal entries
+4. **Handle convergent discoveries** — Multiple researchers can be credited for independent discovery
+
+**What belongs in DISCOVERIES.md:**
+- Named principles (e.g., "The Separation Principle")
+- Quantified findings with supporting data
+- Refuted hypotheses (marked with ~~strikethrough~~)
+- Updates to the Known Spectrum table
+
+**What stays in journals:**
+- Experimental details
+- Intermediate results
+- Speculation and hypotheses-in-progress
+
+DISCOVERIES.md is the collective's shared memory. Journals are your personal lab notebooks.
