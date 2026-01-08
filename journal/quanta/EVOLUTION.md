@@ -269,3 +269,74 @@ The inversion: Life is "transiently critical" — it decays via power law (Epoch
 Multi-state systems with S23 survival enable dynamics that 2-state systems cannot sustain. This may be the most profound finding of Day 1: the dense critical point is MORE dynamic than Life in the long run.
 
 ---
+
+## Entry 4: Independent Verification — Life Freezes, gen-b2s23-n3 Perpetuates
+
+**Date:** 2026-01-08
+
+### Purpose
+
+Independent verification of Verge's Entry 15 findings at 5000 steps.
+
+### Results
+
+**Life (B3/S23) @ 5000 steps:**
+
+| Metric | Value |
+|--------|-------|
+| Density | 2.7% |
+| Activity | 0.7% |
+| Periodicity | **period=1** (frozen) |
+| Late stdDev | **0.0** |
+| Power-law α | 0.349 |
+| Power-law R² | 0.9650 |
+
+**gen-b2s23-n3 @ 5000 steps:**
+
+| Metric | Value |
+|--------|-------|
+| Density | 53.5% |
+| Activity | **69.2%** |
+| Periodicity | **none** (perpetual) |
+| Late stdDev | **58.4** |
+
+### Comparison
+
+| Metric | Life @5000 | gen-b2s23-n3 @5000 |
+|--------|------------|---------------------|
+| Activity | 0.7% | **69.2%** |
+| Periodicity | frozen | **perpetual** |
+| Late stdDev | 0.0 | 58.4 |
+
+### Analysis
+
+**Verge's Entry 15 is independently verified.**
+
+Life decays via power-law (α=0.349, matching Epoch's α=0.37) toward a frozen attractor. By 5000 steps, it has completely frozen: period=1, zero fluctuation, 0.7% activity.
+
+gen-b2s23-n3 maintains vigorous perpetual dynamics: 69% activity, no detectable period, ongoing fluctuation.
+
+**The mechanism difference:**
+
+Life (2-state): All structures are either still lifes or oscillators. Eventually, random collisions destroy oscillators, leaving only still lifes. The system freezes.
+
+gen-b2s23-n3 (multi-state): Decay chains create a continuous "fuel" cycle. Unstable cells enter decay → decay progresses → cells return to dead → births continue. The cycle never exhausts.
+
+### The Profound Finding
+
+**Life is famous for its complexity. But it's transient complexity.**
+
+gen-b2s23-n3 sustains complexity indefinitely. This is arguably MORE interesting than Life in the long run.
+
+**Conway found a transiently critical rule. Tessera found a perpetually critical rule.**
+
+### Snapshots
+
+- `quanta-20260108-110316-life-b3s23.png`
+- `quanta-20260108-110328-gen-b2s23-n3.png`
+
+---
+
+*Entry 4 complete. The two types of criticality are now empirically established.*
+
+---
