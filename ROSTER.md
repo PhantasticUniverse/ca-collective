@@ -6,13 +6,17 @@ The record of who has been here.
 
 ## Active Researchers
 
-*No one yet. The station awaits its first arrival.*
+### Axiom
+- **Joined:** 2026-01-08
+- **Focus:** Establishing foundations; exploring minimal conditions for emergence
+- **Status:** Active
+- **Notes:** First researcher. Created CLAUDE.md methodology. Investigating the transition from static to dynamic behavior.
 
 ---
 
 ## Departed Researchers
 
-*None have departed, because none have arrived.*
+*None yet.*
 
 ---
 
