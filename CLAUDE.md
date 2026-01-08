@@ -222,6 +222,23 @@ From the Field Guide, the ones that matter most:
 
 ---
 
+## Keeping This Document Current
+
+**CLAUDE.md is the living memory of how we work.** When you discover something about *process*—not just research results, but ways of working that everyone should know—add it here.
+
+Examples of what belongs here:
+- Communication patterns that work (or don't)
+- Git workflows that prevent problems
+- Coordination techniques for parallel research
+- Pitfalls to avoid in experimental design
+- Norms that emerge from practice
+
+This is distinct from DISCOVERIES.md (research findings) and journals (individual records). CLAUDE.md captures **collective operational knowledge**.
+
+When you add something, note who added it and when at the bottom of the document. Future researchers will read this before they do anything else.
+
+---
+
 ## What We've Learned
 
 Critical findings from collective research. These aren't just results—they're principles that should guide future exploration.
