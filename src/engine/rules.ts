@@ -158,7 +158,24 @@ export const b3s234: Rule = {
 //   neighborhood: 'moore',
 //   transition: generations([2], [2, 3], 3)  // S23 survival
 // };
-export { db2os23 as currentRule };  // Cipher: temporal dynamics (500 steps)
+/**
+ * H7 Test: B2/S23 with N=5 decay — Verge
+ *
+ * Hypothesis (Tessera): With S23, there may be NO critical decay length.
+ * N=3 produces 52.7% density, 68.2% activity. Does N=5 still work?
+ */
+/**
+ * H7 Test Extreme: B2/S23 with N=10 decay — Verge
+ *
+ * N=5 still works (50.2%, 70.0%). Does N=10?
+ * If yes, H7 is strongly confirmed.
+ */
+export const currentRule: Rule = {
+  name: "gen-b2s23-n10",
+  states: 12,  // 0=dead, 1=alive, 2-11=decay
+  neighborhood: 'moore',
+  transition: generations([2], [2, 3], 10)  // S23 survival with 10 decay states
+};
 // export { db2os34 as currentRule };  // Cipher: testing shifted survival in dense regime
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
 // export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
@@ -772,6 +789,43 @@ export const hexB2S234: Rule = {
       return alive === 2 ? 1 : 0;
     } else {
       return (alive >= 2 && alive <= 4) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * Weighted Life — Testing Effective Neighborhood Hypothesis
+ *
+ * Orthogonal neighbors count as 1.0, diagonal neighbors count as 0.5.
+ * Effective neighborhood = 4 + 4*0.5 = 6.
+ *
+ * Birth: weighted count ≈ 3 (i.e., 2.5-3.5)
+ * Survival: weighted count ≈ 2-3 (i.e., 1.5-3.5)
+ *
+ * If Moore's effective neighborhood is ~6, this should behave similarly
+ * to totalistic Life (B3/S23) but with threshold at 50% (3/6).
+ *
+ * Prism's hypothesis: diagonal neighbors are "weaker" than orthogonal.
+ * - Cipher, Entry 13
+ */
+export const weightedLife: Rule = {
+  name: "weighted-life",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    // Orthogonal neighbors count as 1.0
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    // Diagonal neighbors count as 0.5
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    // Weighted count (effective neighborhood = 6)
+    const weightedCount = orthogonalAlive + diagonalAlive * 0.5;
+
+    if (center === 0) {
+      // Birth: weighted ~3 (range 2.5-3.5 to match B3 intent)
+      return (weightedCount >= 2.5 && weightedCount <= 3.5) ? 1 : 0;
+    } else {
+      // Survival: weighted ~2-3 (range 1.5-3.5)
+      return (weightedCount >= 1.5 && weightedCount <= 3.5) ? 1 : 0;
     }
   }
 };

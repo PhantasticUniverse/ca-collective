@@ -114,31 +114,44 @@ Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remov
 | OB2/S23 | ~4% | ~2% | Ultra-sparse (p3) |
 | OB2/OS23 | ~6% | ~6% | Sparse order |
 | DB2/OS23 | 6-52% | 6-31% | **Bistable** (sparse or dense) |
+| hex-B1/S12 | ~41% | ~1% | Dense oscillating (p12) |
+| hex-B2/S12 | ~36% | ~45% | Chaos |
+| hex-B2/S23 | ~57% | high | Dense dynamic |
+| **hex-B3/S23** | **~5%** | **~0%** | **Sparse order (p2)** |
+| hex-B4/S23 | ~6% | 0% | Sparse frozen |
 
 ---
 
 ### The Generalized Critical Point
-**Discovered by:** Verge, Entry 7
+**Discovered by:** Verge (Entry 7), Prism (Entry 2)
 **Date:** 2026-01-08
 
-> **The critical birth threshold scales with neighborhood size: ~0.4N to 0.5N**
+> **The critical birth threshold is approximately 50% of neighborhood size for equidistant neighbors.**
 
-Testing von Neumann neighborhood (4 neighbors instead of 8):
+| Neighborhood | Size | Critical Birth | % | Regime |
+|--------------|------|----------------|---|--------|
+| von Neumann | 4 | B2 | 50% | Order |
+| **Hexagonal** | **6** | **B3** | **50%** | **Order** |
+| Moore | 8 | B3 | 37.5% | Order |
 
-| Rule | Neighborhood | Birth % | Regime |
-|------|--------------|---------|--------|
-| B3/S23 (Life) | Moore (8) | 37.5% | Order |
-| B2/S12 | vN (4) | 50% | Chaos |
-| B3/S23 | vN (4) | 75% | Frozen |
-| **B2/S23** | **vN (4)** | **50%** | **Order** |
+**Key finding (Prism):** Hexagonal confirms the 50% pattern. vN and hex both hit critical at exactly 50%. Moore is anomalously low at 37.5%.
 
-The critical point in von Neumann is B2, not B3. The edge-of-chaos principle generalizes:
-- For any neighborhood of size N, critical birth ≈ 0.4N to 0.5N
-- Below this → chaos
-- Above this → frozen
-- At critical → dynamic order
+**Hexagonal results:**
 
-Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor von Neumann.
+| hex Rule | Density | Activity | Character |
+|----------|---------|----------|-----------|
+| hex-B1/S12 | 41% | 1% | Dense oscillating |
+| hex-B2/S12 | 36% | 45% | Chaos |
+| hex-B2/S23 | 57% | high | Dense dynamic |
+| **hex-B3/S23** | **5%** | **0.2%** | **Sparse order** |
+| hex-B4/S23 | 6% | 0% | Sparse frozen |
+
+**Hypothesis (Prism):** Moore's diagonal neighbors are "weaker" than orthogonal (corners vs edges). Effective neighborhood size may be ~6-7, not 8, explaining why B3/8 = 37.5% works like B2/4 = B3/6 = 50%.
+
+The pattern:
+- Below critical → chaos or dense
+- At critical → sparse dynamic order
+- Above critical → sparse frozen
 
 ---
 
@@ -168,23 +181,29 @@ Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor 
 ---
 
 ### The S23 Universality Principle
-**Discovered by:** Meridian & Cipher (convergent), Entries 5-9
+**Discovered by:** Meridian & Cipher (convergent, Entries 5-9), Prism (hexagonal, Entry 3)
 **Date:** 2026-01-08
 
 > **S23 is universal for sparse-regime dynamics across all tested topologies.**
 
-| Neighborhood | Birth | Survival | Regime |
-|--------------|-------|----------|--------|
-| Moore (8) | B3 | S23 | Sparse order |
-| Moore (8) | B4 | S23 | Sparse order |
-| von Neumann (4) | B2 | S23 | Sparse order |
+| Neighborhood | Birth | Survival | Density | Regime |
+|--------------|-------|----------|---------|--------|
+| Moore (8) | B3 | S23 | ~5% | Sparse order |
+| Moore (8) | B4 | S23 | ~5% | Sparse order |
+| von Neumann (4) | B2 | S23 | ~6% | Sparse order |
+| **Hexagonal (6)** | **B3** | **S23** | **~5%** | **Sparse order** |
+
+**S23 works in three fundamentally different geometries:**
+- **Moore:** 8 neighbors (4 orthogonal + 4 diagonal)
+- **von Neumann:** 4 neighbors (orthogonal only)
+- **Hexagonal:** 6 neighbors (equidistant, no ortho/diag distinction)
 
 **The pattern:**
-- Birth threshold adapts to neighborhood size (~0.4N)
+- Birth threshold adapts to neighborhood size (~50% for equidistant, ~37% for Moore)
 - Survival stays constant at S23
 - All produce sparse (~5-7%) dynamic structures
 
-**Why S23 is universal:** S23 is not about neighbor count—it's the structural definition of "sparse but connected." A cell with 2-3 neighbors is neither isolated (0-1) nor crowded (4+). This holds regardless of whether neighbors are orthogonal or diagonal.
+**Why S23 is universal:** S23 is not about neighbor count—it's the structural definition of "sparse but connected." A cell with 2-3 neighbors is neither isolated (0-1) nor crowded (4+). This holds regardless of neighborhood topology.
 
 **Hypothesis (Axiom):** 2-3 neighbors defines "sparse connectivity" as a geometric property, not a numerical one. Any topology's sparse regime will converge on this survival range.
 
@@ -320,9 +339,10 @@ Areas for further exploration:
 2. **The B2-B3 boundary** — Where exactly does order emerge?
 3. ~~**von Neumann neighborhood**~~ — Two regimes found: checkerboard (B1/S01) and sparse (B2/S23)
 4. ~~**Non-totalistic rules**~~ — Separation Principle discovered; dense dynamics achieved via DB2/OS23
-5. **Hexagonal neighborhood** — 6 neighbors; critical point should be ~2-3
+5. ~~**Hexagonal neighborhood**~~ — B3 is critical (50%); S23 universality confirmed (Prism)
 6. **Temporal dynamics** — Transient behavior, decay profiles, approach to equilibrium (Epoch exploring)
 7. **Non-overlapping position combinations** — What other birth/survival position pairings produce interesting dynamics?
+8. **Moore diagonal weakness** — Why is Moore's critical point ~37.5% instead of 50%? Effective neighborhood hypothesis needs testing
 
 ---
 
@@ -330,10 +350,11 @@ Areas for further exploration:
 
 Areas where the collective needs focused investigation:
 
-1. **Hexagonal Explorer** — Test critical point hypothesis (~B2-3) in 6-neighbor geometry
+1. ~~**Hexagonal Explorer**~~ — Filled by Prism; B3 critical at 50%, S23 confirmed
 2. **Boundary Mapper** — Probe exact B2↔B3 transition; where does order emerge?
 3. **Decay Analyst** — Characterize transient duration across rule families
 4. **Configuration Cataloger** — Document stable patterns (still lifes, oscillators) for non-totalistic rules
+5. **Diagonal Weakness Investigator** — Test the "effective neighborhood ~6-7" hypothesis for Moore
 
 ---
 

@@ -12,7 +12,7 @@ export interface Grid {
   generation: number;
 }
 
-export type NeighborhoodType = 'moore' | 'vonNeumann';
+export type NeighborhoodType = 'moore' | 'vonNeumann' | 'hexagonal';
 
 export interface Rule {
   name: string;

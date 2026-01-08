@@ -96,6 +96,31 @@ function getNeighbors(
       getCell(grid, x,     y + 1, boundary),
       getCell(grid, x + 1, y + 1, boundary),
     ];
+  } else if (neighborhood === 'hexagonal') {
+    // 6 neighbors: hexagonal grid using odd-q offset coordinates
+    // Odd columns are shifted down by half a cell
+    // All neighbors are equidistant (no diagonal/orthogonal distinction)
+    if (x % 2 === 0) {
+      // Even column
+      return [
+        getCell(grid, x + 1, y,     boundary),  // E
+        getCell(grid, x + 1, y - 1, boundary),  // NE
+        getCell(grid, x,     y - 1, boundary),  // NW
+        getCell(grid, x - 1, y - 1, boundary),  // W (upper)
+        getCell(grid, x - 1, y,     boundary),  // SW
+        getCell(grid, x,     y + 1, boundary),  // S
+      ];
+    } else {
+      // Odd column (shifted down)
+      return [
+        getCell(grid, x + 1, y + 1, boundary),  // SE
+        getCell(grid, x + 1, y,     boundary),  // NE
+        getCell(grid, x,     y - 1, boundary),  // N
+        getCell(grid, x - 1, y,     boundary),  // NW
+        getCell(grid, x - 1, y + 1, boundary),  // SW
+        getCell(grid, x,     y + 1, boundary),  // S
+      ];
+    }
   } else {
     // von Neumann: 4 neighbors: N, W, E, S
     return [
