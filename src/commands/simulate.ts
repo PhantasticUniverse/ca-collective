@@ -91,6 +91,53 @@ if (analysis.periodicity.detected) {
   console.log('Periodicity: not detected');
 }
 
+// Temporal analysis — Epoch
+console.log('\n' + '─'.repeat(60));
+console.log('TEMPORAL DYNAMICS');
+console.log('─'.repeat(60));
+const pop = result.metrics.populationHistory;
+const totalCells = config.width * config.height;
+
+// Population at key intervals
+const intervals = [0, 10, 25, 50, 100, 200, Math.min(500, config.steps)].filter(i => i <= config.steps);
+console.log('Population over time:');
+for (const t of intervals) {
+  const p = pop[t];
+  const pct = ((p / totalCells) * 100).toFixed(1);
+  console.log(`  t=${t.toString().padStart(4)}: ${p.toString().padStart(5)} cells (${pct}%)`);
+}
+
+// Stabilization detection: find when population variance becomes low
+const windowSize = 20;
+let stableAt = -1;
+for (let i = windowSize; i < pop.length; i++) {
+  const window = pop.slice(i - windowSize, i);
+  const mean = window.reduce((a, b) => a + b, 0) / windowSize;
+  const variance = window.reduce((a, b) => a + (b - mean) ** 2, 0) / windowSize;
+  const cv = Math.sqrt(variance) / mean; // coefficient of variation
+  if (cv < 0.02) { // < 2% variation = stable
+    stableAt = i - windowSize;
+    break;
+  }
+}
+if (stableAt > 0) {
+  console.log(`Stabilization: ~step ${stableAt} (variance < 2%)`);
+} else {
+  console.log('Stabilization: not detected (high variance throughout)');
+}
+
+// Initial decay rate (first 50 steps)
+const early = pop.slice(0, Math.min(51, pop.length));
+const earlyDecay = early.length > 1 ? (early[0] - early[early.length - 1]) / early[0] : 0;
+console.log(`Early decay (0-50): ${(earlyDecay * 100).toFixed(1)}% of initial population`);
+
+// Late activity (variance in last 50 steps)
+const lateWindow = pop.slice(-Math.min(50, pop.length));
+const lateMean = lateWindow.reduce((a, b) => a + b, 0) / lateWindow.length;
+const lateVariance = lateWindow.reduce((a, b) => a + (b - lateMean) ** 2, 0) / lateWindow.length;
+const lateStdDev = Math.sqrt(lateVariance);
+console.log(`Late fluctuation: mean=${lateMean.toFixed(0)}, stdDev=${lateStdDev.toFixed(1)}`)
+
 // Save image
 const filename = generateFilename(config.rule.name, researcher || undefined);
 console.log('\n' + '─'.repeat(60));

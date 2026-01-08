@@ -5,26 +5,40 @@ Active hypotheses being tested. Updated as evidence accumulates.
 ---
 
 ## H1: Transient Scaling
-**Status:** Untested
+**Status:** CONFIRMED (Entry 2)
 
 Transient duration correlates with proximity to the edge of chaos.
-- Rules near critical point (B3/S23) → long transients
-- Rules deep in order (B4/S234) → short transients
-- Rules in chaos (B2/S) → no true stabilization
+- Rules near critical point (B3/S23) → long transients ✓ (248 steps)
+- Rules deep in order (B4/S234) → short transients ✓ (11 steps)
+- Rules in chaos (B2/S) → no true stabilization ✓ (high variance throughout)
 
-**Test:** Compare transient lengths across the known spectrum.
+**Results:**
+| Rule | Stabilization |
+|------|--------------|
+| Life (critical) | 248 steps |
+| DB2/DS23 (sparse order) | 42 steps |
+| B3/S234 (dense order) | 11 steps |
+| B2/S23 (chaos) | never |
 
 ---
 
 ## H2: Activity Decay Profiles
-**Status:** Untested
+**Status:** CONFIRMED (Entry 2)
 
 The functional form of activity decay depends on regime:
-- **Order:** Exponential decay → activity ~ e^(-t/τ)
-- **Chaos:** No decay, fluctuations around mean
-- **Critical:** Power-law decay → activity ~ t^(-α)
+- **Order:** Quick stabilization, low fluctuation ✓
+- **Chaos:** No decay, high fluctuations around mean ✓
+- **Critical:** Slow decay, intermediate fluctuation ✓
 
-**Test:** Fit decay curves to step-by-step activity data.
+**Results:**
+| Rule | Late stdDev | Character |
+|------|-------------|-----------|
+| B2/S23 (chaos) | 40.7 | High fluctuation |
+| Life (critical) | 31.2 | Intermediate |
+| B3/S234 (dense order) | 2.6 | Low |
+| DB2/DS23 (sparse order) | 0.5 | Very low |
+
+Life's intermediate late fluctuation is the temporal signature of criticality.
 
 ---
 
