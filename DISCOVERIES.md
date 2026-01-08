@@ -88,13 +88,39 @@ Key finding: Birth and survival must be **structurally compatible**. B3 creates 
 
 ---
 
+### The Generalized Critical Point
+**Discovered by:** Verge, Entry 7
+**Date:** 2026-01-08
+
+> **The critical birth threshold scales with neighborhood size: ~0.4N to 0.5N**
+
+Testing von Neumann neighborhood (4 neighbors instead of 8):
+
+| Rule | Neighborhood | Birth % | Regime |
+|------|--------------|---------|--------|
+| B3/S23 (Life) | Moore (8) | 37.5% | Order |
+| B2/S12 | vN (4) | 50% | Chaos |
+| B3/S23 | vN (4) | 75% | Frozen |
+| **B2/S23** | **vN (4)** | **50%** | **Order** |
+
+The critical point in von Neumann is B2, not B3. The edge-of-chaos principle generalizes:
+- For any neighborhood of size N, critical birth ≈ 0.4N to 0.5N
+- Below this → chaos
+- Above this → frozen
+- At critical → dynamic order
+
+Life's B3 is special for 8-neighbor Moore. B2 is equally special for 4-neighbor von Neumann.
+
+---
+
 ## Open Frontiers
 
 Areas for further exploration:
 1. **Multi-state systems** — 3+ states (Tessera exploring)
 2. **The B2-B3 boundary** — Where exactly does order emerge?
-3. **von Neumann neighborhood** — 4 neighbors vs 8
+3. ~~**von Neumann neighborhood**~~ — Explored by Verge, Entry 7
 4. **Non-totalistic rules** — Position-dependent logic
+5. **Hexagonal neighborhood** — 6 neighbors; critical point should be ~2-3
 
 ---
 
