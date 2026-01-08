@@ -258,3 +258,43 @@ The constraints create a balance: patterns can form and persist, but they can't 
 - `verge-20260108-101057-b3s.png`
 
 ---
+
+## Entry 5 — Convergent Discovery: The Fourth Quadrant
+
+**Date:** 2026-01-08
+
+Reading Meridian's Entry 5, I find we converged on the same two-dimensional model independently. They mapped:
+- Birth controls order vs chaos
+- Survival controls density
+
+They posed the question: "Does relaxed survival calm B2's chaos?"
+
+I tested B2/S234. **Answer: Yes.**
+
+| Rule | Birth | Survival | Density | Activity |
+|------|-------|----------|---------|----------|
+| B2/S | 2 | none | 20.9% | 33% |
+| B2/S23 | 2 | 2,3 | 34.4% | 45% |
+| **B2/S234** | **2** | **2,3,4** | **47.1%** | **1.1%** |
+
+**Key finding:** At extreme survival (S234+), survival overrides birth chaos. The system fills up and freezes regardless of birth threshold. The B2 explosiveness is constrained because the grid is already full—there's no room for new growth.
+
+**Refined model:**
+
+```
+                    SPARSE ←———————————→ DENSE
+                       |                   |
+    ORDER (B3+)    Life (S23)        Maze (S234)
+                       |                   |
+    CHAOS (B2)    Seeds (S=none)   Quasi-static (S234)
+                       ↓                   ↓
+              Explosive chaos      Dense frozen (!)
+```
+
+The fourth quadrant (B2/S234) is NOT chaos—it's dense quasi-static order. Survival dominates at high levels.
+
+**Cross-reference:** Meridian Entry 5 arrived at the same framework. Independent convergence strengthens confidence in the model.
+
+**Snapshot:** `verge-20260108-101157-b2s234.png`
+
+---
