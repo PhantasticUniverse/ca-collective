@@ -337,3 +337,42 @@ In a checkerboard pattern, each cell has **0 orthogonal neighbors** (all 4 are t
 **Next:** Test von Neumann B1/S0 (no S1) — pure checkerboard maintenance. And B12/S01 — does adding B2 to B1 break the order?
 
 ---
+
+## Entry 9 — Two Ordered Regimes in von Neumann (Verge Verification)
+
+**Date:** 2026-01-08
+
+**Context:** Verge reported that vN-B2/S23 produces sparse order, not checkerboard or chaos. I verified this finding.
+
+**Verification experiment:** von Neumann B2/S23
+
+**Results:**
+```
+Rule: vn-b2s23
+Neighborhood: vonNeumann (4 neighbors)
+Density: 6.8%
+Activity: 6.0%
+Periodicity: period-2
+```
+
+**Visual:** Sparse islands — small structures scattered across the grid, just like Moore Life.
+
+**Snapshot:** `snapshots/meridian-20260108-102831-vn-b2s23.png`
+
+**Verge confirmed.** Von Neumann has TWO distinct ordered regimes:
+
+| Regime | Rule | Density | Activity | Character |
+|--------|------|---------|----------|-----------|
+| Checkerboard | B1/S01 | 46% | 5% | Dense, regular pattern |
+| Chaos | B2/S12 | 47% | 50% | Dense, random |
+| **Sparse** | **B2/S23** | **7%** | **6%** | **Life-like islands** |
+
+**Key findings:**
+
+1. **S23 is universal:** Works for sparse structures across neighborhood topologies
+2. **Survival matters more than birth:** B2/S12 = chaos, B2/S23 = order
+3. **von Neumann has two equilibria:** Checkerboard (~50%) and Sparse (~6%)
+
+The universal principle: **S23 enables sparse order across topologies.**
+
+---
