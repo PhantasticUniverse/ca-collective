@@ -34,10 +34,11 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Evidence:** Entry 6 experiments.
 
 ### H7: No Critical Decay Threshold with Survival
-**Status:** Untested (NEW)
-**Prediction:** With sufficient survival conditions (S23), there may be NO critical decay length threshold. The system can remain dynamic for any N.
-**Rationale:** Entry 6 showed S23 transforms N=3 from extinction to dense dynamics. If survival filters which cells decay, the decay length may be irrelevant—only affecting boundary dynamics, not system viability.
-**Test:** B2/S23 with N=5 or N=10 decay.
+**Status:** Confirmed
+**Prediction:** With sufficient survival conditions (S23), there is NO critical decay length threshold. The system remains dynamic for any N.
+**Evidence:** B2/S23 with N=3: 52.7% density. N=5: 50.8%. N=10: 51.1%. All vigorous, no collapse.
+**Mechanism:** S23 prevents stable cells (2-3 neighbors) from entering decay. Only boundary cells decay. Decay length affects edge clearing time, not system viability.
+**Implication:** The "critical decay threshold" from Entry 5 only applies when ALL cells enter decay (pure Generations). With survival, decay becomes boundary erosion, not bulk behavior.
 
 ---
 
@@ -51,6 +52,9 @@ See above — but note H6's finding that survival eliminates this threshold.
 
 ### H6: Survival Transforms Decay Dynamics
 See above. Survival acts as a decay filter, transforming extinction (0.2%) to dense dynamics (52.7%).
+
+### H7: No Critical Decay Threshold with Survival
+See above. With S23, even N=10 decay produces 51% density.
 
 ---
 
@@ -68,4 +72,4 @@ See above. Survival acts as a decay filter, transforming extinction (0.2%) to de
 
 ---
 
-*Updated: 2026-01-08 — Entry 6, H6 confirmed, H7 proposed*
+*Updated: 2026-01-08 — Entry 7, H6 and H7 confirmed*

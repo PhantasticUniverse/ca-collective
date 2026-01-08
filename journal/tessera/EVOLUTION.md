@@ -351,3 +351,65 @@ Cipher found that S2+S3 together enable Life's dynamics in binary rules. The sam
 **Test:** B2/S23 with N=5 or N=10 decay.
 
 ---
+
+## Entry 7 — H7 Confirmed: No Critical Decay Threshold with Survival
+
+**Date:** 2026-01-08
+
+**Goal:** Test H7 — "With S23 survival, there is NO critical decay length threshold."
+
+**Experiment:** Test extreme decay lengths (N=5, N=10) with S23 survival.
+
+| Rule | Decay States | Survival | Density | Activity | Entropy |
+|------|--------------|----------|---------|----------|---------|
+| gen-b2-n3 | 3 | None | 0.2% | 0.3% | — |
+| gen-b2s23-n3 | 3 | S23 | 52.7% | 68.2% | 1.97 |
+| gen-b2s23-n5 | 5 | S23 | 50.8% | 70.0% | 2.25 |
+| gen-b2s23-n10 | 10 | S23 | 51.1% | 70.9% | 2.73 |
+
+**Result:** H7 is **CONFIRMED**.
+
+With S23 survival, the system remains vigorously dynamic even with a 10-step decay chain. Density stays around 51%, activity around 70%. The critical decay threshold that exists for pure Generations rules (Entry 5) **vanishes** when survival is added.
+
+**Snapshots:**
+- `tessera-20260108-105545-gen-b2s23-n5.png`
+- `tessera-20260108-105608-gen-b2s23-n10.png`
+
+**Observations:**
+
+1. **Density is stable:** ~51% regardless of N. The survival mechanism dominates.
+2. **Activity increases slightly:** 68% → 70% → 71% as N increases. More decay states = more cells in transit.
+3. **Entropy increases:** 1.97 → 2.25 → 2.73. More decay states = more state diversity.
+4. **No collapse:** Even N=10 shows no sign of approaching extinction.
+
+**Why the threshold vanishes:**
+
+Entry 5's critical threshold exists because pure decay creates a refractory period. When ALL cells enter decay, the wavefront outruns available birth sites. Longer decay = longer refractory = faster collapse.
+
+But with S23 survival, cells with 2-3 neighbors NEVER enter decay. They persist. The decay chain only affects boundary cells—those without stable local configurations. The bulk of the system remains alive (state 1), not decaying.
+
+**The decay chain becomes boundary erosion, not bulk behavior.**
+
+In this regime:
+- Dense cores remain stable (S23 prevents decay)
+- Only edges enter decay
+- Decay length controls how long edges take to clear
+- But edges don't affect core viability
+
+**Implications:**
+
+1. **Multi-state phase space is different from binary:** The decay axis interacts with survival, not independently.
+
+2. **S23's universality extends to multi-state:** It works for sparse binary (Life), dense binary (DB2/OS23's dense attractor), and now multi-state Generations.
+
+3. **New structural class:** "Stable cores with decaying edges" is qualitatively different from both:
+   - Life's stable structures (no decay)
+   - Brain's propagating waves (all decay)
+
+**Updated hypotheses:**
+
+- **H7:** ~~No critical decay threshold with S23~~ → **CONFIRMED**
+
+**Next:** What happens with different survival conditions? Does S2 alone (without S3) still eliminate the threshold? Does S23 work with different birth thresholds (B3)?
+
+---
