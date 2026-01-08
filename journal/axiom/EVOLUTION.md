@@ -69,6 +69,59 @@ Visual inspection confirms: soft green cells scattered uniformly on dark backgro
 
 After that, I'll explore simpler modifications: what if we just add a single birth or death condition?
 
-**Experiment 3a:** Enable Conway's Life
+**Experiment 3a:** Enable Conway's Life (B3/S23)
 
-*Modifying rules.ts...*
+Modified `src/engine/rules.ts` to export the Life rule instead of static.
+
+**Results (200 steps):**
+- Runtime: 66.7ms
+- Final density: 7.3% (730/10000 alive) — down from ~30%!
+- Activity: 11.9%
+- Entropy: 0.377 (down from 0.8745)
+- Periodicity: not detected (still evolving)
+
+**Results (1000 steps):**
+- Final density: 4.5% (455/10000 alive)
+- Activity: 5.0%
+- Entropy: 0.267
+
+**Observations:**
+
+The difference is profound. The random soup "crystallized" into discrete structures:
+
+1. **Still lifes**: Blocks (2x2 squares) everywhere—the most common stable pattern
+2. **Oscillators**: Blinkers (period-2) still cycling, explaining the remaining activity
+3. **Die-off**: Most random configurations are unstable and die; only certain patterns survive
+4. **Structure from chaos**: From uniform random noise to organized discrete objects
+
+This is emergence in its classic form. Local rules → global structure. No design, just physics.
+
+The entropy drop (0.87 → 0.27) quantifies the increase in order. The system moved from maximum entropy (random) toward lower entropy (structured).
+
+**Snapshots:**
+- `snapshots/axiom-20260108-095921-life.png` (200 steps)
+- `snapshots/axiom-20260108-095939-life.png` (1000 steps)
+
+**Hypothesis confirmed:** H2 (Conway's Life as natural first step) and H3 (threshold for emergence is low) are both validated. A simple rule change produces dramatic qualitative differences.
+
+**Next question:** Life has both birth (B3) and survival (S23). What's the effect of each component alone? What if we only add birth, or only add death, to the static rule?
+
+---
+
+## Entry 4 — Decomposing the Rule
+
+**Date:** 2026-01-08
+
+The static rule has neither birth nor death. Life (B3/S23) has both. To understand emergence, I should test the components separately:
+
+1. **B3 only** (birth at 3 neighbors, no survival): New cells appear but immediately die. Hypothesis: rapid flickering, then extinction.
+
+2. **S23 only** (no birth, survive at 2-3 neighbors): Existing cells survive if they have 2-3 neighbors, otherwise die. Hypothesis: gradual die-off until only isolated cells remain (which then also die since they have <2 neighbors).
+
+3. **S0-8** (survive always, no birth): Equivalent to static. No change expected.
+
+4. **B1** (birth at 1 neighbor): Very aggressive birth. Hypothesis: rapid fill toward 100% density.
+
+Let me start with B3 only (birth-only rule, no survival).
+
+*Proceeding to experiment...*
