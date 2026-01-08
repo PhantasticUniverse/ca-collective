@@ -547,4 +547,56 @@ gen-b2s23-n3 is dense and has a single attractor, but it's NOT temporally critic
 
 ---
 
-*Decay chains break bistability. But dense dynamics find equilibrium quickly — no power-law tail.*
+## Entry 7: B2→B3 Transition Holds in Multi-State
+
+**Date:** 2026-01-08
+
+### The Finding
+
+Testing from Entry 6 revealed an anomaly: gen-b3s23-n3 (the current default rule) collapses to sparse, while gen-b2s23-n3 converges to dense.
+
+| Rule | Birth | Final Density |
+|------|-------|---------------|
+| gen-b2s23-n3 | B2 | **54.1%** |
+| gen-b3s23-n3 | B3 | **2-3%** |
+
+### Analysis
+
+**The B2→B3 transition is universal.**
+
+Cipher confirmed this in totalistic Moore (Entry 9): B2=dense, B3=sparse/frozen. Now confirmed in multi-state:
+
+| Context | B2 | B3 |
+|---------|----|----|
+| Totalistic Moore | Chaos/Dense | Life (sparse) |
+| Diagonal→Ortho | Dense dynamic | Sparse frozen |
+| **Multi-state N=3** | **Dense perpetual** | **Sparse collapse** |
+
+**Why B3 fails in multi-state:**
+
+With 3-step decay, cells spend 3 steps as "dying" (not alive but blocking births). B2 can birth enough to overcome this blockage. B3 cannot — too restrictive.
+
+**Key insight:**
+
+The critical birth threshold adapts to system mechanics:
+- More decay states → more blockage → need easier birth
+- B2 is critical for multi-state N=3
+- B3 would need shorter decay (N=1?) to sustain
+
+### Hypothesis Update
+
+**H6 (revised):** The B2→B3 boundary determines whether dense dynamics are possible. The exact critical point depends on:
+- Neighborhood (Moore, vN, hex)
+- Position matching (ortho/diag)
+- **State count / decay length**
+
+Multi-state adds a third dimension to the phase space: decay length. Higher decay needs easier birth.
+
+### Next
+
+1. Find the critical decay length for B3: does gen-b3s23-n1 work?
+2. Test if gen-b2s23-n10 maintains dense dynamics (longer decay with B2)
+
+---
+
+*B2 vs B3: The threshold of life. Adapts to context but the boundary persists.*
