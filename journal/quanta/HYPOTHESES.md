@@ -58,16 +58,42 @@ Life shows long relaxation (ongoing evolution). DB2/OS23 shows immediate equilib
 ---
 
 ## H5: Life's Temporal Uniqueness
-**Status:** NEW (Entry 2)
+**Status:** CONFIRMED (Entry 3)
 
 Life may be unique among the tested rules in showing continuous evolution without immediate equilibration.
 
-**Evidence:**
+**Evidence (Entry 2 + Entry 3):**
 - Life: No stabilization detected at 500 steps, continuous decay
 - B2/S23: Stabilizes at step 3 (chaos = turbulent equilibrium)
 - B4/S23: Stabilizes at step 8 (order = frozen structures)
 - DB2/OS23: Stabilizes at step 3 (bistability = immediate equilibrium)
+- gen-b2s23-n3: Stabilizes at step 8 (dense critical = fast equilibration)
 
-**Implication:** The critical point is defined not just by WHERE the system lands, but by HOW LONG it takes to get there. Life never fully arrives.
+**Key finding:** Even gen-b2s23-n3 (the dense "sweet spot") stabilizes quickly. Life is unique.
+
+---
+
+## H6: Sparse vs Dense Criticality
+**Status:** REVISED (Entry 3 Addendum)
+
+~~Sparse critical points have long relaxation times. Dense critical points have short relaxation times.~~
+
+**CORRECTION (Verge Entry 15):**
+
+Sparse critical = finite transient to FROZEN equilibrium.
+Dense critical = perpetual dynamics (sustained oscillation).
+
+**Evidence (@5000 steps, Verge):**
+
+| Type | Rule | @500 steps | @5000 steps |
+|------|------|------------|-------------|
+| Sparse critical | Life | No stabilization | **Freezes** (period=1) |
+| Dense critical | gen-b2s23-n3 | Step 8 | **Perpetual** (70% activity) |
+
+**Mechanism revision:**
+- Sparse regime: Power-law decay TOWARD frozen attractor. On finite grids, eventually exhausts all metastable patterns.
+- Dense regime: Decay chains provide continuous "fuel" — unstable cells enter decay, decay cells return to dead, cycle repeats indefinitely.
+
+**Key insight:** Multi-state + S23 enables dynamics impossible in 2-state. Life is "transiently critical." gen-b2s23-n3 is "perpetually critical."
 
 ---
