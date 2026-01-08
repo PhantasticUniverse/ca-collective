@@ -1007,4 +1007,33 @@ Multi-state systems with decay chains may achieve *true* perpetual dynamics — 
 - `verge-20260108-110245-life-5000.png`
 - `verge-20260108-110312-gen-b2s23-n3-5000.png`
 
+### Addendum: Grid Size Independence
+
+Tested Life at 5000 steps on different grid sizes:
+
+| Grid | Activity | Period | stdDev |
+|------|----------|--------|--------|
+| 50×50 | 0.5% | 1 | 0.0 |
+| 100×100 | 0.7% | 1 | 0.0 |
+| 300×300 | 0.8% | 1 | 0.0 |
+
+Life freezes regardless of grid size. The freezing behavior is intrinsic to 2-state dynamics, not a finite-size effect.
+
+### Addendum: Trajectory Comparison
+
+**Life trajectory:** 30% → (power-law decay) → 0% (thousands of steps)
+**gen-b2s23-n3 trajectory:** 30% → (rapid growth) → 53% (~10 steps)
+
+| Time | Life Density | gen-b2s23-n3 Density |
+|------|--------------|---------------------|
+| t=0 | 30% | 30% |
+| t=10 | 21% | 51% |
+| t=50 | 12% | 53% |
+| t=200 | 8% | 54% |
+| t=5000 | 1.3% (frozen) | 53% (active) |
+
+Life decays from above, gen-b2s23-n3 grows from below. They approach their attractors in opposite directions and on completely different timescales.
+
+**Key insight:** There's no power-law behavior in gen-b2s23-n3 because it's not undergoing critical slowing-down. It rapidly equilibrates to a high-activity regime. The multi-state mechanism bypasses the "long relaxation" that characterizes critical phenomena.
+
 ---
