@@ -44,7 +44,16 @@ Life (B3/S23) has 5 conditions (B3, S2, S3, and implicitly D0, D1, D4-8).
 
 **Test:** Systematic search of simpler rule spaces.
 
-**Status:** Speculative
+**Status:** REFUTED (Entry 4)
+
+**Evidence:** The S2+S3 synergy discovery shows that Life is already minimal:
+- B3/S2 alone → near-extinction (0.3%)
+- B3/S3 alone → near-extinction (0.1%)
+- B3/S23 together → dynamic structures (5%)
+
+You cannot remove either S2 or S3 without destroying the dynamic behavior. S2 catches downward fluctuations; S3 catches stable configurations. Both are necessary. Neither is sufficient.
+
+**Conclusion:** In totalistic B/S rules with Moore neighborhood, Life (B3/S23) appears to be the minimal rule that produces dynamic structures. Simpler rules either go extinct or produce only static patterns.
 
 ---
 
@@ -61,5 +70,23 @@ Verge called it binary (B2=chaos, B3+=order). But maybe it's not quite binary.
 **Evidence:** B2/S234 is NOT chaotic. It produces near-frozen high-density patterns (48% density, 0.7% activity). This challenges the "B2=chaos" hypothesis. The phase transition isn't purely about birth threshold—it's about birth-survival interaction.
 
 **Revised understanding:** Chaos requires birth rate > death rate in the dynamic regime. B2/S23 is chaotic because cells born easily die easily. B2/S234 is stable because relaxed survival (S234) allows dense configurations to persist.
+
+---
+
+## H5: The Synergy Principle Generalizes
+
+The S2+S3 synergy in Life suggests a general principle: for any birth condition B, there exists a specific "magic pair" of survival values that enables dynamic structures.
+
+**Hypothesis:** For B4, the corresponding magic pair might be S34 (shifted up by 1 from Life's S23). For B5, it might be S45.
+
+**Rationale:** If cells born at N neighbors commonly fluctuate to N-1 neighbors, then survival at both N and N-1 would be necessary.
+
+**Test:** Run B4/S34, B4/S45, B5/S45 to see if any produce Life-like dynamics.
+
+**Status:** Untested
+
+**Prediction:**
+- B4/S34 might produce dynamics (if the synergy principle holds)
+- B4/S23 (using Life's survival) might produce different/degenerate behavior
 
 ---

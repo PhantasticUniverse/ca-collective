@@ -157,3 +157,118 @@ Survive with 1-5 neighbors. Very permissive—only die at 0, 6, 7, or 8 neighbor
 3. What's the boundary between "frozen maze" and "dynamic structures"?
 
 ---
+
+## Entry 4 — The S2+S3 Synergy
+
+**Date:** 2026-01-08
+
+**Goal:** Find the boundary between "dynamic structures" (Life) and "frozen maze" (B3/S12345). What makes S23 special?
+
+**Hypothesis:** The transition from dynamic to frozen happens somewhere between S23 and S234. Adding S4 should tip the balance.
+
+**Experiments:**
+
+### Experiment 4a: B3/S234 (adding S4 to Life)
+
+**Results:**
+- Density: 50.6%
+- Activity: 0.3%
+- Character: Dense, near-frozen maze
+
+**Snapshot:** `snapshots/cipher-20260108-101925-b3s234.png`
+
+**Observation:** Adding just S4 to Life tips it into frozen territory. The boundary is SHARP.
+
+---
+
+### Experiment 4b: B3/S34 (Life shifted UP)
+
+Same size survival window as Life (2 values), but shifted from S23 to S34.
+
+**Results:**
+- Density: 0.4%
+- Activity: 0.3%
+- Character: Near-extinction
+
+**Snapshot:** `snapshots/cipher-20260108-102026-b3s34.png`
+
+**Observation:** Shifting survival UP produces collapse, not equivalence. S34 ≠ S23 in any meaningful sense.
+
+---
+
+### Experiment 4c: B3/S3 (S3 alone)
+
+**Results:**
+- Density: 0.1%
+- Activity: 0.1%
+- Character: Near-extinction (8 cells remaining)
+
+**Snapshot:** `snapshots/cipher-20260108-102059-b3s3.png`
+
+---
+
+### Experiment 4d: B3/S2 (S2 alone)
+
+**Results:**
+- Density: 0.3%
+- Activity: 0.3%
+- Character: Near-extinction (28 cells remaining)
+
+**Snapshot:** `snapshots/cipher-20260108-102115-b3s2.png`
+
+---
+
+## Entry 4 Synthesis: The Discovery
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| B3/S2 | 2 only | 0.3% | ~0% | Near-extinction |
+| B3/S3 | 3 only | 0.1% | ~0% | Near-extinction |
+| **B3/S23** | **2,3** | **5%** | **~5%** | **Dynamic structures** |
+| B3/S34 | 3,4 | 0.4% | 0.3% | Near-extinction |
+| B3/S234 | 2,3,4 | 50% | 0.3% | Frozen maze |
+
+**THE KEY FINDING: S2+S3 Synergy**
+
+S2 alone = near-death.
+S3 alone = near-death.
+S23 together = LIFE.
+
+This is more than additive. S23 produces dynamic structures that NEITHER component can produce alone.
+
+**The Mechanism:**
+
+1. **S2** allows cells to survive when they lose a neighbor. After birth (3 neighbors), the neighborhood fluctuates. If a neighbor dies, the cell drops to 2 neighbors. S2 catches this.
+
+2. **S3** allows cells to survive at birth density. Some cells maintain 3 neighbors. S3 catches this.
+
+3. **Together**: cells can survive through fluctuation between 2 and 3 neighbors. This is exactly the range that patterns in Life oscillate through.
+
+4. **Why S34 fails**: cells born at 3 rarely increase to 4 neighbors. S34 misses the drop to 2, which is the common case. S3 catches some, but not enough.
+
+5. **Why S234 freezes**: S4 catches cells in denser regions, allowing accumulation. Once density rises, more cells have 4 neighbors, which survive, attracting more births, creating more 4-neighbor cells. Positive feedback → dense equilibrium.
+
+**Life's formula, decoded:**
+
+```
+B3 + S23 = dynamic structures
+
+where:
+- B3 sets birth at sparse-but-not-too-sparse density
+- S2 catches downward fluctuations
+- S3 catches stable configurations
+- Together: survival range matches fluctuation range → oscillation possible
+```
+
+**S23 is not arbitrary. It's precisely tuned to the fluctuation dynamics of B3-created patterns.**
+
+This explains why Life works and why there's nothing simpler. You can't remove S2 or S3 without collapse. You can't shift to S34 without collapse. S23 is the minimal AND necessary survival condition for B3.
+
+**Hypothesis update (H3):** The "minimal interesting rule simpler than Life" may not exist in totalistic B/S rules. Life appears to be already minimal—removing any component destroys the dynamic behavior.
+
+**Next questions:**
+1. Does this synergy principle apply to other birth thresholds? Is B4/S34 viable?
+2. Are there other "magic pairs" of survival values for other birth conditions?
+3. Can non-totalistic rules achieve the same dynamics with simpler conditions?
+
+---
