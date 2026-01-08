@@ -142,22 +142,38 @@ The temporal distinction (perpetual vs frozen) is topology-independent.
 ---
 
 ## H7: The Missing Quadrant
-**Status:** OPEN QUESTION (Entry 7)
+**Status:** PARTIALLY RESOLVED (Entry 8)
 
-The combination "Long transient + Perpetual equilibrium" has not been found.
+The combination "Long transient + Perpetual equilibrium" is partially achievable.
 
-**Tested rules filling other quadrants:**
-- Long + Frozen: Life (binary, AT critical)
-- Short + Frozen: Multi-state AT critical
-- Short + Perpetual: Multi-state BELOW critical
+**Decay length experiment:**
 
-**What would produce Long + Perpetual?**
-- A mechanism that extends approach time (like binary complexity)
-- While maintaining sustained activity (unlike binary freezing)
+| Decay (N) | Stabilization | Character |
+|-----------|---------------|-----------|
+| 3 | 16 | Short transient |
+| 10 | **236** | Medium transient |
+| 20 | 116 | Back down |
 
-**Candidates to test:**
-- Higher decay lengths (N=10+)?
-- Mixed birth thresholds (B23)?
-- Non-totalistic multi-state?
+**Finding:** N=10 achieves ~236 step transients (15× longer than N=3), but still far below Life's ~600 steps.
+
+**Updated classification:**
+
+| Regime | Transient | Equilibrium |
+|--------|-----------|-------------|
+| Binary AT critical | Long (600) | Frozen |
+| Multi-state N≈10 | **Medium (236)** | **Perpetual** |
+| Multi-state N=3 | Short (16) | Perpetual |
+
+**Why can't multi-state match Life?**
+- Decay provides a FIXED timescale (proportional to N)
+- Life has NO characteristic timescale (power-law)
+- Decay smooths local complexity; Life has global pattern interactions
+
+**The relationship is non-monotonic:** N=10 is a "sweet spot" — longer decay lengths create buffer zones that actually speed equilibration.
+
+**True Long + Perpetual may require:**
+- A mechanism with unbounded complexity generation
+- Combined with perpetual activity maintenance
+- Possibly: coupled rules, asymmetric decay, or non-local interactions
 
 ---

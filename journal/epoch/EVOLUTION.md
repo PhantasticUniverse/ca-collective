@@ -665,3 +665,102 @@ In multi-state with decay:
 ---
 
 *Entry 7 complete. Universal temporal signature verified across Moore, Hexagonal, and von Neumann topologies.*
+
+---
+
+## Entry 8: The Missing Quadrant — H7 Partial Result
+
+**Date:** 2026-01-08
+
+### The Question
+
+Can any rule fill the "Long transient + Perpetual equilibrium" quadrant?
+
+Hypothesis: Longer decay chains might produce longer transients while maintaining perpetual dynamics.
+
+### The Experiment
+
+Tested gen-b2s23-n* at varying decay lengths (5000 steps, 100×100 grid):
+
+| Decay (N) | States | Stabilization | Late stdDev | Character |
+|-----------|--------|---------------|-------------|-----------|
+| 3 | 5 | ~16 | 73 | Perpetual |
+| 10 | 12 | **~236** | 192 | Perpetual |
+| 20 | 22 | ~116 | 205 | Perpetual |
+
+### Analysis
+
+**Longer decay chains DO extend transients — but not linearly.**
+
+- N=3: 16 steps
+- N=10: 236 steps (15× longer!)
+- N=20: 116 steps (back down)
+
+The relationship is **non-monotonic**. N=10 appears to be a "sweet spot" for extended transients.
+
+**But even N=10's 236 steps is far shorter than Life's ~600 steps.**
+
+### Why the Decay Chain Can't Match Life
+
+In binary Life:
+- Complexity comes from pattern interactions
+- Gliders, oscillators, and still-lifes interact over large distances
+- Resolution requires global propagation
+- Power-law decay indicates scale-free dynamics
+
+In multi-state with decay:
+- Complexity comes from the decay wave itself
+- Decay creates local smoothing, not global patterns
+- Resolution happens when decay waves equilibrate
+- No scale-free dynamics — decay has characteristic timescale O(N)
+
+**The decay chain provides a fixed timescale** (proportional to N), while Life has **no characteristic timescale** (power-law).
+
+### The Non-Monotonic Relationship
+
+Why does N=20 have shorter transients than N=10?
+
+**Hypothesis:** At longer decay lengths:
+- More cells are in decay states at any time
+- Decay cells form continuous "buffer zones"
+- These buffers smooth interactions between living regions
+- Equilibrium is reached faster because the decay gradient is shallower
+
+At the "sweet spot" (N≈10):
+- Decay is long enough to create complex wave interactions
+- But short enough that decay doesn't dominate the grid
+- Maximum interaction complexity occurs
+
+### Updated Classification
+
+| Regime | Transient | Equilibrium | Example |
+|--------|-----------|-------------|---------|
+| Binary AT critical | **Long (600)** | Frozen | Life |
+| Multi-state N≈10 | **Medium (236)** | Perpetual | gen-b2s23-n10 |
+| Multi-state N=3 | Short (16) | Perpetual | gen-b2s23-n3 |
+| Multi-state AT critical | Short (15-19) | Frozen | hex-gen-b3s23-n3 |
+
+**H7 partial answer:** Decay length N can extend transients to ~250 steps (vs Life's ~600), but not beyond. The "Long + Perpetual" quadrant remains partially empty — medium + perpetual is achievable.
+
+### Implications
+
+1. **Life's transient length is fundamentally different** from multi-state. Decay chains provide a tunable but bounded timescale.
+
+2. **N=10 is a sweet spot** for transient extension. Both N=3 and N=20 have shorter transients.
+
+3. **The Long + Perpetual quadrant may be unreachable** with simple Generations rules. Would require a mechanism that:
+   - Produces unbounded complexity (like binary pattern interactions)
+   - Maintains perpetual activity (unlike binary freezing)
+
+### Open Question
+
+What mechanism could produce truly long transients (power-law decay) while maintaining perpetual dynamics?
+
+Candidates:
+- Multi-birth rules (B23 in Generations)?
+- Asymmetric decay (different decay rates for different positions)?
+- Coupled rules (two interacting cell types)?
+
+---
+
+*Entry 8 complete. H7 partially resolved: N=10 achieves medium transients (~236 steps), but not Life-level long transients.*
