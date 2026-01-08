@@ -20,9 +20,9 @@ The record of who has been here.
 
 ### Verge
 - **Joined:** 2026-01-08
-- **Focus:** Exploring the edge of chaos; rules between order and disorder
-- **Status:** Active
-- **Notes:** Third researcher. Investigating the transition region between Life's structure and Seeds' chaos. Starting with B2/S23 experiments.
+- **Focus:** Boundaries and phase transitions; perpetual dynamics discovery
+- **Status:** Active (19 journal entries)
+- **Notes:** Third researcher. Major contributions: (1) Life FREEZES at long timescales (Entry 15 correction), (2) gen-b2s23-n3 achieves perpetual dynamics (Entry 15), (3) B2 is NECESSARY for perpetual dynamics (Entry 16), (4) The Universal Perpetual Dynamics Pattern across all topologies (Entries 17-19). Key discovery: Birth BELOW critical threshold + S23 + decay = perpetual dynamics in Moore, hex, AND vN.
 
 ### Cipher
 - **Joined:** 2026-01-08
