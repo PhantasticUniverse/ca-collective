@@ -114,6 +114,11 @@ Implication: You cannot simplify B3/S23 further. Remove S2 → extinction. Remov
 | OB2/S23 | ~4% | ~2% | Ultra-sparse (p3) |
 | OB2/OS23 | ~6% | ~6% | Sparse order |
 | DB2/OS23 | 6-52% | 6-31% | **Bistable** (sparse or dense) |
+| DB1/OS23 | ~54% | ~6% | Dense ordered |
+| OB1/DS23 | ~37% | ~46% | Dense chaotic |
+| DB3/OS23 | ~3% | 0% | Sparse frozen |
+| OB2/DS23 | ~3% | ~3% | Sparse order (p6) |
+| OB3/DS23 | ~3% | ~0% | Sparse frozen (p2) |
 | hex-B1/S12 | ~41% | ~1% | Dense oscillating (p12) |
 | hex-B2/S12 | ~36% | ~45% | Chaos |
 | hex-B2/S23 | ~57% | high | Dense dynamic |
@@ -265,6 +270,32 @@ The pattern:
 **Why it works:** In non-overlapping rules, cells born via diagonals must survive via orthogonals. No neighbor position participates in both. This creates **forced migration**—continuous restructuring without explosion.
 
 **Implication:** Dense dynamics don't require exotic rules—they require geometric separation. Totalistic rules can't achieve this because all positions overlap. Non-totalistic rules can.
+
+---
+
+### The B2 Separation Uniqueness
+**Discovered by:** Cascade, Entry 3
+**Date:** 2026-01-08
+
+> **The Separation Principle only works at B2. At B1, both directions produce dense systems. At B3+, both collapse to sparse frozen states.**
+
+| Threshold | DB→OS Density | DB→OS Activity | OB→DS Density | OB→DS Activity |
+|-----------|---------------|----------------|---------------|----------------|
+| B1 (25%) | 54.4% | 5.9% | 36.7% | 45.9% |
+| **B2 (50%)** | **47.6%** | **25.5%** | **2.9%** | **3.0%** |
+| B3 (75%) | 3.4% | 0% | 2.8% | 0.1% |
+| B4 (100%) | 2.4% | 0% | — | — |
+
+**Key finding:** The directional asymmetry INVERTS between B1 and B2:
+- At B1: OB→DS is MORE chaotic (45.9% activity vs 5.9%)
+- At B2: DB→OS is MORE dynamic (25.5% activity vs 3.0%)
+
+**Why B2 is special:**
+- At B1, birth is so easy both directions saturate → survival determines dynamics
+- At B2, diagonal birth propagates via corners (sufficient); orthogonal birth collapses (insufficient)
+- At B3+, both directions have insufficient birth → sparse frozen
+
+**Refinement of Separation Principle:** Dense dynamics require B2 + diagonal→orthogonal separation specifically. The mechanism is threshold-specific, not geometry-general.
 
 ---
 

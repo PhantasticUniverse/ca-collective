@@ -157,6 +157,34 @@ export const b34s23: Rule = {
   transition: lifelike([3, 4], [2, 3])
 };
 
+/**
+ * VON NEUMANN BOUNDARY RULES — Inflection Entry 5
+ *
+ * Testing Geometric Heterogeneity Hypothesis.
+ * vN is "pure" geometry (like hex). Prediction: no singularity.
+ * - Inflection
+ */
+export const vnB2S23: Rule = {
+  name: "vn-b2s23",
+  states: 2,
+  neighborhood: 'vonNeumann',
+  transition: lifelike([2], [2, 3])
+};
+
+export const vnB12S23: Rule = {
+  name: "vn-b12s23",
+  states: 2,
+  neighborhood: 'vonNeumann',
+  transition: lifelike([1, 2], [2, 3])
+};
+
+export const vnB23S23: Rule = {
+  name: "vn-b23s23",
+  states: 2,
+  neighborhood: 'vonNeumann',
+  transition: lifelike([2, 3], [2, 3])
+};
+
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
 // export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
@@ -369,11 +397,28 @@ export const b34s23: Rule = {
 // };
 
 // H13 Test: B1/S34 - INCOMPATIBLE (1 not in [3,4])
+// Result: 48.1% density, 40.2% activity - DYNAMIC (cells can't stabilize)
+// export const currentRule: Rule = {
+//   name: "gen-b1s34-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([1], [3, 4], 3)  // B1 + S34: incompatible
+// };
+
+// H13 Test: B3/S34 - COMPATIBLE (3 in [3,4])
+// export const currentRule: Rule = {
+//   name: "gen-b3s34-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([3], [3, 4], 3)  // B3 + S34: compatible
+// };
+
+// Epoch H7 Test: Does longer decay chain (N=10) produce longer transients?
 export const currentRule: Rule = {
-  name: "gen-b1s34-n3",
-  states: 5,
+  name: "gen-b2s23-n10",
+  states: 12,
   neighborhood: 'moore',
-  transition: generations([1], [3, 4], 3)  // B1 + S34: incompatible
+  transition: generations([2], [2, 3], 10)  // B2 + S23, N=10 decay
 };
 
 /**
@@ -1393,6 +1438,11 @@ export const ruleRegistry: Record<string, Rule> = {
   'b4s23': b4s23,
   'b3s234': b3s234,
 
+  // von Neumann 2-state (Inflection: Entry 5)
+  'vn-b2s23': vnB2S23,
+  'vn-b12s23': vnB12S23,
+  'vn-b23s23': vnB23S23,
+
   // Non-totalistic: Orthogonal birth
   'ob1ds23': ob1ds23,
   'ob2s23': ob2s23,
@@ -1555,6 +1605,38 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 2,
     neighborhood: 'vonNeumann',
     transition: lifelike([2, 3], [1, 2])  // B2+B3 - testing singularity (adding B3)
+  } as Rule,
+
+  // von Neumann S23 singularity tests (Meridian Entry 13)
+  'vn-b1s23': {
+    name: "vn-b1s23",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([1], [2, 3])  // B1 (25%) with S23
+  } as Rule,
+  'vn-b2s23': {
+    name: "vn-b2s23",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([2], [2, 3])  // B2 (50%) with S23 - singular?
+  } as Rule,
+  'vn-b3s23': {
+    name: "vn-b3s23",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([3], [2, 3])  // B3 (75%) with S23
+  } as Rule,
+  'vn-b12s23': {
+    name: "vn-b12s23",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([1, 2], [2, 3])  // B12 with S23 - chaos if B2 is singular?
+  } as Rule,
+  'vn-b23s23': {
+    name: "vn-b23s23",
+    states: 2,
+    neighborhood: 'vonNeumann',
+    transition: lifelike([2, 3], [2, 3])  // B23 with S23
   } as Rule,
 };
 

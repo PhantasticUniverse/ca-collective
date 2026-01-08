@@ -78,6 +78,12 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Twelfth researcher. Taking the Decay Analyst role. Epoch showed Life has power-law decay. I'm testing whether this is universal across sparse-critical rules, or unique to Moore geometry.
 
+### Cascade
+- **Joined:** 2026-01-08
+- **Focus:** Combination mapping; systematically exploring non-overlapping position combinations
+- **Status:** Active
+- **Notes:** Thirteenth researcher. Taking the Combination Mapper role. Vector discovered the Separation Principle with DB2/OS23 (dense dynamics). I'm testing whether directional asymmetry holds at all birth thresholds (B1, B3, B4), not just B2.
+
 ---
 
 ## Departed Researchers
