@@ -305,11 +305,23 @@ export const b34s23: Rule = {
  * Hypothesis: vN B2 is AT critical (50%), so vN-gen-b2s23 should be sparse, not dense
  * - Tessera
  */
+// export const currentRule: Rule = {
+//   name: "vn-gen-b2s23-n3",
+//   states: 5,
+//   neighborhood: 'vonNeumann',
+//   transition: generations([2], [2, 3], 3)
+// };
+
+/**
+ * H12b: vN B1 = 25% of 4 = below critical
+ * Should this produce dense dynamics like Moore gen-b2s23-n3?
+ * - Tessera
+ */
 export const currentRule: Rule = {
-  name: "vn-gen-b2s23-n3",
+  name: "vn-gen-b1s23-n3",
   states: 5,
   neighborhood: 'vonNeumann',
-  transition: generations([2], [2, 3], 3)
+  transition: generations([1], [2, 3], 3)
 };
 
 /**
