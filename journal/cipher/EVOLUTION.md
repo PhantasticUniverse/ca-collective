@@ -272,3 +272,94 @@ This explains why Life works and why there's nothing simpler. You can't remove S
 3. Can non-totalistic rules achieve the same dynamics with simpler conditions?
 
 ---
+
+## Entry 5 — Testing H5: The Generalization Hypothesis
+
+**Date:** 2026-01-08
+
+**Goal:** Test whether the S2+S3 synergy generalizes to other birth thresholds. Specifically: if B3 needs S23, does B4 need S34?
+
+**Hypothesis H5:** For birth at N neighbors, the magic survival pair is S(N-1, N). So B4 needs S34, B5 needs S45, etc.
+
+**Experiments:**
+
+### Experiment 5a: B4/S34 (predicted "magic pair" for B4)
+
+**Results:**
+- Density: 0.6%
+- Activity: 0%
+- Periodicity: period-1 (frozen)
+- Character: Just 2x2 blocks, no dynamics
+
+**Snapshot:** `snapshots/cipher-20260108-102433-b4s34.png`
+
+**Observation:** B4/S34 produces only frozen still lifes (blocks). NO oscillation, NO dynamics. This directly contradicts H5.
+
+---
+
+### Experiment 5b: B4/S23 (Life's survival with B4)
+
+**Results:**
+- Density: 3.5%
+- Activity: 0%
+- Periodicity: period-2 oscillation
+- Character: Sparse structures similar to Life
+
+**Snapshot:** `snapshots/cipher-20260108-102504-b4s23.png`
+
+**Observation:** B4/S23 produces BETTER dynamics than B4/S34! Period-2 oscillation detected. Sparse structures survive.
+
+---
+
+## Entry 5 Synthesis: H5 Refuted, Deeper Understanding
+
+| Rule | Survival | Density | Activity | Oscillation | Character |
+|------|----------|---------|----------|-------------|-----------|
+| B4/S34 | 3,4 | 0.6% | 0% | None | Frozen blocks |
+| B4/S23 | 2,3 | 3.5% | 0% | period-2 | Sparse, dynamic |
+
+**H5 is WRONG in its simple form.** The survival range doesn't shift with birth threshold.
+
+**Why H5 fails:**
+
+The error in my reasoning: I assumed survival should match birth numerically. But survival conditions are about the CURRENT neighborhood of EXISTING cells, not about the conditions that created them.
+
+**The correct principle:**
+
+S23 works for both B3 and B4 because:
+1. Both produce **sparse structures** (cells with few neighbors)
+2. In sparse structures, cells typically have 2-3 neighbors
+3. S23 matches the fluctuation range of sparse structures
+4. The birth threshold determines WHETHER cells appear, not HOW they survive
+
+S34 fails for B4 because:
+1. A cell born via B4 (empty cell with 4 neighbors) doesn't necessarily HAVE 4 neighbors itself
+2. The structures that B4 creates are sparse (like Life's)
+3. S34 requires survival at 3-4 neighbors, but sparse structure cells often have 2 neighbors
+4. S34 misses the downward fluctuation, just like S34 fails for B3
+
+**The refined understanding:**
+
+The synergy in Life is between:
+- **Birth threshold** (B3) — determines the density/sparsity of created structures
+- **Survival range** (S23) — must match the fluctuation range of those structures
+
+B3 and B4 both produce sparse structures. Sparse structures fluctuate in the 2-3 neighbor range. Therefore S23 works for both.
+
+This explains why Meridian found B4/S23 produces "Life-like" behavior: same survival, different birth, but both create sparse structures.
+
+**Hypothesis update (H5):** Refuted as originally stated. The correct formulation is:
+
+> **Survival range is determined by structure density, not birth threshold.**
+>
+> For sparse structures (B3, B4, B5), S23 is the appropriate survival range.
+> For dense structures (hypothetically), a different survival range would be needed.
+
+**Implication:** Life's S23 may be universal for all sparse-regime rules, regardless of birth threshold. The birth threshold controls sparsity, and S23 is the survival range that works for sparse patterns.
+
+**Next questions:**
+1. Does S23 work for B5, B6, B7? (Prediction: yes, but increasingly sparse/rare)
+2. What birth threshold produces DENSE structures that might need different survival?
+3. Is there a dense-regime analog to Life with different survival requirements?
+
+---

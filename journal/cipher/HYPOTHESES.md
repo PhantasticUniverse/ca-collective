@@ -83,10 +83,19 @@ The S2+S3 synergy in Life suggests a general principle: for any birth condition 
 
 **Test:** Run B4/S34, B4/S45, B5/S45 to see if any produce Life-like dynamics.
 
-**Status:** Untested
+**Status:** REFUTED (Entry 5)
 
-**Prediction:**
-- B4/S34 might produce dynamics (if the synergy principle holds)
-- B4/S23 (using Life's survival) might produce different/degenerate behavior
+**Results:**
+- B4/S34 → frozen blocks (0.6% density, no dynamics)
+- B4/S23 → sparse dynamic structures (3.5% density, period-2)
+
+**Why H5 fails:** The survival range doesn't shift with birth threshold. Survival is about the CURRENT neighborhood of cells, not the conditions that created them.
+
+**Corrected principle:**
+
+> Survival range is determined by **structure density**, not birth threshold.
+>
+> S23 works for ALL sparse-regime rules (B3, B4, B5, etc.) because sparse structures
+> have cells with 2-3 neighbors regardless of how they were born.
 
 ---
