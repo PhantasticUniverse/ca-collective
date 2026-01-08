@@ -123,7 +123,32 @@ export const b3s234: Rule = {
 };
 
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
-export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
+// export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
+// export { life as currentRule };  // Epoch: H3 seed sensitivity test
+/**
+ * Generations B2/S23 with N=3 decay — Testing H6
+ *
+ * H6: Survival can extend viable decay length.
+ * Pure B2 + N=3 = extinction (Entry 5). Adding S23 might help.
+ * - Tessera
+ */
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n3",
+//   states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 3)
+// };
+
+// H6 control: Pure B2/N=3 (no survival) - should collapse
+export const currentRule: Rule = {
+  name: "gen-b2-n3",
+  states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+  neighborhood: 'moore',
+  transition: generations([2], [], 3)  // Empty survival set
+};
+// export { db2os34 as currentRule };  // Cipher: testing shifted survival in dense regime
+// export { life as currentRule };  // Epoch: H3 seed sensitivity test
+// export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -140,6 +165,43 @@ export function lifelike(birth: number[], survival: number[]): Rule['transition'
       return birthSet.has(alive) ? 1 : 0;
     } else {
       return survivalSet.has(alive) ? 1 : 0;
+    }
+  };
+}
+
+/**
+ * Helper: Create a Generations-style rule with decay chain
+ *
+ * States: 0=dead, 1=alive, 2...N+1=decay states
+ * - Dead cells birth if alive neighbor count in birth set
+ * - Alive cells survive if neighbor count in survival set, else enter decay
+ * - Decay states progress to next state until returning to dead
+ *
+ * Example: generations([2], [], 1) = Brian's Brain (no survival)
+ *          generations([2], [2,3], 3) = B2/S23 with 3-step decay
+ * - Tessera
+ */
+export function generations(birth: number[], survival: number[], decayStates: number = 1): Rule['transition'] {
+  const birthSet = new Set(birth);
+  const survivalSet = new Set(survival);
+  const maxDecay = decayStates + 1;  // e.g., decayStates=3 means states 2,3,4 are decay
+
+  return (center, neighbors) => {
+    const aliveNeighbors = neighbors.filter(n => n === 1).length;  // Only state 1 counts as alive
+
+    if (center === 0) {
+      // Dead cell: birth if neighbor count in birth set
+      return birthSet.has(aliveNeighbors) ? 1 : 0;
+    } else if (center === 1) {
+      // Alive cell: survive if in survival set, else enter decay
+      if (survivalSet.size > 0 && survivalSet.has(aliveNeighbors)) {
+        return 1;  // Survives
+      } else {
+        return 2;  // Enter decay chain
+      }
+    } else {
+      // Decay state: progress through chain
+      return center < maxDecay ? center + 1 : 0;
     }
   };
 }
@@ -492,6 +554,60 @@ export const db1os23: Rule = {
 };
 
 /**
+ * DB2/OS34 — Dense Regime with Shifted Survival
+ *
+ * Birth: exactly 2 diagonal neighbors alive
+ * Survival: 3 or 4 orthogonal neighbors alive (shifted from OS23)
+ *
+ * Testing: Does survival range matter in the dense regime?
+ * - Cipher, Entry 11
+ */
+export const db2os34: Rule = {
+  name: "db2os34",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 diagonal neighbors
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 3 or 4 orthogonal neighbors
+      return (orthogonalAlive === 3 || orthogonalAlive === 4) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS12 — Dense Regime with Lower Survival
+ *
+ * Birth: exactly 2 diagonal neighbors alive
+ * Survival: 1 or 2 orthogonal neighbors alive (lower than OS23)
+ *
+ * Testing: What happens with easier survival in the dense regime?
+ * - Cipher, Entry 11
+ */
+export const db2os12: Rule = {
+  name: "db2os12",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 diagonal neighbors
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 1 or 2 orthogonal neighbors
+      return (orthogonalAlive === 1 || orthogonalAlive === 2) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * RULE REGISTRY
  *
  * All available rules for --rule parameter selection.
@@ -516,6 +632,8 @@ export const ruleRegistry: Record<string, Rule> = {
   'db1os23': db1os23,
   'db2s23': db2s23,
   'db2os23': db2os23,
+  'db2os34': db2os34,
+  'db2os12': db2os12,
   'db2ds23': db2ds23,
   'db3os23': db3os23,
 

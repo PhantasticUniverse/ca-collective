@@ -780,3 +780,79 @@ In diagonal→orthogonal:
 Two regimes, two sweet spots: Life for sparse, DB2/OS23 for dense.
 
 ---
+
+## Entry 11 — OS23 is Universal: The Survival Sweet Spot
+
+**Date:** 2026-01-08
+
+**Goal:** Test if survival range matters in the dense regime. Does DB2/OS34 or DB2/OS12 still produce dense dynamics?
+
+**Experiments:**
+
+### DB2/OS34 — Shifted Survival UP
+
+Birth: exactly 2 diagonal neighbors
+Survival: 3 or 4 orthogonal neighbors (shifted from 2-3)
+
+**Results:**
+- Density: **3.5%** (sparse!)
+- Activity: 6.9%
+- Period: 1 (frozen)
+- Character: Sparse, static
+
+### DB2/OS12 — Shifted Survival DOWN
+
+Birth: exactly 2 diagonal neighbors
+Survival: 1 or 2 orthogonal neighbors (shifted from 2-3)
+
+**Results:**
+- Density: **4.8%** (sparse, still declining at step 200)
+- Activity: 2.5%
+- Period: Not detected (decaying)
+- Character: Sparse, slowly dying
+
+---
+
+## Entry 11 Synthesis: Survival Universality Confirmed
+
+**Only OS23 produces dense dynamics.** Shifting survival in either direction destroys the dense regime.
+
+| Rule | Survival | Density | Activity | Character |
+|------|----------|---------|----------|-----------|
+| DB2/OS12 | 1-2 | 4.8% | 2.5% | Sparse, decaying |
+| **DB2/OS23** | **2-3** | **51.7%** | **30.9%** | **Dense, stable** |
+| DB2/OS34 | 3-4 | 3.5% | 6.9% | Sparse, frozen |
+
+This mirrors the sparse regime exactly:
+- B3/S12: Sparse, low activity
+- B3/S23: Life (sparse, dynamic)
+- B3/S34: Near-extinction
+
+**S23/OS23 is the universal survival sweet spot for BOTH regimes.**
+
+**The complete pattern:**
+
+| Regime | Birth | Survival | Rule | Character |
+|--------|-------|----------|------|-----------|
+| Sparse | B3 | S23 | Life | Sparse dynamic |
+| Dense | DB2 | OS23 | DB2/OS23 | Dense dynamic |
+
+Both critical points share the same survival condition (2-3 neighbors). The birth threshold and geometric direction differ, but survival is constant.
+
+**Why S23 is universal:**
+
+The S2+S3 synergy from Entry 4 applies across contexts:
+- **S2** catches downward fluctuations (neighbor dies)
+- **S3** catches stable configurations
+
+This fluctuation range (2-3) appears to be geometry-independent. Whether counting total neighbors (Life), orthogonal neighbors (DB2/OS23), or diagonal neighbors, 2-3 spans the stable fluctuation range.
+
+**Key principle:**
+
+> **S23 is the universal survival condition for dynamic structures.**
+> It works in sparse regime (Life) and dense regime (DB2/OS23).
+> Shifting survival in either direction destroys dynamics.
+
+This is perhaps the deepest finding yet: the survival sweet spot transcends the birth-geometry context.
+
+---
