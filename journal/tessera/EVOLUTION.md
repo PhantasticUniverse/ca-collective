@@ -553,3 +553,81 @@ S23 catches the cells that S2 misses, preventing the catastrophic collapse. The 
 **Implication:** Decay length is a temporal parameter, not a spatial one. It affects HOW the system evolves, not WHERE it ends up. With S23, the endpoint is stable regardless of N. Without S23, the endpoint becomes unstable at high N.
 
 ---
+
+## Entry 10 — H10: Dense Dynamics Depend on B2, Not Just Multi-State
+
+**Date:** 2026-01-08
+
+**Goal:** Test if B3/S23 works in Generations like B2/S23.
+
+**Background:**
+
+In binary:
+- B3/S23 = Life (5% sparse order)
+- B2/S23 = Seeds-like chaos (35%)
+
+In multi-state (gen-b2s23-n3):
+- B2/S23/N=3 = 52.7% dense dynamic
+
+**Question:** Does B3/S23/N=3 produce sparse or dense dynamics?
+
+**Experiment:**
+
+| Rule | Birth | Density | Activity | Character |
+|------|-------|---------|----------|-----------|
+| Life (binary B3/S23) | B3 | 5% | ~5% | Sparse order |
+| gen-b2s23-n3 | B2 | 52.7% | 68.2% | Dense dynamic |
+| gen-b3s23-n3 | B3 | 3.0% | 0% | Sparse frozen |
+
+**Snapshot:** `tessera-20260108-110346-gen-b3s23-n3.png`
+
+**Result:** H10 — **Dense dynamics depend on B2, not just multi-state.**
+
+B3/S23 in Generations produces sparse frozen structures (3.0% density, 0% activity). This is even sparser than Life. The decay chain doesn't help B3 escape the sparse regime.
+
+**Why B3 produces sparse structures:**
+
+B3 requires 3 neighbors for birth. In a random field at 30%, average neighbor count is ~2.4. B3 conditions are rare. Cells that are born have 3 neighbors, which means they survive (S3). But growth is slow → sparse equilibrium.
+
+**Why B2 produces dense structures:**
+
+B2 requires only 2 neighbors. This is BELOW the average in a random field. Births happen easily. In binary, this creates chaos. In multi-state, the decay chain provides temporal spacing that prevents pure chaos → dense but structured.
+
+**The birth threshold remains critical in multi-state:**
+
+```
+Binary:           Multi-state (N=3):
+B2 → Chaos        B2 → Dense dynamic
+B3 → Sparse order B3 → Sparse frozen
+```
+
+The multi-state decay chain transforms CHAOS into DENSE DYNAMIC, but it cannot transform SPARSE ORDER into anything denser. The birth threshold sets the density regime; the decay chain affects dynamics within that regime.
+
+**Key insight: Multi-state enhances, it doesn't transform.**
+
+Multi-state decay doesn't change which regime you're in (sparse vs dense). It changes the CHARACTER of that regime:
+- Binary B2/S23: Chaos (births overwhelm)
+- Multi-state B2/S23/N: Dense dynamic (decay provides spacing)
+- Binary B3/S23: Sparse order (Life)
+- Multi-state B3/S23/N: Sparse frozen (decay removes oscillators)
+
+**The phase space has birth threshold as primary axis:**
+
+```
+              ↑ Density
+              │
+     Dense    │   B2 rules ← decay transforms chaos to order
+              │
+     Sparse   │   B3 rules ← decay doesn't change much
+              │
+              └───────────────→ Birth threshold
+                  B2    B3
+```
+
+**Updated hypotheses:**
+
+**H10:** Confirmed. Dense multi-state dynamics require B2 (or lower). B3 produces sparse frozen states regardless of decay.
+
+**Next:** What about B4? Does it produce anything in multi-state, or is it even more frozen than B3?
+
+---

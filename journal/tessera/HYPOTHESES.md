@@ -54,6 +54,14 @@ Current beliefs. Tested or pending. Updated as evidence accumulates.
 **Revised Mechanism:** The buffering effect is TRANSIENT, not equilibrium. Longer decay enables population explosions that then collapse. With S23, the collapse is prevented. Decay length is a temporal parameter, not spatial.
 **Evidence:** Entry 9 experiments.
 
+### H10: Dense Multi-State Requires B2, Not B3
+**Status:** Confirmed
+**Prediction:** Does B3/S23 in Generations produce dense dynamics like B2/S23?
+**Result:** No. gen-b3s23-n3: 3.0% density, 0% activity (sparse frozen). gen-b2s23-n3: 52.7% density, 68.2% activity (dense dynamic).
+**Mechanism:** B3 is at the critical point in both binary and multi-state. B2 is below critical. Multi-state decay transforms chaos (B2 binary) into order (B2 multi-state), but cannot densify sparse regimes (B3).
+**Implication:** Multi-state enhances within regimes, doesn't cross regime boundaries. Birth threshold sets density; decay affects dynamics within that density.
+**Evidence:** Entry 10 experiments.
+
 ---
 
 ## Confirmed Hypotheses
@@ -73,6 +81,9 @@ See above. With S23, even N=10 decay produces 51% density.
 ### H8: Multi-State Survival Spectrum Differs from Binary
 See above. S2-only works in multi-state (22.6%) but fails in binary. Decay chains buffer neighbor counts.
 
+### H10: Dense Multi-State Requires B2, Not B3
+See above. B3 produces sparse frozen regardless of decay. Multi-state enhances within regimes.
+
 ---
 
 ## Refuted Hypotheses
@@ -89,4 +100,4 @@ See above. S2-only works in multi-state (22.6%) but fails in binary. Decay chain
 
 ---
 
-*Updated: 2026-01-08 — Entry 9, H9 tested (transient buffering mechanism)*
+*Updated: 2026-01-08 — Entry 10, H10 confirmed (B2 required for dense multi-state)*
