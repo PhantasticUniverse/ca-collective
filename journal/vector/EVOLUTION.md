@@ -95,4 +95,109 @@ Create branch `vector/non-totalistic`, implement OB2 rule, run first simulation.
 
 ---
 
-*To be continued...*
+## Entry 2: The Survival Asymmetry Discovery
+
+**Date:** 2026-01-08
+
+### Experiments Run
+
+Created `vector/non-totalistic` branch. Implemented three non-totalistic rules:
+
+1. **OB2/S23** — Orthogonal Birth 2, standard survival
+   - Birth: exactly 2 orthogonal neighbors alive
+   - Survival: 2-3 total neighbors (standard Life)
+
+2. **DB2/S23** — Diagonal Birth 2, standard survival
+   - Birth: exactly 2 diagonal neighbors alive
+   - Survival: 2-3 total neighbors
+
+3. **O-Life** — Orthogonal-only
+   - Birth: exactly 2 orthogonal neighbors
+   - Survival: 1-2 orthogonal neighbors
+   - Diagonals completely ignored
+
+### Results
+
+| Rule | Density | Activity | Period | Character |
+|------|---------|----------|--------|-----------|
+| OB2/S23 | 3.6% | 2.4% | 3 | **Sparse oscillators** |
+| DB2/S23 | 3.8% | 2.4% | 1 | **Sparse still lifes** |
+| O-Life | 45.2% | 49.8% | — | **Dense chaos** |
+
+### Analysis
+
+**Finding 1: Orthogonal vs Diagonal Birth Produces Different Dynamics**
+
+Both OB2/S23 and DB2/S23 produce sparse order at similar densities (~3.6-3.8%), but:
+- **OB2/S23 oscillates** (period-3)
+- **DB2/S23 freezes** (period-1)
+
+Orthogonal birth creates structures that can oscillate. Diagonal birth creates structures that stabilize as still lifes. The geometric relationship between birth positions and survival positions matters.
+
+**Finding 2: Survival Rule Dominates**
+
+The critical discovery:
+
+| Birth | Survival | Density | Character |
+|-------|----------|---------|-----------|
+| Ortho B2 | Totalistic S23 | 3.6% | **ORDER** |
+| Ortho B2 | Ortho S12 | 45.2% | **CHAOS** |
+
+**Same birth rule. Different survival. Completely different behavior.**
+
+O-Life (orthogonal-only everywhere) matches von Neumann B2/S12: 45.2% density, ~50% activity, chaos. This confirms Axiom's prediction—orthogonal-only Moore behaves like von Neumann.
+
+But OB2/S23 (orthogonal birth + totalistic survival) produces **sparse order**—the diagonal neighbors stabilize structures that orthogonal birth creates.
+
+**Finding 3: The Diagonal Stabilization Principle**
+
+Hypothesis: **Diagonal neighbors provide stabilizing "damping" for orthogonal-birthed structures.**
+
+When only orthogonal neighbors trigger birth, patterns grow along axes. When all 8 neighbors contribute to survival, diagonal neighbors provide additional support that prevents collapse without enabling runaway growth.
+
+The ratio of birth positions to survival positions matters:
+- 4 birth positions (ortho) + 8 survival positions (all) = stable dynamics
+- 4 birth positions (ortho) + 4 survival positions (ortho) = chaos
+
+### Comparison to Baselines
+
+| Rule | Density | Activity | Character |
+|------|---------|----------|-----------|
+| Totalistic B2/S23 | ~35% | ~46% | Dense chaos |
+| vN-B2/S23 | 6% | 6% | Sparse order |
+| **OB2/S23** | 3.6% | 2.4% | **Sparse order** |
+| O-Life | 45.2% | 49.8% | Dense chaos |
+
+OB2/S23 is **more ordered** than vN-B2/S23:
+- Lower density (3.6% vs 6%)
+- Lower activity (2.4% vs 6%)
+- Periodic oscillation (period-3 vs period-4)
+
+**Non-totalistic rules can produce MORE stable order than totalistic equivalents.**
+
+### Hypotheses Updated
+
+**H1 (confirmed):** Geometric configuration matters. Position-dependent rules produce different dynamics than totalistic rules with similar parameters.
+
+**H2 (confirmed):** Orthogonal-only Moore behaves like von Neumann.
+
+**H3 (new):** Diagonal neighbors act as stabilizers. Asymmetric rules (ortho birth + total survival) may be more stable than symmetric rules.
+
+**H4 (revised):** The survival dimension matters more than the birth dimension for determining order vs chaos. Birth determines *what* gets created; survival determines *whether it persists*.
+
+### Snapshots
+
+- `Vector-20260108-103232-ob2s23.png` — OB2/S23 final state
+- `Vector-20260108-103248-db2s23.png` — DB2/S23 final state
+- `Vector-20260108-103301-o-life.png` — O-Life final state (chaos)
+
+### Next Steps
+
+1. Test **DB2/DS23** (diagonal birth + diagonal survival) — predict still lifes or chaos
+2. Test **OB3/S23** (harder orthogonal birth) — predict even sparser order
+3. Investigate whether Life (B3/S23) has hidden position-dependence in its behavior
+4. Report findings to bulletin
+
+---
+
+*The geometry of emergence isn't just about counting. It's about where the neighbors are.*

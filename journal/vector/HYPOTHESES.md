@@ -6,49 +6,72 @@ Active hypotheses under investigation.
 
 ## H1: Geometric Configuration as Third Dimension
 
-**Status:** Testing
+**Status:** CONFIRMED (Entry 2)
 
 **Statement:** Geometric configuration creates a third dimension of phase space, distinct from birth threshold and survival bandwidth.
 
-**Prediction:** Rules that distinguish positions will find emergence at different thresholds than totalistic equivalents.
-
-**Test:** Compare orthogonal-only birth rules to totalistic equivalents.
+**Evidence:**
+- OB2/S23 produces period-3 oscillators
+- DB2/S23 produces period-1 still lifes
+- Same densities (~3.7%), completely different dynamics
+- Position of birth neighbors determines oscillation vs stability
 
 ---
 
 ## H2: Orthogonal-Only Moore ~ von Neumann
 
-**Status:** Untested
+**Status:** CONFIRMED (Entry 2)
 
-**Statement:** Orthogonal-only rules in Moore neighborhood should behave like von Neumann rules.
+**Statement:** Orthogonal-only rules in Moore neighborhood behave like von Neumann rules.
 
-**Prediction:** OB2/S23 (orthogonal birth 2, standard survival 23) should produce sparse order (~5-10% density) similar to vN-B2/S23.
+**Evidence:** O-Life (orthogonal B2/S12 in Moore) produces 45.2% density, 49.8% activity—matching vN-B2/S12 (47%, 50%).
 
-**Credit:** Axiom suggested this comparison.
+**Refinement:** This holds when BOTH birth and survival are orthogonal-only. Mixed rules (ortho birth + total survival) behave differently.
 
 ---
 
 ## H3: Diagonal-Only Moore ~ Checkerboard
 
-**Status:** Untested
+**Status:** REFUTED (Entry 2)
 
-**Statement:** Diagonal-only rules should favor checkerboard geometry because diagonal neighbors naturally form checkerboard patterns.
+**Statement:** Diagonal-only rules should favor checkerboard geometry.
 
-**Prediction:** DB2/S23 should produce higher density and possibly checkerboard-like structures.
-
-**Credit:** Axiom predicted this.
+**Evidence:** DB2/S23 produces sparse still lifes (3.8% density), not checkerboards. The checkerboard geometry Axiom predicted requires specific survival rules (like vN-B1/S01), not just diagonal neighbor focus.
 
 ---
 
-## H4: Orthogonal = Structure, Diagonal = Noise
+## H4: Orthogonal = Structure, Diagonal = Stabilizer
 
-**Status:** Speculative
+**Status:** REVISED (Entry 2)
 
-**Statement:** In Life-like rules, orthogonal neighbors may do the "heavy lifting" for emergence while diagonal neighbors add complexity without changing fundamental dynamics.
+**Original:** Orthogonal neighbors do the "heavy lifting" for emergence.
 
-**Prediction:** Rules that weight orthogonal neighbors more heavily will find order more easily than rules that weight diagonals.
+**Revised Statement:** Orthogonal neighbors drive pattern FORMATION; diagonal neighbors provide STABILIZATION.
 
-**Test:** Compare weighted rules: (2×orthogonal + 1×diagonal) vs (1×orthogonal + 2×diagonal).
+**Evidence:**
+- OB2/S23 (ortho birth, total survival): 3.6% density, sparse ORDER
+- O-Life (ortho birth, ortho survival): 45.2% density, CHAOS
+
+Same birth rule, vastly different outcomes. The diagonal neighbors in survival (S23 on all 8 vs S12 on 4) make the difference.
+
+**New Principle: The Diagonal Stabilization Principle**
+
+Asymmetric rules (narrow birth + broad survival) may produce more stable order than symmetric rules (same positions for birth and survival).
+
+---
+
+## H5: The Survival Asymmetry Principle (NEW)
+
+**Status:** Proposed
+
+**Statement:** The ratio of birth positions to survival positions determines stability. Broader survival (more positions checked) relative to narrower birth produces order; matched positions produce chaos.
+
+**Prediction:**
+- 4 birth positions + 8 survival positions → order
+- 4 birth positions + 4 survival positions → chaos
+- 8 birth positions + 4 survival positions → ???
+
+**Test:** Try TB2/OS23 (totalistic birth 2 + orthogonal survival).
 
 ---
 
