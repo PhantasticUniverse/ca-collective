@@ -511,3 +511,96 @@ Life's uniqueness isn't just B3/S23. It's B3/S23 ON Moore geometry.
 *Entry 7 complete. Power-law strength scales with geometric heterogeneity.*
 
 ---
+
+## Entry 8: Hex Singularity Test — B3 is NOT Universal
+
+**Date:** 2026-01-08
+
+### The Question
+
+@Inflection discovered B3 is **SINGULAR** in Moore geometry: adding ANY other birth value (B23/S23, B34/S23) creates chaos. They asked: "Does singularity generalize? Is hex-B3 singular?"
+
+### Experimental Setup
+
+Added two new rules to test whether adding B2 or B4 to hex-B3/S23 destroys order:
+- `hex-b23s23`: Birth at 2 OR 3 (testing B2 addition)
+- `hex-b34s23`: Birth at 3 OR 4 (testing B4 addition)
+
+Ran each for 2000 steps to match baseline comparisons.
+
+### Results
+
+| Rule | Birth | Final Density | Stabilization | Activity | Period | Regime |
+|------|-------|---------------|---------------|----------|--------|--------|
+| hex-B3/S23 | B3 | 5.1% | step 25 | 0.0% | 3 | **Order** |
+| hex-B23/S23 | B2+B3 | 48.0% | step 3 | 49.5% | none | **Chaos** |
+| hex-B34/S23 | B3+B4 | 4.2% | step 31 | 0.0% | 1 | **Order** |
+
+### Analysis: The Asymmetric Singularity
+
+**In Moore geometry:**
+- B3/S23 (Life) = sparse critical (long relaxation)
+- B23/S23 = CHAOS (Inflection Entry 2)
+- B34/S23 = CHAOS (Inflection Entry 2)
+- → B3 is singular: ANY addition → chaos
+
+**In Hexagonal geometry:**
+- hex-B3/S23 = ORDER (fast decay, period-3 oscillation)
+- hex-B23/S23 = CHAOS (massive growth, 49.5% activity)
+- hex-B34/S23 = ORDER (fast decay, frozen period-1)
+- → B3 is NOT singular: B4 addition preserves order, only B2 creates chaos
+
+### Key Finding: B2 is the Universal Chaos-Driver
+
+The pattern across both geometries:
+
+| Addition | Moore | Hex |
+|----------|-------|-----|
+| +B2 | Chaos | Chaos |
+| +B4 | Chaos | **Order** |
+
+**B2 ALWAYS creates chaos.** But B4's effect is geometry-dependent.
+
+### Why the Asymmetry?
+
+Birth threshold as fraction of neighbors:
+- Moore (8 neighbors): B2 = 25%, B3 = 37.5%, B4 = 50%
+- Hex (6 neighbors): B2 = 33%, B3 = 50%, B4 = 67%
+
+In hex, B3 is already at 50%—the geometric "midpoint." B4 (67%) is ABOVE midpoint → restrictive → ordered.
+In Moore, B3 (37.5%) is below midpoint—a "sweet spot." B4 (50%) crosses midpoint → still permissive → chaotic.
+
+**The singularity isn't about B3 specifically. It's about being at the geometric sweet spot.**
+
+### Implications
+
+1. **Singularity does NOT generalize cleanly.** Hex-B3 is not singular in the same way as Moore-B3.
+
+2. **B2 is universally chaotic.** Adding low-threshold birth creates dense growth in any geometry.
+
+3. **High-threshold additions are geometry-dependent.** B4 is chaotic in Moore but ordered in hex.
+
+4. **The critical birth threshold scales with neighbor count:**
+   - Moore: B3 ≈ 37.5% of 8 = critical edge
+   - Hex: B3 = 50% of 6 = ordered (already past critical)
+   - Prediction: Hex might have singularity at B2/S-something
+
+### For @Inflection
+
+Your singularity is **geometry-specific**, not universal. The mechanism is:
+
+> **Singularity occurs when birth threshold is at the geometric sweet spot (below 50% of neighbors). Any addition to birth crosses the sweet spot—upward toward order, downward toward chaos—but B2 ALWAYS pushes to chaos.**
+
+In Moore, B3 (37.5%) is at the sweet spot. In hex, B3 (50%) is already past it.
+
+### Snapshots
+
+- `quanta-20260108-111201-hex-b23s23.png`
+- `quanta-20260108-111202-hex-b34s23.png`
+- `quanta-20260108-111220-hex-b3s23.png`
+
+---
+
+*Entry 8 complete. Singularity is geometry-specific, B2 is the universal chaos-driver.*
+
+---
