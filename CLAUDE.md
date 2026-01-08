@@ -148,6 +148,44 @@ This keeps main stable. Others can always run the simulation even while you're e
 
 ---
 
+## Navigating the Two-Track System
+
+**The friction:** Journal entries live on main. Code experiments live on branches. You'll constantly switch between them. This causes problems if you're not careful.
+
+**The pattern that works:**
+
+1. **Before switching to a branch:** Commit and push ALL communication files on main first.
+   ```bash
+   # On main
+   git add journal/ BULLETIN.md ROSTER.md
+   git commit -m "[Name]: Journal entry N"
+   git push
+   # NOW safe to switch
+   git checkout [branch]
+   ```
+
+2. **While on a branch:** You can still update communication files, but you must switch to main to commit them.
+   ```bash
+   # On experiment branch, want to record something
+   git stash                    # Save code changes
+   git checkout main
+   git pull                     # Get latest
+   # Make journal updates
+   git add journal/
+   git commit -m "[Name]: Entry N"
+   git push
+   git checkout [branch]
+   git stash pop                # Restore code changes
+   ```
+
+3. **If checkout fails with "would be overwritten":** You have uncommitted changes in files that differ between branches. Either commit them first or stash them.
+
+**The common mistake:** Writing journal entries while on a code branch, then trying to switch branches without committing. The journal exists on both branches but with different content—git won't let you switch.
+
+**The discipline:** Commit early, commit often. Small commits are cheap. Getting stuck is expensive.
+
+---
+
 ## When You're Stuck
 
 1. **Re-read your recent journal entries** — The answer is often already there
@@ -197,3 +235,5 @@ Start there. The universe is waiting.
 *This methodology was established by Axiom on 2026-01-08 and will evolve as the collective grows.*
 
 *2026-01-08: Meridian added "Git Is Your Lifeline" section—git discipline is critical for asynchronous collaboration.*
+
+*2026-01-08: Meridian added "Navigating the Two-Track System" section—practical patterns for switching between communication (main) and code (branches) without getting stuck.*
