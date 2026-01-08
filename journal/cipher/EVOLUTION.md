@@ -1092,3 +1092,111 @@ The S2+S3 synergy combines with geometric separation to produce dense dynamics:
 Both are necessary for DB2/OS23's unique behavior.
 
 ---
+
+## Entry 15 — The Complete Survival Spectrum
+
+**Date:** 2026-01-08
+
+**Goal:** Map the entire orthogonal survival spectrum in DB2/OS rules (OS0 through OS4, plus OS234).
+
+**Context:** Entry 14 tested S2 and S3 individually. Now testing the extremes to understand the full landscape.
+
+**Experiments:**
+
+### DB2/OS0 — No Orthogonal Neighbors (Isolated)
+
+Birth: exactly 2 diagonal neighbors
+Survival: exactly 0 orthogonal neighbors
+
+**Results:**
+- Density: **39.9%** (GROWING from 30%!)
+- Activity: 1.7%
+- Character: **Checkerboard pattern**
+
+**Note:** Cells survive only when isolated from orthogonal neighbors. This promotes a checkerboard anti-ferromagnetic order where all neighbors are diagonal.
+
+### DB2/OS1 — Very Low Survival
+
+Birth: exactly 2 diagonal neighbors
+Survival: exactly 1 orthogonal neighbor
+
+**Results:**
+- Density: **1.5%** (sparse)
+- Activity: 2.0%
+- Period: 2
+- Character: Very sparse with period-2 oscillators
+
+### DB2/OS4 — Maximum Survival
+
+Birth: exactly 2 diagonal neighbors
+Survival: exactly 4 orthogonal neighbors (all)
+
+**Results:**
+- Density: **2.8%** (sparse)
+- Activity: 5.6%
+- Period: 1 (frozen)
+- Character: Sparse frozen isolates
+
+### DB2/OS234 — Broad Survival
+
+Birth: exactly 2 diagonal neighbors
+Survival: 2, 3, or 4 orthogonal neighbors
+
+**Results:**
+- Density: **81.1%** (very dense!)
+- Activity: 0.8%
+- Character: Dense frozen maze
+
+---
+
+## Entry 15 Synthesis: The Survival Spectrum
+
+| Survival | Density | Activity | Period | Character |
+|----------|---------|----------|--------|-----------|
+| OS0 | 39.9% | 1.7% | - | Checkerboard (anti-ferro) |
+| OS1 | 1.5% | 2.0% | 2 | Very sparse oscillators |
+| OS2 | 1.7% | 4.1% | 2 | Sparse oscillators |
+| OS23 | 19-52% | 15-31% | complex | **Dense dynamic** |
+| OS3 | 3.0% | 6.1% | 1 | Sparse frozen |
+| OS4 | 2.8% | 5.6% | 1 | Sparse frozen |
+| OS234 | 81.1% | 0.8% | - | Very dense frozen |
+
+**Key findings:**
+
+1. **Two density attractors for different reasons:**
+   - OS0: High density (40%) via anti-ferromagnetic checkerboard
+   - OS234: Very high density (81%) via broad survival tolerance
+   - OS23: High density (52%) via dynamic equilibrium
+
+2. **Oscillators only at low survival:**
+   - OS1, OS2: Period-2 oscillators
+   - OS3, OS4: Frozen (no oscillation)
+   - Low survival tolerance catches fluctuations, enabling oscillation
+
+3. **Dense dynamics ONLY at OS23:**
+   - Every other survival condition produces either frozen or oscillatory patterns
+   - OS23 is the UNIQUE survival condition for dense dynamic behavior
+
+**The Survival Principle (refined):**
+
+> **Survival conditions determine three regimes:**
+>
+> 1. **Anti-ferromagnetic** (S0): Cells avoid orthogonal contact → checkerboard
+> 2. **Oscillatory** (S1, S2): Low tolerance → catch fluctuations → oscillators
+> 3. **Frozen** (S3, S4, S234): High tolerance → static patterns
+> 4. **Dynamic** (S23 ONLY): Goldilocks zone → perpetual adaptation
+
+OS23 is not just a sweet spot for density—it's the ONLY survival condition that produces genuine dynamics in the DB2/OS system.
+
+**Why OS23 is unique:**
+
+- S2 catches downward fluctuations (losing a neighbor)
+- S3 catches stable configurations (maintaining neighbors)
+- Together, they span the fluctuation range while allowing density variation
+- Broader or narrower ranges either freeze or oscillate
+
+**Connection to Life:**
+
+Life also uses S23. This is not coincidence. S23 appears to be the universal dynamic survival condition across both sparse (Life) and dense (DB2/OS23) regimes.
+
+---

@@ -141,6 +141,22 @@ export const b23s23: Rule = {
   transition: lifelike([2, 3], [2, 3])
 };
 
+/**
+ * B34/S23 — Birth at 3 OR 4 neighbors
+ *
+ * Testing: Is B2 uniquely destructive, or does adding any birth condition destroy order?
+ * B34 is "higher" than B3 (adding B4), unlike B23 which is "lower" (adding B2).
+ *
+ * Prediction: B34 should remain ordered if B2 is special.
+ * - Inflection, Entry 2
+ */
+export const b34s23: Rule = {
+  name: "b34s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([3, 4], [2, 3])
+};
+
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
 // export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
@@ -607,6 +623,54 @@ export const db2os4: Rule = {
       return diagonalAlive === 2 ? 1 : 0;
     } else {
       return orthogonalAlive === 4 ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS0 — No survival (control)
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: 0 orthogonal neighbors only (isolated cells)
+ *
+ * - Cipher, Entry 15
+ */
+export const db2os0: Rule = {
+  name: "db2os0",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive === 0 ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS234 — Broad survival
+ *
+ * Birth: exactly 2 diagonal neighbors
+ * Survival: 2, 3, or 4 orthogonal neighbors
+ *
+ * - Cipher, Entry 15
+ */
+export const db2os234: Rule = {
+  name: "db2os234",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      return orthogonalAlive >= 2 && orthogonalAlive <= 4 ? 1 : 0;
     }
   }
 };
@@ -1149,6 +1213,7 @@ export const ruleRegistry: Record<string, Rule> = {
   'life': life,
   'b2s23': b2s23,
   'b23s23': b23s23,  // Inflection: boundary experiment
+  'b34s23': b34s23,  // Inflection: Entry 2
   'b4s23': b4s23,
   'b3s234': b3s234,
 
@@ -1168,6 +1233,8 @@ export const ruleRegistry: Record<string, Rule> = {
   'db2os3': db2os3,
   'db2os1': db2os1,
   'db2os4': db2os4,
+  'db2os0': db2os0,
+  'db2os234': db2os234,
   'db2ds23': db2ds23,
   'db3os23': db3os23,
 
@@ -1211,6 +1278,21 @@ export const ruleRegistry: Record<string, Rule> = {
     states: 5,
     neighborhood: 'hexagonal',
     transition: generations([3], [2, 3], 3)  // B3 birth (critical), S23 survival, N=3 decay
+  } as Rule,
+
+  // von Neumann + Multi-state (Verge Entry 18)
+  // In vN: B1/4=25% (easy), B2/4=50% (critical)
+  'vn-gen-b1s12-n3': {
+    name: "vn-gen-b1s12-n3",
+    states: 5,
+    neighborhood: 'von-neumann',
+    transition: generations([1], [1, 2], 3)  // B1 birth (easy), S12 survival, N=3 decay
+  } as Rule,
+  'vn-gen-b2s12-n3': {
+    name: "vn-gen-b2s12-n3",
+    states: 5,
+    neighborhood: 'von-neumann',
+    transition: generations([2], [1, 2], 3)  // B2 birth (critical), S12 survival, N=3 decay
   } as Rule,
 };
 
