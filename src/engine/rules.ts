@@ -1072,6 +1072,8 @@ export const ruleRegistry: Record<string, Rule> = {
   'db2os23': db2os23,
   'db2os34': db2os34,
   'db2os12': db2os12,
+  'db2os2': db2os2,
+  'db2os3': db2os3,
   'db2ds23': db2ds23,
   'db3os23': db3os23,
 
@@ -1096,6 +1098,12 @@ export const ruleRegistry: Record<string, Rule> = {
 
   // Multi-state (Generations) rules
   'gen-b2s23-n3': genB2S23N3,
+  'gen-b3s23-n3': {
+    name: "gen-b3s23-n3",
+    states: 5,  // 0=dead, 1=alive, 2,3,4=decay
+    neighborhood: 'moore',
+    transition: generations([3], [2, 3], 3)  // B3 birth, S23 survival, N=3 decay
+  } as Rule,
 };
 
 /**

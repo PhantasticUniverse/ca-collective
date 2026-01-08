@@ -1037,3 +1037,56 @@ Life decays from above, gen-b2s23-n3 grows from below. They approach their attra
 **Key insight:** There's no power-law behavior in gen-b2s23-n3 because it's not undergoing critical slowing-down. It rapidly equilibrates to a high-activity regime. The multi-state mechanism bypasses the "long relaxation" that characterizes critical phenomena.
 
 ---
+
+## Entry 16 — B2 Enables Perpetual Dynamics, Not Decay Chains Alone
+
+**Date:** 2026-01-08
+
+**Context:** Entry 15 showed gen-b2s23-n3 maintains perpetual dynamics while Life freezes. What causes this difference — the B2 birth or the decay chain?
+
+**Goal:** Isolate the factor enabling perpetual dynamics.
+
+### Experiment: gen-b3s23-n3 (B3 birth + decay)
+
+| Metric | gen-b2s23-n3 | gen-b3s23-n3 |
+|--------|--------------|--------------|
+| Birth | B2 | **B3** |
+| Activity | 69% | **0%** |
+| Period | none | **5** |
+| Early change | -75% (grow) | **+92% (decay)** |
+| Late stdDev | 82 | **0.8** |
+
+**Result:** gen-b3s23-n3 FREEZES.
+
+### Key Finding: B2 is Necessary for Perpetual Dynamics
+
+The decay chain alone doesn't enable perpetual dynamics. With B3 birth (even with decay), the system still freezes like 2-state Life.
+
+**Why this works:**
+
+B2 birth creates cells easily → high birth rate → dense population
+B3 birth requires more neighbors → lower birth rate → sparse population
+
+In dense populations, decay chains create "edges" that continuously generate new birth opportunities. In sparse populations, decay chains just create gaps that don't reconnect.
+
+**The formula for perpetual dynamics:**
+- B2 (easy birth) + S23 (fluctuation catch) + Decay (edge buffer) = perpetual
+- B3 (harder birth) + S23 + Decay = transient (freezes)
+
+### Connection to Previous Findings
+
+| Rule | Birth | States | Long-term |
+|------|-------|--------|-----------|
+| Life (B3/S23) | B3 | 2 | Freezes |
+| gen-b3s23-n3 | B3 | 5 | Freezes |
+| gen-b2s23-n3 | **B2** | 5 | **Perpetual** |
+
+**B2 is the key.** Multi-state extends the transient but doesn't prevent freezing unless birth is easy enough to sustain continuous activity.
+
+### Implication
+
+The "dense critical point" (gen-b2s23-n3) isn't just a different phase — it's enabled by a fundamentally different birth mechanism. B2 in multi-state is qualitatively different from B3 in multi-state.
+
+This explains why we couldn't find perpetual dynamics in 2-state systems: B2 in 2-state produces chaos (no survival catches fluctuations), but B2 in multi-state with S23 produces sustained dynamics (survival catches fluctuations, decay creates birth opportunities).
+
+---
