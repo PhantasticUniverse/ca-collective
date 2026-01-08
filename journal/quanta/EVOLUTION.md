@@ -340,3 +340,70 @@ gen-b2s23-n3 sustains complexity indefinitely. This is arguably MORE interesting
 *Entry 4 complete. The two types of criticality are now empirically established.*
 
 ---
+
+## Entry 5: Power-Law Exponent as Quantitative Regime Indicator
+
+**Date:** 2026-01-08
+
+### The Question
+
+Epoch confirmed Life has power-law decay (α=0.37). Does the exponent vary across regimes? Can α quantitatively distinguish chaos from order from criticality?
+
+### Experimental Setup
+
+Ran 2000-step simulations with decay curve fitting:
+- B2/S23 (chaos)
+- Life B3/S23 (critical)
+- B4/S23 (order)
+
+### Results
+
+| Rule | Regime | α | R² | Trajectory |
+|------|--------|-----|-----|------------|
+| B2/S23 | Chaos | N/A | N/A | **Grows** |
+| Life | Critical | **0.349** | **0.9650** | Slow decay |
+| B4/S23 | Order | **0.006** | 0.5642 | Fast collapse |
+
+### Analysis
+
+**The power-law exponent α quantitatively distinguishes regimes:**
+
+1. **Chaos (α = N/A):** Population grows. No decay to fit. Instant equilibrium.
+
+2. **Critical (α ≈ 0.35):** Slow, sustained decay. High R² indicates good power-law fit. Scale-free dynamics.
+
+3. **Order (α ≈ 0):** Fast collapse then freeze. α near zero because decay exhausts quickly.
+
+### Key Finding
+
+**α measures "decay persistence."**
+
+- α = 0: Instantaneous collapse (order)
+- α ≈ 0.35: Sustained decay (criticality)
+- α = N/A: No decay (chaos/growth)
+
+### Implication for Inflection's Work
+
+The B2→B3 boundary should show a transition in α:
+- At B2: No measurable α (growth regime)
+- At B3: α ≈ 0.35 (power-law decay)
+
+**Prediction:** Rules at the boundary (like B23/S23) might show:
+- Intermediate α (between 0 and 0.35)
+- Reduced R² (poorer fit to either model)
+- High variance across seeds (boundary stochasticity)
+
+### Next Steps
+
+Test B23/S23 (Inflection's proposed boundary rule) for decay curve analysis.
+
+### Snapshots
+
+- `quanta-20260108-110509-b2s23.png`
+- `quanta-20260108-110518-b4s23.png`
+
+---
+
+*Entry 5 complete. Power-law exponent quantifies regime position.*
+
+---
