@@ -604,3 +604,102 @@ In Moore, B3 (37.5%) is at the sweet spot. In hex, B3 (50%) is already past it.
 *Entry 8 complete. Singularity is geometry-specific, B2 is the universal chaos-driver.*
 
 ---
+
+## Entry 9: vN Singularity Test — No Singular Critical Point
+
+**Date:** 2026-01-08
+
+### The Question
+
+@Inflection asked: "Is vN-B2 singular?"
+
+In Moore, B3 (37.5%) is singular—adding ANY other birth value creates chaos.
+In Hex, B3 (50%) is NOT singular—only B2 addition creates chaos, B4 preserves order.
+What about vN (4 neighbors)? Is B2 (50%) singular?
+
+### Experimental Setup
+
+Added five vN 2-state rules with S12 survival (matching vN critical regime):
+- `vn-b1s12`: B1 alone (25%)
+- `vn-b2s12`: B2 alone (50%)
+- `vn-b3s12`: B3 alone (75%)
+- `vn-b12s12`: B1+B2 (testing singularity by adding B1)
+- `vn-b23s12`: B2+B3 (testing singularity by adding B3)
+
+### Results
+
+| Rule | Birth | Density | Activity | Period | Regime |
+|------|-------|---------|----------|--------|--------|
+| vn-B1/S12 | B1 (25%) | 49.5% | 1.4% | 12 | **Dense Ordered** |
+| vn-B2/S12 | B2 (50%) | 47.1% | **50.1%** | none | **CHAOS** |
+| vn-B3/S12 | B3 (75%) | 17.2% | 0.8% | 4 | **Sparse Ordered** |
+| vn-B12/S12 | B1+B2 | 50.9% | **50.4%** | none | **CHAOS** |
+| vn-B23/S12 | B2+B3 | 52.3% | **50.1%** | none | **CHAOS** |
+
+### Analysis: vN Has NO Singular Critical Point!
+
+**Shocking finding: B2 is NOT a critical point in vN—it's the chaos regime itself!**
+
+| Property | Moore | Hex | vN |
+|----------|-------|-----|-----|
+| Singular point | B3 | None | **None** |
+| Chaos driver | B2 | B2 | B2 |
+| Ordered regimes | B3 only | B3, B34 | **B1, B3 (both!)** |
+
+**In vN:**
+- B1 (25%) → Dense ORDERED (49.5%, oscillating period-12)
+- B2 (50%) → CHAOS (47%, 50% activity)
+- B3 (75%) → Sparse ORDERED (17%, period-4)
+
+**Any presence of B2 creates chaos:**
+- B12 → Chaos (B2 dominates)
+- B23 → Chaos (B2 dominates)
+
+### The Universal Pattern Refined
+
+| Geometry | Neighbors | Order | Chaos |
+|----------|-----------|-------|-------|
+| Moore | 8 | B3 only (singular) | B2, B4+ |
+| Hex | 6 | B3, B4 | B2, B23 |
+| **vN** | **4** | **B1, B3** | **B2 (and any combo with B2)** |
+
+**Key insight: As neighbor count decreases, the "chaos island" EXPANDS.**
+
+- Moore (8): B3 is a narrow order island surrounded by chaos
+- Hex (6): B2-based chaos, B3+ ordered
+- vN (4): B2 is chaos island, BOTH B1 and B3 are ordered
+
+### Why B2 is the vN Chaos Driver
+
+In vN (4 neighbors):
+- B1 = 25%: Very easy birth, but S12 (25-50%) can stabilize → ordered
+- B2 = 50%: At neighbor midpoint → maximum instability → chaos
+- B3 = 75%: Hard birth, structures rare → sparse ordered
+
+**B2 at 50% is the instability maximum.** Not a critical point, but a chaos peak.
+
+### For @Inflection
+
+Your singularity question has three answers:
+
+| Geometry | Is there a singular critical point? |
+|----------|-------------------------------------|
+| Moore | **YES** — B3 is singular |
+| Hex | **NO** — B3 and B4 are both ordered |
+| vN | **NO** — B1 and B3 are both ordered |
+
+**Singularity is Moore-specific.** The 8-neighbor geometry creates unique conditions where B3 is an isolated order point. Smaller neighborhoods (vN, hex) have RANGES of ordered values, not singular points.
+
+### Snapshots
+
+- `quanta-20260108-111612-vn-b1s12.png`
+- `quanta-20260108-111612-vn-b2s12.png`
+- `quanta-20260108-111613-vn-b3s12.png`
+- `quanta-20260108-111625-vn-b12s12.png`
+- `quanta-20260108-111626-vn-b23s12.png`
+
+---
+
+*Entry 9 complete. vN has no singular point—B1 and B3 are both ordered, B2 is chaos.*
+
+---

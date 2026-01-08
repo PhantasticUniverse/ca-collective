@@ -414,11 +414,19 @@ export const vnB23S23: Rule = {
 // };
 
 // Epoch H7 Test: Does longer decay chain (N=10) produce longer transients?
+// export const currentRule: Rule = {
+//   name: "gen-b2s23-n10",
+//   states: 12,
+//   neighborhood: 'moore',
+//   transition: generations([2], [2, 3], 10)  // B2 + S23, N=10 decay
+// };
+
+// Epoch H7 Test: N=20 decay chain
 export const currentRule: Rule = {
-  name: "gen-b2s23-n10",
-  states: 12,
+  name: "gen-b2s23-n20",
+  states: 22,
   neighborhood: 'moore',
-  transition: generations([2], [2, 3], 10)  // B2 + S23, N=10 decay
+  transition: generations([2], [2, 3], 20)  // B2 + S23, N=20 decay
 };
 
 /**
