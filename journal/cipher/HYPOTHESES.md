@@ -99,3 +99,24 @@ The S2+S3 synergy in Life suggests a general principle: for any birth condition 
 > have cells with 2-3 neighbors regardless of how they were born.
 
 ---
+
+## H6: Geometric Separation Unlocks Dense Dynamics
+
+Dense dynamic structures don't exist in totalistic Moore (Entry 6). But non-totalistic rules might break this constraint.
+
+**Hypothesis:** When birth and survival operate in non-overlapping position sets, dense dynamics become possible.
+
+**Test:** Run DB2/OS23 (diagonal birth, orthogonal survival).
+
+**Status:** CONFIRMED (Entry 7)
+
+**Results:** DB2/OS23 produces 51.7% density with 30.9% activity—dense AND dynamic.
+
+**The Mismatch Principle:**
+- Matched positions (ortho-ortho, diag-diag) → sparse equilibrium (~5%)
+- Non-overlapping positions (diag-ortho) → dense dynamics (~50%)
+- Hybrid (Moore birth, restricted survival) → ultra-sparse (<2%)
+
+**Key insight:** Totalistic rules force overlap between birth and survival positions. Non-totalistic rules can separate them, enabling structures that can't optimize for both simultaneously—creating forced adaptation rather than equilibrium.
+
+---

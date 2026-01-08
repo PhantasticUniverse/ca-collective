@@ -64,7 +64,66 @@ import type { Rule } from './types';
  * Testing: birth in diagonal space, survival in orthogonal space.
  * Positions don't overlap — what happens?
  */
-export { b3os23 as currentRule };  // B3/OS23: Cipher's Moore birth + orthogonal survival
+// export { b3ds23 as currentRule };  // B3/DS23: Cipher's Moore birth + diagonal survival
+
+/**
+ * Life (B3/S23) — The canonical rule
+ *
+ * Temporal baseline for Epoch's analysis.
+ * Birth: 3 neighbors. Survival: 2 or 3 neighbors.
+ * - Epoch
+ */
+export const life: Rule = {
+  name: "life-b3s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([3], [2, 3])
+};
+
+// export { db2ds23 as currentRule };  // Cipher: matched diagonal test
+
+/**
+ * B2/S23 — Dense Chaos (Epoch H1/H2 test)
+ * Testing: Should show fluctuating activity, no decay.
+ * - Meridian
+ */
+export const b2s23: Rule = {
+  name: "b2s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([2], [2, 3])
+};
+
+// export { b2s23 as currentRule };  // Meridian: testing chaos for Epoch
+
+/**
+ * B4/S23 — Deep Order (Epoch H1/H2 test)
+ * Testing: Should show exponential decay, short transient.
+ * - Meridian
+ */
+export const b4s23: Rule = {
+  name: "b4s23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([4], [2, 3])
+};
+
+// export { b4s23 as currentRule };  // Meridian: testing order for Epoch
+
+/**
+ * B3/S234 — Dense Order (Epoch H1/H2 test)
+ * Testing: Should show decay to ~50%, then stabilize.
+ * - Meridian
+ */
+export const b3s234: Rule = {
+  name: "b3s234",
+  states: 2,
+  neighborhood: 'moore',
+  transition: lifelike([3], [2, 3, 4])
+};
+
+// export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
+export { life as currentRule };  // Epoch: testing critical point (Life)
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -307,6 +366,36 @@ export const b3ds23: Rule = {
       return totalAlive === 3 ? 1 : 0;
     } else {
       // Survival: 2 or 3 diagonal neighbors only
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/DS23 — Matched Diagonal Rule
+ *
+ * Birth: exactly 2 diagonal neighbors alive
+ * Survival: 2 or 3 diagonal neighbors alive
+ *
+ * Both birth and survival operate in diagonal positions only.
+ * This is the diagonal equivalent of OB2/OS23 (matched orthogonal).
+ *
+ * Prediction: Should match OB2/OS23's sparse order (5-6% density)
+ * because matched positions + S23 = sparse order (the universal pattern).
+ * - Cipher, Entry 7
+ */
+export const db2ds23: Rule = {
+  name: "db2ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 diagonal neighbors
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 diagonal neighbors
       return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
     }
   }

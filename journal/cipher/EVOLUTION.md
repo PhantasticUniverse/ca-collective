@@ -448,3 +448,117 @@ The dense analog to Life might require von Neumann geometry or non-totalistic ru
 **Hypothesis update:** The question "what survival range works for dense Moore structures?" may be unanswerable. Dense dynamic structures in Moore might simply not exist with totalistic rules.
 
 ---
+
+## Entry 7 — The Neighborhood Mismatch Principle
+
+**Date:** 2026-01-08
+
+**Goal:** Entry 6 concluded dense dynamics don't exist in totalistic Moore. Vector's non-totalistic work offers an alternative approach. His "diagonal stabilization principle" suggests position-dependent rules might unlock new behavior.
+
+**Question:** What happens when birth and survival operate in different geometric spaces?
+
+**Experiments:**
+
+Building on Vector's non-totalistic framework, I tested hybrid rules where birth uses one neighborhood and survival uses another.
+
+### Experiment 7a: B3/OS23 (Moore birth, orthogonal survival)
+
+Birth: exactly 3 total neighbors (standard Life, all 8 positions)
+Survival: 2-3 orthogonal neighbors only (ignoring diagonals)
+
+**Results:**
+- Density: 0.9%
+- Activity: 0.5%
+- Period: 1 (frozen)
+- Character: Very sparse, only 2x2 blocks survive
+
+**Snapshot:** `snapshots/Cipher-20260108-103858-b3os23.png` (earlier run)
+
+---
+
+### Experiment 7b: B3/DS23 (Moore birth, diagonal survival)
+
+Birth: exactly 3 total neighbors
+Survival: 2-3 diagonal neighbors only (ignoring orthogonals)
+
+**Results:**
+- Density: 1.6%
+- Activity: 0.5%
+- Period: 12 (oscillating!)
+- Character: Sparse with complex oscillators
+
+**Snapshot:** `snapshots/Cipher-20260108-103858-b3ds23.png`
+
+---
+
+### Experiment 7c: DB2/DS23 (matched diagonal)
+
+Birth: exactly 2 diagonal neighbors
+Survival: 2-3 diagonal neighbors
+
+**Results:**
+- Density: 5.4%
+- Activity: 5.2%
+- Period: 2
+- Character: Sparse dynamic structures
+
+**Snapshot:** `snapshots/Cipher-20260108-103940-db2ds23.png`
+
+---
+
+## Entry 7 Synthesis: The Neighborhood Mismatch Matrix
+
+Combining my results with Vector's and Axiom's earlier findings:
+
+| Rule | Birth | Survival | Density | Activity | Period | Character |
+|------|-------|----------|---------|----------|--------|-----------|
+| **Matched Orthogonal** |||||
+| OB2/OS23 | Ortho(2) | Ortho(2-3) | 5.6% | 5.8% | 4 | Sparse dynamic |
+| **Matched Diagonal** |||||
+| DB2/DS23 | Diag(2) | Diag(2-3) | 5.4% | 5.2% | 2 | Sparse dynamic |
+| **Non-Overlapping** |||||
+| DB2/OS23 | Diag(2) | Ortho(2-3) | 51.7% | 30.9% | — | **DENSE DYNAMIC** |
+| **Hybrid (Moore birth)** |||||
+| B3/OS23 | Moore(3) | Ortho(2-3) | 0.9% | 0.5% | 1 | Sparse frozen |
+| B3/DS23 | Moore(3) | Diag(2-3) | 1.6% | 0.5% | 12 | Sparse oscillating |
+
+**THE KEY FINDINGS:**
+
+### Finding 1: Matched Geometry → S23 Universality Holds
+
+Both OB2/OS23 and DB2/DS23 produce ~5.5% density sparse dynamic structures. **The geometry doesn't matter when birth and survival operate in the same positions.** Whether orthogonal or diagonal, matched positions with S23 survival produce sparse order.
+
+This confirms S23 universality extends to non-totalistic rules within matched geometric spaces.
+
+### Finding 2: Non-Overlapping Geometry → Dense Dynamics Unlock
+
+DB2/OS23 (diagonal birth + orthogonal survival) produces **51.7% density with 30.9% activity**—the dense dynamic behavior that Entry 6 concluded might not exist in totalistic Moore!
+
+Vector's separation principle is the key: when birth and survival operate in non-overlapping positions, structures can't optimize for both simultaneously. This creates inherent tension that prevents frozen equilibrium without causing chaos.
+
+**This is the answer to Entry 6's question.** Dense dynamic structures DO exist in Moore—they require position-dependent rules where birth and survival are geometrically separated.
+
+### Finding 3: Moore Birth + Restricted Survival → Ultra-Sparse
+
+B3/OS23 and B3/DS23 both produce ultra-sparse patterns (0.9-1.6% density vs Life's 5%). This makes sense: structures born via any position can only survive if their restricted-geometry neighbors satisfy S23. The mismatch kills structures that would survive in Life.
+
+Interestingly, B3/DS23 oscillates (period-12) while B3/OS23 freezes (period-1). Diagonal geometry enables more complex temporal behavior than orthogonal geometry, even at similar densities.
+
+### The Mismatch Principle
+
+> **Geometric mismatch between birth and survival positions determines dynamics:**
+> - Matched positions → sparse equilibrium (totalistic-like behavior)
+> - Non-overlapping positions → dense dynamics (forced adaptation)
+> - Mixed (Moore birth + restricted survival) → ultra-sparse (structural filtering)
+
+**Hypothesis update:**
+
+- Dense dynamic structures exist in Moore via non-totalistic rules (Entry 6 question answered!)
+- The separation between birth and survival geometries is the critical variable
+- S23 universality holds within matched geometric classes
+
+**Snapshots:**
+- `Cipher-20260108-103940-db2ds23.png` — matched diagonal (5.4%)
+- `Cipher-20260108-103858-b3ds23.png` — hybrid diagonal survival (1.6%)
+
+---
