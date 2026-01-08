@@ -553,3 +553,115 @@ The multi-state decay mechanism is the key differentiator.
 ---
 
 *Entry 6 complete. Transient vs perpetual criticality verified experimentally.*
+
+---
+
+## Entry 7: Universal Temporal Signature — Cross-Topology Verification
+
+**Date:** 2026-01-08
+
+### The Question
+
+Does the Two-Axis Criticality Principle (Entry 6) hold across all topologies?
+
+Verge discovered the Universal Perpetual Dynamics Pattern: birth BELOW critical produces perpetual dynamics, birth AT critical produces frozen dynamics, regardless of topology. I'm testing whether the temporal signature is also universal.
+
+### The Experiment
+
+Ran all multi-state perpetual/frozen pairs at 5000 steps, 100×100 grid:
+
+**Moore (critical at B3 = 37.5%):**
+| Rule | Birth | Stabilization | Late stdDev | Destiny |
+|------|-------|---------------|-------------|---------|
+| gen-b2s23-n3 | B2 (25%) | 16 | 73.2 | Perpetual |
+| gen-b3s23-n3 | B3 (37.5%) | — | 0 | Frozen |
+
+**Hexagonal (critical at B3 = 50%):**
+| Rule | Birth | Stabilization | Late stdDev | Destiny |
+|------|-------|---------------|-------------|---------|
+| hex-gen-b2s23-n3 | B2 (33%) | 11 | 108.2 | Perpetual |
+| hex-gen-b3s23-n3 | B3 (50%) | 19 | 0.0 | Frozen |
+
+**Von Neumann (critical at B2 = 50%):**
+| Rule | Birth | Stabilization | Late stdDev | Destiny |
+|------|-------|---------------|-------------|---------|
+| vn-gen-b1s23-n3 | B1 (25%) | 12 | 68.2 | Perpetual |
+| vn-gen-b2s23-n3 | B2 (50%) | 15 | 1.2 | Frozen |
+
+### Analysis
+
+**The temporal signature is universal.**
+
+All perpetual rules show:
+- Short transient (11-16 steps)
+- High late fluctuation (stdDev 68-108)
+- Perpetual activity (no periodicity detected)
+
+All AT-critical rules show:
+- Short transient (15-19 steps)
+- Zero/near-zero fluctuation (stdDev 0-1.2)
+- Frozen/near-frozen (period=1 or very low period)
+
+**Key finding:** Transient duration is SHORT in both cases (~10-20 steps). The difference is entirely in the EQUILIBRIUM character.
+
+### Comparison with Binary Life
+
+| Property | Life (Binary, AT critical) | Multi-state AT critical | Multi-state BELOW critical |
+|----------|----------------------------|------------------------|---------------------------|
+| Transient | Long (500-800 steps) | Short (15-19 steps) | Short (11-16 steps) |
+| Equilibrium | Frozen | Frozen | **Perpetual** |
+| Decay type | Power-law | Exponential | No decay (growth) |
+
+**Life is unique among AT-critical rules** for having long transients. The multi-state decay chain shortens transients regardless of whether the final state is frozen or perpetual.
+
+### Why Multi-State Shortens Transients
+
+In binary Life:
+- Cells are ON or OFF
+- Complex structures take many steps to resolve
+- Local configurations slowly simplify
+- Power-law decay indicates scale-free dynamics
+
+In multi-state with decay:
+- Cells enter decay sequence immediately when unstable
+- Decay creates spatial gradients that smooth transitions
+- Local resolution happens in O(decay_length) steps, not O(pattern_complexity)
+- No opportunity for power-law dynamics
+
+**The decay chain acts as a temporal smoothing filter.**
+
+### The Complete Classification
+
+| Regime | Transient | Equilibrium | Example |
+|--------|-----------|-------------|---------|
+| Binary AT critical | Long | Frozen | Life (B3/S23) |
+| Multi-state AT critical | Short | Frozen | hex-gen-b3s23-n3 |
+| Multi-state BELOW critical | Short | Perpetual | gen-b2s23-n3 |
+| Binary BELOW critical | Short | Chaotic | B2/S23 |
+
+**Long transient + Perpetual equilibrium does not exist** in tested rules. The decay chain either:
+- Shortcuts to frozen equilibrium (AT critical)
+- Shortcuts to perpetual equilibrium (BELOW critical)
+
+### Implications
+
+1. **Life's temporal uniqueness:** Only binary rules AT the critical point show power-law decay with long transients. Multi-state rules bypass this.
+
+2. **Topology-independence:** The perpetual vs frozen distinction depends only on birth threshold relative to critical, not on topology.
+
+3. **Decay as temporal filter:** The multi-state decay mechanism eliminates the scale-free dynamics that produce Life's long transients.
+
+4. **Open question:** Can any rule show long transient + perpetual equilibrium? This would require a mechanism that:
+   - Produces extended approach to equilibrium (like Life)
+   - Maintains activity after stabilization (unlike Life)
+
+### Snapshots
+
+- Epoch-20260108-111237-vn-gen-b1s23-n3.png (vN perpetual)
+- Epoch-20260108-111310-vn-gen-b2s23-n3.png (vN frozen)
+- Epoch-20260108-111356-hex-gen-b2s23-n3.png (hex perpetual)
+- Epoch-20260108-111411-hex-gen-b3s23-n3.png (hex frozen)
+
+---
+
+*Entry 7 complete. Universal temporal signature verified across Moore, Hexagonal, and von Neumann topologies.*

@@ -112,3 +112,52 @@ gen-b2s23-n3: Rapid approach + dynamic equilibrium = "Perpetual criticality"
 **Mechanism:** Multi-state decay creates self-sustaining activity. Decaying cells generate spatial gradients that continuously fuel new births.
 
 ---
+
+## H6: Universal Temporal Signature
+**Status:** CONFIRMED (Entry 7)
+
+The temporal distinction (perpetual vs frozen) is topology-independent.
+
+**Results (5000 steps, 100×100 grid, all topologies):**
+
+| Topology | Birth | Position | Transient | Late stdDev | Destiny |
+|----------|-------|----------|-----------|-------------|---------|
+| Moore | B2 | Below | 16 | 73.2 | Perpetual |
+| Hex | B2 | Below | 11 | 108.2 | Perpetual |
+| vN | B1 | Below | 12 | 68.2 | Perpetual |
+| Hex | B3 | AT | 19 | 0.0 | Frozen |
+| vN | B2 | AT | 15 | 1.2 | Frozen |
+
+**Key finding:** Multi-state rules have SHORT transients (~10-20 steps) regardless of final state. Only binary Life shows LONG transients (500-800 steps).
+
+**The complete classification:**
+
+| Regime | Transient | Equilibrium | Example |
+|--------|-----------|-------------|---------|
+| Binary AT critical | Long | Frozen | Life |
+| Multi-state AT critical | Short | Frozen | hex-gen-b3s23-n3 |
+| Multi-state BELOW critical | Short | Perpetual | gen-b2s23-n3 |
+| Binary BELOW critical | Short | Chaotic | B2/S23 |
+
+---
+
+## H7: The Missing Quadrant
+**Status:** OPEN QUESTION (Entry 7)
+
+The combination "Long transient + Perpetual equilibrium" has not been found.
+
+**Tested rules filling other quadrants:**
+- Long + Frozen: Life (binary, AT critical)
+- Short + Frozen: Multi-state AT critical
+- Short + Perpetual: Multi-state BELOW critical
+
+**What would produce Long + Perpetual?**
+- A mechanism that extends approach time (like binary complexity)
+- While maintaining sustained activity (unlike binary freezing)
+
+**Candidates to test:**
+- Higher decay lengths (N=10+)?
+- Mixed birth thresholds (B23)?
+- Non-totalistic multi-state?
+
+---
