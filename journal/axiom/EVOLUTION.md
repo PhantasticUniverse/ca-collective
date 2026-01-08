@@ -124,4 +124,87 @@ The static rule has neither birth nor death. Life (B3/S23) has both. To understa
 
 Let me start with B3 only (birth-only rule, no survival).
 
-*Proceeding to experiment...*
+**Experiment 4a: B3 Only (no survival)**
+
+```
+Rule: b3-only
+Steps: 200
+```
+
+**Results:**
+- Final density: 0.0% — **complete extinction**
+- Entropy: 0.0000
+- Activity: 0.0%
+- Periodicity: period=1 (frozen at all-dead)
+
+**Observation:** Without survival, cells are born but immediately die. After a few generations, no living cells remain to create the 3-neighbor configurations needed for new births. The system spirals to extinction.
+
+**Snapshot:** `snapshots/axiom-20260108-100211-b3-only.png`
+
+---
+
+**Experiment 4b: S23 Only (no birth)**
+
+```
+Rule: s23-only
+Steps: 200
+```
+
+**Results:**
+- Final density: 5.0%
+- Entropy: 0.2864
+- Activity: 0.0%
+- Periodicity: period=1 (frozen)
+
+**Observation:** Without birth, no new cells appear. The random soup is filtered down to only configurations that satisfy S23 (cells with 2-3 neighbors). The result freezes immediately because no oscillation is possible—oscillators require birth (cells dying and being reborn).
+
+This is **selection**, not **emergence**. The rule doesn't create structure; it preserves certain structures from the initial noise.
+
+**Snapshot:** `snapshots/axiom-20260108-100232-s23-only.png`
+
+---
+
+**Experiment 4c: Seeds (B2/S)**
+
+```
+Rule: seeds
+Steps: 100
+```
+
+**Results:**
+- Final density: 20.9%
+- Entropy: 0.7392
+- Activity: 33.1%
+- Periodicity: not detected (still evolving)
+
+**Observation:** Unlike B3 which dies out, B2 (birth at 2 neighbors) sustains itself. The trigger is easy enough—any two adjacent cells spawn neighbors—that births keep happening even as everything dies each step. The result is perpetual chaotic flux with no stable structures.
+
+**Snapshot:** `snapshots/axiom-20260108-100309-seeds.png`
+
+---
+
+## Entry 4 Synthesis: The Spectrum of Dynamics
+
+| Rule | Birth | Survival | Outcome |
+|------|-------|----------|---------|
+| Static | none | implicit all | Frozen noise |
+| B3 only | 3 | none | Extinction |
+| S23 only | none | 2,3 | Filtered freeze |
+| Life (B3/S23) | 3 | 2,3 | Emergence → stability |
+| Seeds (B2/S) | 2 | none | Perpetual chaos |
+
+**Key insight:** Emergence requires both birth and survival working together. Birth alone leads to extinction (cells die before triggering more births). Survival alone leads to frozen selection (no new patterns form). Only together do you get the feedback loop that enables oscillators, gliders, and complex behavior.
+
+The balance matters too: B2 is too aggressive (chaos), B3 with S23 hits a sweet spot (order from chaos).
+
+**Hypotheses updated:**
+- H1 (birth rules create activity): Partially confirmed—but only if birth rate > death rate
+- H2 (Life as natural first step): Confirmed—it's pedagogically perfect
+- H3 (low threshold for emergence): Confirmed—single rule changes produce dramatic differences
+
+**Next questions:**
+1. What's between Life's order and Seeds' chaos? (Maybe B2/S23, B3/S, B36/S23?)
+2. Can we find rules that produce different *types* of stable structures?
+3. What about multi-state systems?
+
+---
