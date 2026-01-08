@@ -194,12 +194,20 @@ export const b3s234: Rule = {
 //   transition: generations([2], [2], 3)  // S2 only, no S3
 // };
 
-// S3 only test
+// S3 only test (0.4% - extinction)
+// export const currentRule: Rule = {
+//   name: "gen-b2s3-n3",
+//   states: 5,
+//   neighborhood: 'moore',
+//   transition: generations([2], [3], 3)  // S3 only, no S2
+// };
+
+// S234 test - broader survival
 export const currentRule: Rule = {
-  name: "gen-b2s3-n3",
+  name: "gen-b2s234-n3",
   states: 5,
   neighborhood: 'moore',
-  transition: generations([2], [3], 3)  // S3 only, no S2
+  transition: generations([2], [2, 3, 4], 3)
 };
 // export { life as currentRule };  // Epoch: H3 seed sensitivity test
 // export { db2os12 as currentRule };  // Cipher: testing lower survival in dense regime
@@ -662,6 +670,82 @@ export const db2os12: Rule = {
 };
 
 /**
+ * PURE GEOMETRY CRITICAL POINT TESTS — Tangent's experiments
+ *
+ * Testing whether 50% is truly critical in pure ortho/diag systems,
+ * and mapping the full threshold spectrum.
+ * - Tangent
+ */
+
+/**
+ * OB1/OS23 — Orthogonal Birth 1 (25% threshold)
+ */
+export const ob1os23: Rule = {
+  name: "ob1os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    if (center === 0) {
+      return orthogonalAlive === 1 ? 1 : 0;
+    } else {
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * OB3/OS23 — Orthogonal Birth 3 (75% threshold)
+ */
+export const ob3os23: Rule = {
+  name: "ob3os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    if (center === 0) {
+      return orthogonalAlive === 3 ? 1 : 0;
+    } else {
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB1/DS23 — Diagonal Birth 1 (25% threshold)
+ */
+export const db1ds23: Rule = {
+  name: "db1ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    if (center === 0) {
+      return diagonalAlive === 1 ? 1 : 0;
+    } else {
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB3/DS23 — Diagonal Birth 3 (75% threshold)
+ */
+export const db3ds23: Rule = {
+  name: "db3ds23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    if (center === 0) {
+      return diagonalAlive === 3 ? 1 : 0;
+    } else {
+      return (diagonalAlive === 2 || diagonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * HEXAGONAL RULES — Prism's experiments
  *
  * Hexagonal grid using odd-q offset coordinates.
@@ -907,6 +991,12 @@ export const ruleRegistry: Record<string, Rule> = {
   'b3ds23': b3ds23,
   'weighted-life': weightedLife,
 
+  // Pure geometry tests (Tangent)
+  'ob1os23': ob1os23,
+  'ob3os23': ob3os23,
+  'db1ds23': db1ds23,
+  'db3ds23': db3ds23,
+
   // Hexagonal rules
   'hex-b2s23': hexB2S23,
   'hex-b3s23': hexB3S23,
@@ -914,6 +1004,9 @@ export const ruleRegistry: Record<string, Rule> = {
   'hex-b4s23': hexB4S23,
   'hex-b2s12': hexB2S12,
   'hex-b2s234': hexB2S234,
+
+  // Multi-state (Generations) rules
+  'gen-b2s23-n3': genB2S23N3,
 };
 
 /**

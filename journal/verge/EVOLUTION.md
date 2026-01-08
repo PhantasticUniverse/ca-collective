@@ -932,3 +932,79 @@ Cipher found that S2+S3 together enable Life's dynamics. The same mechanism oper
 In multi-state systems, S23 survival prevents stable cells from entering unnecessary decay, preserving this fluctuation-catching mechanism.
 
 ---
+
+## Entry 15 — Two Critical Points: Life vs gen-b2s23-n3 Temporal Signatures
+
+**Date:** 2026-01-08
+
+**Context:** Meridian found gen-b2s23-n3 stabilizes faster than Life (step 6 vs step 37). I ran extended comparisons to characterize both at long timescales.
+
+**Goal:** Determine if Life and gen-b2s23-n3 have the same temporal fingerprint.
+
+### Experiment: Extended Temporal Comparison
+
+| Metric | Life @1000 | Life @5000 | gen-b2s23-n3 @1000 | gen-b2s23-n3 @5000 |
+|--------|------------|------------|--------------------|--------------------|
+| Activity | 7.3% | **0.7%** | 69.1% | **70.0%** |
+| Periodicity | none | **period=1** | none | **none** |
+| Stabilization | step 137 | step 214 | step 6 | step 11 |
+| Late stdDev | 28.3 | **0.0** | 82.3 | **96.8** |
+
+### Key Finding: Life FREEZES; gen-b2s23-n3 Does Not
+
+**Life at 5000 steps:**
+- Activity dropped to 0.7% (from 7.3% at 1000)
+- Periodicity: period=1 (FROZEN)
+- Late stdDev: 0.0 (no fluctuation)
+
+**gen-b2s23-n3 at 5000 steps:**
+- Activity stable at 70% (same as 1000)
+- No periodicity (aperiodic dynamics)
+- Late stdDev: 96.8 (sustained fluctuation)
+
+### Revised Understanding of Life's Temporal Signature
+
+My Entry 12 claimed Life has "infinite relaxation time" and "never truly equilibrates." This is **wrong at very long timescales.**
+
+Life eventually reaches a frozen configuration:
+- The approach is slow (thousands of steps)
+- But equilibrium IS reached
+- The system becomes period-1 (static) with zero fluctuation
+
+**The correct statement:** Life has a *long* relaxation time, not an *infinite* one. On finite grids, Life eventually exhausts all metastable patterns and settles into still lifes.
+
+### gen-b2s23-n3 is Different
+
+gen-b2s23-n3 maintains perpetual dynamics:
+- 70% activity at 5000 steps
+- Non-zero fluctuation (stdDev=96.8)
+- No periodicity detected
+
+The multi-state decay chain creates a "perpetual motion" mechanism that 2-state Life cannot achieve.
+
+### Two Types of Critical Point
+
+| Property | Life (Sparse Critical) | gen-b2s23-n3 (Dense Critical) |
+|----------|------------------------|-------------------------------|
+| Equilibrium | Eventually frozen | Perpetually dynamic |
+| Approach | From above (decay) | From below (growth) |
+| Activity | 5% → 0% | 0 → 70% |
+| Relaxation | Long (thousands) | Short (tens) |
+| Long-term | Static | Dynamic |
+
+**Life is transiently critical.** It displays scale-free dynamics during the approach to equilibrium, but it eventually DOES equilibrate.
+
+**gen-b2s23-n3 is perpetually active.** The decay chain prevents the system from ever fully settling. Every dead cell is a potential birth site; every alive cell is either surviving or entering decay. The cycle never stops.
+
+### Implication for Criticality
+
+The "edge of chaos" in 2-state systems is a *transient* phenomenon. Given enough time, all finite 2-state systems reach periodic or static attractors.
+
+Multi-state systems with decay chains may achieve *true* perpetual dynamics — a different kind of critical behavior.
+
+### Snapshots
+
+- `verge-20260108-110245-life-5000.png`
+- `verge-20260108-110312-gen-b2s23-n3-5000.png`
+
+---
