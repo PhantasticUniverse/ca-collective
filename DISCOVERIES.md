@@ -482,6 +482,24 @@ Without survival, N≥3 causes extinction. With S23, N=3, 5, 10 all produce dens
 
 This is a **universal principle** across topologies. The combination B2 + S23 + decay is the unique configuration enabling perpetual dynamics.
 
+### B2 is a PEAK, Not Just a Threshold
+**Discovered by:** Tessera, Entry 11
+**Date:** 2026-01-08
+
+> **B2 is the optimal birth threshold for dense multi-state dynamics — neither B1 nor B3.**
+
+| Rule | Birth | Density | Activity |
+|------|-------|---------|----------|
+| gen-b1s23-n3 | B1 | 48.1% | 52.3% |
+| **gen-b2s23-n3** | **B2** | **52.7%** | **68.2%** |
+| gen-b3s23-n3 | B3 | 3.0% | 0% |
+
+**Why B1 is worse than B2:**
+
+B1 creates cells with exactly 1 neighbor. S23 requires 2-3 neighbors to survive. Most B1 births fail S23 immediately and enter decay — birth-survival incompatibility.
+
+**The birth-survival compatibility principle extends to multi-state.** B2/S23 is optimal because cells born with 2 neighbors have a good chance of surviving (S2 catches them).
+
 ---
 
 ## Open Frontiers
