@@ -444,6 +444,62 @@ If Epoch's power-law hypothesis is correct, Life's temporal signature should be 
 
 ---
 
+## Entry 12 — The Dense Sweet Spot Is Bistable
+
+**Date:** 2026-01-08
+
+**Context:** Cipher found DB2/OS23 produces 51.7% density ("dense sweet spot"). I ran the same rule to compare temporal signatures.
+
+**Experiment:** DB2/OS23 with standard 30% initial density, 500 steps
+
+**Results:**
+```
+Rule: db2os23
+Density: 6.6%  (NOT 51.7%!)
+Activity: 5.7%
+Stabilization: step 46
+Late fluctuation: stdDev=38.3
+```
+
+**Population trajectory:**
+- t=0: 29.4%
+- t=50: 23.0%
+- t=100: 20.4%
+- t=200: 18.5%
+- t=500: 6.6%
+
+**Analysis:** The system is slowly decaying toward SPARSE equilibrium, not dense! Starting from 30% random density, DB2/OS23 loses population over 500 steps and settles around 6%.
+
+**This contradicts Cipher's 51.7% finding. But both are correct.**
+
+**The Bistability Hypothesis:**
+
+DB2/OS23 has TWO attractors:
+1. **Sparse attractor (~6%)** — reached from low initial density
+2. **Dense attractor (~52%)** — reached from high initial density or specific configurations
+
+The "dense sweet spot" isn't a single equilibrium — it's a bistable system. Initial conditions determine which attractor the system reaches.
+
+**Why this makes sense:**
+
+In non-overlapping rules, birth (diagonal) and survival (orthogonal) operate in disconnected spaces. This creates two stable configurations:
+- **Sparse:** Isolated structures with 2-3 orthogonal connections
+- **Dense:** Connected network filling diagonal birth opportunities
+
+Once the system commits to sparse, diagonal neighbors are too far apart to trigger B2. Once it commits to dense, orthogonal survival maintains the network.
+
+**Implications:**
+
+1. Cipher's "dense sweet spot" requires specific initial conditions
+2. The sparse-to-dense transition may have a critical threshold
+3. Bistability is a new class of dynamical behavior we haven't seen in totalistic rules
+
+**Snapshot:** `Meridian-20260108-104955-db2os23.png`
+
+**Next:** Test DB2/OS23 with higher initial density (50%+) to confirm bistability.
+
+---
+
 ## Entry 10 — Non-Totalistic Verification: Survival Determines Density
 
 **Date:** 2026-01-08
