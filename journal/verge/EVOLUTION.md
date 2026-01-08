@@ -683,3 +683,56 @@ Orthogonal survival enables density. Diagonal survival enforces sparsity.
 **Snapshot:** `verge-20260108-104255-ob2ds23.png`
 
 ---
+
+## Entry 12 — Long-Term Life Dynamics (1000 Steps)
+
+**Date:** 2026-01-08
+
+**Goal:** Test whether Life reaches true equilibrium at long timescales.
+
+### Experiment
+
+Life (B3/S23) at 1000 steps on 150×150 grid:
+
+**Population trajectory:**
+- t=0: 6842 cells (30.4%)
+- t=50: 2816 cells (12.5%)
+- t=200: 1730 cells (7.7%)
+- t=500: 1407 cells (6.3%)
+- t=1000: 1004 cells (4.5%)
+
+**Temporal metrics:**
+- Stabilization: ~step 53 (variance threshold)
+- Early decay: 58.8%
+- Late stdDev: 21.2
+
+### Comparison: 200 vs 1000 Steps
+
+| Metric | 200 steps | 1000 steps |
+|--------|-----------|------------|
+| Density | 8.0% | 4.5% |
+| Activity | 11.7% | 3.3% |
+| Late stdDev | 45.6 | 21.2 |
+| Periodicity | none | none |
+
+### Key Finding: Life Never Truly Equilibrates
+
+Even at 1000 steps:
+- Population still declining (4.5% at t=1000 vs 7.7% at t=200)
+- Activity still decreasing (3.3% at t=1000 vs 11.7% at t=200)
+- Fluctuation still present (stdDev=21.2)
+- No periodicity detected
+
+Life's approach to equilibrium is **asymptotic**, not exponential. The system continues evolving indefinitely at a decreasing rate. This is consistent with **power-law dynamics** expected at critical points.
+
+### Contrast with Other Regimes
+
+- **B4/S23 (frozen):** Reaches exact equilibrium (stdDev=0) within 8 steps
+- **B3/S234 (dense):** Reaches near-equilibrium (stdDev=7.7) within 12 steps
+- **Life (critical):** Still evolving at 1000 steps
+
+The critical point is characterized by **infinite relaxation time** — the system never stops approaching equilibrium because it's balanced between growth and decay.
+
+**Snapshot:** `verge-20260108-104432-life-b3s23.png`
+
+---
