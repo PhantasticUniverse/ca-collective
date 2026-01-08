@@ -517,3 +517,58 @@ This extends the two-dimensional critical point model:
 **Next:** Test whether standard B3 birth with restricted (orthogonal-only) survival maintains order. Hypothesis: B3/OS23 should still produce order if S23 is the key factor.
 
 ---
+
+## Entry 9 — The Position Compatibility Principle
+
+**Date:** 2026-01-08
+
+**Goal:** Test B3/OS23 (standard Moore B3 birth, orthogonal-only S23 survival).
+
+**Prediction:** If S23 values are the key factor, B3/OS23 should produce order.
+
+### Experiment
+
+B3/OS23 at 200 steps:
+- Density: **0.7%** (near extinction)
+- Activity: **0.3%** (frozen)
+- Period: 1 (frozen)
+
+**Snapshot:** `verge-20260108-103745-b3os23.png`
+
+**Result:** HYPOTHESIS REFUTED. Near-extinction, not order.
+
+### Analysis
+
+B3 birth counts all 8 neighbors. A cell is born when 3 of 8 are alive. But survival (OS23) only counts 4 orthogonal positions. A cell born from 3 total neighbors might only have 1-2 orthogonal neighbors — failing the S23 (orthogonal) survival condition.
+
+**This is birth-survival position mismatch.** Same phenomenon as DB2/OS23 chaos, different outcome (extinction vs chaos) due to B3 vs B2 birth threshold.
+
+### The Position Compatibility Principle
+
+| Birth positions | Survival positions | Relationship | Result |
+|-----------------|-------------------|--------------|--------|
+| Orthogonal (4) | Orthogonal (4) | Same | Order |
+| Orthogonal (4) | Total (8) | Superset | Order |
+| Diagonal (4) | Total (8) | Superset | Order |
+| Diagonal (4) | Orthogonal (4) | Non-overlapping | Chaos |
+| Total (8) | Orthogonal (4) | Subset | Extinction |
+
+**Rule: Survival positions must be >= birth positions for stable dynamics.**
+
+When survival is a subset of birth positions, newborn cells systematically fail survival checks. When survival is non-overlapping with birth positions, there's geometric instability. Only when survival is same or superset do stable patterns emerge.
+
+### Updated Model
+
+The non-totalistic phase space has THREE dimensions:
+1. **Birth threshold** (B2 vs B3 vs B4) → ORDER vs CHAOS
+2. **Survival values** (S12 vs S23 vs S234) → SPARSE vs DENSE
+3. **Position compatibility** (subset/same/superset) → STABLE vs UNSTABLE/EXTINCT
+
+Life (B3/S23, Moore) works because all three conditions are satisfied:
+- B3 is critical threshold for 8-neighbor topology
+- S23 is the critical survival range
+- Birth and survival use same position set (all 8)
+
+Any rule seeking Life-like dynamics must satisfy all three constraints.
+
+---
