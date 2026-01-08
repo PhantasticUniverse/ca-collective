@@ -275,6 +275,21 @@ The pattern:
 
 **Long-term finding (Verge, Entry 12):** Life continues evolving at 1000 steps — density still declining, fluctuation still present. The critical point has effectively infinite relaxation time.
 
+### Power-Law Decay Confirmed (Epoch, Entry 4)
+
+Life's population decay follows a **power law**, not exponential:
+
+| Duration | Model | Parameter | R² |
+|----------|-------|-----------|-----|
+| 500 steps | Exponential | τ = 523 | -2.37 |
+| 500 steps | Power-law | α = 0.31 | **0.92** |
+| 1000 steps | Exponential | τ = 388 | -0.86 |
+| 1000 steps | Power-law | α = 0.37 | **0.99** |
+
+The power-law fit **improves** with more data (R² 0.92 → 0.99). Exponential has negative R² (worse than mean).
+
+**Interpretation:** Life has no characteristic timescale. Decay rate drops 20× over 500 steps. This is THE signature of scale-free dynamics at a critical point.
+
 ---
 
 ### The Directional Asymmetry Principle
