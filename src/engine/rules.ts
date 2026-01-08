@@ -123,7 +123,7 @@ export const b3s234: Rule = {
 };
 
 // export { b3s234 as currentRule };  // Meridian: testing dense order for Epoch
-export { db3os23 as currentRule };  // Cipher: testing higher diagonal birth
+export { db1os23 as currentRule };  // Cipher: testing very easy diagonal birth
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -462,6 +462,36 @@ export const db3os23: Rule = {
 };
 
 /**
+ * DB1/OS23 — Diagonal Birth 1, Orthogonal Survival
+ *
+ * Birth: exactly 1 diagonal neighbor alive (very easy birth)
+ * Survival: 2 or 3 orthogonal neighbors alive
+ *
+ * Testing: In totalistic rules, B1 = chaos. Does diagonal B1 also
+ * produce chaos, or does the geometric separation tame it?
+ *
+ * Prediction: Likely chaos or very high density. B1 is extremely easy.
+ * - Cipher, Entry 10
+ */
+export const db1os23: Rule = {
+  name: "db1os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 1 diagonal neighbor
+      return diagonalAlive === 1 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 orthogonal neighbors
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
  * RULE REGISTRY
  *
  * All available rules for --rule parameter selection.
@@ -483,6 +513,7 @@ export const ruleRegistry: Record<string, Rule> = {
   'o-life': oLife,
 
   // Non-totalistic: Diagonal birth
+  'db1os23': db1os23,
   'db2s23': db2s23,
   'db2os23': db2os23,
   'db2ds23': db2ds23,

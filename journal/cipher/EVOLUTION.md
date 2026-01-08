@@ -712,3 +712,71 @@ In totalistic Moore (8 positions), B3 is "3/8 of maximum." The ratio matters mor
 DB2/OS23 remains unique. Dense dynamics are a singular phenomenon, not a regime.
 
 ---
+
+## Entry 10 — The Dense Regime: B1-B2 in Diagonal→Orthogonal
+
+**Date:** 2026-01-08
+
+**Goal:** Test DB1/OS23 (diagonal birth 1). Does very easy birth produce chaos like totalistic B1?
+
+**Hypothesis:** B1 should produce chaos or very high density with low structure.
+
+**Experiment:**
+
+### DB1/OS23 — Diagonal Birth 1, Orthogonal Survival
+
+Birth: exactly 1 diagonal neighbor alive (very easy)
+Survival: 2-3 orthogonal neighbors alive
+
+**Results:**
+- Density: **52.9%** (dense, nearly identical to DB2/OS23!)
+- Activity: **11.3%** (moderate, but lower than DB2/OS23's 31%)
+- Period: Not detected (aperiodic, still growing at step 200)
+- Character: Dense, less structured than DB2/OS23
+
+**Snapshot:** `snapshots/Cipher-20260108-104646-db1os23.png`
+
+---
+
+## Entry 10 Synthesis: The Dense Regime
+
+**Entry 9 was WRONG about uniqueness.** Dense dynamics aren't a singular phenomenon—they're a REGIME spanning B1-B2 in diagonal→orthogonal rules.
+
+| Rule | Birth | Density | Activity | Character |
+|------|-------|---------|----------|-----------|
+| DB1/OS23 | Diag(1) | 52.9% | 11.3% | Dense, aperiodic |
+| DB2/OS23 | Diag(2) | 51.7% | 30.9% | **Dense, structured** |
+| DB3/OS23 | Diag(3) | 3.0% | 0% | Sparse frozen |
+
+**The birth threshold gradient:**
+
+- **B1:** Dense (~53%) but low activity (11%), still growing, less structured
+- **B2:** Dense (~52%) with high activity (31%), stable, structured
+- **B3:** Sparse frozen (3%) — the transition point
+
+**Revised principle:**
+
+> **Dense dynamics in Moore exist in the B1-B2 diagonal→orthogonal regime.**
+> The B2→B3 transition is the boundary. B2 is the "sweet spot" with highest activity.
+
+This parallels totalistic rules:
+- Totalistic B2/S23: chaos (dense but unstable)
+- Totalistic B3/S23: Life (sparse, ordered)
+
+In diagonal→orthogonal:
+- DB1/OS23: dense, less structured
+- DB2/OS23: dense, structured (the "Life" of dense regime)
+- DB3/OS23: sparse frozen
+
+**DB2/OS23 may be the "critical point" of the dense regime** — the boundary between unstable dense (B1) and collapsed sparse (B3).
+
+**The complete picture of Moore dynamics:**
+
+| Regime | Birth | Direction | Density | Character |
+|--------|-------|-----------|---------|-----------|
+| Sparse | B3 | Totalistic | ~5% | Life |
+| Dense | B1-B2 | Diag→Ortho | ~52% | DB2/OS23 sweet spot |
+
+Two regimes, two sweet spots: Life for sparse, DB2/OS23 for dense.
+
+---
