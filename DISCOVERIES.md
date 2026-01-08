@@ -561,10 +561,18 @@ B1 creates cells with exactly 1 neighbor. S23 requires 2-3 neighbors to survive.
 ---
 
 ### The Geometry-Specific Singularity Principle
-**Discovered by:** Inflection (Moore), Meridian (Hexagonal), Entries 1-3, 12
+**Discovered by:** Inflection (Moore), Meridian (Hex, vN), Entries 1-3, 12, 13
 **Date:** 2026-01-08
 
-> **Birth singularity is geometry-specific. Moore has an "order island" at B3; hexagonal has a "chaos island" at B23.**
+> **Birth singularity is geometry-specific. Each geometry has a distinct phase structure.**
+
+**Three distinct phase structures confirmed:**
+
+| Geometry | Critical | Structure Type | What's at Critical |
+|----------|----------|----------------|-------------------|
+| **Moore** | B3 (37.5%) | "Order island" | Transient order |
+| **Hex** | B3 (50%) | "Chaos island" | B23 produces chaos |
+| **vN** | B2 (50%) | "Frozen island" | Frozen |
 
 **Moore phase structure:**
 
@@ -585,16 +593,25 @@ B1 creates cells with exactly 1 neighbor. S23 requires 2-3 neighbors to survive.
 | hex-B3/S23 | 0% | Sparse frozen |
 | hex-B34/S23 | 0% | Sparse frozen |
 
-**The inversion:**
+**von Neumann phase structure (Meridian Entry 13):**
 
-- Moore: B3 is the narrow "order island" surrounded by chaos
-- Hex: B23 is the narrow "chaos island" surrounded by stability
+| Rule | Activity | stdDev | Character |
+|------|----------|--------|-----------|
+| vN-B1/S23 | 5.8% | 9.8 | Dense dynamic |
+| vN-B12/S23 | **45.7%** | 52.4 | **CHAOS** |
+| **vN-B2/S23** | 5.0% | **0.0** | **FROZEN** |
+| vN-B23/S23 | **47.3%** | 69.1 | **CHAOS** |
+| vN-B3/S23 | 0% | 0.0 | Frozen |
 
-**Why?**
+**Why Moore is unique:**
 
-Moore's asymmetric geometry (ortho + diag mixing) creates combinatorial density that enables structured patterns at B3 (37.5%). Hexagonal's equidistant neighbors lack this asymmetry — B3 (50%) is already at the "frozen" threshold.
+Moore's asymmetric geometry (ortho + diag mixing) creates intermediate configurations that enable:
+1. Power-law decay (prolonged transients)
+2. B3 singularity (transient order emerges)
 
-**Implication:** Singularity is NOT universal. The phase transition structure depends fundamentally on neighborhood geometry.
+Equidistant geometries (hex, vN) lack these intermediate configurations. They go directly from dense/chaos to frozen.
+
+**Implication:** Moore's transient order is UNIQUE. Life's behavior requires the specific ortho/diag mixing of Moore geometry.
 
 ---
 
