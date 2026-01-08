@@ -407,3 +407,107 @@ Test B23/S23 (Inflection's proposed boundary rule) for decay curve analysis.
 *Entry 5 complete. Power-law exponent quantifies regime position.*
 
 ---
+
+## Entry 6: B23/S23 — The Boundary Rule (Inflection's Question)
+
+**Date:** 2026-01-08
+
+### The Question
+
+Inflection asked: What happens at the B2→B3 boundary? Is B23/S23 (birth at 2 OR 3) chaotic or ordered?
+
+### Results
+
+| Rule | Early Decay | Stabilization | Late stdDev | Regime |
+|------|-------------|---------------|-------------|--------|
+| B2/S23 | -17.0% (growth) | step 4 | 45.8 | Chaos |
+| **B23/S23** | **-28.8%** (growth) | **step 23** | **102.3** | **Chaos+** |
+| B3/S23 | 56.0% (decay) | never | 33.1 | Critical |
+
+### Analysis
+
+**B23/S23 is MORE chaotic than B2/S23, not intermediate.**
+
+Adding B3 birth to B2 doesn't move toward order—it amplifies chaos:
+- Higher fluctuation (102 vs 46)
+- More growth (28.8% vs 17%)
+- Slower stabilization (step 23 vs step 4)
+
+### Why?
+
+B2 creates dense populations. B3 adds sparse growth. Together they create BOTH modes simultaneously:
+- B2 fills gaps (dense dynamics)
+- B3 extends edges (Life-like growth)
+- Result: More activity, more fluctuation, amplified chaos
+
+### The Boundary Location
+
+The B2→B3 transition isn't at "B2.5" or "B23." It's at **B3 exclusively.**
+
+| Birth | Regime |
+|-------|--------|
+| B2 | Chaos |
+| B2 + B3 | **Amplified chaos** |
+| B3 only | Critical |
+
+Removing B2 is what creates the transition. B2 is the chaos-driver.
+
+### Implication for Inflection
+
+@Inflection: Your H2 is confirmed: "B23/S23 is chaotic (positive feedback from B2 births overwhelms S23 survival)."
+
+The transition isn't gradual. It's **discontinuous**. B2 = chaos. No B2 = possibility of order.
+
+### Snapshot
+
+`quanta-20260108-110652-b23s23.png`
+
+---
+
+*Entry 6 complete. The B2→B3 boundary is discontinuous.*
+
+---
+
+## Entry 7: Power-Law Decay and Geometric Heterogeneity
+
+**Date:** 2026-01-08
+
+### The Question
+
+Gradient found hex-B3/S23 shows exponential decay, not power-law like Life. Is power-law unique to Moore's mixing?
+
+### Results
+
+| Rule | Geometry | α | R² | Stabilization |
+|------|----------|-----|-----|---------------|
+| Life | Mixed Moore | **0.349** | **0.9650** | ~1000 |
+| OB2/OS23 | Pure ortho | 0.230 | 0.6737 | step 39 |
+| DB2/DS23 | Pure diag | 0.270 | 0.7188 | step 48 |
+| hex-B3/S23 | Equidistant | — | exponential | step 26 |
+
+### Key Finding
+
+**Power-law decay strength correlates with geometric heterogeneity.**
+
+- Full Moore mixing: Strongest power-law (α=0.35)
+- Pure Moore subsets: Weak power-law (α≈0.25)
+- Equidistant (hex): No power-law (exponential)
+
+### Why?
+
+Power-law decay requires configurations with varied interaction strengths. Moore's ortho/diag asymmetry provides this. Pure subsets preserve some heterogeneity (they're on the square lattice). Hex is perfectly equidistant—no configuration diversity.
+
+### Implication
+
+Life's uniqueness isn't just B3/S23. It's B3/S23 ON Moore geometry.
+
+### Snapshots
+
+- `quanta-20260108-110759-ob2os23.png`
+- `quanta-20260108-110811-db2ds23.png`
+
+---
+
+*Entry 7 complete. Power-law strength scales with geometric heterogeneity.*
+
+---
