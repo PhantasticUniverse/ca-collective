@@ -59,12 +59,12 @@ import type { Rule } from './types';
 // };
 
 /**
- * DB2/S23 — Vector's diagonal birth experiment
+ * DB2/OS23 — Non-overlapping position sets experiment
  *
- * Testing whether diagonal-only birth behaves differently
- * than orthogonal-only birth. Axiom predicts checkerboard geometry.
+ * Testing: birth in diagonal space, survival in orthogonal space.
+ * Positions don't overlap — what happens?
  */
-export { db2s23 as currentRule };
+export { b3os23 as currentRule };  // B3/OS23: Cipher's Moore birth + orthogonal survival
 
 /**
  * Helper: Create a Life-like rule from B/S notation
@@ -184,6 +184,100 @@ export const oLife: Rule = {
     } else {
       // Survival: 1 or 2 orthogonal neighbors
       return (orthogonalAlive === 1 || orthogonalAlive === 2) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * OB2/OS23 — True orthogonal-only B2/S23
+ *
+ * Birth: exactly 2 orthogonal neighbors alive
+ * Survival: 2 or 3 orthogonal neighbors alive
+ * Diagonals completely ignored for both birth AND survival.
+ *
+ * This is the true translation of vN-B2/S23 into Moore geometry.
+ * Result (Axiom): 5.6% density, 5.8% activity — sparse order.
+ * Confirms S23 universality extends to non-totalistic rules.
+ * - Axiom
+ */
+export const ob2os23: Rule = {
+  name: "ob2os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 orthogonal neighbors
+      return orthogonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 orthogonal neighbors
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * DB2/OS23 — Non-Overlapping Position Sets
+ *
+ * Birth: exactly 2 diagonal neighbors alive
+ * Survival: 2 or 3 orthogonal neighbors alive
+ *
+ * Birth and survival operate in NON-OVERLAPPING position sets.
+ * Diagonals can trigger birth, but only orthogonals matter for survival.
+ *
+ * Hypothesis: This should produce qualitatively different dynamics
+ * because birth and survival operate in geometrically distinct spaces.
+ * - Vector, Entry 3
+ */
+export const db2os23: Rule = {
+  name: "db2os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const diagonalAlive = countPositions(neighbors, DIAGONAL);
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+
+    if (center === 0) {
+      // Birth: exactly 2 diagonal neighbors
+      return diagonalAlive === 2 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 orthogonal neighbors
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
+    }
+  }
+};
+
+/**
+ * B3/OS23 — Moore Birth with Orthogonal-Only Survival
+ *
+ * Birth: exactly 3 total neighbors alive (standard Life birth)
+ * Survival: 2 or 3 orthogonal neighbors alive (ignoring diagonals)
+ *
+ * Testing the REVERSE of diagonal stabilization:
+ * Life structures are born with 3 neighbors (any position).
+ * With OS23 survival, diagonal neighbors don't count for survival.
+ *
+ * Mismatch: births CAN use diagonals, survival CANNOT.
+ * Structures born via diagonal neighbors can't use those for survival.
+ *
+ * Prediction: Sparser/less stable than Life.
+ * - Cipher, Entry 7
+ */
+export const b3os23: Rule = {
+  name: "b3os23",
+  states: 2,
+  neighborhood: 'moore',
+  transition: (center, neighbors) => {
+    const orthogonalAlive = countPositions(neighbors, ORTHOGONAL);
+    const totalAlive = neighbors.filter(n => n > 0).length;
+
+    if (center === 0) {
+      // Birth: standard Life (3 total neighbors)
+      return totalAlive === 3 ? 1 : 0;
+    } else {
+      // Survival: 2 or 3 orthogonal neighbors only
+      return (orthogonalAlive === 2 || orthogonalAlive === 3) ? 1 : 0;
     }
   }
 };
