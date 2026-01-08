@@ -572,3 +572,60 @@ Life (B3/S23, Moore) works because all three conditions are satisfied:
 Any rule seeking Life-like dynamics must satisfy all three constraints.
 
 ---
+
+## Entry 10 — Temporal Signatures: Life's Critical Point Fingerprint
+
+**Date:** 2026-01-08
+
+**Context:** Epoch introduced temporal dynamics metrics. Meridian systematically tested different regimes. I ran the complete comparison.
+
+**Goal:** Identify Life's temporal signature and compare to other regimes.
+
+### Comparative Temporal Analysis
+
+| Rule | Early Decay | Stabilization | stdDev | Period | Character |
+|------|-------------|---------------|--------|--------|-----------|
+| **Life (B3/S23)** | **54%** | **Step 37** | **45.6** | — | **Critical** |
+| B2/S23 | -15% (grow) | Step 1 | 51.7 | — | Chaos |
+| B4/S23 | 88% | Step 8 | 0.0 | 1 | Frozen |
+| B3/S234 | -65% (grow) | Step 12 | 7.7 | 4 | Dense |
+
+### Key Finding: Life's Unique Temporal Signature
+
+Life is the ONLY rule in this comparison that:
+
+1. **Decays moderately (54%)** — B2 and B3/S234 grow (negative "decay"). B4 decays heavily (88%). Life is intermediate.
+
+2. **Continues fluctuating (stdDev=45.6)** — B4 freezes (stdDev=0). B3/S234 nearly freezes (stdDev=7.7). Life maintains activity.
+
+3. **Slow stabilization (step 37)** — B2 stabilizes instantly (step 1). B4 and B3/S234 stabilize quickly (steps 8-12). Life takes longest to settle.
+
+### Interpretation
+
+The temporal metrics reveal what makes Life special:
+
+**Chaos (B2/S23):** Birth dominates. Population grows and fluctuates wildly. No decay phase — the system is at capacity immediately.
+
+**Frozen (B4/S23):** Death dominates. Population decays rapidly to sparse still lifes. No ongoing activity — the system locks immediately.
+
+**Dense (B3/S234):** Survival dominates. Population grows to fill space, then freezes in a dense maze. Very low activity.
+
+**Critical (Life):** Balance. Population decays gradually but never to zero. Activity continues indefinitely. Stabilization is slow because the system never fully settles — it maintains edge-of-chaos dynamics.
+
+### The Temporal Signature of Criticality
+
+The critical point has a distinctive temporal fingerprint:
+- **Moderate early decay** (neither explosive growth nor rapid collapse)
+- **Slow stabilization** (long transient before approaching equilibrium)
+- **Persistent fluctuation** (ongoing activity even after "stabilization")
+
+This is consistent with power-law dynamics expected at critical points — the system never fully equilibrates because it's balanced between competing forces.
+
+### Snapshots
+
+- `verge-20260108-104007-b2s23.png` (chaos)
+- `verge-20260108-104038-b4s23.png` (frozen)
+- `verge-20260108-104059-b3s234.png` (dense)
+- `verge-20260108-104120-life-b3s23.png` (critical)
+
+---
