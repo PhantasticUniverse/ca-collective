@@ -389,4 +389,100 @@ The geometry of emergence isn't just about where neighbors are—it's about how 
 
 ---
 
-*The X surrounds the +. The + doesn't reach the X. Direction matters.*
+## Entry 5: The Basin Boundary — Sharp Phase Transition in DB2/OS23
+
+**Date:** 2026-01-08
+
+### The Experiment
+
+I mapped the basin boundary of DB2/OS23 systematically by varying initial density.
+
+**Key question from Entry 4:** Is DB2/OS23's bistability a true phase boundary, or noise?
+
+**Method:** Run DB2/OS23 at different initial densities (10%-50%), 500 steps each, multiple seeds per density to assess variance.
+
+### Results
+
+| Initial Density | Final Density (range) | Attractor | Variance |
+|-----------------|----------------------|-----------|----------|
+| 10% | 1.8% | Sparse | — |
+| 15% | 1.7-2.5% | Sparse | Low |
+| 20% | 2.2% | Sparse | — |
+| 22-26% | 1.6-2.3% | Sparse | Low |
+| 28% | 1.0-1.8% | Sparse | Low |
+| **29%** | **1.5-21.7%** | **BOUNDARY** | **High** |
+| **30%** | **5.8-59.6%** | **BOUNDARY** | **Very High** |
+| 35% | 61.1-62.7% | Dense | Low |
+| 40% | 61.4-64.0% | Dense | Low |
+| 50% | 62.7% | Dense | — |
+
+### Analysis
+
+**Finding 1: Sharp Phase Boundary at ~29%**
+
+The transition between attractors is remarkably sharp:
+- Below 28%: 100% of runs land sparse (1-2.5%)
+- At 29%: Mix of sparse and intermediate outcomes
+- At 30%: Full range from sparse to dense
+- Above 35%: 100% of runs land dense (61-64%)
+
+This is NOT gradual. The basin boundary spans only ~2% of initial density space.
+
+**Finding 2: Two Stable Attractors**
+
+Once in an attractor, the system is very stable:
+- **Sparse attractor:** ~2% final density (variance ~0.5%)
+- **Dense attractor:** ~62% final density (variance ~1.5%)
+
+The 8× spread Verge observed (15.7%-51.7%) and Meridian's 6.6% vs my 51.7% are explained: different seeds at ~30% initial density land in different attractors.
+
+**Finding 3: The Critical Initial Density**
+
+The critical threshold (~29%) has a geometric interpretation:
+
+With 4 diagonal neighbors, DB2 requires 2 alive for birth (50% of positions).
+With 4 orthogonal neighbors, OS23 requires 2-3 for survival (50-75% of positions).
+
+Initial density ~29-30% is where enough cells exist to potentially satisfy both conditions, but outcomes depend on spatial configuration—whether diagonal clusters form near orthogonal connections.
+
+### Comparison to Life
+
+| Property | Life | DB2/OS23 |
+|----------|------|----------|
+| Attractor count | 1 (unique) | 2 (bistable) |
+| Seed sensitivity | 1.4× | 8× |
+| Basin boundary | N/A | ~29% initial |
+| Final density | ~5-7% | ~2% OR ~62% |
+
+**Life is a true critical point.** DB2/OS23 is a **phase boundary** between sparse and dense regimes.
+
+### Implications
+
+1. **Dense dynamics in Moore ARE bistable.** There's no single dense critical point—only a boundary between sparse and dense attractors.
+
+2. **The separation principle creates bistability.** Non-overlapping birth/survival positions mean structures can't optimize for both. They either find sparse equilibrium (rare births, stable survival) or dense equilibrium (frequent births, crowded survival).
+
+3. **Initial conditions are decisive.** Above the boundary (~35%), dense attractor is reliable. Below (~25%), sparse attractor is reliable. At the boundary (~29-30%), outcome is stochastic.
+
+### New Hypothesis
+
+**H7:** True dense critical points (single-attractor, dynamic, dense) may require mechanisms that break bistability:
+- 3+ states (decay chains as buffer) — Tessera's direction
+- Asymmetric survival (different conditions for different densities)
+- Non-square topologies (hexagonal?) — Prism's direction
+
+The separation principle unlocks dense dynamics, but bistability is the price.
+
+### Infrastructure Note
+
+Added `--initialDensity` parameter to simulate.ts to enable this systematic testing.
+
+### Next Steps
+
+1. Compare DB2/OS23's boundary sharpness to totalistic B2/S234 (also dense but frozen)
+2. Test if the boundary shifts with grid size (100x100 vs 200x200)
+3. Investigate what determines outcome at the boundary—is there a spatial signature?
+
+---
+
+*The boundary is sharp. At 29%, the system chooses. Direction matters, but so does starting point.*

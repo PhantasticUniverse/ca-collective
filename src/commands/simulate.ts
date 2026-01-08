@@ -52,13 +52,22 @@ if (ruleName) {
   }
 }
 
+// Parse float arguments
+const getFloatArg = (name: string, defaultValue: number): number => {
+  const index = args.indexOf(`--${name}`);
+  if (index !== -1 && args[index + 1]) {
+    return parseFloat(args[index + 1]);
+  }
+  return defaultValue;
+};
+
 const config: SimulationConfig = {
   width: getArg('width', 100),
   height: getArg('height', 100),
   steps: getArg('steps', 200),
   rule: selectedRule,
   initialCondition: 'random',
-  initialDensity: 0.3,
+  initialDensity: getFloatArg('initialDensity', 0.3),
   boundaryCondition: boundary,
 };
 
@@ -72,6 +81,7 @@ console.log(`Grid: ${config.width}×${config.height}`);
 console.log(`Steps: ${config.steps}`);
 console.log(`Neighborhood: ${config.rule.neighborhood}`);
 console.log(`Boundary: ${config.boundaryCondition}`);
+console.log(`Initial density: ${(config.initialDensity! * 100).toFixed(1)}%`);
 if (researcher) console.log(`Researcher: ${researcher}`);
 console.log('─'.repeat(60));
 
@@ -152,6 +162,65 @@ const lateMean = lateWindow.reduce((a, b) => a + b, 0) / lateWindow.length;
 const lateVariance = lateWindow.reduce((a, b) => a + (b - lateMean) ** 2, 0) / lateWindow.length;
 const lateStdDev = Math.sqrt(lateVariance);
 console.log(`Late fluctuation: mean=${lateMean.toFixed(0)}, stdDev=${lateStdDev.toFixed(1)}`)
+
+// Decay curve analysis — Epoch H4
+// Compare exponential vs power-law fit
+// Exponential: y = y0 * e^(-t/τ) → ln(y/y0) linear in t
+// Power-law: y = y0 * t^(-α) → ln(y) linear in ln(t)
+if (pop[0] > pop[Math.min(100, pop.length - 1)] && pop.length > 50) {
+  const samplePoints = [10, 25, 50, 100, 200, 500].filter(t => t < pop.length && pop[t] > 0);
+  if (samplePoints.length >= 4) {
+    const y0 = pop[0];
+
+    // Exponential fit: linear regression on ln(y/y0) vs t
+    const expX = samplePoints;
+    const expY = samplePoints.map(t => Math.log(pop[t] / y0));
+    const expN = expX.length;
+    const expSumX = expX.reduce((a, b) => a + b, 0);
+    const expSumY = expY.reduce((a, b) => a + b, 0);
+    const expSumXY = expX.reduce((sum, x, i) => sum + x * expY[i], 0);
+    const expSumX2 = expX.reduce((sum, x) => sum + x * x, 0);
+    const expSlope = (expN * expSumXY - expSumX * expSumY) / (expN * expSumX2 - expSumX * expSumX);
+    const expTau = -1 / expSlope;
+
+    // Calculate R² for exponential
+    const expMeanY = expSumY / expN;
+    const expPredY = expX.map(x => expSlope * x);
+    const expSStot = expY.reduce((sum, y) => sum + (y - expMeanY) ** 2, 0);
+    const expSSres = expY.reduce((sum, y, i) => sum + (y - expPredY[i]) ** 2, 0);
+    const expR2 = 1 - expSSres / expSStot;
+
+    // Power-law fit: linear regression on ln(y) vs ln(t)
+    const powX = samplePoints.map(t => Math.log(t));
+    const powY = samplePoints.map(t => Math.log(pop[t]));
+    const powN = powX.length;
+    const powSumX = powX.reduce((a, b) => a + b, 0);
+    const powSumY = powY.reduce((a, b) => a + b, 0);
+    const powSumXY = powX.reduce((sum, x, i) => sum + x * powY[i], 0);
+    const powSumX2 = powX.reduce((sum, x) => sum + x * x, 0);
+    const powAlpha = -(powN * powSumXY - powSumX * powSumY) / (powN * powSumX2 - powSumX * powSumX);
+
+    // Calculate R² for power-law
+    const powMeanY = powSumY / powN;
+    const powSlope = -powAlpha;
+    const powIntercept = powMeanY - powSlope * (powSumX / powN);
+    const powPredY = powX.map(x => powSlope * x + powIntercept);
+    const powSStot = powY.reduce((sum, y) => sum + (y - powMeanY) ** 2, 0);
+    const powSSres = powY.reduce((sum, y, i) => sum + (y - powPredY[i]) ** 2, 0);
+    const powR2 = 1 - powSSres / powSStot;
+
+    console.log('\nDecay curve analysis:');
+    console.log(`  Exponential fit: τ=${expTau.toFixed(1)}, R²=${expR2.toFixed(4)}`);
+    console.log(`  Power-law fit: α=${powAlpha.toFixed(3)}, R²=${powR2.toFixed(4)}`);
+    if (powR2 > expR2 + 0.01) {
+      console.log(`  → Power-law fits better (ΔR²=${(powR2 - expR2).toFixed(4)})`);
+    } else if (expR2 > powR2 + 0.01) {
+      console.log(`  → Exponential fits better (ΔR²=${(expR2 - powR2).toFixed(4)})`);
+    } else {
+      console.log(`  → Similar fit quality`);
+    }
+  }
+}
 
 // Save image
 const filename = generateFilename(config.rule.name, researcher || undefined);

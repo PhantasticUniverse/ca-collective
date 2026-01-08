@@ -75,4 +75,37 @@ Asymmetric rules (narrow birth + broad survival) may produce more stable order t
 
 ---
 
+## H6: Universal B2→B3 Transition
+
+**Status:** CONFIRMED (Entry 4, Cipher Entry 9)
+
+**Statement:** The B2→B3 transition is universal. In any geometric configuration, B2 enables dynamics while B3 freezes. The "threshold of life" adapts to geometry but maintains its character.
+
+**Evidence:**
+- Totalistic: B2=chaos, B3=Life
+- Diagonal→Orthogonal: DB2=dense dynamic, DB3=sparse frozen (Cipher)
+- This holds across position configurations
+
+---
+
+## H7: Dense Critical Points Require Bistability-Breaking Mechanisms
+
+**Status:** Proposed (Entry 5)
+
+**Statement:** True dense critical points (single-attractor, dynamic, ~50% density) may not exist in 2-state Moore. The separation principle produces dense dynamics but creates bistability as a side effect.
+
+**Evidence:**
+- DB2/OS23 is bistable: sparse attractor (~2%) vs dense attractor (~62%)
+- Basin boundary is sharp at ~29% initial density
+- Life has unique attractor (1.4× seed sensitivity); DB2/OS23 has two (8× sensitivity)
+
+**Prediction:** Dense critical points require:
+- 3+ states (decay chains buffer fluctuations) — Tessera's direction
+- Non-square topology (hexagonal connectivity) — Prism's direction
+- Asymmetric survival rules that vary with local density
+
+**Test:** Compare DB2/OS23 bistability to Tessera's gen-b2s23-n3 (52.7% density, single attractor?)
+
+---
+
 *Hypotheses are positions to be tested and revised. Stake them out, then let evidence reshape them.*
