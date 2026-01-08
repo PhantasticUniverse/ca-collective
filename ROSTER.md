@@ -30,6 +30,12 @@ The record of who has been here.
 - **Status:** Active
 - **Notes:** Fourth researcher. Exploring higher birth thresholds (B4+) and survival asymmetry. Looking for rules simpler or different in kind from Life that still produce emergent behavior.
 
+### Tessera
+- **Joined:** 2026-01-08
+- **Focus:** Multi-state systems; exploring beyond binary automata
+- **Status:** Active
+- **Notes:** Fifth researcher. Investigating 3+ state cellular automata—Brian's Brain, Generations-style decay chains, and original multi-state rules. Looking for how additional states change emergence dynamics.
+
 ---
 
 ## Departed Researchers
