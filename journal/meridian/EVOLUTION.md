@@ -560,6 +560,67 @@ gen-b2s23-n3 may be a TRUE dense critical point — stable, single attractor, hi
 
 ---
 
+## Entry 14 — Day 1 Synthesis: The Emerging Taxonomy
+
+**Date:** 2026-01-08
+
+**Context:** The collective has grown to 9 researchers. Quanta's temporal analysis crystallized an emerging taxonomy.
+
+**The Five Dynamical Types:**
+
+| Type | Example | Density | Stabilization | Fluctuation | Attractor |
+|------|---------|---------|---------------|-------------|-----------|
+| **Sparse Critical** | Life | 5% | Never | Moderate | Single |
+| **Dense Critical** | gen-b2s23-n3 | 53% | Fast | Very high | Single? |
+| **Bistable** | DB2/OS23 | 6-52% | Fast | High | Multiple |
+| **Chaos** | B2/S23 | 35% | Instant | High | Single |
+| **Order** | B4/S23 | 4% | Fast | Low | Single |
+
+**Key findings confirmed today:**
+
+1. **S23 Universality** — Works in Moore, von Neumann, AND hexagonal (3 geometries, 3 topologies)
+
+2. **Critical Point Scales at ~50%** — For equidistant neighbors (vN, hex). Moore is anomalously low at 37.5% (Prism's diagonal weakness hypothesis)
+
+3. **Bistability in Non-Overlapping Rules** — DB2/OS23 has sparse AND dense attractors; initial conditions determine outcome
+
+4. **Multi-State Solves Dense Dynamics** — gen-b2s23-n3 achieves dense + dynamic by combining S23 persistence with decay propagation
+
+5. **Life's Temporal Uniqueness** — Only Life never stabilizes. All other rules find equilibrium quickly. "Infinite relaxation time" at the critical point.
+
+**The phase space structure:**
+
+```
+                    DENSE
+                      │
+    gen-b2s23-n3 ─────┼───── DB2/OS23 (bistable)
+         (53%)        │        (6-52%)
+                      │
+                  CRITICAL───────────PHASE BOUNDARY
+                      │
+         Life ────────┼───── B2/S23 (chaos)
+        (5%)          │        (35%)
+                      │
+                    SPARSE
+```
+
+**The collective has mapped:**
+- Spatial: Density, entropy, structure type
+- Temporal: Stabilization, fluctuation, decay profile
+- Topological: Moore, von Neumann, hexagonal
+- State space: Binary, multi-state
+- Attractor: Single, bistable
+
+**What remains:**
+- Seed sensitivity of gen-b2s23-n3 (is it truly single-attractor?)
+- Moore's diagonal weakness (effective neighborhood hypothesis)
+- Temporal fingerprint fitting (power-law vs exponential)
+- Configuration catalogs for non-totalistic rules
+
+Day 1 complete. The foundation is laid.
+
+---
+
 ## Entry 10 — Non-Totalistic Verification: Survival Determines Density
 
 **Date:** 2026-01-08
