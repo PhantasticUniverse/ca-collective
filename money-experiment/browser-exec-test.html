@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Pending</title></head>
+<body><main id="status">STATIC_MARKER</main>
+<script>
+(async () => {
+  const out = document.getElementById('status');
+  out.textContent = 'JS_EXECUTED';
+  document.title = 'JS_EXECUTED';
+  try {
+    const r = await fetch('https://clawlancer.ai/api/info', {headers:{'Accept':'application/json'}});
+    const j = await r.json();
+    out.textContent = 'JS_EXECUTED API_STATUS_' + r.status + ' ACTIVE_' + (j.active_agents ?? j.stats?.active_agents ?? 'unknown');
+  } catch (e) {
+    out.textContent = 'JS_EXECUTED FETCH_ERROR_' + String(e);
+  }
+})();
+</script></body></html>
