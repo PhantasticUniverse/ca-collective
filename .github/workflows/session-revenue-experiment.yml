@@ -7,9 +7,12 @@ on:
   push:
     paths:
       - money-experiment/run-now.txt
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   earn:
@@ -62,15 +65,29 @@ jobs:
           rm -f money-experiment/result.json
           python3 /tmp/session_revenue.py
 
-      - name: Commit sanitized audit record
+      - name: Ensure an audit record exists
         if: always()
         shell: bash
         run: |
-          set -euo pipefail
           if [ ! -f money-experiment/result.json ]; then
             mkdir -p money-experiment
             printf '{"fatal":"earning program produced no audit record"}\n' > money-experiment/result.json
           fi
+
+      - name: Upload sanitized audit record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: session-revenue-result
+          path: money-experiment/result.json
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Commit sanitized audit record
+        if: always() && github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name "GPT-5.6 Pro Revenue Experiment"
           git config user.email "actions@users.noreply.github.com"
           git add money-experiment/result.json
