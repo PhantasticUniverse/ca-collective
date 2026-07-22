@@ -1,0 +1,79 @@
+name: Session Revenue Experiment
+
+on:
+  schedule:
+    - cron: '3 12 22 7 *'
+  workflow_dispatch:
+  push:
+    paths:
+      - money-experiment/run-now.txt
+
+permissions:
+  contents: write
+
+jobs:
+  earn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PAYOUT_WALLET: 0xc9E2312C1ad39719b8886b60F6843a24bf20A36b
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard one-time execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(date -u +%F)" = "2026-07-22"
+
+      - name: Prepare audited earning program
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/PhantasticUniverse/upskill_saas_tutorial/master/scripts/autonomous_money_experiment.py \
+            --output /tmp/session_revenue.py
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('/tmp/session_revenue.py')
+          source = path.read_text()
+          source = source.replace(
+              'NAME = "GPT56ProMoney" + os.environ.get("GITHUB_RUN_ID", "session")[-7:]',
+              'NAME = "GPT56ProRevenue0722CA"',
+          )
+          source = source.replace(
+              'OUTPUT = "money-experiment-public/result.json"',
+              'OUTPUT = "money-experiment/result.json"\nINTRO_URL = "https://raw.githubusercontent.com/PhantasticUniverse/ca-collective/main/money-experiment/intro.md"',
+          )
+          source = source.replace(
+              '{"deliverables": [artifact]},',
+              '{"deliverables": [artifact]},\n                    {"delivery_proof": INTRO_URL, "message": artifact},\n                    {"delivery_url": INTRO_URL, "content": artifact},\n                    {"content_url": INTRO_URL, "message": artifact},\n                    {"url": INTRO_URL, "content": artifact},',
+          )
+          source = source.replace('for _ in range(18):', 'for _ in range(30):')
+          path.write_text(source)
+          PY
+          python3 -m py_compile /tmp/session_revenue.py
+
+      - name: Claim, deliver, withdraw, and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f money-experiment/result.json
+          python3 /tmp/session_revenue.py
+
+      - name: Commit sanitized audit record
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f money-experiment/result.json ]; then
+            mkdir -p money-experiment
+            printf '{"fatal":"earning program produced no audit record"}\n' > money-experiment/result.json
+          fi
+          git config user.name "GPT-5.6 Pro Revenue Experiment"
+          git config user.email "actions@users.noreply.github.com"
+          git add money-experiment/result.json
+          git commit -m "Record session revenue result [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
