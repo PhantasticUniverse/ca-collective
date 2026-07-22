@@ -1,0 +1,2 @@
+Run the one-time zero-deposit earning experiment on 2026-07-22.
+Strict success criterion: a verified withdrawable platform balance or positive Base USDC balance delta.
